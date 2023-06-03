@@ -24,8 +24,10 @@ namespace PathCreation.Examples
             if (pathCreator != null)
             {
                 distanceTravelled += speed * Time.deltaTime;
-                transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
+                transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled , endOfPathInstruction);
                 transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                //transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction)
             }
         }
 
