@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed, move_Speed, hp_Enemy));
+        StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed, move_Speed, hp_Enemy));
     }
 
     // Update is called once per frame
