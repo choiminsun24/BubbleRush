@@ -14,26 +14,33 @@ public class TowerController : MonoBehaviour
         data.range = 3;
         data.time = 2f;
     }
-    private GameObject[] enemies; 
+    private GameObject[] enemies;
+    [SerializeField] private Object bullet;
     // 타워 근처 적 감지 범위
-    private void DetectEnemies()
+    private void DetectEnemies(GameObject enemy)
     {
-        
+        GameObject bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+        bull.GetComponent<BulletController>().TriggerMove(enemy.transform);
     }
-
+    void OnCreate() {}
+    void OnUpdate() {}
     void OnDrawGizmos()
     {
-        float maxDistance = 100;
-        RaycastHit hit;
+        float maxDistance = 2f;
+        RaycastHit2D hit;
         // Physics.Raycast (레이저를 발사할 위치, 발사 방향, 충돌 결과, 최대 거리)
-        bool isHit = Physics.Raycast (transform.position, transform.forward, out hit, maxDistance);
- 
-        Gizmos.color = Color.red;
-        if (isHit) {
-            Gizmos.DrawRay (transform.position, transform.forward * hit.distance);
-        } else {
-            Gizmos.DrawRay (transform.position, transform.forward * maxDistance);
+        hit = Physics2D.CircleCast(transform.position, maxDistance, Vector2.up, maxDistance);
+        
+        
+        if(hit && hit.collider.gameObject.tag == "Player")
+        {
+            print("ENEMY DETECTED");
+            Debug.DrawRay(transform.position, new Vector2(-1,0) * hit.distance, Color.red);
+            DetectEnemies(hit.collider.gameObject);
         }
+        else
+            Debug.DrawRay(transform.position, new Vector2(-1,0) * 2f, Color.gray);
+        
     }
 
     // 일정한 주기로 공격
@@ -41,7 +48,6 @@ public class TowerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         time+=Time.deltaTime;
         if(time>=data.time)
         {
