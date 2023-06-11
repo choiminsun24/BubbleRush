@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PathCreation.Examples;
+using PathCreation;
 
 public class Bubble : MonoBehaviour
 {
@@ -13,13 +15,27 @@ public class Bubble : MonoBehaviour
 
         if (hp <= 0)
         {
-            //GamaManager.AddHeart(-1); //½Ì±ÛÅæ ±¸Çö µÚ Ãß°¡.
+            //GamaManager.AddHeart(-1); //ì‹±ê¸€í†¤ êµ¬í˜„ ë’¤ ì¶”ê°€.
         }
     }
 
-    
-    //¸Ê ¹ÛÀ¸·Î ¹ş¾î³ª¸é GameManager AddHeart(-1) È£Ãâ.
+    private void Start()
+    {
+        GetComponent<PathFollower>().pathCreator = 
+        GameObject.Find("Path").GetComponent<PathCreator>();
+    }
 
-    //Å¸¿ö °ø°İ¿¡ ¸ÂÀ¸¸é Ã¼·Â °¨¼Ò
+    //ë§µ ë°–ìœ¼ë¡œ ë²—ì–´ë‚˜ë©´ GameManager AddHeart(-1) í˜¸ì¶œ.
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Finish")
+        {
+            print("END POINT");
+            GameManager.Instance.AddHeart(-1);
+            Destroy(gameObject);
+        }
+    }
+
+    //íƒ€ì›Œ ê³µê²©ì— ë§ìœ¼ë©´ ì²´ë ¥ ê°ì†Œ
 
 }

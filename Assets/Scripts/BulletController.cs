@@ -21,9 +21,14 @@ public class BulletController : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, enemy.position, 0.1f);
         }
-        if(Vector2.Distance(transform.position, enemy.position) < 0.1f)
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Player")
         {
-            Destroy(this.gameObject);
+            other.gameObject.GetComponent<Bubble>().takeDamage(1);
+            Destroy(gameObject);
         }
     }
 }
