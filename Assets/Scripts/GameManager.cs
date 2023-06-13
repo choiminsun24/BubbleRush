@@ -84,16 +84,25 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("Game Over");
-        // 모든 오브젝트 멈추기
         // UI 띄우기
+        ui.gameOverWindow.SetActive(true);
+        // 모든 오브젝트 멈추기
+        Time.timeScale = 0f;
     }
 
     private UIManager ui;
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed, move_Speed, hp_Enemy));
         ui = GetComponent<UIManager>();
+    }
+
+    public void StartCore()
+    {
+        Time.timeScale = 1;
+        StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed, move_Speed, hp_Enemy));
     }
 
     // Update is called once per frame
