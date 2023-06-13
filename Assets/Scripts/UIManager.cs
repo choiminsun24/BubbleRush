@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -61,12 +62,26 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public GameObject gameOverWindow;
+    // 게임 오버에서 홈 화면
+    public void GoToHome()
+    {
+        SceneManager.LoadScene("Home");
+    }
+    // 게임 오버에서 Retry
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //GameManager.Instance.StartCore();
+    }
+
+
     // 설정 화면 바깥 터치 시 종료
     [SerializeField] private GameObject settingWindow;
     // Update is called once per frame
     void Update()
     {
-        TouchOutside(settingWindow);
+        //TouchOutside(settingWindow);
     }
 
     private void TouchOutside(GameObject _window)
