@@ -31,11 +31,10 @@ public class UIManager : MonoBehaviour
     }
     
     // 효과음 볼륨 조절
-    [SerializeField] private AudioMixer effectMixer;
     [SerializeField] private Slider effectSlider;
     public void SetEffectLevel(float sliderValue)
     {
-        effectMixer.SetFloat("EffectVolume", Mathf.Log10(sliderValue)*20);
+        mixer.SetFloat("EffectVolume", Mathf.Log10(sliderValue)*20);
         PlayerPrefs.SetFloat("EffectVolume", sliderValue);
     }
 
