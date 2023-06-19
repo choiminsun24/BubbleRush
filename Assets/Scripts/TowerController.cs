@@ -12,34 +12,47 @@ public class TowerController : MonoBehaviour
         data.hp = 10;
         data.attack = 1;
         data.range = 3;
-        data.time = 2f;
+        data.time = 0.5f;
     }
-    private GameObject[] enemies;
+    public List<GameObject> enemies;
     [SerializeField] private Object bullet;
     // 타워 근처 적 감지 범위
-    private void DetectEnemies(GameObject enemy)
+    public void DetectEnemies(GameObject enemy)
     {
-        GameObject bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
-        bull.GetComponent<BulletController>().TriggerMove(enemy.transform);
+        if (enemies.IndexOf(enemy) == -1)
+        {
+            enemies.Add(enemy);
+        }
     }
+
+    // 적이 감지 범위에서 벗어났을 때
+    public void RemoveEnemies(GameObject enemy)
+    {
+        if (enemies.IndexOf(enemy) != -1)
+        {
+            GameObject temp = enemies.Find(element => element == enemy);
+            enemies.Remove(temp);
+        }
+    }
+
     void OnCreate() {}
     void OnUpdate() {}
     void OnDrawGizmos()
     {
-        float maxDistance = 2f;
-        RaycastHit2D hit;
-        // Physics.Raycast (레이저를 발사할 위치, 발사 방향, 충돌 결과, 최대 거리)
-        hit = Physics2D.CircleCast(transform.position, maxDistance, Vector2.up, maxDistance);
+        // float maxDistance = 2f;
+        // RaycastHit2D hit;
+        // // Physics.Raycast (레이저를 발사할 위치, 발사 방향, 충돌 결과, 최대 거리)
+        // hit = Physics2D.CircleCast(transform.position, maxDistance, Vector2.up, maxDistance);
         
         
-        if(hit && hit.collider.gameObject.tag == "Player")
-        {
-            print("ENEMY DETECTED");
-            Debug.DrawRay(transform.position, new Vector2(-1,0) * hit.distance, Color.red);
-            DetectEnemies(hit.collider.gameObject);
-        }
-        else
-            Debug.DrawRay(transform.position, new Vector2(-1,0) * 2f, Color.gray);
+        // if(hit && hit.collider.gameObject.tag == "Player")
+        // {
+        //     print("ENEMY DETECTED");
+        //     Debug.DrawRay(transform.position, new Vector2(-1,0) * hit.distance, Color.red);
+        //     DetectEnemies(hit.collider.gameObject);
+        // }
+        // else
+        //     Debug.DrawRay(transform.position, new Vector2(-1,0) * 2f, Color.gray);
         
     }
 
@@ -57,6 +70,10 @@ public class TowerController : MonoBehaviour
     }
     public void Attack()
     {
-
+        foreach (GameObject enemy in enemies)
+        {
+            GameObject bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+            bull.GetComponent<BulletController>().TriggerMove(enemy.transform);
+        }
     }
 }
