@@ -6,6 +6,9 @@ using PathCreation;
 
 public class Bubble : MonoBehaviour
 {
+    public Transform hpT;
+    private float barWidth;
+
     private int hp;
     private float speed;
 
@@ -18,6 +21,8 @@ public class Bubble : MonoBehaviour
     {
         this.hp = hp;
         this.speed = speed;
+
+        barWidth = hpT.localScale.x / this.hp;
     }
 
     public void takeDamage(float ATK)
@@ -36,6 +41,7 @@ public class Bubble : MonoBehaviour
 
     public void updateTextHP()
     {
+        hpT.localScale = new Vector3(hp * barWidth, hpT.localScale.y, 0f);
         Debug.Log(hp);
     }
 
