@@ -6,23 +6,43 @@ using PathCreation;
 
 public class Bubble : MonoBehaviour
 {
-    float hp;
-    float speed;
+    public Transform hpT;
+    private float barWidth;
 
-    public void takeDamage(float damage)
+    private int hp;
+    private float speed;
+
+    private void Start()
     {
+        GetComponent<PathFollower>().pathCreator = GameObject.Find("Path").GetComponent<PathCreator>();
+    }
+
+    public void setBubble(int hp, float speed)
+    {
+        this.hp = hp;
+        this.speed = speed;
+
+        barWidth = hpT.localScale.x / this.hp;
+    }
+
+    public void takeDamage(float ATK)
+    {
+        int damage = (int)ATK;  //타워의 공격력을 넘겨주면 데미지를 연산.
+
         hp -= damage;
 
         if (hp <= 0)
         {
-            //GamaManager.AddHeart(-1); //싱글톤 구현 뒤 추가.
+            Destroy(gameObject);
         }
+
+        updateTextHP();
     }
 
-    private void Start()
+    public void updateTextHP()
     {
-        GetComponent<PathFollower>().pathCreator = 
-        GameObject.Find("Path").GetComponent<PathCreator>();
+        hpT.localScale = new Vector3(hp * barWidth, hpT.localScale.y, 0f);
+        Debug.Log(hp);
     }
 
     //맵 밖으로 벗어나면 GameManager AddHeart(-1) 호출.

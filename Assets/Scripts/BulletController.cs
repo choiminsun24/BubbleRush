@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+    private float ATK;
+
+    public void setATK(float ATK)
+    {
+        this.ATK = ATK;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +34,7 @@ public class BulletController : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Bubble>().takeDamage(1);
+            other.gameObject.GetComponent<Bubble>().takeDamage(ATK);
             Destroy(gameObject);
         }
     }
