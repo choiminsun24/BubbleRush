@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using PathCreation.Examples;
 using PathCreation;
+using TMPro;
 
-public class Bubble : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-    public Transform hpT;
-    private float barWidth;
+    public TextMesh hpText;
 
     private int hp;
     private float speed;
 
     private void Start()
     {
+        updateTextHP();
         GetComponent<PathFollower>().pathCreator = GameObject.Find("Path").GetComponent<PathCreator>();
     }
 
-    public void setBubble(int hp, float speed)
+    public void setEnemy(int hp, float speed)
     {
         this.hp = hp;
         this.speed = speed;
-
-        barWidth = hpT.localScale.x / this.hp;
     }
 
+    //공격에 맞은 경우
     public void takeDamage(float ATK)
     {
         int damage = (int)ATK;  //타워의 공격력을 넘겨주면 데미지를 연산.
@@ -33,6 +33,7 @@ public class Bubble : MonoBehaviour
 
         if (hp <= 0)
         {
+            GameManager.Instance.AddStageCoin(5);
             Destroy(gameObject);
         }
 
@@ -41,7 +42,7 @@ public class Bubble : MonoBehaviour
 
     public void updateTextHP()
     {
-        hpT.localScale = new Vector3(hp * barWidth, hpT.localScale.y, 0f);
+        hpText.text = hp.ToString();
         Debug.Log(hp);
     }
 
@@ -55,7 +56,4 @@ public class Bubble : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    //타워 공격에 맞으면 체력 감소
-
 }

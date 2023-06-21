@@ -10,12 +10,6 @@ public class BulletController : MonoBehaviour
     {
         this.ATK = ATK;
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
     private Transform enemy = null;
     public void TriggerMove(Transform _enemy)
     {
@@ -34,7 +28,7 @@ public class BulletController : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Bubble>().takeDamage(ATK);
+            other.gameObject.GetComponent<Enemy>().takeDamage(ATK);
             Destroy(gameObject);
         }
     }
