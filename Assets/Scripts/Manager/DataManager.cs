@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
-    //Å×½ºÆ®¿ë µ¥ÀÌÅÍ - 
+    //í…ŒìŠ¤íŠ¸ìš© ë°ì´í„° - 
     static public int stageCoin = 100;
 
     static public int GetStageCoin()

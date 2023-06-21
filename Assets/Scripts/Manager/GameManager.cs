@@ -40,23 +40,41 @@ public class GameManager : MonoBehaviour
     [Header("Enemy 난이도 조절")]
     public int num_Enemy = 10;
     public float spawn_Speed = 3f;
-    public float move_Speed = 2f;
-    public int hp_Enemy = 20;
 
 
     // 적 스폰
     [SerializeField]private Object prefab_enemy;
     [SerializeField]private Transform spawnPoint;
-    //private EnemyMove[] enemies;
+    private List<Enemy> enemies = new List<Enemy>();
     int[] num = new int[4];
-    private IEnumerator SpawnEnemies(int _num_Enemy, float _spawn_Speed, float _move_Speed, int _hp_Enemy)
+    private IEnumerator SpawnEnemies(int _num_Enemy, float _spawn_Speed)
     {
+        Enemy temp;
         for (int i=0; i<_num_Enemy; i++)
         {
             GameObject enemy = Instantiate(prefab_enemy, spawnPoint.position, Quaternion.identity) as GameObject;
-            enemy.GetComponent<Enemy>().setEnemy(20, 100);
+            temp = enemy.GetComponent<Enemy>();
+            temp.setEnemy(20, 100);
+            // 해당 라운드 적을 배열에 관리
+            enemies.Add(temp);
             
             yield return new WaitForSeconds(_spawn_Speed);
+        }
+    }
+
+    // 적 지우기
+    public void RemoveEnemy(Enemy _enemy)
+    {
+        enemies.Remove(_enemy);
+        // 적이 다 죽으면 다음 라운드 준비
+        if(enemies.Count == 0)
+        {
+            if(round >= 10)
+            {
+                return;
+            }
+            ui.UpdateRound(GetRoundNum()+1);
+            ui.nextRoundBtn.SetActive(true);
         }
     }
 
@@ -93,17 +111,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed, move_Speed, hp_Enemy));
+        StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed));
         ui = GetComponent<UIManager>();
         ui.UpdateStageCoin(stageCoin);
     }
 
-    public void StartCore()
-    {
-        Time.timeScale = 1;
-        StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed, move_Speed, hp_Enemy));
-    }
-
+    
     //스테이지 코인 - 스테이지 내 재화 관리
     private int stageCoin = 100;
 
@@ -132,4 +145,23 @@ public class GameManager : MonoBehaviour
 
         ui.UpdateStageCoin(stageCoin);
     }
+
+    // 라운드 관리
+    private int round = 1;
+
+    public int GetRoundNum()
+    {
+        return round;
+    }
+    // 다음 라운드 버튼 누르면 시작
+    public void StartRound()
+    {
+        Time.timeScale = 1;
+        StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed));
+        round++;
+    }
+
+    // 사운드
+    [Header("Sound Manager")]
+    public AudioSource bubblePop;
 }
