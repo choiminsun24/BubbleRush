@@ -82,6 +82,13 @@ public class UIManager : MonoBehaviour
         //GameManager.Instance.StartCore();
     }
 
+    [SerializeField] private Text curNum;
+    // 라운드 관리
+    public void UpdateRound(int _num)
+    {
+        curNum.text = _num.ToString();
+    }
+
 
     // 설정 화면 바깥 터치 시 종료
     [SerializeField] private GameObject settingWindow;

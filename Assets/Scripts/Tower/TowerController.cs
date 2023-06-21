@@ -13,7 +13,7 @@ public class TowerController : MonoBehaviour
         data.hp = 10;
         data.attack = 5;
         data.range = 3;
-        data.time = 0.5f;
+        data.time = 1f;
     }
     public List<GameObject> enemies;
     [SerializeField] private Object bullet;

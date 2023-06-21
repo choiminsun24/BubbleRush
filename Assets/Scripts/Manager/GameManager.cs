@@ -40,8 +40,6 @@ public class GameManager : MonoBehaviour
     [Header("Enemy 난이도 조절")]
     public int num_Enemy = 10;
     public float spawn_Speed = 3f;
-    public float move_Speed = 2f;
-    public int hp_Enemy = 20;
 
 
     // 적 스폰
@@ -49,7 +47,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]private Transform spawnPoint;
     //private EnemyMove[] enemies;
     int[] num = new int[4];
-    private IEnumerator SpawnEnemies(int _num_Enemy, float _spawn_Speed, float _move_Speed, int _hp_Enemy)
+    private IEnumerator SpawnEnemies(int _num_Enemy, float _spawn_Speed)
     {
         for (int i=0; i<_num_Enemy; i++)
         {
@@ -93,17 +91,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed, move_Speed, hp_Enemy));
+        StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed));
         ui = GetComponent<UIManager>();
         ui.UpdateStageCoin(stageCoin);
     }
 
-    public void StartCore()
-    {
-        Time.timeScale = 1;
-        StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed, move_Speed, hp_Enemy));
-    }
-
+    
     //스테이지 코인 - 스테이지 내 재화 관리
     private int stageCoin = 100;
 
@@ -131,6 +124,26 @@ public class GameManager : MonoBehaviour
         }
 
         ui.UpdateStageCoin(stageCoin);
+    }
+
+    // 라운드 관리
+    private int round = 1;
+
+    public int GetRoundNum()
+    {
+        return round;
+    }
+
+    public void NextRound()
+    {
+        ui.UpdateRound(GetRoundNum()+1);
+        StartCore(num_Enemy, spawn_Speed);
+    }
+
+    public void StartCore(int _num_Enemy, float _spawn_Speed)
+    {
+        Time.timeScale = 1;
+        StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed));
     }
 
     // 사운드
