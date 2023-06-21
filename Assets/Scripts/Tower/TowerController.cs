@@ -5,12 +5,13 @@ using UnityEngine;
 public class TowerController : MonoBehaviour
 {
     private Tower data;
+    BulletController bullCtr;
     // Start is called before the first frame update
     void Start()
     {
         data = new Tower();
         data.hp = 10;
-        data.attack = 1;
+        data.attack = 5;
         data.range = 3;
         data.time = 0.5f;
     }
@@ -67,7 +68,9 @@ public class TowerController : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             GameObject bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
-            bull.GetComponent<BulletController>().TriggerMove(enemy.transform);
+            bullCtr = bull.GetComponent<BulletController>();
+            bullCtr.setATK(data.attack);
+            bullCtr.TriggerMove(enemy.transform);
         }
     }
 }

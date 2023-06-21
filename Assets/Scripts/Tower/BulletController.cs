@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private float ATK;
+
+    public void setATK(float ATK)
     {
-        
+        this.ATK = ATK;
     }
     private Transform enemy = null;
     public void TriggerMove(Transform _enemy)
@@ -27,7 +28,7 @@ public class BulletController : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Bubble>().takeDamage(1);
+            other.gameObject.GetComponent<Enemy>().takeDamage(ATK);
             Destroy(gameObject);
         }
     }

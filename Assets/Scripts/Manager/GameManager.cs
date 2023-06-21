@@ -54,9 +54,7 @@ public class GameManager : MonoBehaviour
         for (int i=0; i<_num_Enemy; i++)
         {
             GameObject enemy = Instantiate(prefab_enemy, spawnPoint.position, Quaternion.identity) as GameObject;
-            //enemy.GetComponent<EnemyMove>().speed = _move_Speed;
-            //enemy.GetComponent<EnemyMove>().hp = _hp_Enemy;
-            //enemy.GetComponent<EnemyMove>().hp = _hp_Enemy;
+            enemy.GetComponent<Enemy>().setEnemy(20, 100);
             
             yield return new WaitForSeconds(_spawn_Speed);
         }
@@ -97,6 +95,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed, move_Speed, hp_Enemy));
         ui = GetComponent<UIManager>();
+        ui.UpdateStageCoin(stageCoin);
     }
 
     public void StartCore()
@@ -105,9 +104,32 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed, move_Speed, hp_Enemy));
     }
 
-    // Update is called once per frame
-    void Update()
+    //스테이지 코인 - 스테이지 내 재화 관리
+    private int stageCoin = 100;
+
+    public int GetStageCoin()
     {
-        
+        return stageCoin;
+    }
+
+    public void AddStageCoin(int coin)
+    {
+        if (coin < 0) //when we use the coin
+        {
+            coin *= -1; //absolution 
+
+            if (stageCoin >= coin) //adequate
+            {
+                stageCoin -= coin;
+            }
+            else //inadequate
+                return ;
+        }
+        else //when we got the coin
+        {
+            stageCoin += coin;
+        }
+
+        ui.UpdateStageCoin(stageCoin);
     }
 }
