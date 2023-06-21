@@ -5913,6 +5913,7 @@ MonoBehaviour:
   - {fileID: 20741800}
   - {fileID: 864348037}
   - {fileID: 954145137}
+  Coin: {fileID: 388159999}
   mixer: {fileID: 24100000, guid: 712e7785e3b4743428a67f79984dcdff, type: 2}
   slider: {fileID: 1310523130}
   effectSlider: {fileID: 1776047887}

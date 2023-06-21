@@ -21,6 +21,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    // 스테이지 코인 관리
+    public Text Coin;
+
+    public void UpdateStageCoin(int coin)
+    {
+        Coin.text = coin.ToString();
+    }
+
     // 배경음악 볼륨 조절
     [SerializeField] private AudioMixer mixer;
     [SerializeField] private Slider slider;
