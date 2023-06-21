@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     // Enemy 난이도 조절
     [Header("Enemy 난이도 조절")]
     public int num_Enemy = 10;
-    public float spawn_Speed = 3f;
+    public float spawn_Speed = 1f;
 
 
     // 적 스폰
@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
             {
                 return;
             }
-            ui.UpdateRound(GetRoundNum()+1);
+            ui.UpdateRound(GetRoundNum());
             ui.nextRoundBtn.SetActive(true);
         }
     }
@@ -111,7 +111,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed));
         ui = GetComponent<UIManager>();
         ui.UpdateStageCoin(stageCoin);
     }
