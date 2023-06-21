@@ -35,26 +35,7 @@ public class TowerController : MonoBehaviour
         }
     }
 
-    void OnCreate() {}
-    void OnUpdate() {}
-    void OnDrawGizmos()
-    {
-        // float maxDistance = 2f;
-        // RaycastHit2D hit;
-        // // Physics.Raycast (레이저를 발사할 위치, 발사 방향, 충돌 결과, 최대 거리)
-        // hit = Physics2D.CircleCast(transform.position, maxDistance, Vector2.up, maxDistance);
-        
-        
-        // if(hit && hit.collider.gameObject.tag == "Player")
-        // {
-        //     print("ENEMY DETECTED");
-        //     Debug.DrawRay(transform.position, new Vector2(-1,0) * hit.distance, Color.red);
-        //     DetectEnemies(hit.collider.gameObject);
-        // }
-        // else
-        //     Debug.DrawRay(transform.position, new Vector2(-1,0) * 2f, Color.gray);
-        
-    }
+    
 
     // 일정한 주기로 공격
     private float time = 0f;
@@ -68,8 +49,21 @@ public class TowerController : MonoBehaviour
             Attack();
         }
     }
+
+    private float angle;
     public void Attack()
     {
+        if(enemies.Count==0)
+        {
+            return;
+        }
+
+        // 감지된 적 있을 때 바라보며 공격하기
+        angle = Mathf.Atan2(enemies[0].transform.position.y - transform.position.y,
+                            enemies[0].transform.position.x - transform.position.x)
+              * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle - 270);
+
         foreach (GameObject enemy in enemies)
         {
             GameObject bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
