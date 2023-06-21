@@ -132,4 +132,8 @@ public class GameManager : MonoBehaviour
 
         ui.UpdateStageCoin(stageCoin);
     }
+
+    // 사운드
+    [Header("Sound Manager")]
+    public AudioSource bubblePop;
 }

@@ -33,8 +33,7 @@ public class Enemy : MonoBehaviour
 
         if (hp <= 0)
         {
-            GameManager.Instance.AddStageCoin(5);
-            Destroy(gameObject);
+            Death();
         }
 
         updateTextHP();
@@ -44,6 +43,13 @@ public class Enemy : MonoBehaviour
     {
         hpText.text = hp.ToString();
         Debug.Log(hp);
+    }
+
+    private void Death()
+    {
+        GameManager.Instance.AddStageCoin(5);
+        GameManager.Instance.bubblePop.Play();
+        Destroy(gameObject);
     }
 
     //맵 밖으로 벗어나면 GameManager AddHeart(-1) 호출.
