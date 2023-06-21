@@ -49,6 +49,7 @@ public class Enemy : MonoBehaviour
     {
         GameManager.Instance.AddStageCoin(5);
         GameManager.Instance.bubblePop.Play();
+        GameManager.Instance.RemoveEnemy(this);
         Destroy(gameObject);
     }
 

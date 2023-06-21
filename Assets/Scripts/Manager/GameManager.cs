@@ -45,16 +45,32 @@ public class GameManager : MonoBehaviour
     // 적 스폰
     [SerializeField]private Object prefab_enemy;
     [SerializeField]private Transform spawnPoint;
-    //private EnemyMove[] enemies;
+    private List<Enemy> enemies = new List<Enemy>();
     int[] num = new int[4];
     private IEnumerator SpawnEnemies(int _num_Enemy, float _spawn_Speed)
     {
+        Enemy temp;
         for (int i=0; i<_num_Enemy; i++)
         {
             GameObject enemy = Instantiate(prefab_enemy, spawnPoint.position, Quaternion.identity) as GameObject;
-            enemy.GetComponent<Enemy>().setEnemy(20, 100);
+            temp = enemy.GetComponent<Enemy>();
+            temp.setEnemy(20, 100);
+            // 해당 라운드 적을 배열에 관리
+            enemies.Add(temp);
             
             yield return new WaitForSeconds(_spawn_Speed);
+        }
+    }
+
+    // 적 지우기
+    public void RemoveEnemy(Enemy _enemy)
+    {
+        enemies.Remove(_enemy);
+        // 적이 다 죽으면 다음 라운드 준비
+        if(enemies.Count == 0)
+        {
+            ui.UpdateRound(GetRoundNum()+1);
+            ui.nextRoundBtn.SetActive(true);
         }
     }
 
@@ -133,17 +149,12 @@ public class GameManager : MonoBehaviour
     {
         return round;
     }
-
-    public void NextRound()
-    {
-        ui.UpdateRound(GetRoundNum()+1);
-        StartCore(num_Enemy, spawn_Speed);
-    }
-
-    public void StartCore(int _num_Enemy, float _spawn_Speed)
+    // 다음 라운드 버튼 누르면 시작
+    public void StartRound()
     {
         Time.timeScale = 1;
         StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed));
+        round++;
     }
 
     // 사운드

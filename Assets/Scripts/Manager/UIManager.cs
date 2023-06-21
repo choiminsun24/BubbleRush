@@ -88,6 +88,7 @@ public class UIManager : MonoBehaviour
     {
         curNum.text = _num.ToString();
     }
+    public GameObject nextRoundBtn;
 
 
     // 설정 화면 바깥 터치 시 종료
