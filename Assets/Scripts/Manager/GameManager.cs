@@ -69,6 +69,10 @@ public class GameManager : MonoBehaviour
         // 적이 다 죽으면 다음 라운드 준비
         if(enemies.Count == 0)
         {
+            if(round >= 10)
+            {
+                return;
+            }
             ui.UpdateRound(GetRoundNum()+1);
             ui.nextRoundBtn.SetActive(true);
         }
