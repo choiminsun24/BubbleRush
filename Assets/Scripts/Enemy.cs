@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
 
         if (hp <= 0)
         {
-            Death();
+            Death(5);
         }
 
         updateTextHP();
@@ -45,10 +45,14 @@ public class Enemy : MonoBehaviour
         Debug.Log(hp);
     }
 
-    private void Death()
+    private void Death(int _coin)
     {
-        GameManager.Instance.AddStageCoin(5);
-        GameManager.Instance.bubblePop.Play();
+        // 타워가 죽였을 때
+        if(_coin != 0)
+        {
+            GameManager.Instance.AddStageCoin(_coin);
+            GameManager.Instance.bubblePop.Play();
+        }
         GameManager.Instance.RemoveEnemy(this);
         Destroy(gameObject);
     }
@@ -60,7 +64,8 @@ public class Enemy : MonoBehaviour
         {
             print("END POINT");
             GameManager.Instance.AddHeart(-1);
-            Destroy(gameObject);
+            // 코인 증가 없이 소멸
+            Death(0);
         }
     }
 }
