@@ -4,7 +4,7 @@ using UnityEngine;
 using PathCreation.Examples;
 using PathCreation;
 
-public class Bubble : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public Transform hpT;
     private float barWidth;
@@ -17,7 +17,7 @@ public class Bubble : MonoBehaviour
         GetComponent<PathFollower>().pathCreator = GameObject.Find("Path").GetComponent<PathCreator>();
     }
 
-    public void setBubble(int hp, float speed)
+    public void setEnemy(int hp, float speed)
     {
         this.hp = hp;
         this.speed = speed;

@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
         for (int i=0; i<_num_Enemy; i++)
         {
             GameObject enemy = Instantiate(prefab_enemy, spawnPoint.position, Quaternion.identity) as GameObject;
-            enemy.GetComponent<Bubble>().setBubble(20, 100);
+            enemy.GetComponent<Enemy>().setEnemy(20, 100);
             
             yield return new WaitForSeconds(_spawn_Speed);
         }
