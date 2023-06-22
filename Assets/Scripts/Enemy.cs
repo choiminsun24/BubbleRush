@@ -27,6 +27,9 @@ public class Enemy : MonoBehaviour
     //공격에 맞은 경우
     public void takeDamage(float ATK)
     {
+        if (hp < 0)
+            return;
+
         int damage = (int)ATK;  //타워의 공격력을 넘겨주면 데미지를 연산.
 
         hp -= damage;
