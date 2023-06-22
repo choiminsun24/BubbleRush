@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     //공격에 맞은 경우
     public void takeDamage(float ATK)
     {
-        if (hp < 0)
+        if (hp <= 0)
             return;
 
         int damage = (int)ATK;  //타워의 공격력을 넘겨주면 데미지를 연산.
@@ -48,16 +48,15 @@ public class Enemy : MonoBehaviour
         Debug.Log(hp);
     }
 
-    private void Death(int _coin)
+    private void Death(int _coin) 
     {
-        // 타워가 죽였을 때
-        if(_coin != 0)
+        if(_coin != 0) //타워한테 죽은 경우만 시행
         {
-            GameManager.Instance.AddStageCoin(_coin);
-            GameManager.Instance.bubblePop.Play();
+            GameManager.Instance.AddStageCoin(_coin); //코인 획득
+            GameManager.Instance.bubblePop.Play(); //효과음 재생
         }
-        GameManager.Instance.RemoveEnemy(this);
-        Destroy(gameObject);
+        GameManager.Instance.RemoveEnemy(this); //배열에서 제거
+        Destroy(gameObject); //오브젝트 제거
     }
 
     //맵 밖으로 벗어나면 GameManager AddHeart(-1) 호출.
