@@ -33,8 +33,7 @@ public class Enemy : MonoBehaviour
 
         if (hp <= 0)
         {
-            GameManager.Instance.AddStageCoin(5);
-            Destroy(gameObject);
+            Death(5);
         }
 
         updateTextHP();
@@ -46,6 +45,18 @@ public class Enemy : MonoBehaviour
         Debug.Log(hp);
     }
 
+    private void Death(int _coin)
+    {
+        // 타워가 죽였을 때
+        if(_coin != 0)
+        {
+            GameManager.Instance.AddStageCoin(_coin);
+            GameManager.Instance.bubblePop.Play();
+        }
+        GameManager.Instance.RemoveEnemy(this);
+        Destroy(gameObject);
+    }
+
     //맵 밖으로 벗어나면 GameManager AddHeart(-1) 호출.
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -53,7 +64,8 @@ public class Enemy : MonoBehaviour
         {
             print("END POINT");
             GameManager.Instance.AddHeart(-1);
-            Destroy(gameObject);
+            // 코인 증가 없이 소멸
+            Death(0);
         }
     }
 }
