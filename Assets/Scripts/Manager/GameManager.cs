@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // 적 지우기
+    // 배열에서 적 제거
     public void RemoveEnemy(Enemy _enemy)
     {
         enemies.Remove(_enemy);
