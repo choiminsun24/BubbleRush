@@ -41,7 +41,7 @@ Shader "Custom/Blind"
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             // Albedo comes from a texture tinted by color
-            fixed4 c = tex2D (_MainTex, floor(IN.uv_MainTex*_Tiling)/(_Tiling));
+            fixed4 c = tex2D (_MainTex, round(IN.uv_MainTex*_Tiling)/(_Tiling));
             o.Emission = c;
             o.Alpha = c.a; 
         }

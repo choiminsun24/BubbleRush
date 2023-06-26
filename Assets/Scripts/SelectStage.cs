@@ -5,11 +5,15 @@ using UnityEngine;
 public class SelectStage : MonoBehaviour
 {
     //world 
+    public Material nonBlur;
+    public Material blur;
+    public SpriteRenderer background;
+
     public Animator anim;
 
     public void SelectWorld(int num)
     {
-        switch (num)
+        switch (num) //선택 월드에 따른 애니메이션
         {
             case 1:
                 anim.SetInteger("num", 1);
@@ -27,5 +31,11 @@ public class SelectStage : MonoBehaviour
                 anim.SetInteger("num", 0);
                 break;
         }
+        Invoke("OpenSelectStage", 0.8f);
+    }
+
+    public void OpenSelectStage()
+    {
+        background.material = blur;
     }
 }
