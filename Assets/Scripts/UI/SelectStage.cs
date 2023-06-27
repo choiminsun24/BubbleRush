@@ -12,6 +12,19 @@ public class SelectStage : MonoBehaviour
 
     public Animator anim;
 
+    public GameObject fadePanel;
+    public Fade fade;
+
+    void Start()
+    {
+        if (fadePanel.activeSelf == false) //꺼져있으면 켜서 fade처리
+        {
+            fadePanel.SetActive(true);
+        }
+
+        fadePanel.GetComponent<Fade>().SceneIn();
+    }
+
     public void SelectWorld(int num)
     {
         switch (num) //선택 월드에 따른 애니메이션
