@@ -12,9 +12,12 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     private	Transform		canvasTrans;		// UI가 소속되어 있는 최상단의 Canvas Transform
 	private	Transform		previousParent;		// 해당 오브젝트가 직전에 소속되어 있었던 부모 Transfron
 	private	RectTransform	rect;				// UI 위치 제어를 위한 RectTransform
+    private GameObject draggingTower;           // 월드에 동시에 배치되고 있는 타워
+    private DetectRange draggingRange;          // 해당 타워 사거리
 
     [SerializeField] private Object tower;      // 월드 맵에 배치할 타워 프리팹
     [SerializeField] private Transform hierarchy;// 타워 배치할 오브젝트 계층
+    [SerializeField] private GameObject[] terrain;//설치 가능 구역 표시
 
 
     private void Start()
@@ -36,40 +39,46 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 		transform.SetParent(canvasTrans);		// 부모 오브젝트를 Canvas로 설정
 		transform.SetAsLastSibling();		// 가장 앞에 보이도록 마지막 자식으로 설정
 
-        print("OnBeginDrag");
+        // 드래그 시작 위치에 맞는 월드 좌표에 타워 배치
+        mousePosition = canvas.worldCamera.ScreenToWorldPoint(eventData.position);
+        renderPosition = mousePosition;
+        draggingTower = Instantiate(tower, new Vector3(renderPosition.x, renderPosition.y, 0f), Quaternion.identity) as GameObject;
+        draggingRange = draggingTower.GetComponentInChildren<DetectRange>();
+
+        // 타워 설치 가능 구역 표시
+        foreach(GameObject map in terrain)
+        {
+            map.SetActive(true);
+        }
+
+        // 타워 설치 사거리 표시
+        draggingRange.DisplayRange();
     }
 
     private Vector3 mousePosition;
     private Vector2 renderPosition;
-    private RaycastHit2D hit;
     
     public void OnDrag(PointerEventData eventData)
     {
         img.color = new Color(1,1,1,0.5f);
 
-        // 마우스 좌표 받아서 월드 좌표로 계산 후 드래깅
-        mousePosition = eventData.position;
+        // UI dragging
+        transform.position = Input.mousePosition;
+        // 마우스 좌표 받아서 월드 좌표로 계산 후 타워 동시 드래깅
         mousePosition = canvas.worldCamera.ScreenToWorldPoint(eventData.position);
         renderPosition = mousePosition;
-        transform.position = renderPosition;
-
-        print("OnDrag");
+        draggingTower.transform.position = renderPosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         img.color = new Color(1,1,1,1);
 
-        // 드래깅 좌표에 레이캐스트
-        hit = Physics2D.Raycast(renderPosition, transform.forward, 15f);
-        Debug.DrawRay(renderPosition, transform.forward * 10, Color.red, 0.3f);
-
-        // 길 아닌 구역이라면 타워 배치
-        if(!hit)
+        // 설치 가능한 구역이 아닐 때 타워 배치 불가
+        if(draggingRange.hit == false)
         {
-            Instantiate(tower, new Vector3(renderPosition.x, renderPosition.y, 0f), Quaternion.identity, hierarchy);
+            Destroy(draggingTower);
         }
-
 
         // 드래그를 시작하면 부모가 canvas로 설정되기 때문에
 		// 드래그를 종료할 때 부모가 canvas이면 아이템 슬롯이 아닌 엉뚱한 곳에
@@ -85,14 +94,19 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         // 기본 위치로 변경
         rect.position = new Vector3(initLoc.x, initLoc.y, 0);
         
+        // 타워 설치 가능 구역 비표시
+        foreach(GameObject map in terrain)
+        {
+            map.SetActive(false);
+        }
 
-        print("OnEndDrag");
+        // 타워 설치 사거리 비표시
+        draggingRange.ClearRange();
     }
 
 
     public void OnDrop(PointerEventData eventData)
     {
         
-        print("OnDrop");
     }
 }

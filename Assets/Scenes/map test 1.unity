@@ -594,6 +594,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93e2115be50c7d4eaf37e0868029c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tower: {fileID: 0}
+  hierarchy: {fileID: 0}
 --- !u!1001 &184310950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7232,6 +7234,7 @@ MonoBehaviour:
   onOff: {fileID: 1271004326}
   gameOverWindow: {fileID: 846152555}
   curNum: {fileID: 1306576956}
+  nextRoundBtn: {fileID: 0}
   settingWindow: {fileID: 653634111}
 --- !u!1001 &1839567318
 PrefabInstance:
@@ -7416,6 +7419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93e2115be50c7d4eaf37e0868029c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tower: {fileID: 0}
+  hierarchy: {fileID: 0}
 --- !u!1 &1854245332
 GameObject:
   m_ObjectHideFlags: 0
