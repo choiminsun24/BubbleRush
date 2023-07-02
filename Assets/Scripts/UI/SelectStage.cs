@@ -40,7 +40,7 @@ public class SelectStage : MonoBehaviour
     //이전 버튼
     public void BackButton()
     {
-        if (stagePanel.activeSelf == false) //월드 선택창입니다. Home으로 돌아가요
+        if (stagePanel.activeSelf == false && levelPanel.activeSelf == false) //월드 선택창입니다. Home으로 돌아가요
         {
             //fadeOut으로 씬 이동
             if (fadePanel.activeSelf == false)
@@ -49,15 +49,17 @@ public class SelectStage : MonoBehaviour
             }
             fadePanel.GetComponent<Fade>().SceneOut("Home");
         }
-        else if (levelPanel.activeSelf == false) //스테이지 선택창입니다. 월드 선택으로 돌아가요
+        else if (stagePanel.activeSelf == true) //스테이지 선택창입니다. 월드 선택으로 돌아가요
         {
+            stage[worldNum - 1].SetActive(false);
             anim.SetInteger("num", 0);
             Invoke("CloseSelectStage", 0.8f);
-            worldPanel.SetActive(true);
+            
         }
         else if (levelPanel.activeSelf == true) //난이도 선택창입니다. 스테이지 선택으로 돌아가요.
         {
             levelPanel.SetActive(false);
+            OpenSelectStage();
         }
     }
 
@@ -70,30 +72,6 @@ public class SelectStage : MonoBehaviour
         //스테이지 선택으로 화면 전환
         anim.SetInteger("num", worldNum);
         Invoke("OpenSelectStage", 0.8f);
-
-        //switch (worldNum) //선택 월드에 따른 스테이지 선택창
-        //{
-        //    case 1:
-        //        anim.SetInteger("num", 1);
-        //        stage[0].SetActive(true);
-        //        Invoke("OpenSelectStage", 0.8f);
-        //        break;
-        //    case 2:
-        //        anim.SetInteger("num", 2);
-        //        stage[1].SetActive(true);
-        //        Invoke("OpenSelectStage", 0.8f);
-        //        break;
-        //    case 3:
-        //        anim.SetInteger("num", 3);
-        //        stage[2].SetActive(true);
-        //        Invoke("OpenSelectStage", 0.8f);
-        //        break;
-        //    case 4:
-        //        anim.SetInteger("num", 4);
-        //        stage[3].SetActive(true);
-        //        Invoke("OpenSelectStage", 0.8f);
-        //        break;
-        //}
     }
 
     private void OpenSelectStage()
@@ -105,13 +83,13 @@ public class SelectStage : MonoBehaviour
 
     private void CloseSelectStage()
     {
+        //for (int i = 0; i < stage.Length; i++)
+        //{
+        //    stage[i].SetActive(false);
+        //}
         background.material = nonBlur;
         stagePanel.SetActive(false);
-
-        for (int i = 0; i < stage.Length; i++)
-        {
-            stage[i].SetActive(false);
-        }
+        worldPanel.SetActive(true);
     }
 
     public void selectStage(int num)
@@ -124,8 +102,63 @@ public class SelectStage : MonoBehaviour
         levelPanel.SetActive(true);
     }
 
-    public void SelectLevel()
+    public void SelectLevel(int num)
     {
+        levelNum = num;
 
+        ///////////////////////  FOR TEST /////////////////////
+
+        //Debug.Log(worldNum);
+
+        switch (worldNum)
+        {
+            case 1:
+                Debug.Log("초원");
+                break;
+            case 2:
+                Debug.Log("화산");
+                break;
+            case 3:
+                Debug.Log("사막");
+                break;
+            case 4:
+                Debug.Log("빙하");
+                break;
+        }
+
+        Debug.Log(stageNum + " stage");
+
+        //Debug.Log(levelNum);
+
+        switch (worldNum)
+        {
+            case 1:
+                Debug.Log("쉬움");
+                break;
+            case 2:
+                Debug.Log("보통");
+                break;
+            case 3:
+                Debug.Log("어려움");
+                break;
+            case 4:
+                Debug.Log("지옥");
+                break;
+        }
+
+        Debug.Log("씬 이동합니다.");
+
+        //////////////////////////////////////////////////////
+
+        /////////////////////// FOR RUN ////////////////////
+
+        //fadeOut으로 씬 이동
+        //if (fadePanel.activeSelf == false)
+        //{
+        //    fadePanel.SetActive(true);
+        //}
+        //fadePanel.GetComponent<Fade>().SceneOut("map test");
+
+        //////////////////////////////////////////////////////
     }
 }
