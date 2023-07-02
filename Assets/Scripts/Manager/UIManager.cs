@@ -94,11 +94,6 @@ public class UIManager : MonoBehaviour
 
     // 설정 화면 바깥 터치 시 종료
     [SerializeField] private GameObject settingWindow;
-    // Update is called once per frame
-    void Update()
-    {
-        //TouchOutside(settingWindow);
-    }
 
     private void TouchOutside(GameObject _window)
     {
