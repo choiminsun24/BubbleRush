@@ -18,6 +18,8 @@ public class KnowledgeScene : MonoBehaviour
         fade.GetComponent<Fade>().SceneIn();
     }
 
+
+
     //Fade 없이 나갈 때
     //public void SceneOut()
     //{

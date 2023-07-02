@@ -71,7 +71,7 @@ public class SelectStage : MonoBehaviour
 
         //스테이지 선택으로 화면 전환
         anim.SetInteger("num", worldNum);
-        Invoke("OpenSelectStage", 0.8f);
+        Invoke("OpenSelectStage", 0.8f); //애니메이션 속도 맞춤
     }
 
     private void OpenSelectStage()
