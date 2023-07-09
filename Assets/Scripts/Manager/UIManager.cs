@@ -51,6 +51,7 @@ public class UIManager : MonoBehaviour
     {
         slider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
         effectSlider.value = PlayerPrefs.GetFloat("EffectVolume", 0.75f);
+        towerWindowAnim.SetBool("active", true);
     }
 
     // 진동 조절
@@ -93,11 +94,6 @@ public class UIManager : MonoBehaviour
 
     // 설정 화면 바깥 터치 시 종료
     [SerializeField] private GameObject settingWindow;
-    // Update is called once per frame
-    void Update()
-    {
-        //TouchOutside(settingWindow);
-    }
 
     private void TouchOutside(GameObject _window)
     {
@@ -117,5 +113,18 @@ public class UIManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    //Tower Window
+    public Animator towerWindowAnim;
+
+    public void WindowUp()
+    {
+        towerWindowAnim.SetBool("active", true);
+    }
+
+    public void WindowDown()
+    {
+        towerWindowAnim.SetBool("active", false);
     }
 }

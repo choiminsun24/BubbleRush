@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -62,7 +63,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // 적 지우기
+    // 배열에서 적 제거
     public void RemoveEnemy(Enemy _enemy)
     {
         enemies.Remove(_enemy);
@@ -163,4 +164,16 @@ public class GameManager : MonoBehaviour
     // 사운드
     [Header("Sound Manager")]
     public AudioSource bubblePop;
+
+
+    //SceneLoader
+    public void NomalSceneLoader(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void LoadingSceneLoader(string sceneName) //추후 구현 예정
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 }

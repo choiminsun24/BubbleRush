@@ -7,6 +7,6 @@ public class LoadTestMap : MonoBehaviour
 {
     public void LoadtestMap()
     {
-        SceneManager.LoadScene("map test");
+        SceneManager.LoadScene("SelectStage");
     }
 }
