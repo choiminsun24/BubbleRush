@@ -6,7 +6,12 @@ using UnityEngine;
 public class DataSample : MonoBehaviour
 {
     //테스트용 데이터
+    //재화
     static private int stageCoin = 100;
+    static private int knowledgeCoin = 100;
+
+    public static int StageCoin { get => stageCoin;}
+    public static int KnowledgeCoin { get => knowledgeCoin; set => knowledgeCoin = value; }
 
     //attack
     private static float atk = 1f;
@@ -33,10 +38,5 @@ public class DataSample : MonoBehaviour
     static public int GetStageCoin()
     {
         return stageCoin;
-    }
-
-    static public void SetStageCoin(int coin)
-    {
-        stageCoin = coin;
     }
 }

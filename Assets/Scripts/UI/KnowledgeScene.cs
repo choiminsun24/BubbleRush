@@ -8,16 +8,21 @@ public class KnowledgeScene : MonoBehaviour
 {
     public GameObject fade;
 
+    private DataManager dataManager;
+
+    public Text money;
+
     public Button[] ATKUp;
     public Button[] ATKSUp;
     public Button[] ATKRUp;
-
-    private DataManager dataManager;
 
     // Start is called before the first frame update
     void Awake() //업그레이드 버튼 활성화
     {
         dataManager = GameObject.Find("DataManager").GetComponent<DataManager>();
+
+        //재화 세팅
+        money.text = dataManager.KnowledgeCoin.ToString();
 
         //버튼 세팅 - 업그레이드 불가 : 비활성화
         //          - 업그레이드 완료 + 가능 : 활성화 

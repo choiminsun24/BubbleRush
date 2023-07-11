@@ -19,6 +19,10 @@ public class DataManager : MonoBehaviour
     public float AtkRange { get => atkRange; }
 
     //knowledge
+    private int knowledgeCoin;
+    public int KnowledgeCoin { get => knowledgeCoin; }
+    //소모 혹은 획득 메소드 추가.
+
     int knowATK;
     public int KnowATK { get => knowATK; }
     public void UpgradeKnowATK()
@@ -83,6 +87,7 @@ public class DataManager : MonoBehaviour
         atkSpeed = DataSample.ATKS;
         atkRange = DataSample.ATKR;
 
+        knowledgeCoin = DataSample.KnowledgeCoin;
         knowATK = DataSample.KnowATK;
         knowATKS = DataSample.KnowATKS;
         knowATKR = DataSample.KnowATKR;

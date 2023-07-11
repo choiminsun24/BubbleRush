@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour
 
 
     //스테이지 코인 - 스테이지 내 재화 관리
+    //DataManager로 옮기기
     private int stageCoin = 100;
 
 
