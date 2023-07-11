@@ -2,15 +2,94 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Å×½ºÆ®
 public class DataManager : MonoBehaviour
 {
-    //í…ŒìŠ¤íŠ¸ìš© ë°ì´í„° - 
-    static public int stageCoin = 100;
+    int count;
 
-    static public int GetStageCoin()
+    /////////////////////* Data */////////////
+    //°ø°Ý·Â
+    float atk;
+    public float Atk { get => atk; }
+
+    float atkSpeed;
+    public float AtkSpeed { get => atkSpeed; }
+
+    float atkRange;
+    public float AtkRange { get => atkRange; }
+
+    //knowledge
+    int knowATK;
+    public int KnowATK { get => knowATK; }
+    public void UpgradeKnowATK()
     {
-        return stageCoin;
+        knowATK++;
+        DataSample.KnowATK = knowATK;
     }
 
+    int knowATKS;
+    public int KnowATKS { get => knowATKS; }
+    public void UpgradeKnowATKS()
+    {
+        knowATKS++;
+        DataSample.KnowATKS = knowATKS;
+    }
 
+    int knowATKR;
+    public int KnowATKR { get => knowATKR; }
+    public void UpgradeKnowATKR()
+    {
+        knowATKR++;
+        DataSample.KnowATKR = knowATKR;
+    }
+    ///////////////////////////////////////////
+
+    //ÀÎ½ºÅÏ½º
+    static public DataManager instance;
+
+    static public DataManager Instance
+    {
+        get
+        {
+            if (instance == null)
+                return null;
+
+            return instance;
+        }
+    }
+
+    void Awake()
+    {
+        //½Ì±ÛÅæ Å×½ºÆ® 
+        count = Random.Range(0, 10);
+        Debug.Log(count);
+
+        //½Ì±ÛÅæ
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    void Start() //data Load. ½ÇÇà È­¸é¿¡¼­ È¨ È­¸éÀ¸·Î ³Ñ¾î°¥ ¶§ ·ÎµùÇÏ¸é µÇÁö ¾ÊÀ»±î
+    {
+        atk = DataSample.ATK;
+        atkSpeed = DataSample.ATKS;
+        atkRange = DataSample.ATKR;
+
+        knowATK = DataSample.KnowATK;
+        knowATKS = DataSample.KnowATKS;
+        knowATKR = DataSample.KnowATKR;
+    }
+
+    public void getCount()
+    {
+        Debug.Log(count);
+    }
 }

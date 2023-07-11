@@ -116,9 +116,10 @@ public class GameManager : MonoBehaviour
         ui.UpdateStageCoin(stageCoin);
     }
 
-    
+
     //스테이지 코인 - 스테이지 내 재화 관리
     private int stageCoin = 100;
+
 
     public int GetStageCoin()
     {
