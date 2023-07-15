@@ -52,6 +52,7 @@ public class TowerController : MonoBehaviour
     }
 
     private float angle;
+    private GameObject bull;
     public void Attack()
     {
         if(enemies.Count==0)
@@ -65,12 +66,14 @@ public class TowerController : MonoBehaviour
               * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle - 270);
 
+        // Bullet 생성하여 적을 향해 이동시키기
         foreach (GameObject enemy in enemies)
         {
-            GameObject bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+            bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
             bullCtr = bull.GetComponent<BulletController>();
             bullCtr.setATK(data.attack);
             bullCtr.TriggerMove(enemy.transform);
         }
     }
+
 }
