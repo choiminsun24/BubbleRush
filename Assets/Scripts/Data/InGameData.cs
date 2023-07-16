@@ -11,15 +11,32 @@ public class InGameData : MonoBehaviour
     private float ATKR;
 
 
-    void Awake()
+    void Awake() //DataManager를 통해 기본 능력치 세팅
     {
         manager = GameObject.Find("DataManager").GetComponent<DataManager>();
 
-        ATK = manager.Atk;
-        ATKS = manager.AtkSpeed;
-        ATKR = manager.AtkKRange;
+        ATK = manager.Atk * GameData.GetKnowATK(manager.KnowATK);
+        ATKS = manager.AtkSpeed * GameData.GetKnowATKS(manager.KnowATKS);
+        ATKR = manager.AtkRange * GameData.GetKnowATKR(manager.KnowATKR);
     }
 
+    //능력치 변화
+    public void BuffATK(float change)
+    {
+        ATK *= change;
+    }
+
+    public void BuffATKS(float change)
+    {
+        ATK *= change;
+    }
+
+    public void BuffATKT(float change)
+    {
+        ATKR *= change;
+    }
+
+    //재화 관리
     private int stageCoin = 100;
 
     public int GetStageCoin()
