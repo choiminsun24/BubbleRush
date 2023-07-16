@@ -7164,6 +7164,8 @@ GameObject:
   - component: {fileID: 1819878951}
   - component: {fileID: 1819878950}
   - component: {fileID: 1819878952}
+  - component: {fileID: 1819878953}
+  - component: {fileID: 1819878954}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -7187,6 +7189,7 @@ MonoBehaviour:
   spawn_Speed: 1
   prefab_enemy: {fileID: 2717971292716938556, guid: 761164055e11a3945b75ea2990f181d4, type: 3}
   spawnPoint: {fileID: 1423665627}
+  inGameData: {fileID: 1819878953}
   bubblePop: {fileID: 1170602315}
 --- !u!4 &1819878951
 Transform:
@@ -7229,6 +7232,31 @@ MonoBehaviour:
   nextRoundBtn: {fileID: 1474299743}
   settingWindow: {fileID: 653634111}
   towerWindowAnim: {fileID: 975440696}
+--- !u!114 &1819878953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819878949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a5927422bfb49d4baed15f6d18d1f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1819878954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819878949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e283c056ef78464498406627b55d5429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 1819878953}
 --- !u!1 &1847250787
 GameObject:
   m_ObjectHideFlags: 0
