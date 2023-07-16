@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
     {
         if(_coin != 0) //타워한테 죽은 경우만 시행
         {
-            GameManager.Instance.AddStageCoin(_coin); //코인 획득
+            GameManager.Instance.Coin(_coin); //코인 획득
             GameManager.Instance.bubblePop.Play(); //효과음 재생
         }
         GameManager.Instance.RemoveEnemy(this); //배열에서 제거

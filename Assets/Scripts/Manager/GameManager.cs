@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
+
     // 인스턴스에 접근하기 위한 프로퍼티
     public static GameManager Instance
     {
@@ -41,7 +42,6 @@ public class GameManager : MonoBehaviour
     [Header("Enemy 난이도 조절")]
     public int num_Enemy = 10;
     public float spawn_Speed = 1f;
-
 
     // 적 스폰
     [SerializeField]private Object prefab_enemy;
@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
 
     // 게임 생명 개수
     private int heart = 3;
+
     // 적이 도착지점에 도착하였을 때 -1, 아이템을 먹었을 때 +1
     public void AddHeart(int _heart)
     {
@@ -108,42 +109,22 @@ public class GameManager : MonoBehaviour
     }
 
     private UIManager ui;
+    public InGameData inGameData;
+
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
         ui = GetComponent<UIManager>();
-        ui.UpdateStageCoin(stageCoin);
+        ui.UpdateStageCoin(inGameData.GetStageCoin());
     }
 
-    
-    //스테이지 코인 - 스테이지 내 재화 관리
-    private int stageCoin = 100;
 
-    public int GetStageCoin()
+    //스테이지 코인 - 스테이지 내 재화 관리(의존: InGameData, UIManager)
+    public void Coin(int coin)
     {
-        return stageCoin;
-    }
-
-    public void AddStageCoin(int coin)
-    {
-        if (coin < 0) //when we use the coin
-        {
-            coin *= -1; //absolution 
-
-            if (stageCoin >= coin) //adequate
-            {
-                stageCoin -= coin;
-            }
-            else //inadequate
-                return ;
-        }
-        else //when we got the coin
-        {
-            stageCoin += coin;
-        }
-
-        ui.UpdateStageCoin(stageCoin);
+        inGameData.AddStageCoin(coin);
+        ui.UpdateStageCoin(inGameData.GetStageCoin());
     }
 
     // 라운드 관리
