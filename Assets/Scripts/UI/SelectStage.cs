@@ -153,11 +153,11 @@ public class SelectStage : MonoBehaviour
         /////////////////////// FOR RUN ////////////////////
 
         //fadeOut¿∏∑Œ æ¿ ¿Ãµø
-        //if (fadePanel.activeSelf == false)
-        //{
-        //    fadePanel.SetActive(true);
-        //}
-        //fadePanel.GetComponent<Fade>().SceneOut("map test");
+        if (fadePanel.activeSelf == false)
+        {
+            fadePanel.SetActive(true);
+        }
+        fadePanel.GetComponent<Fade>().SceneOut("map test");
 
         //////////////////////////////////////////////////////
     }

@@ -18,6 +18,10 @@ public class InGameData : MonoBehaviour
         ATK = manager.Atk * GameData.GetKnowATK(manager.KnowATK);
         ATKS = manager.AtkSpeed * GameData.GetKnowATKS(manager.KnowATKS);
         ATKR = manager.AtkRange * GameData.GetKnowATKR(manager.KnowATKR);
+
+        Debug.Log(ATK);
+        Debug.Log(ATKS);
+        Debug.Log(ATKR);
     }
 
     //능력치 변화
