@@ -8,12 +8,13 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 {
     private Image img;                          // 색깔 바꾸기
     private Vector2 initLoc;                    // UI 기본 위치
-    private Canvas canvas;
     private	Transform		canvasTrans;		// UI가 소속되어 있는 최상단의 Canvas Transform
 	private	Transform		previousParent;		// 해당 오브젝트가 직전에 소속되어 있었던 부모 Transfron
 	private	RectTransform	rect;				// UI 위치 제어를 위한 RectTransform
     private GameObject draggingTower;           // 월드에 동시에 배치되고 있는 타워
     private DetectRange draggingRange;          // 해당 타워 사거리
+
+    public Canvas canvas;
 
     [SerializeField] private Object tower;      // 월드 맵에 배치할 타워 프리팹
     [SerializeField] private Transform hierarchy;// 타워 배치할 오브젝트 계층
@@ -23,7 +24,6 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     private void Start()
     {
         img = GetComponent<Image>();
-        canvas = FindObjectOfType<Canvas>();
         canvasTrans	= canvas.transform;
 		rect		= GetComponent<RectTransform>();
         initLoc = rect.position;
@@ -34,16 +34,18 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         img.color = new Color(1,1,1,0.5f);
 
         // 드래그 직전에 소속되어 있던 부모 Transform 정보 저장
-		previousParent = transform.parent;
-		// 현재 드래그중인 UI가 화면의 최상단에 출력되도록 하기 위해
-		transform.SetParent(canvasTrans);		// 부모 오브젝트를 Canvas로 설정
-		transform.SetAsLastSibling();		// 가장 앞에 보이도록 마지막 자식으로 설정
+        previousParent = transform.parent;
+        // 현재 드래그중인 UI가 화면의 최상단에 출력되도록 하기 위해
+        transform.SetParent(canvasTrans);       // 부모 오브젝트를 Canvas로 설정
+        transform.SetAsLastSibling();		// 가장 앞에 보이도록 마지막 자식으로 설정
 
         // 드래그 시작 위치에 맞는 월드 좌표에 타워 배치
+        Debug.Log("eventData 문제");
         mousePosition = canvas.worldCamera.ScreenToWorldPoint(eventData.position);
         renderPosition = mousePosition;
         draggingTower = Instantiate(tower, new Vector3(renderPosition.x, renderPosition.y, 0f), Quaternion.identity) as GameObject;
         draggingRange = draggingTower.GetComponentInChildren<DetectRange>();
+        Debug.Log("terrain 문제");
 
         // 타워 설치 가능 구역 표시
         foreach(GameObject map in terrain)
@@ -107,6 +109,6 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     public void OnDrop(PointerEventData eventData)
     {
-        
+
     }
 }
