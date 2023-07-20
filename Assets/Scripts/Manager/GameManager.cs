@@ -117,6 +117,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         ui = GetComponent<UIManager>();
         ui.UpdateStageCoin(inGameData.GetStageCoin());
+        SoundManager.Instance.BGMToInGame();
     }
 
 

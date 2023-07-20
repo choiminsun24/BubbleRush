@@ -6,28 +6,43 @@ public class BuffQuest : MonoBehaviour
 {
     public InGameData data;
 
+    public void play()
+    {
+
+    }
+
     public void Medicine()
     {
-        //공격속도를 올려줘요
+        data.BuffATKS(1.1f);
+
+        Debug.Log("전투 자극제");
     }
 
     public void ArtificialEyes()
     {
-        //사거리 증가
+        data.BuffATKR(1.2f);
+
+        Debug.Log("인공눈 이식");
     }
 
     public void BloodFlower()
     {
-        //공격력 증가
+        data.BuffATK(1.1f);
+
+        Debug.Log("피바라기");
     }
 
     public void PainShadow()
     {
-        //공격속도 증가
+        data.BuffATKS(0.7f);
+
+        Debug.Log("고통의 그림자");
     }
 
     public void Weak()
     {
-        //공격력 증가
+        data.BuffATK(0.7f);
+
+        Debug.Log("쇠약");
     }
 }

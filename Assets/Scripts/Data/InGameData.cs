@@ -32,10 +32,10 @@ public class InGameData : MonoBehaviour
 
     public void BuffATKS(float change)
     {
-        ATK *= change;
+        ATKS *= change;
     }
 
-    public void BuffATKT(float change)
+    public void BuffATKR(float change)
     {
         ATKR *= change;
     }
