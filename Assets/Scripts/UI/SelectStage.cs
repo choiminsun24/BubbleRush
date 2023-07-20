@@ -157,6 +157,7 @@ public class SelectStage : MonoBehaviour
         {
             fadePanel.SetActive(true);
         }
+        SoundManager.Instance.BGMStop(); //로딩까지 유지하고 싶으면 이것만 지우고 이후 씬에서 음악 재생.
         fadePanel.GetComponent<Fade>().SceneOut("map test");
 
         //////////////////////////////////////////////////////
