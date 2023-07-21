@@ -40,12 +40,10 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         transform.SetAsLastSibling();		// 가장 앞에 보이도록 마지막 자식으로 설정
 
         // 드래그 시작 위치에 맞는 월드 좌표에 타워 배치
-        Debug.Log("eventData 문제");
         mousePosition = canvas.worldCamera.ScreenToWorldPoint(eventData.position);
         renderPosition = mousePosition;
         draggingTower = Instantiate(tower, new Vector3(renderPosition.x, renderPosition.y, 0f), Quaternion.identity) as GameObject;
         draggingRange = draggingTower.GetComponentInChildren<DetectRange>();
-        Debug.Log("terrain 문제");
 
         // 타워 설치 가능 구역 표시
         foreach(GameObject map in terrain)
