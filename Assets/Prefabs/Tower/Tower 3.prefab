@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  tc: {fileID: 0}
+  tc: {fileID: 2007877981691976687}
   hit: 0
   category: Terrain
 --- !u!212 &5623020972071001315
