@@ -158,4 +158,27 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    //버프
+    public BuffQuest buff;
+
+    public void StartBuff()
+    {
+        buff.gameObject.SetActive(true);
+        buff.play();
+    }
+
+    float time = 0f;
+
+    void Update()
+    {
+        time += Time.deltaTime;
+
+        if (time > 10f)
+        {
+            StartBuff();
+            time = 0f;
+        }
+    }
+
 }

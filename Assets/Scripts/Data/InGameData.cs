@@ -15,13 +15,22 @@ public class InGameData : MonoBehaviour
     {
         manager = GameObject.Find("DataManager").GetComponent<DataManager>();
 
+        //기본 능력치 * knowledge 능력치
         ATK = manager.Atk * GameData.GetKnowATK(manager.KnowATK);
         ATKS = manager.AtkSpeed * GameData.GetKnowATKS(manager.KnowATKS);
         ATKR = manager.AtkRange * GameData.GetKnowATKR(manager.KnowATKR);
 
-        Debug.Log(ATK);
-        Debug.Log(ATKS);
-        Debug.Log(ATKR);
+        Debug.Log("ATK: " + ATK);
+        Debug.Log("ATKS: " + ATKS);
+        Debug.Log("ATKR: " + ATKR);
+    }
+
+    //업그레이드 확인용
+    public void check()
+    {
+        Debug.Log("ATK: " + ATK);
+        Debug.Log("ATKS: " + ATKS);
+        Debug.Log("ATKR: " + ATKR);
     }
 
     //능력치 변화
