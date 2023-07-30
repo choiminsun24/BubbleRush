@@ -74,6 +74,14 @@ public class GameManager : MonoBehaviour
             {
                 return;
             }
+
+            int r = GetRoundNum();
+
+            if (r == 3 || r == 6 || r == 9)
+            {
+                StartBuff();
+            }
+
             ui.UpdateRound(GetRoundNum());
             ui.nextRoundBtn.SetActive(true);
         }
@@ -94,7 +102,7 @@ public class GameManager : MonoBehaviour
     }
     public int GetHeart()
     {
-        Debug.Log(heart);
+        //Debug.Log(heart);
         return heart;
     }
 
@@ -141,6 +149,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed));
         round++;
+
+        //Debug.Log(round);
     }
 
     // 사운드
@@ -169,16 +179,5 @@ public class GameManager : MonoBehaviour
     }
 
     float time = 0f;
-
-    void Update()
-    {
-        time += Time.deltaTime;
-
-        if (time > 10f)
-        {
-            StartBuff();
-            time = 0f;
-        }
-    }
 
 }
