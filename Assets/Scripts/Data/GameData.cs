@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameData : MonoBehaviour
 {
     static private float[] atkUp = { 1f, 1.01f, 1.02f, 1.03f };
-    static private float[] atkTime = { 1, 0.99f, 0.98f, 0.97f };
+    static private float[] atkTime = { 1f, 0.99f, 0.98f, 0.97f };
     static private float[] atkRange = { 1f, 1.01f, 1.02f, 1.03f };
 
     static public float GetKnowATK(int i)

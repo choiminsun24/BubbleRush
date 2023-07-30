@@ -91,6 +91,8 @@ public class DataManager : MonoBehaviour
         knowATK = DataSample.KnowATK;
         knowATKS = DataSample.KnowATKS;
         knowATKR = DataSample.KnowATKR;
+
+        Debug.Log(Atk);
     }
 
     public void getCount()
