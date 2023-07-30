@@ -153,11 +153,12 @@ public class SelectStage : MonoBehaviour
         /////////////////////// FOR RUN ////////////////////
 
         //fadeOut으로 씬 이동
-        //if (fadePanel.activeSelf == false)
-        //{
-        //    fadePanel.SetActive(true);
-        //}
-        //fadePanel.GetComponent<Fade>().SceneOut("map test");
+        if (fadePanel.activeSelf == false)
+        {
+            fadePanel.SetActive(true);
+        }
+        SoundManager.Instance.BGMStop(); //로딩까지 유지하고 싶으면 이것만 지우고 이후 씬에서 음악 재생.
+        fadePanel.GetComponent<Fade>().SceneOut("map test");
 
         //////////////////////////////////////////////////////
     }
