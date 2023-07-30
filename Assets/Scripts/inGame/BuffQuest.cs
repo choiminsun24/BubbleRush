@@ -10,6 +10,8 @@ public class BuffQuest : MonoBehaviour
     public Transform[] position;
     public Transform canvas;
 
+    public GameObject[] choice;
+
     public void play()
     {
         //1. ·£´ýÀ¸·Î ¼Â »Ì°í
@@ -44,7 +46,7 @@ public class BuffQuest : MonoBehaviour
 
     public void Medicine()
     {
-        data.BuffATKS(1.1f);
+        data.BuffATKS(2f);
 
         Debug.Log("ÀüÅõ ÀÚ±ØÁ¦");
         gameObject.SetActive(false);

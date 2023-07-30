@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
     public void updateTextHP()
     {
         hpText.text = hp.ToString();
-        Debug.Log(hp);
+        //Debug.Log(hp);
     }
 
     private void Death(int _coin) 
