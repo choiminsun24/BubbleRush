@@ -170,14 +170,8 @@ public class GameManager : MonoBehaviour
     }
 
     //버프
-    public BuffQuest buff;
-
     public void StartBuff()
     {
-        buff.gameObject.SetActive(true);
-        buff.play();
+        BuffQuest.Instance.play();
     }
-
-    float time = 0f;
-
 }
