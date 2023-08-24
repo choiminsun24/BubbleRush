@@ -4,22 +4,49 @@ using UnityEngine;
 
 public class BuffQuest : MonoBehaviour
 {
+    //데이터
     public InGameData data;
 
-    public GameObject[] button;
+    //선택지
+    public GameObject Box;
+    public List<GameObject> button;
     public Transform[] position;
     public Transform canvas;
 
-    public GameObject[] choice;
+    private static BuffQuest instance;
+
+    public static BuffQuest Instance
+    {
+        get
+        {
+            if (!instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+
+    void Awkae()
+    {
+        instance = this; //마지막에 생성된 하나만 사용.
+    }
+
+    public void Start()
+    {
+        Box.SetActive(false);
+    }
 
     public void play()
     {
+        Box.SetActive(true);
+
         //1. 랜덤으로 셋 뽑고
             int[] num = new int[] {-1, -1, -1};
 
             for (int i = 0; i < 3; i++)
             {
-                int r = Random.Range(0, button.Length);
+                int r = Random.Range(0, button.Count);
                 num[i] = r;
 
                 for (int j = 0 ; j < i; j++) //중복 검사
@@ -32,55 +59,88 @@ public class BuffQuest : MonoBehaviour
                 }
             }
 
-            Debug.Log(num[0] + " " + num[1] + " " + num[2]); //확인해따
-
-
         //2. Canvas에 설치
         for (int i = 0; i < 3; i++)
         {
             GameObject game = Instantiate(button[num[i]], position[i].position, Quaternion.identity, canvas);
         }
 
-        data.check();
+        data.check(); //학인용 Log 출력 메소드
     }
 
+    private void choice()
+    {
+        Box.SetActive(false);
+    }
+
+    private bool doMedicine = false;
     public void Medicine()
     {
-        data.BuffATKS(2f);
-
-        Debug.Log("전투 자극제");
-        gameObject.SetActive(false);
+        if (doMedicine == false) //선택
+        {
+            doMedicine = true;
+            choice();
+        }
+        else
+        {
+            button.Remove(button[2]);
+            data.BuffATKS(2f);
+        }
     }
 
+    private bool doEyse = false;
     public void ArtificialEyes()
     {
-        data.BuffATKR(1.2f);
-
-        Debug.Log("인공눈 이식");
-        gameObject.SetActive(false);
+        if (doEyse == false) // 선택됨.
+        {
+            doEyse = true;
+            choice();
+        }
+        else
+        {
+            data.BuffATKR(1.2f);
+        }
     }
 
+    private bool doBlood = false;
     public void BloodFlower()
     {
-        data.BuffATK(1.1f);
-
-        Debug.Log("피바라기");
-        gameObject.SetActive(false);
+        if (doBlood == false) // 선택됨.
+        {
+            doBlood = true;
+            choice();
+        }
+        else
+        {
+            data.BuffATK(1.1f);
+        }
     }
 
+    private bool doPain = false;
     public void PainShadow()
     {
-        data.BuffATKS(0.7f);
-
-        Debug.Log("고통의 그림자");
-        gameObject.SetActive(false);
+        if (doPain == false) // 선택됨.
+        {
+            doPain = true;
+            choice();
+        }
+        else
+        {
+            data.BuffATKS(0.7f);
+        }
     }
 
+    private bool doWeak = false;
     public void Weak()
     {
-        data.BuffATK(0.7f);
-
-        Debug.Log("쇠약");
-        gameObject.SetActive(false);
+        if (doWeak == false) // 선택됨.
+        {
+            doWeak = true;
+            choice();
+        }
+        else
+        {
+            data.BuffATK(0.7f);
+        }
     }
 }
