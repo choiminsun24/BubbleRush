@@ -157,6 +157,8 @@ public class GameManager : MonoBehaviour
     [Header("Sound Manager")]
     public AudioSource bubblePop;
 
+    public SpriteRenderer grayMap;
+
 
     //SceneLoader
     public void NomalSceneLoader(string sceneName)
