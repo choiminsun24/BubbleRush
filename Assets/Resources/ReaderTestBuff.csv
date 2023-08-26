@@ -1,0 +1,23 @@
+﻿인덱스,//이름,버프 효과 대상 타워,버프 효과 대상,//버프 효과 정도,디버프 효과 대상 타워,디버프 효과 대상,디버프 효과 정도,보상 강화 대상,보상 강화 정도,//파일경로
+int,string,enum,Array,int,enum,Array,int,Array,int,string
+Index,Name,BuffTargetTower,BuffTarget,BuffValue[%],DebuffTargetTower,DebuffTarget,DebuffValue[%],RewardTarget,RewardValue[%],//directory
+2000,동물 에너지 드링크,All,AttackSpeed,6 ,null,null,null,null,null,null
+2001,뇌파 자극기,All,Attack,6 ,null,null,null,null,null,null
+2002,렌즈 착용,All,Range,6 ,null,null,null,null,null,null
+2003,초시계,All,Cooltime,-6 ,null,null,null,null,null,null
+2004,비옥한 토양,Ground,"{AttackSpeed, Attack, Range, Cooltime}",2 ,null,null,null,null,null,null
+2005,EM 흙공 투하,Water,"{AttackSpeed, Attack, Range, Cooltime}",2 ,null,null,null,null,null,null
+2006,상쾌한 바람,Wind,"{AttackSpeed, Attack, Range, Cooltime}",2 ,null,null,null,null,null,null
+2007,한 놈만 노린다!,Single,Attack,10 ,null,null,null,null,null,null
+2008,너도 너도 한 방씩!,Multi,Attack,10 ,null,null,null,null,null,null
+2009,모두 없애버려!,Range,Attack,10 ,null,null,null,null,null,null
+2010,묵직한 한 방,All,Attack,10 ,All,AttackSpeed,-10 ,null,null,null
+2011,가벼운 한 방 ,All,AttackSpeed,10 ,All,Attack,-10 ,null,null,null
+2012,질척한 땅,Water,"{AttackSpeed, Attack, Range, Cooltime}",4 ,Ground,"{AttackSpeed, Attack, Range, Cooltime}",-4 ,null,null,null
+2013,건조한 공기,Wind,"{AttackSpeed, Attack, Range, Cooltime}",4 ,Water,"{AttackSpeed, Attack, Range, Cooltime}",-4 ,null,null,null
+2014,역풍,Ground,"{AttackSpeed, Attack, Range, Cooltime}",4 ,Wind,"{AttackSpeed, Attack, Range, Cooltime}",-4 ,null,null,null
+2015,전자 초시계,All,Cooltime,-30,All,Attack,-30,null,null,null
+2016,무모한 욕심쟁이,null,null,null,All,Attack,-10,골드,10,null
+2017,황사,null,null,null,All,Range,-10,땅의 정기,10 ,null
+2018,폭우,null,null,null,All,AttackSpeed,-10,물의 정기,10,null
+2019,태풍,null,null,null,All,CoolTime,10,바람의 정기,10,null
