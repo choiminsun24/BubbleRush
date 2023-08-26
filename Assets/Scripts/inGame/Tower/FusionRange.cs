@@ -11,7 +11,6 @@ public class FusionRange : MonoBehaviour
         if(other.tag == "Tower")
         {
             canFuse = true;
-            Debug.Log("canFuse == True");
             targetTower = other.gameObject;
         }
     }
@@ -21,7 +20,6 @@ public class FusionRange : MonoBehaviour
         if(other.tag == "Tower")
         {
             canFuse = false;
-            Debug.Log("canFuse == False");
             targetTower = null;
         }
     }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2007877981691976687}
   - component: {fileID: 9082087195122319606}
   - component: {fileID: 3519076491539045549}
+  - component: {fileID: 3166509082090130949}
   m_Layer: 0
   m_Name: Tower 5
   m_TagString: Tower
@@ -27,6 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007877981691976684}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
@@ -34,7 +36,6 @@ Transform:
   m_Children:
   - {fileID: 2264187293763151062}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2007877981691976685
 SpriteRenderer:
@@ -100,6 +101,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f535b99e9d3b146ba4424d36e27273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  otherImgs:
+  - {fileID: 21300000, guid: 28a1fbeb19936cb4796ccc81c18e65c0, type: 3}
+  - {fileID: 21300000, guid: 639c281c40df62e4bb211e482b08c76d, type: 3}
+  - {fileID: 21300000, guid: 2f31b6008795b1049ac0d55a3114c0ae, type: 3}
+  - {fileID: 21300000, guid: 734df43b1a4300f4eb7a776aabb6986a, type: 3}
+  - {fileID: 21300000, guid: 1186b4e2cf363c147bb619fe984baf72, type: 3}
+  - {fileID: 21300000, guid: 5e1288003c02dac4da92b5f45a387d3f, type: 3}
   enemies: []
   bullet: {fileID: 1237762953017209420, guid: f227d23009b773c48ad284912af8af11, type: 3}
 --- !u!58 &9082087195122319606
@@ -112,6 +120,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -135,10 +162,30 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3166509082090130949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007877981691976684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622165de3229a594c90fd156a5fc8c8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canFuse: 0
+  targetTower: {fileID: 0}
 --- !u!1 &3071858677952626615
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,13 +212,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3071858677952626615}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2007877981691976686}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &2235949379335888432
 CircleCollider2D:
@@ -183,6 +230,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0

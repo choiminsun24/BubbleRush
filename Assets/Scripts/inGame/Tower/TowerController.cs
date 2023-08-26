@@ -5,10 +5,11 @@ using UnityEngine.EventSystems;
 
 public class TowerController : MonoBehaviour
 {
+    public bool isInstantiated {get; set;} = false;
     private Tower data;
     BulletController bullCtr;
 
-    private int level = 0;
+    private int level = 1;
     [SerializeField] private Sprite[] otherImgs;
 
     private float time = 0f;
@@ -21,9 +22,10 @@ public class TowerController : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-private void Awake() {
+    private void Awake()
+    {
         spriteRenderer = GetComponent<SpriteRenderer>();
-}
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -97,8 +99,10 @@ private void Awake() {
     public void LevelUp()
     {
         Debug.Log("Level UP");
-        level += 1;
-
-        spriteRenderer.sprite = otherImgs[level-1];
+        spriteRenderer.sprite = otherImgs[level++];
+        if(level >= otherImgs.Length)
+        {
+            level = 0;
+        }
     }
 }
