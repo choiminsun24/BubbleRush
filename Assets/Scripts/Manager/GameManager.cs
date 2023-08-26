@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
+
     // 인스턴스에 접근하기 위한 프로퍼티
     public static GameManager Instance
     {
@@ -42,7 +43,6 @@ public class GameManager : MonoBehaviour
     public int num_Enemy = 10;
     public float spawn_Speed = 1f;
 
-
     // 적 스폰
     [SerializeField]private Object prefab_enemy;
     [SerializeField]private Transform spawnPoint;
@@ -74,6 +74,14 @@ public class GameManager : MonoBehaviour
             {
                 return;
             }
+
+            int r = GetRoundNum();
+
+            if (r == 3 || r == 6 || r == 9)
+            {
+                StartBuff();
+            }
+
             ui.UpdateRound(GetRoundNum());
             ui.nextRoundBtn.SetActive(true);
         }
@@ -82,6 +90,7 @@ public class GameManager : MonoBehaviour
 
     // 게임 생명 개수
     private int heart = 3;
+
     // 적이 도착지점에 도착하였을 때 -1, 아이템을 먹었을 때 +1
     public void AddHeart(int _heart)
     {
@@ -93,7 +102,7 @@ public class GameManager : MonoBehaviour
     }
     public int GetHeart()
     {
-        Debug.Log(heart);
+        //Debug.Log(heart);
         return heart;
     }
 
@@ -108,42 +117,23 @@ public class GameManager : MonoBehaviour
     }
 
     private UIManager ui;
+    public InGameData inGameData;
+
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
         ui = GetComponent<UIManager>();
-        ui.UpdateStageCoin(stageCoin);
+        ui.UpdateStageCoin(inGameData.GetStageCoin());
+        SoundManager.Instance.BGMToInGame();
     }
 
-    
-    //스테이지 코인 - 스테이지 내 재화 관리
-    private int stageCoin = 100;
 
-    public int GetStageCoin()
+    //스테이지 코인 - 스테이지 내 재화 관리(의존: InGameData, UIManager)
+    public void Coin(int coin)
     {
-        return stageCoin;
-    }
-
-    public void AddStageCoin(int coin)
-    {
-        if (coin < 0) //when we use the coin
-        {
-            coin *= -1; //absolution 
-
-            if (stageCoin >= coin) //adequate
-            {
-                stageCoin -= coin;
-            }
-            else //inadequate
-                return ;
-        }
-        else //when we got the coin
-        {
-            stageCoin += coin;
-        }
-
-        ui.UpdateStageCoin(stageCoin);
+        inGameData.AddStageCoin(coin);
+        ui.UpdateStageCoin(inGameData.GetStageCoin());
     }
 
     // 라운드 관리
@@ -159,6 +149,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed));
         round++;
+
+        //Debug.Log(round);
     }
 
     // 사운드
@@ -175,5 +167,11 @@ public class GameManager : MonoBehaviour
     public void LoadingSceneLoader(string sceneName) //추후 구현 예정
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    //버프
+    public void StartBuff()
+    {
+        BuffQuest.Instance.play();
     }
 }

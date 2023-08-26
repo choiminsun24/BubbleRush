@@ -29,46 +29,46 @@ public class UIManager : MonoBehaviour
         Coin.text = coin.ToString();
     }
 
-    // 배경음악 볼륨 조절
-    [SerializeField] private AudioMixer mixer;
-    [SerializeField] private Slider slider;
-    public void SetBGMLevel(float sliderValue)
-    {
-        mixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue)*20);
-        PlayerPrefs.SetFloat("MusicVolume", sliderValue);
-    }
+    //// 배경음악 볼륨 조절
+    //[SerializeField] private AudioMixer mixer;
+    //[SerializeField] private Slider slider;
+    //public void SetBGMLevel(float sliderValue)
+    //{
+    //    mixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue)*20);
+    //    PlayerPrefs.SetFloat("MusicVolume", sliderValue);
+    //}
     
-    // 효과음 볼륨 조절
-    [SerializeField] private Slider effectSlider;
-    public void SetEffectLevel(float sliderValue)
-    {
-        mixer.SetFloat("EffectVolume", Mathf.Log10(sliderValue)*20);
-        PlayerPrefs.SetFloat("EffectVolume", sliderValue);
-    }
+    //// 효과음 볼륨 조절
+    //[SerializeField] private Slider effectSlider;
+    //public void SetEffectLevel(float sliderValue)
+    //{
+    //    mixer.SetFloat("EffectVolume", Mathf.Log10(sliderValue)*20);
+    //    PlayerPrefs.SetFloat("EffectVolume", sliderValue);
+    //}
 
     // Start is called before the first frame update
     void Start()
     {
-        slider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
-        effectSlider.value = PlayerPrefs.GetFloat("EffectVolume", 0.75f);
+        //slider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
+        //effectSlider.value = PlayerPrefs.GetFloat("EffectVolume", 0.75f);
         towerWindowAnim.SetBool("active", true);
     }
 
-    // 진동 조절
-    [SerializeField] private Text onOff;
-    public void SetVibration()
-    {
-        switch(onOff.text)
-        {
-            case "ON":
-                onOff.text = "OFF";
+    //// 진동 조절
+    //[SerializeField] private Text onOff;
+    //public void SetVibration()
+    //{
+    //    switch(onOff.text)
+    //    {
+    //        case "ON":
+    //            onOff.text = "OFF";
                 
-            break;
-            case "OFF":
-                onOff.text = "ON";
-            break;
-        }
-    }
+    //        break;
+    //        case "OFF":
+    //            onOff.text = "ON";
+    //        break;
+    //    }
+    //}
 
     public GameObject gameOverWindow;
     // 게임 오버에서 홈 화면
