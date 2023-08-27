@@ -6,6 +6,23 @@ public class TowerController : MonoBehaviour
 {
     private Tower data;
     BulletController bullCtr;
+
+    private int level = 0;
+    [SerializeField] private Sprite[] otherImgs;
+
+    private float time = 0f;
+
+    public List<GameObject> enemies;
+    [SerializeField] private Object bullet;
+
+    private float angle;
+    private GameObject bull;
+
+    private SpriteRenderer spriteRenderer;
+
+private void Awake() {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+}
     // Start is called before the first frame update
     void Start()
     {
@@ -76,4 +93,11 @@ public class TowerController : MonoBehaviour
         }
     }
 
+    public void LevelUp()
+    {
+        Debug.Log("Level UP");
+        level += 1;
+
+        spriteRenderer.sprite = otherImgs[level-1];
+    }
 }
