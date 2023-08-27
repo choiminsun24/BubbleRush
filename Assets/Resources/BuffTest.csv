@@ -1,0 +1,41 @@
+﻿인덱스,//이름,//타입,//설명,버프 효과 대상 타워,버프 효과 대상,//버프 효과 정도,디버프 효과 대상 타워,디버프 효과 대상,디버프 효과 정도,보상 강화 대상,보상 강화 정도,이펙트 인덱스,//파일경로
+int,string,enum,string,enum,Array,int,enum,Array,int,enum,int,int,string
+Index,Name,Type,Description,NatureBlessTargetTower,NatureBlessTarget,NatureBlessValue[%],DarknessCurseTargetTower,DarknessCurseTarget,DarknessCurseValue[%],RewardTarget,RewardValue[%],EffectIndex,Directory
+2000,동물 에너지 드링크,NatureBless,모든 타워 공격 속도 +6%,All,AttackSpeed,6,null,null,null,null,null,6751,null
+2001,뇌파 자극기,NatureBless,모든 타워 공격력 +6%,All,Attack,6,null,null,null,null,null,6751,null
+2002,렌즈 착용,NatureBless,모든 타워 사거리 +6%,All,Range,6,null,null,null,null,null,6751,null
+2003,초시계,NatureBless,모든 타워 쿨타임 감소 +6%,All,Cooltime,6,null,null,null,null,null,6751,null
+2004,비옥한 토양,NatureBless,"지상 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +2%",Ground,AttackSpeed,2,null,null,null,null,null,6751,null
+2005,비옥한 토양,NatureBless,"지상 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +2%",Ground,Attack,2,null,null,null,null,null,6751,null
+2006,비옥한 토양,NatureBless,"지상 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +2%",Ground,Range,2,null,null,null,null,null,6751,null
+2007,비옥한 토양,NatureBless,"지상 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +2%",Ground,Cooltime,2,null,null,null,null,null,6751,null
+2008,EM 흙공 투하,NatureBless,"수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +2%",Water,AttackSpeed,2,null,null,null,null,null,6751,null
+2009,EM 흙공 투하,NatureBless,"수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +2%",Water,Attack,2,null,null,null,null,null,6751,null
+2010,EM 흙공 투하,NatureBless,"수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +2%",Water,Range,2,null,null,null,null,null,6751,null
+2011,EM 흙공 투하,NatureBless,"수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +2%",Water,Cooltime,2,null,null,null,null,null,6751,null
+2012,상쾌한 바람,NatureBless,"공중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +2%",Wind,AttackSpeed,2,null,null,null,null,null,6751,null
+2013,상쾌한 바람,NatureBless,"공중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +2%",Wind,Attack,2,null,null,null,null,null,6751,null
+2014,상쾌한 바람,NatureBless,"공중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +2%",Wind,Range,2,null,null,null,null,null,6751,null
+2015,상쾌한 바람,NatureBless,"공중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +2%",Wind,Cooltime,2,null,null,null,null,null,6751,null
+2016,한 놈만 노린다!,NatureBless,단일 공격 타워 공격력 + 10%,Single,Attack,10,null,null,null,null,null,6751,null
+2017,너도 너도 한 방씩!,NatureBless,다중 공격 타워 공격력 + 10%,Multi,Attack,10,null,null,null,null,null,6751,null
+2018,모두 없애버려!,NatureBless,범위 공격 타워 공격력 + 10%,Range,Attack,10,null,null,null,null,null,6751,null
+2019,묵직한 한 방,DarknessCurse,"모든 타워 공격력 +10%, 공격 속도 -10%",All,Attack,10,All,AttackSpeed,-10,null,null,6752,null
+2020,가벼운 한 방 ,DarknessCurse,"모든 타워 공격력 -10%, 공격 속도 +10%",All,AttackSpeed,10,All,Attack,-10,null,null,6752,null
+2021,질척한 땅,DarknessCurse,"수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 지상 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -5%",Water,AttackSpeed,4,Ground,AttackSpeed,-4,null,null,6752,null
+2022,질척한 땅,DarknessCurse,"수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 지상 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -5%",Water,Attack,4,Ground,Attack,-4,null,null,6752,null
+2023,질척한 땅,DarknessCurse,"수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 지상 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -6%",Water,Range,4,Ground,Range,-4,null,null,6752,null
+2024,질척한 땅,DarknessCurse,"수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 지상 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -7%",Water,Cooltime,4,Ground,Cooltime,-4,null,null,6752,null
+2025,건조한 공기,DarknessCurse,"공중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -4%",Wind,AttackSpeed,4,Water,AttackSpeed,-4,null,null,6752,null
+2026,건조한 공기,DarknessCurse,"공중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -5%",Wind,Attack,4,Water,Attack,-4,null,null,6752,null
+2027,건조한 공기,DarknessCurse,"공중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -6%",Wind,Range,4,Water,Range,-4,null,null,6752,null
+2028,건조한 공기,DarknessCurse,"공중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -7%",Wind,Cooltime,4,Water,Cooltime,-4,null,null,6752,null
+2029,역풍,DarknessCurse,"지상 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 공중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -4%",Ground,AttackSpeed,4,Wind,AttackSpeed,-4,null,null,6752,null
+2030,역풍,DarknessCurse,"지상 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 공중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -5%",Ground,Attack,4,Wind,Attack,-4,null,null,6752,null
+2031,역풍,DarknessCurse,"지상 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 공중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -6%",Ground,Range,4,Wind,Range,-4,null,null,6752,null
+2032,역풍,DarknessCurse,"지상 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 공중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -7%",Ground,Cooltime,4,Wind,Cooltime,-4,null,null,6752,null
+2033,전자 초시계,DarknessCurse,"모든 타워 쿨타임 감소 +30%, 공격력 -30%",All,Cooltime,30,All,Attack,-30,null,null,6752,null
+2034,무모한 욕심쟁이,Reward,null,null,null,null,All,Attack,-10,골드,10,6753,null
+2035,황사,Reward,null,null,null,null,All,Range,-10,땅의 정기,10,6753,null
+2036,폭우,Reward,null,null,null,null,All,AttackSpeed,-10,물의 정기,10,6753,null
+2037,태풍,Reward,null,null,null,null,All,CoolTime,-10,바람의 정기,10,6753,null

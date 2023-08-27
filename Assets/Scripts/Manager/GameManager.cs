@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
     }
 
     // 라운드 관리
-    private int round = 1;
+    public int round = 1;
 
     public int GetRoundNum()
     {
@@ -172,6 +172,6 @@ public class GameManager : MonoBehaviour
     //버프
     public void StartBuff()
     {
-        BuffQuest.Instance.play();
+        Buff.Instance.play();
     }
 }
