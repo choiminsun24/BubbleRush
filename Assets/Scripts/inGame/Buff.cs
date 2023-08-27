@@ -53,25 +53,18 @@ public class Buff : MonoBehaviour
     {
         instance = this; //마지막에 생성된 하나만 사용.
 
-        textData = ExelReader.Read("BuffTest");
-
-        //확인용 - textData 키, 행 수 O
+        textData = ExelReader.Read("BuffTest"); //버프 데이터 받아오기
     }
 
     public void Start()
     {
         Box.SetActive(false);
 
-        //*******************buffNum를 textData 행 번호(배열 인덱스)로 초기화
+        //buffNum를 textData 행 번호(배열 인덱스)로 초기화
         for (int i = 0; i < textData.Count; i++)
         {
             buffNum.Add(i);
         }
-
-        play();
-
-        //확인용 - BuffNum O
-
     }
 
     //선택지 on
@@ -79,20 +72,18 @@ public class Buff : MonoBehaviour
     {
         Box.SetActive(true);
 
-        //1. 랜덤으로 셋 뽑고
-        num = new int[] { -1, -1, -1 }; //선택지에 들어갈 버프의 각 고유번호
+        //1. 랜덤으로 셋 뽑기
+        num = new int[] { -1, -1, -1 };
 
-        for (int i = 0; i < num.Length; i++) //3개 선택
+        for (int i = 0; i < num.Length; i++)
         {
-            //추첨
-            int r = UnityEngine.Random.Range(0, buffNum.Count);
-            //num[i] = buffNum[r];
-            num[i] = r;
+            //선택
+            num[i] = UnityEngine.Random.Range(0, buffNum.Count);
 
             //중복 검사
             for (int j = 0; j < i; j++)
             {
-                if (num[j] == r)
+                if (num[j] == num[i])
                 {
                     i--;
                     break;
@@ -100,7 +91,7 @@ public class Buff : MonoBehaviour
             }
         }
 
-        //2. 카드 세팅
+        //2. 카드 UI 세팅
         for (int i = 0; i < num.Length; i++)
         {
             Transform tf = position[i].GetComponent<Transform>();
@@ -118,7 +109,7 @@ public class Buff : MonoBehaviour
             {
                 tf.gameObject.GetComponent<Image>().sprite = images[2];
             }
-            //tf.gameObject.GetComponent<Image>
+
             tf.GetChild(0).GetComponent<Text>().text = textData[num[i]]["Name"]; //Title
             tf.GetChild(1).GetComponent<Text>().text = textData[num[i]]["Description"]; //Content
             tf.GetChild(2).GetComponent<Image>().sprite = Resources.Load<Sprite>(textData[i]["Directory"]);
@@ -128,14 +119,12 @@ public class Buff : MonoBehaviour
     //선택 후 처리
     public void choice(int n) //카드 선택 시 시행될 메소드
     {
-        Box.SetActive(false);
+        Box.SetActive(false); //선택 창 제거
+        buffNum.RemoveAt(num[n]); //버프 넘에서 선택 번호 제외. -> 다음에 뽑히지 않도록 함.
+        Dictionary<string, string> choice = textData[num[n]]; //선택된 행
 
-        //buffNum에서 해당 고유번호 삭제
-        buffNum.RemoveAt(n);
-        
+
         //내부 버프 효과 **************************값 변경 미적용***********************
-        Dictionary<string, string> choice = textData[num[n]]; //선택받은 고유 번호
-
         if (!choice["NatureBlessTargetTower"].Equals("null")) //버프 대상이 존재하면
         {
             Debug.Log("버프가 적용됩니다: 추후 적용 예정");
@@ -146,82 +135,9 @@ public class Buff : MonoBehaviour
             Debug.Log("디버프가 적용됩니다: 추후 적용 예정");
         }
 
-        if (!choice["RewardTarget"].Equals ("null")) //리워드 대상이 존재하면
+        if (!choice["RewardTarget"].Equals("null")) //리워드 대상이 존재하면
         {
             Debug.Log("리워드가 적용됩니다: 추후 적용 예정");
         }
     }
-
-    //**************************각 버프 -> 삭제, csv 파일과 CSV Reader에서 정의.
-    //private bool doMedicine = false;
-    //public void Medicine()
-    //{
-    //    if (doMedicine == false) //선택 가능
-    //    {
-    //        doMedicine = true;
-    //        choice();
-    //    }
-    //    else
-    //    {
-    //        buffNum.Remove(buffNum[2]);
-    //        data.BuffATKS(2f);
-    //    }
-    //}
-
-    //private bool energy = false;
-    //public void Energy()
-    //{
-    //    if (energy == false) // 선택 가능
-    //    {
-    //        energy = true;
-    //        choice();
-    //    }
-    //    else //이미 선택됨.
-    //    {
-    //        data.BuffATKS(1.06f);
-    //        Debug.Log("이미 선택되어 선택될 수 없는 버튼: 리스트에서 제거되지 않은 것으로 추정됨.");
-    //    }
-    //}
-
-    //private bool doBlood = false;
-    //public void BloodFlower()
-    //{
-    //    if (doBlood == false) // 선택 가능
-    //    {
-    //        doBlood = true;
-    //        choice();
-    //    }
-    //    else
-    //    {
-    //        data.BuffATK(1.1f);
-    //    }
-    //}
-
-    //private bool doPain = false;
-    //public void PainShadow()
-    //{
-    //    if (doPain == false) // 선택 가능
-    //    {
-    //        doPain = true;
-    //        choice();
-    //    }
-    //    else
-    //    {
-    //        data.BuffATKS(0.7f);
-    //    }
-    //}
-
-    //private bool doWeak = false;
-    //public void Weak()
-    //{
-    //    if (doWeak == false) // 선택 가능
-    //    {
-    //        doWeak = true;
-    //        choice();
-    //    }
-    //    else
-    //    {
-    //        data.BuffATK(0.7f);
-    //    }
-    //}
 }
