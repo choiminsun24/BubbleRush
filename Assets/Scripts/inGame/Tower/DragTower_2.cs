@@ -79,6 +79,10 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         {
             Destroy(draggingTower);
         }
+        else
+        {
+            draggingTower.GetComponent<TowerController>().isInstantiated = true;
+        }
 
         // 드래그를 시작하면 부모가 canvas로 설정되기 때문에
 		// 드래그를 종료할 때 부모가 canvas이면 아이템 슬롯이 아닌 엉뚱한 곳에

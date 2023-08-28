@@ -30,25 +30,27 @@ public class TowerManager : MonoBehaviour
         touch = Input.touches[0];
         initPos = touch.position;
 
-//1번만 실행되어야함
+        //1번만 실행되어야함
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hitInformation = Physics2D.Raycast(touchPos, Camera.main.transform.forward);
 
-            Debug.Log(hitInformation.collider.gameObject.name);
 
             if (hitInformation.collider != null)
             {
                 touchedObject = hitInformation.transform.gameObject;
                 if (touchedObject.tag =="Tower")
                 {
-                    // 터치 좌표를 월드 좌표로 계산
+                    // 기존 위치 저장
                     initPos = Input.mousePosition;
-                    vec = new Vector2(initPos.x, initPos.y);
-                    vec = Camera.main.ScreenToWorldPoint(vec);
 
-                    Debug.Log(touchedObject.gameObject.name);
+                    towerController = touchedObject.GetComponent<TowerController>();
+                    if (!towerController && !(towerController.isInstantiated))
+                    {
+                        return;
+                    }
+
 
                     sprite = touchedObject.GetComponent<SpriteRenderer>();
                     sprite.color = new Color(1, 1, 1, 0.5f);
@@ -65,16 +67,25 @@ public class TowerManager : MonoBehaviour
             }
         }
 
+        if (!towerController || !(towerController.isInstantiated))
+        {
+            return;
+        }
+
         if (dragging && touch.phase == TouchPhase.Moved)
         {
-            // dragging
+            // 터치 좌표를 월드 좌표로 계산
             vec = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             vec = Camera.main.ScreenToWorldPoint(vec);
             touchedObject.transform.position = vec;
 
             if (fusionRange.canFuse == true)
             {
-                sprite.color = new Color(0.5f, 1f, 0.5f, 0.8f);
+                sprite.color = new Color(0.2f, 1f, 0.2f, 0.8f);
+            }
+            else
+            {
+                sprite.color = new Color(1f, 1f, 1f, 1f);
             }
         }
 
@@ -90,17 +101,22 @@ public class TowerManager : MonoBehaviour
                     if (towerController)
                     {
                         towerController.LevelUp();
+                        Destroy(touchedObject, 0.1f);
                     }
                     else
                     {
                         return;
                     }
-                    Destroy(this.gameObject, 0.5f);
                 }
             }
-            fusionRange.gameObject.SetActive(false);
+
+            towerController = null;
             grayMap.gameObject.SetActive(false);
             dragging = false;
+
+            vec = new Vector2(initPos.x, initPos.y);
+            vec = Camera.main.ScreenToWorldPoint(vec);
+            touchedObject.transform.position = vec;
         }
     }
 }

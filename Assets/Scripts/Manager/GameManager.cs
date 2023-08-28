@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
     }
 
     // 라운드 관리
-    public int round = 1;
+    private int round = 1;
 
     public int GetRoundNum()
     {
@@ -157,6 +157,8 @@ public class GameManager : MonoBehaviour
     [Header("Sound Manager")]
     public AudioSource bubblePop;
 
+    public SpriteRenderer grayMap;
+
 
     //SceneLoader
     public void NomalSceneLoader(string sceneName)
@@ -172,6 +174,6 @@ public class GameManager : MonoBehaviour
     //버프
     public void StartBuff()
     {
-        Buff.Instance.play();
+        BuffQuest.Instance.play();
     }
 }
