@@ -1,35 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using UnityEngine.UI;
 
-public class Buff : MonoBehaviour
+public class Quest : MonoBehaviour
 {
     //데이터
     public InGameData data;
     private List<Dictionary<string, string>> textData;
-    private List<int> buffNum = new List<int>(); //각 버프의 번호 저장.
 
     //UI 동작
     public Transform canvas; //소속된 Canvas
     public GameObject Box; //UI창
     public Transform[] position; //생성 위치
-    public Sprite[] images;
 
-    public GameObject my;
+    public GameObject my; //선택된 카드 Panel
+    public Transform mine; //선택된 카드
 
     //선택지
     private int[] num; //선택된 번호
-    private int mineNum = 0;
-
-    //선택된
-    public Transform[] mine;
 
     //프로그램
-    private static Buff instance;
+    private static Quest instance;
 
-    public static Buff Instance
+    public static Quest Instance
     {
         get
         {
@@ -45,21 +39,11 @@ public class Buff : MonoBehaviour
     {
         instance = this; //마지막에 생성된 하나만 사용.
 
-        textData = ExelReader.Read("inGame/Buff/BuffTest"); //버프 데이터 받아오기
-    }
+        textData = ExelReader.Read("inGame/Quest/QuestTest"); //버프 데이터 받아오기
 
-    public void Start()
-    {
+        //GameManager Start보다 빠르게
         Box.SetActive(false);
         my.SetActive(false);
-
-        //buffNum를 textData 행 번호(배열 인덱스)로 초기화
-        for (int i = 0; i < textData.Count; i++)
-        {
-            buffNum.Add(i);
-        }
-
-        //play();
     }
 
     //선택지 on
@@ -73,7 +57,7 @@ public class Buff : MonoBehaviour
         for (int i = 0; i < num.Length; i++)
         {
             //선택
-            num[i] = UnityEngine.Random.Range(0, buffNum.Count);
+            num[i] = UnityEngine.Random.Range(0, textData.Count);
 
             //중복 검사
             for (int j = 0; j < i; j++)
@@ -98,48 +82,30 @@ public class Buff : MonoBehaviour
     //세팅할 카드, 세팅할 정보
     private void cardSetting(Transform tf, Dictionary<string, string> target)
     {
-        //카드 프레임
-        if (target["Type"].Equals("NatureBless")) //버프 카드
-        {
-            tf.gameObject.GetComponent<Image>().sprite = images[0];
-        }
-        else if (target["Type"].Equals("DarknessCurse")) //디버프 카드
-        {
-            tf.gameObject.GetComponent<Image>().sprite = images[1];
-        }
-        else //리워드 카드
-        {
-            tf.gameObject.GetComponent<Image>().sprite = images[2];
-        }
-
         tf.GetChild(0).GetComponent<Text>().text = target["Name"]; //Title
-        tf.GetChild(1).GetComponent<Text>().text = target["Description"]; //Content
-        tf.GetChild(2).GetComponent<Image>().sprite = Resources.Load<Sprite>(target["Directory"]);
+        tf.GetChild(1).GetComponent<Text>().text = target["QuestDescription"]; //Content
+        tf.GetChild(2).GetComponent<Text>().text = target["RewardDescription"]; //Content
+        tf.GetChild(3).GetComponent<Image>().sprite = Resources.Load<Sprite>(target["Directory"]);
     }
 
     //선택 후 처리
     public void choice(int n) //카드 선택 시 시행될 메소드
     {
         Box.SetActive(false); //선택 창 제거
-        buffNum.RemoveAt(num[n]); //버프 넘에서 선택 번호 제외. -> 다음에 뽑히지 않도록 함.
+
         Dictionary<string, string> choice = textData[num[n]]; //선택된 행
-        cardSetting(mine[mineNum], choice);
+        cardSetting(mine, choice);
 
 
         //내부 버프 효과 **************************값 변경 미적용***********************
-        if (!choice["NatureBlessTargetTower"].Equals("null")) //버프 대상이 존재하면
+        if (!choice["QuestTarget"].Equals("null")) //퀘스트 대상 존재
         {
-            Debug.Log("버프가 적용됩니다: 추후 적용 예정");
+            Debug.Log(choice["QuestTarget"] + "에 대한 퀘스트가 진행됩니다: 추후 적용 예정");
         }
 
-        if (!choice["DarknessCurseTargetTower"].Equals("null")) //디버프 대상이 존재하면
+        if (!choice["RewardTarget"].Equals("null")) //디버프 대상이 존재하면
         {
-            Debug.Log("디버프가 적용됩니다: 추후 적용 예정");
-        }
-
-        if (!choice["RewardTarget"].Equals("null")) //리워드 대상이 존재하면
-        {
-            Debug.Log("리워드가 적용됩니다: 추후 적용 예정");
+            Debug.Log(choice["RewardTarget"] + "에 대한 퀘스트가 진행됩니다: 추후 적용 예정");
         }
 
         //data.BuffATKS(1.06f); 예시문
@@ -149,4 +115,5 @@ public class Buff : MonoBehaviour
     {
         my.SetActive(!my.activeSelf);
     }
+
 }

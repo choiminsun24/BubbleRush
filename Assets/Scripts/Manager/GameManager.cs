@@ -126,6 +126,8 @@ public class GameManager : MonoBehaviour
         ui = GetComponent<UIManager>();
         ui.UpdateStageCoin(inGameData.GetStageCoin());
         SoundManager.Instance.BGMToInGame();
+
+        StartQuest();
     }
 
 
@@ -143,6 +145,7 @@ public class GameManager : MonoBehaviour
     {
         return round;
     }
+
     // 다음 라운드 버튼 누르면 시작
     public void StartRound()
     {
@@ -174,6 +177,11 @@ public class GameManager : MonoBehaviour
     //버프
     public void StartBuff()
     {
-        BuffQuest.Instance.play();
+        Buff.Instance.play();
+    }
+
+    public void StartQuest()
+    {
+        Quest.Instance.play();
     }
 }
