@@ -64,10 +64,6 @@ public class DataManager : MonoBehaviour
 
     void Awake()
     {
-        //½Ì±ÛÅæ Å×½ºÆ® 
-        count = Random.Range(0, 10);
-        Debug.Log("Round: " + count);
-
         //½Ì±ÛÅæ
         if (instance == null)
         {
@@ -91,8 +87,6 @@ public class DataManager : MonoBehaviour
         knowATK = DataSample.KnowATK;
         knowATKS = DataSample.KnowATKS;
         knowATKR = DataSample.KnowATKR;
-
-        Debug.Log("ATK: " + Atk);
     }
 
     public void getCount()

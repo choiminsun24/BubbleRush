@@ -20,6 +20,7 @@ public class InGameData : MonoBehaviour
         ATKS = manager.AtkSpeed * GameData.GetKnowATKS(manager.KnowATKS);
         ATKR = manager.AtkRange * GameData.GetKnowATKR(manager.KnowATKR);
 
+        //업그레이드 확인용 - 기존 값
         Debug.Log("ATK: " + ATK);
         Debug.Log("ATKS: " + ATKS);
         Debug.Log("ATKR: " + ATKR);
