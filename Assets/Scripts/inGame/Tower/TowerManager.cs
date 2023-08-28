@@ -113,9 +113,7 @@ public class TowerManager : MonoBehaviour
             grayMap.gameObject.SetActive(false);
             dragging = false;
 
-            vec = new Vector2(initPos.x, initPos.y);
-            vec = Camera.main.ScreenToWorldPoint(vec);
-            touchedObject.transform.position = vec;
+            touchedObject.transform.position = initPos;
         }
     }
 }
