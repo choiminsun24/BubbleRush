@@ -11,18 +11,22 @@ public class InGameData : MonoBehaviour
     private float ATKR;
 
 
-    void Awake() //DataManagerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½âº» ï¿½É·ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+    void Awake() //DataManager¸¦ ÅëÇØ ±âº» ´É·ÂÄ¡ ¼¼ÆÃ
     {
         manager = GameObject.Find("DataManager").GetComponent<DataManager>();
 
-        //ï¿½âº» ï¿½É·ï¿½Ä¡ * knowledge ï¿½É·ï¿½Ä¡
+        //±âº» ´É·ÂÄ¡ * knowledge ´É·ÂÄ¡
         ATK = manager.Atk * GameData.GetKnowATK(manager.KnowATK);
         ATKS = manager.AtkSpeed * GameData.GetKnowATKS(manager.KnowATKS);
         ATKR = manager.AtkRange * GameData.GetKnowATKR(manager.KnowATKR);
 
+        //¾÷±×·¹ÀÌµå È®ÀÎ¿ë - ±âÁ¸ °ª
+        Debug.Log("ATK: " + ATK);
+        Debug.Log("ATKS: " + ATKS);
+        Debug.Log("ATKR: " + ATKR);
     }
 
-    //ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ È®ï¿½Î¿ï¿½
+    //¾÷±×·¹ÀÌµå È®ÀÎ¿ë
     public void check()
     {
         Debug.Log("ATK: " + ATK);
@@ -30,7 +34,7 @@ public class InGameData : MonoBehaviour
         Debug.Log("ATKR: " + ATKR);
     }
 
-    //ï¿½É·ï¿½Ä¡ ï¿½ï¿½È­
+    //´É·ÂÄ¡ º¯È­
     public void BuffATK(float change)
     {
         ATK *= change;
@@ -46,7 +50,7 @@ public class InGameData : MonoBehaviour
         ATKR *= change;
     }
 
-    //ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
+    //ÀçÈ­ °ü¸®
     private int stageCoin = 100;
 
     public int GetStageCoin()

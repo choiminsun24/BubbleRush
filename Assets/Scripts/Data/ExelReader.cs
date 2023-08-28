@@ -6,67 +6,44 @@ using System;
 
 public class ExelReader : MonoBehaviour
 {
-	//ï¿½ï¿½ï¿½Ô½ï¿½, ï¿½ï¿½ï¿½Ú¿ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
-	static string SPLIT_RE = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
-	static string LINE_SPLIT_RE = @"[\r\n|\n\r|\n|\r](?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
-	static char[] TRIM_CHARS = {'\"', '\\'};
+    //Á¤±Ô½Ä, ¹®ÀÚ¿­ Ã³¸®¸¦ À§ÇÔ.
+    static string SPLIT_RE = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
+    static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
+    static char[] TRIM_CHARS = { '\"' };
 
-	public static List<Dictionary<string, string>> Read(string path)
+    //ÀÐ¾î¿À´Â ¸Þ¼Òµå
+    public static List<Dictionary<string, string>> Read(string path)
     {
-		List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
+        List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
+        TextAsset data = Resources.Load(path) as TextAsset;
 
-		TextAsset data = Resources.Load(path) as TextAsset;
-		string[] lines = Regex.Split(data.text, LINE_SPLIT_RE);
+        //ÇàÀ¸·Î ³ª´©±â
+        string[] lines = Regex.Split(data.text, LINE_SPLIT_RE);
+        if (lines.Length <= 1) return list;
 
-		if (lines.Length <= 1) return list;
+        //header
+        string[] header = Regex.Split(lines[2], SPLIT_RE);
 
+        //Çà Ã³¸®
+        for (int i = 3; i < lines.Length; i++)
+        {
+            //¿­·Î ³ª´©±â
+            string[] line = Regex.Split(lines[i], SPLIT_RE);
+            if (line.Length == 0 || line[0] == "") continue;
 
-		string[] header = Regex.Split(lines[2], SPLIT_RE);
+            //¼Ð Ã³¸® - ´Ùµë¾î¼­ Dictionary·Î
+            Dictionary<string, string> column = new Dictionary<string, string>();
 
-		for(int i = 3; i < lines.Length; i++)
-		{
-			string[] line = Regex.Split(lines[i], SPLIT_RE);
-			if (line.Length == 0 || line[0] == "") continue; 
-
-			Dictionary<string, string> column = new Dictionary<string, string>();
-
-			for (int j = 4; j < line.Length; j++)
+            for (int j = 0; j < line.Length; j++)
             {
-				string value = line[j];
-				value = value.TrimStart(TRIM_CHARS).TrimEnd(TRIM_CHARS).Replace("\\n", "\n");
-
-				//string realvalue = value;
-
-				//int n;
-				//float f;
-
-				//if (int.TryParse(value, out n))
-				//            {
-				//	realvalue = n;
-				//            }
-				//else if (float.TryParse(value, out f))
-				//            {
-				//	realvalue = f;
-				//            }
-				for (int k = 0; k < header.Length; k++)
-                {
-					Debug.Log(header[k]);
-                }
-                try
-                {
-					column[value] = value;
-                }
-				catch (Exception ex)
-                {
-					Debug.Log("j: " + j + " value: " + value);
-                }
-				
-				//column[header[j]] = value;
+                string value = line[j];
+                value = value.TrimStart(TRIM_CHARS).TrimEnd(TRIM_CHARS).Replace("\\n", "\n");
+                column[header[j]] = value;
             }
 
-			list.Add(column);
+            list.Add(column);
         }
 
-		return list;
+        return list;
     }
 }

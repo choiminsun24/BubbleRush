@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class Buff : MonoBehaviour
 {
     /*
-     * Name : Title
-     * BuffTargetTower : 버프 대상 타워 -> BuffTarget
-     * BuffTarget : 버프 종류 -> 
-     * Bu
-     * 
      * 필요한 것 
      * UI
      *  - 버프 종류 <> 테두리
@@ -33,9 +29,10 @@ public class Buff : MonoBehaviour
     public Transform canvas; //소속된 Canvas
     public GameObject Box; //UI창
     public GameObject[] position; //생성 위치
+    public Sprite[] images;
 
     //선택지
-    private int[] num; //선택되었던 번호
+    private int[] num; //선택된 번호
 
     //프로그램
     private static Buff instance;
@@ -58,36 +55,23 @@ public class Buff : MonoBehaviour
 
         textData = ExelReader.Read("BuffTest");
 
-        //확인용 - 모든 키 출력
-        foreach(string key in textData[0].Keys)
-        {
-            Debug.Log(key);
-        }
+        //확인용 - textData 키, 행 수 O
     }
 
     public void Start()
     {
         Box.SetActive(false);
 
-        //*******************buffNum의 내용을 각 고유 번호로 초기화
-        foreach(Dictionary<string, string> column in textData)
+        //*******************buffNum를 textData 행 번호(배열 인덱스)로 초기화
+        for (int i = 0; i < textData.Count; i++)
         {
-            print(column["Description"]);
-            try
-            {
-                buffNum.Add(int.Parse(column["Index"]));
-            }
-            catch(FormatException ex)
-            {
-                Debug.Log("Integer으로 변환 불가한 항목입니다.");
-            }
+            buffNum.Add(i);
         }
 
-        //확인용
-        for (int i = 0; i < buffNum.Count; i++)
-        {
-            Debug.Log(buffNum[i]);
-        }
+        play();
+
+        //확인용 - BuffNum O
+
     }
 
     //선택지 on
@@ -96,16 +80,17 @@ public class Buff : MonoBehaviour
         Box.SetActive(true);
 
         //1. 랜덤으로 셋 뽑고
-        num = new int[] {-1, -1, -1}; //선택지에 들어갈 버프의 각 고유번호
+        num = new int[] { -1, -1, -1 }; //선택지에 들어갈 버프의 각 고유번호
 
         for (int i = 0; i < num.Length; i++) //3개 선택
         {
             //추첨
             int r = UnityEngine.Random.Range(0, buffNum.Count);
-            num[i] = buffNum[r];
-                
+            //num[i] = buffNum[r];
+            num[i] = r;
+
             //중복 검사
-            for (int j = 0 ; j < i; j++)
+            for (int j = 0; j < i; j++)
             {
                 if (num[j] == r)
                 {
@@ -116,25 +101,55 @@ public class Buff : MonoBehaviour
         }
 
         //2. 카드 세팅
-        for(int i = 0; i < num.Length;i++)
+        for (int i = 0; i < num.Length; i++)
         {
-            //position[i] = 
-        }
+            Transform tf = position[i].GetComponent<Transform>();
 
-        //********************2. Canvas에 설치 -> 사라지고 각 고유번호에 대한 정보 로딩으로 변경.
-        //for (int i = 0; i < 3; i++)
-        //{
-        //    GameObject game = Instantiate(buffNum[num[i]], position[i].transform.position, Quaternion.identity, canvas);
-        //}
+            //카드 프레임
+            if (textData[num[i]]["Type"].Equals("NatureBless")) //버프 카드
+            {
+                tf.gameObject.GetComponent<Image>().sprite = images[0];
+            }
+            else if (textData[num[i]]["Type"].Equals("DarknessCurse")) //디버프 카드
+            {
+                tf.gameObject.GetComponent<Image>().sprite = images[1];
+            }
+            else //리워드 카드
+            {
+                tf.gameObject.GetComponent<Image>().sprite = images[2];
+            }
+            //tf.gameObject.GetComponent<Image>
+            tf.GetChild(0).GetComponent<Text>().text = textData[num[i]]["Name"]; //Title
+            tf.GetChild(1).GetComponent<Text>().text = textData[num[i]]["Description"]; //Content
+            tf.GetChild(2).GetComponent<Image>().sprite = Resources.Load<Sprite>(textData[i]["Directory"]);
+        }
     }
 
     //선택 후 처리
     public void choice(int n) //카드 선택 시 시행될 메소드
     {
         Box.SetActive(false);
+
         //buffNum에서 해당 고유번호 삭제
-        //buffNum에서 num[n] 삭제
+        buffNum.RemoveAt(n);
         
+        //내부 버프 효과 **************************값 변경 미적용***********************
+        Dictionary<string, string> choice = textData[num[n]]; //선택받은 고유 번호
+
+        if (!choice["NatureBlessTargetTower"].Equals("null")) //버프 대상이 존재하면
+        {
+            Debug.Log("버프가 적용됩니다: 추후 적용 예정");
+        }
+
+        if (!choice["DarknessCurseTargetTower"].Equals("null")) //디버프 대상이 존재하면
+        {
+            Debug.Log("디버프가 적용됩니다: 추후 적용 예정");
+        }
+
+        if (!choice["RewardTarget"].Equals ("null")) //리워드 대상이 존재하면
+        {
+            Debug.Log("리워드가 적용됩니다: 추후 적용 예정");
+        }
     }
 
     //**************************각 버프 -> 삭제, csv 파일과 CSV Reader에서 정의.

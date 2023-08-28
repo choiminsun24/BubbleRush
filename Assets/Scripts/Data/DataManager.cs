@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//ï¿½×½ï¿½Æ®
+//Å×½ºÆ®
 public class DataManager : MonoBehaviour
 {
     int count;
 
     /////////////////////* Data */////////////
-    //ï¿½ï¿½ï¿½Ý·ï¿½
+    //°ø°Ý·Â
     float atk;
     public float Atk { get => atk; }
 
@@ -21,7 +21,7 @@ public class DataManager : MonoBehaviour
     //knowledge
     private int knowledgeCoin;
     public int KnowledgeCoin { get => knowledgeCoin; }
-    //ï¿½Ò¸ï¿½ È¤ï¿½ï¿½ È¹ï¿½ï¿½ ï¿½Þ¼Òµï¿½ ï¿½ß°ï¿½.
+    //¼Ò¸ð È¤Àº È¹µæ ¸Þ¼Òµå Ãß°¡.
 
     int knowATK;
     public int KnowATK { get => knowATK; }
@@ -48,7 +48,7 @@ public class DataManager : MonoBehaviour
     }
     ///////////////////////////////////////////
 
-    //ï¿½Î½ï¿½ï¿½Ï½ï¿½
+    //ÀÎ½ºÅÏ½º
     static public DataManager instance;
 
     static public DataManager Instance
@@ -64,10 +64,7 @@ public class DataManager : MonoBehaviour
 
     void Awake()
     {
-        //ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ® 
-        count = Random.Range(0, 10);
-
-        //ï¿½Ì±ï¿½ï¿½ï¿½
+        //½Ì±ÛÅæ
         if (instance == null)
         {
             instance = this;
@@ -80,7 +77,7 @@ public class DataManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    void Start() //data Load. ï¿½ï¿½ï¿½ï¿½ È­ï¿½é¿¡ï¿½ï¿½ È¨ È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¥ ï¿½ï¿½ ï¿½Îµï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    void Start() //data Load. ½ÇÇà È­¸é¿¡¼­ È¨ È­¸éÀ¸·Î ³Ñ¾î°¥ ¶§ ·ÎµùÇÏ¸é µÇÁö ¾ÊÀ»±î
     {
         atk = DataSample.ATK;
         atkSpeed = DataSample.ATKS;
@@ -90,7 +87,6 @@ public class DataManager : MonoBehaviour
         knowATK = DataSample.KnowATK;
         knowATKS = DataSample.KnowATKS;
         knowATKR = DataSample.KnowATKR;
-
     }
 
     public void getCount()
