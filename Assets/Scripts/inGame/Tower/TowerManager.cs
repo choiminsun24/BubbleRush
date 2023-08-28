@@ -42,7 +42,7 @@ public class TowerManager : MonoBehaviour
                 if (touchedObject.tag =="Tower")
                 {
                     // 기존 위치 저장
-                    initPos = Input.mousePosition;
+                    initPos = touchedObject.transform.position;
 
                     towerController = touchedObject.GetComponent<TowerController>();
                     if (!towerController && !(towerController.isInstantiated))
