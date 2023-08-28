@@ -140,6 +140,6 @@ public class Buff : MonoBehaviour
             Debug.Log("리워드가 적용됩니다: 추후 적용 예정");
         }
 
-        //data.BuffATKS(1.06f); 이런식으로 바꾸면 된당
+        //data.BuffATKS(1.06f); 예시문
     }
 }
