@@ -6,7 +6,7 @@ using System;
 
 public class ExelReader : MonoBehaviour
 {
-	//Á¤±Ô½Ä, ¹®ÀÚ¿­ Ã³¸®¸¦ À§ÇÔ.
+	//ï¿½ï¿½ï¿½Ô½ï¿½, ï¿½ï¿½ï¿½Ú¿ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	static string SPLIT_RE = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
 	static string LINE_SPLIT_RE = @"[\r\n|\n\r|\n|\r](?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
 	static char[] TRIM_CHARS = {'\"', '\\'};
@@ -20,10 +20,6 @@ public class ExelReader : MonoBehaviour
 
 		if (lines.Length <= 1) return list;
 
-		Debug.Log(lines[0][0]);
-		Debug.Log(lines[2][0]);
-		Debug.Log(lines[3][0]);
-		Debug.Log(lines[1][0]);
 
 		string[] header = Regex.Split(lines[2], SPLIT_RE);
 

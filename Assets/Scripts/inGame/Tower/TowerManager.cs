@@ -28,7 +28,6 @@ public class TowerManager : MonoBehaviour
 
         // 입력된 터치 수
         touch = Input.touches[0];
-        initPos = touch.position;
 
         //1번만 실행되어야함
         if (Input.GetMouseButtonDown(0))
