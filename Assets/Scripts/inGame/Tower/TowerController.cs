@@ -1,22 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class TowerController : MonoBehaviour
 {
+    public bool isInstantiated {get; set;} = false;
     private Tower data;
     BulletController bullCtr;
+
+    private int level = 1;
+    [SerializeField] private Sprite[] otherImgs;
+
+    private float time = 0f;
+
+    public List<GameObject> enemies;
+    [SerializeField] private Object bullet;
+
+    private float angle;
+    private GameObject bull;
+
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
     // Start is called before the first frame update
     void Start()
     {
+        //sprite = GetComponent<SpriteRenderer>();
+
         data = new Tower();
         data.hp = 10;
         data.attack = 5;
         data.range = 3;
         data.time = 1f;
     }
-    public List<GameObject> enemies;
-    [SerializeField] private Object bullet;
+
     // 타워 근처 적 감지 범위
     public void DetectEnemies(GameObject enemy)
     {
@@ -37,22 +58,21 @@ public class TowerController : MonoBehaviour
     }
 
     
-
     // 일정한 주기로 공격
-    private float time = 0f;
-    // Update is called once per frame
     void Update()
     {
-        time+=Time.deltaTime;
-        if(time>=data.time)
+
+        time += Time.deltaTime;
+        if (time >= data.time)
         {
             time = 0f;
             Attack();
         }
+
+        
     }
 
-    private float angle;
-    private GameObject bull;
+
     public void Attack()
     {
         if(enemies.Count==0)
@@ -76,4 +96,13 @@ public class TowerController : MonoBehaviour
         }
     }
 
+    public void LevelUp()
+    {
+        Debug.Log("Level UP");
+        spriteRenderer.sprite = otherImgs[level++];
+        if(level >= otherImgs.Length)
+        {
+            level = 0;
+        }
+    }
 }
