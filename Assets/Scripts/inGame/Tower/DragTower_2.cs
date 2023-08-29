@@ -43,6 +43,7 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         mousePosition = canvas.worldCamera.ScreenToWorldPoint(eventData.position);
         renderPosition = mousePosition;
         draggingTower = Instantiate(tower, new Vector3(renderPosition.x, renderPosition.y, 0f), Quaternion.identity) as GameObject;
+        draggingTower.name = draggingTower.name.Replace("(Clone)", "");
         draggingRange = draggingTower.GetComponentInChildren<DetectRange>();
 
         // 타워 설치 가능 구역 표시
@@ -81,7 +82,10 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         }
         else
         {
+            // 합성 드래그 가능
             draggingTower.GetComponent<TowerController>().isInstantiated = true;
+            // 타워 종류별 데이터 저장
+            TowerManager.Instance.towers[int.Parse(draggingTower.name.Replace("Tower", ""))].Push(draggingTower);
         }
 
         // 드래그를 시작하면 부모가 canvas로 설정되기 때문에
