@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    DataManager dataManager;
-
-    // Start is called before the first frame update
-    void Start()
+    public void Quest()
     {
-        dataManager = GameObject.Find("DataManager").GetComponent<DataManager>();
+        Debug.Log("퀘스트 눌림");
     }
 
-    public void check()
+    public void Buff()
     {
-        dataManager.getCount();
+        Debug.Log("버프 눌림");
     }
 }
