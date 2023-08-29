@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    private float ATK;
+    public enum Expression
+    {
+        MAD = 0,
+        SMILE = 1,
+        EXPRESSIONLESS = 2
+    };
 
-    public void setATK(float ATK)
+    private float ATK;
+    private Expression expression;
+
+    public void setBullet(float ATK, int expression)
     {
         this.ATK = ATK;
+        this.expression = (Expression)expression;
+        
     }
     private Transform enemy = null;
     public void TriggerMove(Transform _enemy)
@@ -28,7 +38,7 @@ public class BulletController : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Enemy>().takeDamage(ATK);
+            other.gameObject.GetComponent<Enemy>().takeDamage(ATK, (int)expression);
             Destroy(gameObject);
         }
     }

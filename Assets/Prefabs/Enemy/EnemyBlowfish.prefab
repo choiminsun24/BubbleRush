@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2717971292716938529}
   - component: {fileID: 4153608860629898314}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyBlowfish
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,6 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpText: {fileID: 3765300912104912162}
+  expression: 0
+  property: 1
 --- !u!61 &2717971292716938529
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -135,7 +137,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9, y: 0.9}
+    oldSize: {x: 1.8, y: 1.8}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

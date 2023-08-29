@@ -46,18 +46,23 @@ public class GameManager : MonoBehaviour
     // 적 스폰
     [SerializeField]private Object prefab_enemy;
     [SerializeField]private Transform spawnPoint;
+    
     private List<Enemy> enemies = new List<Enemy>();
     int[] num = new int[4];
+
+    List<Dictionary<string, string>> enemyData;
+    
+    ///////////////////////////여기 고치기
     private IEnumerator SpawnEnemies(int _num_Enemy, float _spawn_Speed)
     {
         Enemy temp;
         for (int i=0; i<_num_Enemy; i++)
         {
-            GameObject enemy = Instantiate(prefab_enemy, spawnPoint.position, Quaternion.identity) as GameObject;
+            GameObject enemy = Instantiate(prefab_enemy, spawnPoint.position, Quaternion.identity) as GameObject; //스폰
             temp = enemy.GetComponent<Enemy>();
-            temp.setEnemy(20, 100);
+            temp.setEnemy(20, 100); //setEnemy
             // 해당 라운드 적을 배열에 관리
-            enemies.Add(temp);
+            enemies.Add(temp); //현재 라운드 적
             
             yield return new WaitForSeconds(_spawn_Speed);
         }
@@ -126,6 +131,8 @@ public class GameManager : MonoBehaviour
         ui = GetComponent<UIManager>();
         ui.UpdateStageCoin(inGameData.GetStageCoin());
         SoundManager.Instance.BGMToInGame();
+
+        enemyData = ExelReader.Read("Images/inGame/Enemy/Stage1");
 
         StartQuest();
     }
