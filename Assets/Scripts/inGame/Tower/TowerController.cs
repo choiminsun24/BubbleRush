@@ -32,7 +32,7 @@ public class TowerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //sprite = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         data = new Tower();
         data.hp = 10;
@@ -64,12 +64,17 @@ public class TowerController : MonoBehaviour
     // 일정한 주기로 공격
     void Update()
     {
-        time += Time.deltaTime;
-        if (time >= data.time)
+        if(!isInstantiated)
         {
-            time = 0f;
-            Attack();
+            spriteRenderer.enabled = false;
+            return;
         }
+        else
+        {
+            spriteRenderer.enabled = true;
+        }
+        time += Time.deltaTime;
+        Attack();
     }
 
     public void Attack()
@@ -79,20 +84,24 @@ public class TowerController : MonoBehaviour
             return;
         }
 
-        // 감지된 적 있을 때 바라보며 공격하기
-        angle = Mathf.Atan2(enemies[0].transform.position.y - transform.position.y,
-                            enemies[0].transform.position.x - transform.position.x)
-              * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle - 270);
-
-        // Bullet 생성하여 적을 향해 이동시키기
-        foreach (GameObject enemy in enemies)
+        if(time >= data.time)
         {
-            bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
-            bullCtr = bull.GetComponent<BulletController>();
-            bullCtr.setBullet(data.attack, expression);
-            bullCtr.TriggerMove(enemy.transform);
+            // 감지된 적 있을 때 바라보기
+            angle = Mathf.Atan2(enemies[0].transform.position.y - transform.position.y,
+                                enemies[0].transform.position.x - transform.position.x)
+                  * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle - 270);
+            time = 0f;
         }
+
+        // // Bullet 생성하여 적을 향해 이동시키기
+        // foreach (GameObject enemy in enemies)
+        // {
+        //     bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+        //     bullCtr = bull.GetComponent<BulletController>();
+        //     bullCtr.setBullet(data.attack, expression);
+        //     bullCtr.TriggerMove(enemy.transform);
+        // }
     }
 
     public void LevelUp()
@@ -103,5 +112,8 @@ public class TowerController : MonoBehaviour
         {
             level = 0;
         }
+        
+        // 공격력 2배
+        data.attack *= 2;
     }
 }

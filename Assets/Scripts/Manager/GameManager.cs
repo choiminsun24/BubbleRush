@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    // 라운드 시작
+    public bool isStarted = false;
+
     // Enemy 난이도 조절
     [Header("Enemy 난이도 조절")]
     public int num_Enemy = 10;
@@ -48,7 +51,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]private Transform spawnPoint;
     
     private List<Enemy> enemies = new List<Enemy>();
-    int[] num = new int[4];
 
     List<Dictionary<string, string>> enemyData;
     
@@ -117,8 +119,19 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over");
         // UI 띄우기
         ui.gameOverWindow.SetActive(true);
-        // 모든 오브젝트 멈추기
+        PauseGame();
+    }
+
+    // 게임 일시 정지
+    public void PauseGame()
+    {
         Time.timeScale = 0f;
+    }
+
+    // 게임 회복
+    public void ReleaseGame()
+    {
+        Time.timeScale = 1f;
     }
 
     private UIManager ui;
@@ -127,7 +140,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1;
+        ReleaseGame();
         ui = GetComponent<UIManager>();
         ui.UpdateStageCoin(inGameData.GetStageCoin());
         SoundManager.Instance.BGMToInGame();
@@ -156,7 +169,8 @@ public class GameManager : MonoBehaviour
     // 다음 라운드 버튼 누르면 시작
     public void StartRound()
     {
-        Time.timeScale = 1;
+        ReleaseGame();
+        isStarted = true;
         StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed));
         round++;
 
