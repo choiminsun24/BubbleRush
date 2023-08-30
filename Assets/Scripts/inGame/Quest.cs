@@ -39,7 +39,7 @@ public class Quest : MonoBehaviour
     {
         instance = this; //마지막에 생성된 하나만 사용.
 
-        textData = ExelReader.Read("inGame/Quest/QuestTest"); //버프 데이터 받아오기
+        textData = ExelReader.Read("Images/inGame/Quest/QuestTest"); //버프 데이터 받아오기
 
         //GameManager Start보다 빠르게
         Box.SetActive(false);

@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class TowerController : MonoBehaviour
 {
+    public int expression = 1; //임시 표정 MAD
+
     public bool isInstantiated {get; set;} = false;
     private Tower data;
     BulletController bullCtr;
@@ -22,6 +24,7 @@ public class TowerController : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -61,17 +64,13 @@ public class TowerController : MonoBehaviour
     // 일정한 주기로 공격
     void Update()
     {
-
         time += Time.deltaTime;
         if (time >= data.time)
         {
             time = 0f;
             Attack();
         }
-
-        
     }
-
 
     public void Attack()
     {
@@ -91,7 +90,7 @@ public class TowerController : MonoBehaviour
         {
             bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
             bullCtr = bull.GetComponent<BulletController>();
-            bullCtr.setATK(data.attack);
+            bullCtr.setBullet(data.attack, expression);
             bullCtr.TriggerMove(enemy.transform);
         }
     }

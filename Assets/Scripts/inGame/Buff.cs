@@ -16,6 +16,7 @@ public class Buff : MonoBehaviour
     public GameObject Box; //UI창
     public Transform[] position; //생성 위치
     public Sprite[] images;
+    public GameObject[] effect;
 
     public GameObject my;
 
@@ -45,7 +46,7 @@ public class Buff : MonoBehaviour
     {
         instance = this; //마지막에 생성된 하나만 사용.
 
-        textData = ExelReader.Read("inGame/Buff/BuffTest"); //버프 데이터 받아오기
+        textData = ExelReader.Read("Images/inGame/Buff/BuffTest"); //버프 데이터 받아오기
     }
 
     public void Start()
@@ -102,14 +103,18 @@ public class Buff : MonoBehaviour
         if (target["Type"].Equals("NatureBless")) //버프 카드
         {
             tf.gameObject.GetComponent<Image>().sprite = images[0];
+            GameObject game = Instantiate(effect[0], tf.GetChild(3).position, Quaternion.identity, tf);
+
         }
         else if (target["Type"].Equals("DarknessCurse")) //디버프 카드
         {
             tf.gameObject.GetComponent<Image>().sprite = images[1];
+            GameObject game = Instantiate(effect[1], tf.GetChild(3).position, Quaternion.identity, tf);
         }
         else //리워드 카드
         {
             tf.gameObject.GetComponent<Image>().sprite = images[2];
+            GameObject game = Instantiate(effect[2], tf.GetChild(3).position, Quaternion.identity, tf);
         }
 
         tf.GetChild(0).GetComponent<Text>().text = target["Name"]; //Title
