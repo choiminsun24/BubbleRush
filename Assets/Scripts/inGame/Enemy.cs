@@ -7,10 +7,33 @@ using TMPro;
 
 public class Enemy : MonoBehaviour
 {
+    //UI
     public TextMesh hpText;
 
-    private int hp;
+    //객체값 - 체력, 속력
+    private float hp;
     private float speed;
+
+    //버블 종류 선택 - 속성, 표정
+    [System.Serializable]
+    public enum Expression
+    {
+        MAD = 0,
+        SMILE = 1,
+        EXPRESSIONLESS = 2
+    };
+
+    public enum Property
+    {
+        GROUND = 0,
+        WATER = 1,
+        WIND = 2
+    };
+
+    [SerializeField]
+    public Expression expression;
+    public Property property;
+
 
     private void Start()
     {
@@ -25,14 +48,43 @@ public class Enemy : MonoBehaviour
     }
 
     //공격에 맞은 경우
-    public void takeDamage(float ATK)
+    public void takeDamage(float ATK, int towerEx)
     {
         if (hp <= 0)
             return;
 
-        int damage = (int)ATK;  //타워의 공격력을 넘겨주면 데미지를 연산.
+        //타워의 공격력으로 데미지 연산
+        float damage = ATK;
+        Expression tower = (Expression)towerEx;
+        Debug.Log("타워 속성: " + tower);
+
+        if (expression == Expression.MAD)
+        {
+            if (tower == Expression.SMILE) //웃는 친구 -> 화난 친구 : 약함
+                damage *= 0.8f;
+            else if (tower == Expression.EXPRESSIONLESS) //무표정 친구 -> 화난 친구 : 강함
+                damage *= 1.2f;
+
+            Debug.Log("damage: " + damage);
+        }
+        else if (expression == Expression.SMILE)
+        {
+            if (tower == Expression.EXPRESSIONLESS) //무표정 친구 -> 웃는 친구 : 약함
+                damage *= 0.8f;
+            else if (tower == Expression.MAD) //화난 친구 -> 웃는 친구 : 강함
+                damage *= 1.2f;
+        }
+        else //expression == Expression.Expressionless
+        {
+            if (tower == Expression.MAD) //화난 친구 -> 무표정 친구 : 약함
+                damage *= 0.8f;
+            else if (tower == Expression.MAD) //웃는 친구 -> 무표정 친구 : 강함
+                damage *= 1.2f;
+        }
 
         hp -= damage;
+
+        Debug.Log("hp: " + hp);
 
         if (hp <= 0)
         {
@@ -44,7 +96,7 @@ public class Enemy : MonoBehaviour
 
     public void updateTextHP()
     {
-        hpText.text = hp.ToString();
+        hpText.text = ((int)hp).ToString();
         //Debug.Log(hp);
     }
 
