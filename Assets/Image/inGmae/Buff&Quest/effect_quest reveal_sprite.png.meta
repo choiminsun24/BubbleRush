@@ -1,0 +1,1235 @@
+fileFormatVersion: 2
+guid: 4db0a48dadf7e93448f49d6db5361fb0
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 10571
+        width: 485
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45fb7f335b315f24aa37f37b801d6769
+      internalID: 1169466019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 10555
+        width: 490
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32f83d05ec2985c439c2ba7dcdf8813f
+      internalID: 2031192178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 2455
+        y: 10507
+        width: 490
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3df51788c15dd7488b80475ed3fdbb1
+      internalID: 59977877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 3536
+        y: 10444
+        width: 485
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42d2f9564ab6655418a2ad65b45f5793
+      internalID: 1707375798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 4617
+        y: 10381
+        width: 485
+        height: 311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abf025af41a2b284db1b5a60a3966eac
+      internalID: -1669745459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 9236
+        width: 485
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d488d35d200b3e14c8d0245f2fb99cf9
+      internalID: 377880949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 9184
+        width: 490
+        height: 427
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e83966741759d354fada031f13097444
+      internalID: 1781933077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 2455
+        y: 9136
+        width: 490
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8f1f05c3a97b6e40b4bff3b6e247e6a
+      internalID: -1809529057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_8
+      rect:
+        serializedVersion: 2
+        x: 3536
+        y: 9094
+        width: 485
+        height: 517
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f474d1e31d454584091a2e6a550478bb
+      internalID: -699569881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_9
+      rect:
+        serializedVersion: 2
+        x: 4617
+        y: 9052
+        width: 485
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e69f1f323cd0194680f4d5b3fc8d239
+      internalID: -1019887070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_10
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 7934
+        width: 485
+        height: 596
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d8358d5332a424783205d6905de2e2
+      internalID: 947602341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_11
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 7902
+        width: 490
+        height: 628
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4316b95d33c073446bf2ca07734b93b5
+      internalID: 805580622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_12
+      rect:
+        serializedVersion: 2
+        x: 2455
+        y: 7865
+        width: 490
+        height: 665
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71906e083ddeab747b357c444e4a82ce
+      internalID: -897449081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_13
+      rect:
+        serializedVersion: 2
+        x: 3536
+        y: 7834
+        width: 485
+        height: 696
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8969cb2b0b50e3f41b1f211a497e83e7
+      internalID: 1014706705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_14
+      rect:
+        serializedVersion: 2
+        x: 4617
+        y: 7802
+        width: 485
+        height: 728
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecf96e9054c54574cb70b077798b8cdc
+      internalID: -688120904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_15
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 6689
+        width: 485
+        height: 765
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d8db8ec222786745bc4aeeaa3597311
+      internalID: 1372093812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_16
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 6681
+        width: 490
+        height: 773
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78a8667222b938f49adfb5c849275378
+      internalID: -1318032888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_17
+      rect:
+        serializedVersion: 2
+        x: 2455
+        y: 6674
+        width: 490
+        height: 780
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 978d62f104af29848a9584a0ddd53402
+      internalID: 1961262248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_18
+      rect:
+        serializedVersion: 2
+        x: 3536
+        y: 6668
+        width: 485
+        height: 786
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78cbe8218d59b44aacf09a7a57cbd12
+      internalID: -181431568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_19
+      rect:
+        serializedVersion: 2
+        x: 4617
+        y: 6663
+        width: 485
+        height: 791
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b2b14e155ba11545a1e634bf643c9a9
+      internalID: -344596442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_20
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 5577
+        width: 485
+        height: 796
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b57c7bdef51a2c148ad09703c71f3c33
+      internalID: -176862796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_21
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 5577
+        width: 490
+        height: 796
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44db1c25ee5135d4daaf80a60c399043
+      internalID: -1959176141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_22
+      rect:
+        serializedVersion: 2
+        x: 2455
+        y: 5571
+        width: 490
+        height: 802
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98a2b990c5664ab44a11abce94555605
+      internalID: 1416561844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_23
+      rect:
+        serializedVersion: 2
+        x: 3536
+        y: 5566
+        width: 485
+        height: 807
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcbb53b81c3c4ff4893f9e32eefdd3f9
+      internalID: 1291642558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_24
+      rect:
+        serializedVersion: 2
+        x: 4617
+        y: 5561
+        width: 485
+        height: 812
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a94c49184bade24f9351ade9292fc80
+      internalID: -1644791174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_25
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 4480
+        width: 485
+        height: 812
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b452d2233552e9a4bb4df89b146d5f4a
+      internalID: 460834346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_26
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 4480
+        width: 490
+        height: 812
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69298ef85dfac6b4980d4256447ca9c8
+      internalID: -292295862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_27
+      rect:
+        serializedVersion: 2
+        x: 2455
+        y: 4475
+        width: 490
+        height: 817
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ce2d9c1ac796bc4fb9bdc4be705f321
+      internalID: 126707652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_28
+      rect:
+        serializedVersion: 2
+        x: 3536
+        y: 4475
+        width: 485
+        height: 817
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db5a296812bebd5489186f14b7a480e8
+      internalID: -542153925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_29
+      rect:
+        serializedVersion: 2
+        x: 4617
+        y: 4475
+        width: 485
+        height: 817
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 592e17e1ca869b04e917d3d3a4a0aeec
+      internalID: 887474705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_30
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 3388
+        width: 485
+        height: 823
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc40844a6fd8a1340a2683d4c251178d
+      internalID: -1529892943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_31
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 3388
+        width: 490
+        height: 823
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7bfbd65bbb73364d99b3fb97e44ac1a
+      internalID: -1966785322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_32
+      rect:
+        serializedVersion: 2
+        x: 2455
+        y: 3388
+        width: 490
+        height: 823
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1608c4e7b93266248affa0decd43d179
+      internalID: -36054014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_33
+      rect:
+        serializedVersion: 2
+        x: 3536
+        y: 3388
+        width: 485
+        height: 823
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 464e05cf41991b24fb07ac19784d22df
+      internalID: 720095924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_34
+      rect:
+        serializedVersion: 2
+        x: 4617
+        y: 3388
+        width: 485
+        height: 823
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f80096945d4b1c5409a83bf322eec877
+      internalID: 685726484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_35
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 2307
+        width: 485
+        height: 823
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e17332b24c6628b4ca81e36077d8143c
+      internalID: 775841545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_36
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 2307
+        width: 490
+        height: 823
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19bb50c5c2bb0a84d99f93a52514cc02
+      internalID: -1747738382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_37
+      rect:
+        serializedVersion: 2
+        x: 2455
+        y: 2307
+        width: 490
+        height: 823
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae4b2761577cfe541892dd87ae8b3889
+      internalID: -1704886968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_38
+      rect:
+        serializedVersion: 2
+        x: 3536
+        y: 2307
+        width: 485
+        height: 823
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6259c04b1b526f4da5a9ade6531a54f
+      internalID: -1899695554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_39
+      rect:
+        serializedVersion: 2
+        x: 4617
+        y: 2307
+        width: 485
+        height: 823
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea2a777b890c1754184f06b7babb6ff4
+      internalID: 1993771040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_40
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 1226
+        width: 485
+        height: 828
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad9eaf280deb9448a24c36911c31edb
+      internalID: -139543015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_41
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 1226
+        width: 490
+        height: 828
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe5ed3f501ac1ca4caf5120e0f4a7a71
+      internalID: -1139869553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_42
+      rect:
+        serializedVersion: 2
+        x: 2455
+        y: 1226
+        width: 490
+        height: 828
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6d0b3805009a8d478836c1c2352b552
+      internalID: 2065677960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_43
+      rect:
+        serializedVersion: 2
+        x: 3536
+        y: 1226
+        width: 485
+        height: 828
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb2ec4dd0a5dd5c4e895cdda7e1e32c5
+      internalID: 720824130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_44
+      rect:
+        serializedVersion: 2
+        x: 4617
+        y: 1226
+        width: 485
+        height: 828
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b50d200724d2bd45a4b02ba06edbb42
+      internalID: -440411782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_45
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 145
+        width: 485
+        height: 828
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 674f23ad273e0bb448a3587e88535fc2
+      internalID: -1768166864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_46
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 145
+        width: 490
+        height: 828
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80d167612ebfe244ea34af4e3356baf0
+      internalID: 564271247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_47
+      rect:
+        serializedVersion: 2
+        x: 2455
+        y: 145
+        width: 490
+        height: 828
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f673a678d5e62a644a1064337594dfc3
+      internalID: -1249286003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_48
+      rect:
+        serializedVersion: 2
+        x: 3536
+        y: 145
+        width: 485
+        height: 828
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 566949707f658e14782879671e459769
+      internalID: 172696420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_quest reveal_sprite_49
+      rect:
+        serializedVersion: 2
+        x: 4617
+        y: 145
+        width: 485
+        height: 828
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d4fc5a49a13b6149bea5b5275f77706
+      internalID: 941687318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      effect_quest reveal_sprite_0: 1169466019
+      effect_quest reveal_sprite_1: 2031192178
+      effect_quest reveal_sprite_10: 947602341
+      effect_quest reveal_sprite_11: 805580622
+      effect_quest reveal_sprite_12: -897449081
+      effect_quest reveal_sprite_13: 1014706705
+      effect_quest reveal_sprite_14: -688120904
+      effect_quest reveal_sprite_15: 1372093812
+      effect_quest reveal_sprite_16: -1318032888
+      effect_quest reveal_sprite_17: 1961262248
+      effect_quest reveal_sprite_18: -181431568
+      effect_quest reveal_sprite_19: -344596442
+      effect_quest reveal_sprite_2: 59977877
+      effect_quest reveal_sprite_20: -176862796
+      effect_quest reveal_sprite_21: -1959176141
+      effect_quest reveal_sprite_22: 1416561844
+      effect_quest reveal_sprite_23: 1291642558
+      effect_quest reveal_sprite_24: -1644791174
+      effect_quest reveal_sprite_25: 460834346
+      effect_quest reveal_sprite_26: -292295862
+      effect_quest reveal_sprite_27: 126707652
+      effect_quest reveal_sprite_28: -542153925
+      effect_quest reveal_sprite_29: 887474705
+      effect_quest reveal_sprite_3: 1707375798
+      effect_quest reveal_sprite_30: -1529892943
+      effect_quest reveal_sprite_31: -1966785322
+      effect_quest reveal_sprite_32: -36054014
+      effect_quest reveal_sprite_33: 720095924
+      effect_quest reveal_sprite_34: 685726484
+      effect_quest reveal_sprite_35: 775841545
+      effect_quest reveal_sprite_36: -1747738382
+      effect_quest reveal_sprite_37: -1704886968
+      effect_quest reveal_sprite_38: -1899695554
+      effect_quest reveal_sprite_39: 1993771040
+      effect_quest reveal_sprite_4: -1669745459
+      effect_quest reveal_sprite_40: -139543015
+      effect_quest reveal_sprite_41: -1139869553
+      effect_quest reveal_sprite_42: 2065677960
+      effect_quest reveal_sprite_43: 720824130
+      effect_quest reveal_sprite_44: -440411782
+      effect_quest reveal_sprite_45: -1768166864
+      effect_quest reveal_sprite_46: 564271247
+      effect_quest reveal_sprite_47: -1249286003
+      effect_quest reveal_sprite_48: 172696420
+      effect_quest reveal_sprite_49: 941687318
+      effect_quest reveal_sprite_5: 377880949
+      effect_quest reveal_sprite_6: 1781933077
+      effect_quest reveal_sprite_7: -1809529057
+      effect_quest reveal_sprite_8: -699569881
+      effect_quest reveal_sprite_9: -1019887070
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

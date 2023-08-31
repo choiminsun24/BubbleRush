@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    const int ENEMYID = 1000;
+    const int ms = 1000;
+
     private static GameManager _instance;
 
     // 인스턴스에 접근하기 위한 프로퍼티
@@ -40,8 +43,6 @@ public class GameManager : MonoBehaviour
 
     // Enemy 난이도 조절
     [Header("Enemy 난이도 조절")]
-    public int num_Enemy = 10;
-    public float spawn_Speed = 1f;
 
     // 적 스폰
     [SerializeField]private GameObject[] prefab_enemy;
@@ -53,21 +54,41 @@ public class GameManager : MonoBehaviour
     List<Dictionary<string, string>> enemyData;
     int enemyIndex = 0;
 
-    
-    ///////////////////////////여기 고치기
-    private IEnumerator SpawnEnemies(int _num_Enemy, float _spawn_Speed)
+    private IEnumerator SpawnEnemies() //int _num_Enemy, float _spawn_Speed)
     {
+        Debug.Log("start 코루틴");
+
         Enemy temp;
-        for (int i=0; i<_num_Enemy; i++)
+        float time = 0;
+        float spawnTime = 0;
+
+        while (int.Parse(enemyData[enemyIndex]["Round"]) == round)
         {
-            GameObject enemy = Instantiate(prefab_enemy[0], spawnPoint.position, Quaternion.identity); //스폰
-            temp = enemy.GetComponent<Enemy>();
-            temp.setEnemy(20, 100); //setEnemy
-            // 해당 라운드 적을 배열에 관리
-            enemies.Add(temp); //현재 라운드 적
-            
-            yield return new WaitForSeconds(_spawn_Speed);
+            time += Time.deltaTime;
+
+            Debug.Log("time: " + time);
+
+            //스폰시간 되면 스폰
+            if (time >= spawnTime)
+            {
+                //버블 생성
+                GameObject enemy = Instantiate(prefab_enemy[int.Parse(enemyData[enemyIndex]["EnemyType"]) - ENEMYID], spawnPoint.position, Quaternion.identity); //스폰
+                temp = enemy.GetComponent<Enemy>();
+                temp.setEnemy(int.Parse(enemyData[enemyIndex]["HealthPoint"]), int.Parse(enemyData[enemyIndex]["velocity"])); //setEnemy
+
+                //배열로 버블 관리
+                enemies.Add(temp);
+
+                enemyIndex++;
+                spawnTime = float.Parse(enemyData[enemyIndex]["SpawnTime"]) / ms; //스폰 시간 미리 세팅
+
+                Debug.Log(spawnTime);
+            }
+
+            yield return null;  
         }
+
+        round++;
     }
 
     // 배열에서 적 제거
@@ -134,7 +155,7 @@ public class GameManager : MonoBehaviour
         ui.UpdateStageCoin(inGameData.GetStageCoin());
         SoundManager.Instance.BGMToInGame();
 
-        enemyData = ExelReader.Read("Images/inGame/Enemy/Stage1");
+        enemyData = ExelReader.Read("Data/inGame/Stage1");
 
         StartQuest();
     }
@@ -148,7 +169,7 @@ public class GameManager : MonoBehaviour
     }
 
     // 라운드 관리
-    private int round = 1;
+    private int round = 0;
 
     public int GetRoundNum()
     {
@@ -158,9 +179,9 @@ public class GameManager : MonoBehaviour
     // 다음 라운드 버튼 누르면 시작
     public void StartRound()
     {
-        Time.timeScale = 1;
-        StartCoroutine(SpawnEnemies(num_Enemy, spawn_Speed));
         round++;
+        Time.timeScale = 1;
+        StartCoroutine(SpawnEnemies());
 
         //Debug.Log(round);
     }

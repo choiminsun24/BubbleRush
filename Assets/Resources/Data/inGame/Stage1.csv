@@ -1,6 +1,6 @@
 ﻿라운드,등장 시간[ms],등장 적 종류,체력,속도
 int,int,int,int,int
-Round,SpawnTime,EnemyType,HelathPoint,velocity
+Round,SpawnTime,EnemyType,HealthPoint,velocity
 1,0,1000,100,100
 1,1000,1000,100,100
 1,2000,1000,100,100

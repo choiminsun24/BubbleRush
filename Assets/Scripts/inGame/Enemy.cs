@@ -11,8 +11,8 @@ public class Enemy : MonoBehaviour
     public TextMesh hpText;
 
     //객체값 - 체력, 속력
-    private float hp;
-    private float speed;
+    private int hp;
+    private int speed;
 
     //버블 종류 선택 - 속성, 표정
     [System.Serializable]
@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
         GetComponent<PathFollower>().pathCreator = GameObject.Find("Path").GetComponent<PathCreator>();
     }
 
-    public void setEnemy(int hp, float speed)
+    public void setEnemy(int hp, int speed)
     {
         this.hp = hp;
         this.speed = speed;
@@ -82,7 +82,7 @@ public class Enemy : MonoBehaviour
                 damage *= 1.2f;
         }
 
-        hp -= damage;
+        hp -= Mathf.RoundToInt(damage);
 
         Debug.Log("hp: " + hp);
 
@@ -96,7 +96,7 @@ public class Enemy : MonoBehaviour
 
     public void updateTextHP()
     {
-        hpText.text = ((int)hp).ToString();
+        hpText.text = hp.ToString();
         //Debug.Log(hp);
     }
 
