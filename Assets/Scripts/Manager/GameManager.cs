@@ -47,12 +47,14 @@ public class GameManager : MonoBehaviour
     public float spawn_Speed = 1f;
 
     // 적 스폰
-    [SerializeField]private Object prefab_enemy;
+    [SerializeField]private GameObject[] prefab_enemy;
     [SerializeField]private Transform spawnPoint;
     
     private List<Enemy> enemies = new List<Enemy>();
 
     List<Dictionary<string, string>> enemyData;
+    int enemyIndex = 0;
+
     
     ///////////////////////////여기 고치기
     private IEnumerator SpawnEnemies(int _num_Enemy, float _spawn_Speed)
@@ -60,7 +62,7 @@ public class GameManager : MonoBehaviour
         Enemy temp;
         for (int i=0; i<_num_Enemy; i++)
         {
-            GameObject enemy = Instantiate(prefab_enemy, spawnPoint.position, Quaternion.identity) as GameObject; //스폰
+            GameObject enemy = Instantiate(prefab_enemy[0], spawnPoint.position, Quaternion.identity); //스폰
             temp = enemy.GetComponent<Enemy>();
             temp.setEnemy(20, 100); //setEnemy
             // 해당 라운드 적을 배열에 관리
