@@ -10,12 +10,13 @@ public class Quest : MonoBehaviour
     private List<Dictionary<string, string>> textData;
 
     //UI 동작
-    public Transform canvas; //소속된 Canvas
     public GameObject Box; //UI창
     public Transform[] position; //생성 위치
 
     public GameObject my; //선택된 카드 Panel
     public Transform mine; //선택된 카드
+
+    public UIManager ui;
 
     //선택지
     private int[] num; //선택된 번호
@@ -50,6 +51,7 @@ public class Quest : MonoBehaviour
     public void play()
     {
         Box.SetActive(true);
+        ui.Blind();
 
         //1. 랜덤으로 셋 뽑기
         num = new int[] { -1, -1, -1 };
@@ -83,15 +85,16 @@ public class Quest : MonoBehaviour
     private void cardSetting(Transform tf, Dictionary<string, string> target)
     {
         tf.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(target["Directory"]);
-        tf.GetChild(1).GetComponent<Text>().text = target["Name"]; //Title
-        tf.GetChild(2).GetComponent<Text>().text = target["QuestDescription"]; //Content
-        tf.GetChild(3).GetComponent<Text>().text = target["RewardDescription"]; //Content
+        tf.GetChild(2).GetComponent<Text>().text = target["Name"]; //Title
+        tf.GetChild(3).GetComponent<Text>().text = target["QuestDescription"]; //Content
+        tf.GetChild(4).GetComponent<Text>().text = target["RewardDescription"]; //Content
     }
 
     //선택 후 처리
     public void choice(int n) //카드 선택 시 시행될 메소드
     {
         Box.SetActive(false); //선택 창 제거
+        ui.Blind();
 
         Dictionary<string, string> choice = textData[num[n]]; //선택된 행
         cardSetting(mine, choice);
@@ -113,6 +116,10 @@ public class Quest : MonoBehaviour
 
     public void watchChoice()
     {
+        if (my.activeSelf == true)
+            SoundManager.Instance.popCloseSound();
+
+        ui.Blind();
         my.SetActive(!my.activeSelf);
     }
 

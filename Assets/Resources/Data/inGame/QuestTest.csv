@@ -1,23 +1,23 @@
 ﻿인덱스,//이름,//퀘스트 설명,퀘스트 달성 타입,퀘스트 대상,퀘스트 횟수,//보상 설명,보상 대상,보상 능력치,보상 능력치 수치,보상 타입,//파일경로,이펙트 인덱스
 int,string,string,enum,enum,int,string,enum,enum,int,enum,,int
 Index,Name,QuestDescription,QuestType,QuestTarget,QuestCount,RewardDescription,RewardTarget,RewardAbility,RewardValue[%],RewardCount,Directory,EffectIndex
-6000,합성의 신,타워 합성 5번 진행,Fusion,Tower,5,야성이 발현된 타워의 공격 속도 + 20%,WildnessOpenedTower,AttackSpeed,20,Once,"Assets/Resources/inGame/Quest/""파일명""",6754 6755
-6001,합성의 달인,타워 합성 3번 진행,Fusion,Tower,3,야성이 발현된 타워의 공격 속도 + 10%,WildnessOpenedTower,AttackSpeed,10,Once,"Assets/Resources/inGame/Quest/""파일명""",6754 6755
-6002,약자들의 대반격,야성이 발현되지 않은 타워가 전장에 7개 존재,Exist,WildnesslessTower,7,매 라운드마다 야성이 발현되지 않은 타워의 공격력 + 7%,WildnesslessTower,Attack,7,EveryRound,"Assets/Resources/inGame/Quest/""파일명""",6754 6755
-6003,약자들의 반격,야성이 발현되지 않은 타워가 전장에 5개 존재,Exist,WildnesslessTower,5,매 라운드마다 야성이 발현되지 않은 타워의 공격력 + 4%,WildnesslessTower,Attack,4,EveryRound,"Assets/Resources/inGame/Quest/""파일명""",6754 6755
-6004,웃는 얼굴에 침 뱉기,웃는 버블 30개 처치,Kill,SmileBubble,30,웃는 버블이 받는 대미지 +15%,ToSmileBubble,Damaged,15,Once,"Assets/Resources/inGame/Quest/""파일명""",6754 6755
-6005,웃는 얼굴에 딱밤,웃는 버블 20개 처치,Kill,SmileBubble,20,웃는 버블이 받는 대미지 + 7%,ToSmileBubble,Damaged,7,Once,"Assets/Resources/inGame/Quest/""파일명""",6754 6755
-6006,눈을 왜 그렇게 떠,무표정 버블 30개 처치,Kill,ExpressionlessBubble,30,무표정 버블이 받는 대미지 +15%,ToExpressionlessBubble,Damaged,15,Once,"Assets/Resources/inGame/Quest/""파일명""",6754 6755
-6007,표정을 읽을 수가 없네,무표정 버블 20개 처치,Kill,ExpressionlessBubble,20,무표정 버블이 받는 대미지 +7%,ToExpressionlessBubble,Damaged,7,Once,"Assets/Resources/inGame/Quest/""파일명""",6754 6755
-6008,너가 화내면 어쩔건데,화내는 버블 30개 처치,Kill,MadBubble,30,화내는 버블이 받는 대미지 +15%,ToMadBubble,Damaged,15,Once,"Assets/Resources/inGame/Quest/""파일명""",6754 6755
-6009,화 좀 그만 내,화내는 버블 20개 처치,Kill,MadBubble,20,화내는 버블이 받는 대미지 +7%,ToMadBubble,Damaged,7,Once,"Assets/Resources/inGame/Quest/""파일명""",6754 6755
-6010,스킬 퍼붓기,스킬을 50번 사용,Skill,Tower,50,모든 타워 스킬 쿨타임 감소 +20%,AllTower,CoolTime,20,Once,"Assets/Resources/inGame/Quest/""파일명""",6754 6755
-6011,스킬을 많이많이,스킬을 30번 사용,Skill,Tower,30,모든 타워 스킬 쿨타임 감소 +10%,AllTower,CoolTime,10,Once,"Assets/Resources/inGame/Quest/""파일명""",6754 6755
-6012,나는 부자가 될거야,골드를 400골드만큼 보유,Possesion,Gold,400,400골드 지급,Gold,null,40000,Once,"Assets/Resources/inGame/Quest/""파일명""",6754 6755
-6013,,,,,,,,,,,"Assets/Resources/inGame/Quest/""파일명""",
-6014,,,,,,,,,,,"Assets/Resources/inGame/Quest/""파일명""",
-6015,,,,,,,,,,,"Assets/Resources/inGame/Quest/""파일명""",
-6016,,,,,,,,,,,"Assets/Resources/inGame/Quest/""파일명""",
-6017,,,,,,,,,,,"Assets/Resources/inGame/Quest/""파일명""",
-6018,,,,,,,,,,,"Assets/Resources/inGame/Quest/""파일명""",
-6019,,,,,,,,,,,"Assets/Resources/inGame/Quest/""파일명""",
+6000,합성의 신,타워 합성 5번 진행,Fusion,Tower,5,야성이 발현된 타워의 공격 속도 + 20%,WildnessOpenedTower,AttackSpeed,20,Once,Images/inGame/Quest/synthesisGod,6754 6755
+6001,합성의 달인,타워 합성 3번 진행,Fusion,Tower,3,야성이 발현된 타워의 공격 속도 + 10%,WildnessOpenedTower,AttackSpeed,10,Once,Images/inGame/Quest/synthesisMaster,6754 6755
+6002,약자들의 대반격,야성이 발현되지 않은 타워가 전장에 7개 존재,Exist,WildnesslessTower,7,매 라운드마다 야성이 발현되지 않은 타워의 공격력 + 7%,WildnesslessTower,Attack,7,EveryRound,Images/inGame/Quest/bigRevolution,6754 6755
+6003,약자들의 반격,야성이 발현되지 않은 타워가 전장에 5개 존재,Exist,WildnesslessTower,5,매 라운드마다 야성이 발현되지 않은 타워의 공격력 + 4%,WildnesslessTower,Attack,4,EveryRound,Images/inGame/Quest/revolution,6754 6755
+6004,웃는 얼굴에 침 뱉기,웃는 버블 30개 처치,Kill,SmileBubble,30,웃는 버블이 받는 대미지 +15%,ToSmileBubble,Damaged,15,Once,Images/inGame/Quest/spit,6754 6755
+6005,웃는 얼굴에 딱밤,웃는 버블 20개 처치,Kill,SmileBubble,20,웃는 버블이 받는 대미지 + 7%,ToSmileBubble,Damaged,7,Once,Images/inGame/Quest/flick,6754 6755
+6006,눈을 왜 그렇게 떠,무표정 버블 30개 처치,Kill,ExpressionlessBubble,30,무표정 버블이 받는 대미지 +15%,ToExpressionlessBubble,Damaged,15,Once,Images/inGame/Quest/stare,6754 6755
+6007,표정을 읽을 수가 없네,무표정 버블 20개 처치,Kill,ExpressionlessBubble,20,무표정 버블이 받는 대미지 +7%,ToExpressionlessBubble,Damaged,7,Once,Images/inGame/Quest/pokerFace,6754 6755
+6008,너가 화내면 어쩔건데,화내는 버블 30개 처치,Kill,MadBubble,30,화내는 버블이 받는 대미지 +15%,ToMadBubble,Damaged,15,Once,Images/inGame/Quest/takeKing,6754 6755
+6009,화 좀 그만 내,화내는 버블 20개 처치,Kill,MadBubble,20,화내는 버블이 받는 대미지 +7%,ToMadBubble,Damaged,7,Once,Images/inGame/Quest/hysterics,6754 6755
+6010,스킬 퍼붓기,스킬을 50번 사용,Skill,Tower,50,모든 타워 스킬 쿨타임 감소 +20%,AllTower,CoolTime,20,Once,Images/inGame/Quest/skillskillskill,6754 6755
+6011,스킬을 많이많이,스킬을 30번 사용,Skill,Tower,30,모든 타워 스킬 쿨타임 감소 +10%,AllTower,CoolTime,10,Once,Images/inGame/Quest/skillskill,6754 6755
+6012,나는 부자가 될거야,골드를 400골드만큼 보유,Possesion,Gold,400,400골드 지급,Gold,null,40000,Once,Images/inGame/Quest/Rich,6754 6755
+6013,,,,,,,,,,,"Images/inGame/Quest/""파일명""",
+6014,,,,,,,,,,,"Images/inGame/Quest/""파일명""",
+6015,,,,,,,,,,,"Images/inGame/Quest/""파일명""",
+6016,,,,,,,,,,,"Images/inGame/Quest/""파일명""",
+6017,,,,,,,,,,,"Images/inGame/Quest/""파일명""",
+6018,,,,,,,,,,,"Images/inGame/Quest/""파일명""",
+6019,,,,,,,,,,,"Images/inGame/Quest/""파일명""",

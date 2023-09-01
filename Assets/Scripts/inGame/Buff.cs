@@ -12,11 +12,12 @@ public class Buff : MonoBehaviour
     private List<int> buffNum = new List<int>(); //각 버프의 번호 저장.
 
     //UI 동작
-    public Transform canvas; //소속된 Canvas
     public GameObject Box; //UI창
     public Transform[] position; //생성 위치
     public Sprite[] images;
     public GameObject[] effect;
+
+    public UIManager ui;
 
     public GameObject my;
 
@@ -26,6 +27,10 @@ public class Buff : MonoBehaviour
 
     //선택된
     public Transform[] mine;
+
+    //이펙트
+    private GameObject[] effec;
+    int effectNum = 0;
 
     //프로그램
     private static Buff instance;
@@ -67,6 +72,7 @@ public class Buff : MonoBehaviour
     public void play()
     {
         Box.SetActive(true);
+        ui.Blind();
 
         //1. 랜덤으로 셋 뽑기
         num = new int[] { -1, -1, -1 };
@@ -103,18 +109,18 @@ public class Buff : MonoBehaviour
         if (target["Type"].Equals("NatureBless")) //버프 카드
         {
             tf.GetChild(1).GetComponent<Image>().sprite = images[0];
-            GameObject game = Instantiate(effect[0], tf.GetChild(4).position, Quaternion.identity, tf);
+            effect[effectNum] = Instantiate(effect[0], tf.GetChild(3).position, Quaternion.identity);
 
         }
         else if (target["Type"].Equals("DarknessCurse")) //디버프 카드
         {
             tf.GetChild(1).GetComponent<Image>().sprite = images[1];
-            GameObject game = Instantiate(effect[1], tf.GetChild(4).position, Quaternion.identity, tf);
+            GameObject game = Instantiate(effect[1], tf.GetChild(3).position, Quaternion.identity);
         }
         else //리워드 카드
         {
             tf.GetChild(1).GetComponent<Image>().sprite = images[2];
-            GameObject game = Instantiate(effect[2], tf.GetChild(4).position, Quaternion.identity, tf);
+            GameObject game = Instantiate(effect[2], tf.GetChild(3).position, Quaternion.identity);
         }
 
         tf.GetChild(2).GetComponent<Text>().text = target["Name"]; //Title
@@ -126,6 +132,8 @@ public class Buff : MonoBehaviour
     public void choice(int n) //카드 선택 시 시행될 메소드
     {
         Box.SetActive(false); //선택 창 제거
+        ui.Blind();
+
         buffNum.RemoveAt(num[n]); //버프 넘에서 선택 번호 제외. -> 다음에 뽑히지 않도록 함.
         Dictionary<string, string> choice = textData[num[n]]; //선택된 행
         cardSetting(mine[mineNum], choice);
@@ -152,6 +160,10 @@ public class Buff : MonoBehaviour
 
     public void watchChoice()
     {
+        if (my.activeSelf == true)
+            SoundManager.Instance.popCloseSound();
+
+        ui.Blind();
         my.SetActive(!my.activeSelf);
     }
 }

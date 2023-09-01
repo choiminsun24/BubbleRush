@@ -105,7 +105,7 @@ public class Enemy : MonoBehaviour
         if(_coin != 0) //타워한테 죽은 경우만 시행
         {
             GameManager.Instance.Coin(_coin); //코인 획득
-            SoundManager.Instance.EffectPlay(SoundManager.Instance.bubblePop); //효과음 재생
+            SoundManager.Instance.EffectPlay(SoundManager.Instance.selectKillSound()); //효과음 재생
         }
         GameManager.Instance.RemoveEnemy(this); //배열에서 제거
         Destroy(gameObject); //오브젝트 제거
