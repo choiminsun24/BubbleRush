@@ -100,6 +100,11 @@ public class TowerController : MonoBehaviour
 
         if(time >= data.time)
         {
+            if(enemies[0] == null)
+            {
+                RemoveEnemies(enemies[0]);
+                return;
+            }
             // 감지된 적 있을 때 바라보기
             angle = Mathf.Atan2(enemies[0].transform.position.y - transform.position.y,
                                 enemies[0].transform.position.x - transform.position.x)
