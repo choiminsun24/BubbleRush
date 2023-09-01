@@ -85,7 +85,7 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             // 합성 드래그 가능
             draggingTower.GetComponent<TowerController>().isInstantiated = true;
             // 타워 종류별 데이터 저장
-            TowerManager.Instance.towers[int.Parse(draggingTower.name.Replace("Tower", ""))].Push(draggingTower);
+            TowerManager.Instance.towers[int.Parse(draggingTower.name.Replace("Tower", ""))].Add(draggingTower);
         }
 
         // 드래그를 시작하면 부모가 canvas로 설정되기 때문에
