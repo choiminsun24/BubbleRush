@@ -25,8 +25,7 @@ Index,Name,Type,Description,NatureBlessTargetTower,NatureBlessTarget,NatureBless
 2021,질척한 땅,DarknessCurse,"수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 지상 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -4%",Water,AttackSpeed,4,Ground,AttackSpeed,-4,null,null,6752,Images/inGame/Buff/Mud
 2022,질척한 땅,DarknessCurse,"수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 지상 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -4%",Water,Attack,4,Ground,Attack,-4,null,null,6752,Images/inGame/Buff/Mud
 2023,질척한 땅,DarknessCurse,"수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 지상 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -4%",Water,Range,4,Ground,Range,-4,null,null,6752,Images/inGame/Buff/Mud
-2024,질척한 땅,DarknessCurse,"수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n
-지상 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -4%",Water,Cooltime,4,Ground,Cooltime,-4,null,null,6752,Images/inGame/Buff/Mud
+2024,질척한 땅,DarknessCurse,"수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 지상 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -4%",Water,Cooltime,4,Ground,Cooltime,-4,null,null,6752,Images/inGame/Buff/Mud
 2025,건조한 공기,DarknessCurse,"공중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -4%",Wind,AttackSpeed,4,Water,AttackSpeed,-4,null,null,6752,Images/inGame/Buff/Dry
 2026,건조한 공기,DarknessCurse,"공중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -4%",Wind,Attack,4,Water,Attack,-4,null,null,6752,Images/inGame/Buff/Dry
 2027,건조한 공기,DarknessCurse,"공중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 +4% \n 수중 타워 공격 속도, 공격력, 사거리, 쿨타임 감소 -4%",Wind,Range,4,Water,Range,-4,null,null,6752,Images/inGame/Buff/Dry
