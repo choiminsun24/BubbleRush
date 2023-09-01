@@ -6,26 +6,26 @@ public class DetectRange : MonoBehaviour
 {
     public SpriteRenderer sprite;
     [SerializeField] private TowerController tc;
-    public bool hit = false;                    // 타워 설치 가능 구역 여부
+    public bool hit = true;                    // 타워 설치 가능 구역 여부
     [SerializeField] private string category;   // 타워 종류
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if(other.tag == category)
-        {
-            hit = false;
-            // Red
-            sprite.color = new Color(1f, 0f, 0f, sprite.color.a);
-        }
+        // if(other.tag == category)
+        // {
+        //     hit = false;
+        //     // Red
+        //     sprite.color = new Color(1f, 0f, 0f, sprite.color.a);
+        // }
 
-        if (other.tag == "Tower")
-        {
-            hit = true;
-            // Gray
-            sprite.color = new Color(0.5f, 0.5f, 0.5f, sprite.color.a);
-        }
+        // if (other.tag == "Tower")
+        // {
+        //     hit = true;
+        //     // Gray
+        //     sprite.color = new Color(0.5f, 0.5f, 0.5f, sprite.color.a);
+        // }
 
-        else if(other.tag == "Player")
+        if(other.tag == "Player")
         {
             tc.DetectEnemies(other.gameObject);
         }
@@ -39,6 +39,13 @@ public class DetectRange : MonoBehaviour
             // Red
             sprite.color = new Color(1f, 0f, 0f, sprite.color.a);
         }
+        if (other.tag == category)
+        {
+            hit = false;
+            // Red
+            sprite.color = new Color(1f, 0f, 0f, sprite.color.a);
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D other) 
@@ -53,12 +60,12 @@ public class DetectRange : MonoBehaviour
 
         if (other.tag == "Tower")
         {
-            hit = false;
-            // Red
-            sprite.color = new Color(1f, 0f, 0f, sprite.color.a);
+            hit = true;
+            // Gray
+            sprite.color = new Color(0.5f, 0.5f, 0.5f, sprite.color.a);
         }
 
-        else if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player")
         {
             tc.RemoveEnemies(other.gameObject);
         }
