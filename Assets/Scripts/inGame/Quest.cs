@@ -39,7 +39,7 @@ public class Quest : MonoBehaviour
     {
         instance = this; //마지막에 생성된 하나만 사용.
 
-        textData = ExelReader.Read("Images/inGame/Quest/QuestTest"); //버프 데이터 받아오기
+        textData = ExelReader.Read("Data/inGame/QuestTest"); //버프 데이터 받아오기
 
         //GameManager Start보다 빠르게
         Box.SetActive(false);
@@ -82,10 +82,10 @@ public class Quest : MonoBehaviour
     //세팅할 카드, 세팅할 정보
     private void cardSetting(Transform tf, Dictionary<string, string> target)
     {
-        tf.GetChild(0).GetComponent<Text>().text = target["Name"]; //Title
-        tf.GetChild(1).GetComponent<Text>().text = target["QuestDescription"]; //Content
-        tf.GetChild(2).GetComponent<Text>().text = target["RewardDescription"]; //Content
-        tf.GetChild(3).GetComponent<Image>().sprite = Resources.Load<Sprite>(target["Directory"]);
+        tf.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(target["Directory"]);
+        tf.GetChild(1).GetComponent<Text>().text = target["Name"]; //Title
+        tf.GetChild(2).GetComponent<Text>().text = target["QuestDescription"]; //Content
+        tf.GetChild(3).GetComponent<Text>().text = target["RewardDescription"]; //Content
     }
 
     //선택 후 처리
