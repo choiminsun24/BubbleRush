@@ -15,6 +15,21 @@ public class FusionRange : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.tag == "Tower")
+        {
+            canFuse = true;
+            if(targetTower == other.gameObject)
+            {
+                return;
+            }
+            else
+            {
+                targetTower = other.gameObject;
+            }
+        }
+    }
     private void OnTriggerExit2D(Collider2D other)
     {
         if(other.tag == "Tower")
