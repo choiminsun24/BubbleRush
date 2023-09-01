@@ -1,10 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tower0Attack : MonoBehaviour
 {
-    [SerializeField] private Transform skillGuage;
+    // For Skill Guage
+    [SerializeField] private Slider slider;
+    [SerializeField] private GameObject fill;
+    [SerializeField] private RectTransform skillGuage;
+    [SerializeField] private Canvas canvas;
+    [SerializeField] private RectTransform rectParent;
+    private Vector2 localPos = Vector2.zero;
+    private bool isZero = false;
+
     private TowerController tc;
     private float coolTime, skillTime = 0f;
     private bool canTongue = false;
@@ -18,7 +27,15 @@ public class Tower0Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!GameManager.Instance.isStarted)
+        // Skill Guage UI Position
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectParent,
+                                                                Camera.main.WorldToScreenPoint(transform.position + new Vector3(0,0.6f,0)), 
+                                                                canvas.worldCamera, out localPos);
+        skillGuage.localPosition = localPos;
+        isZero = slider.value == 0 ? false : true;
+        fill.SetActive(isZero);
+
+        if (!GameManager.Instance.isStarted)
         {
             // 라운드 끝나면 false 되는 시기 넣어야함
             return;
@@ -31,7 +48,7 @@ public class Tower0Attack : MonoBehaviour
         }
         else
         {
-            skillGuage.localScale = new Vector3(1 / coolTime * skillTime, skillGuage.localScale.y, skillGuage.localScale.z);
+            slider.value = 1 / coolTime * skillTime;
         }
     }
 
