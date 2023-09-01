@@ -39,13 +39,15 @@ public class SoundManager : MonoBehaviour
         effectSlider.value = PlayerPrefs.GetFloat("EffectVolume", 0.75f);
     }
 
-    //»ç¿îµå
+    //ï¿½ï¿½ï¿½ï¿½
     [Header("Sound Manager")]
     public AudioSource bubblePop;
     public AudioClip lobby;
     public AudioClip inGame;
+    public AudioClip inStage;
+    public AudioClip [] towerInstall, skillBite;
 
-    //º¼·ý Á¶Àý
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField] private AudioMixer mixer;
     [SerializeField] private Slider slider;
     [SerializeField] private Slider effectSlider;
@@ -62,7 +64,7 @@ public class SoundManager : MonoBehaviour
         PlayerPrefs.SetFloat("EffectVolume", sliderValue);
     }
 
-    //Áøµ¿ Á¶Àý
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField] private Text onOff;
     public void SetVibration()
     {
@@ -78,8 +80,9 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    //»ç¿îµå ¼±ÅÃ
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public AudioSource bgm;
+    public AudioSource effect;
 
     public void BGMStop()
     {
@@ -96,5 +99,16 @@ public class SoundManager : MonoBehaviour
     {
         bgm.clip = inGame;
         bgm.Play();
+    }
+
+    public void BGMPlay(AudioClip audio)
+    {
+        bgm.clip = audio;
+        bgm.Play();
+    }
+    public void EffectPlay(AudioClip audio)
+    {
+        effect.clip = audio;
+        effect.Play();
     }
 }

@@ -23,10 +23,10 @@ public class TowerManager : MonoBehaviour
         }
     }
 
-    public Stack<GameObject>[] towers = new Stack<GameObject>[6];
-    private Stack<GameObject> tower0 = new Stack<GameObject>(), tower1 = new Stack<GameObject>(),
-                            tower2 = new Stack<GameObject>(), tower3 = new Stack<GameObject>(), 
-                            tower4 = new Stack<GameObject>(), tower5 = new Stack<GameObject>();
+    public List<GameObject>[] towers = new List<GameObject>[6];
+    private List<GameObject> tower0 = new List<GameObject>(), tower1 = new List<GameObject>(),
+                            tower2 = new List<GameObject>(), tower3 = new List<GameObject>(), 
+                            tower4 = new List<GameObject>(), tower5 = new List<GameObject>();
 
     private void Awake()
     {
@@ -151,6 +151,8 @@ public class TowerManager : MonoBehaviour
                     if (towerController)
                     {
                         towerController.LevelUp();
+                        // find 때문에 Stack -> List로 변경
+                        towers[towerCategory].Remove(towers[towerCategory].Find(x => x == touchedObject));
                         Destroy(touchedObject, 0.1f);
                     }
                     else
