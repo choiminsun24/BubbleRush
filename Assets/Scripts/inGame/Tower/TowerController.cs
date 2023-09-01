@@ -17,6 +17,9 @@ public class TowerController : MonoBehaviour
     private float time = 0f;
 
     public List<GameObject> enemies;
+    
+    public bool canTongue = false;
+    [SerializeField] private int towerCategory = 0;
     [SerializeField] private Object bullet;
 
     private float angle;
@@ -79,6 +82,17 @@ public class TowerController : MonoBehaviour
 
     public void Attack()
     {
+        if(towerCategory == 1)
+        {
+            if(enemies.Count!=0)
+            {
+                canTongue = true;
+            }
+            else
+            {
+                canTongue = false;
+            }
+        }
         if(enemies.Count==0)
         {
             return;
@@ -93,6 +107,11 @@ public class TowerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, angle - 270);
             time = 0f;
 
+            if(towerCategory == 1)
+            {
+                return;
+            }
+            
             // Bullet 생성하여 적을 향해 이동시키기
             foreach (GameObject enemy in enemies)
             {

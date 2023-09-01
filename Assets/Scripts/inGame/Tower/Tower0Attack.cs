@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Tower0Attack : MonoBehaviour
 {
+    [SerializeField] private GameObject tongue;
     // For Skill Guage
     [SerializeField] private Slider slider;
     [SerializeField] private GameObject fill;
@@ -34,6 +35,9 @@ public class Tower0Attack : MonoBehaviour
         skillGuage.localPosition = localPos;
         isZero = slider.value == 0 ? false : true;
         fill.SetActive(isZero);
+
+        // 혀 일반 공격
+        tongue.SetActive(tc.canTongue);
 
         if (!GameManager.Instance.isStarted)
         {
