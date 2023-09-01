@@ -12,7 +12,6 @@ public class Buff : MonoBehaviour
     private List<int> buffNum = new List<int>(); //각 버프의 번호 저장.
 
     //UI 동작
-    public Transform canvas; //소속된 Canvas
     public GameObject Box; //UI창
     public Transform[] position; //생성 위치
     public Sprite[] images;

@@ -10,7 +10,6 @@ public class Quest : MonoBehaviour
     private List<Dictionary<string, string>> textData;
 
     //UI 悼累
-    public Transform canvas; //家加等 Canvas
     public GameObject Box; //UI芒
     public Transform[] position; //积己 困摹
 
