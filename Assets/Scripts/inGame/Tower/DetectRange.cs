@@ -13,16 +13,16 @@ public class DetectRange : MonoBehaviour
 
         if(other.tag == category)
         {
-            hit = true;
-            // Gray
-            sprite.color = new Color(0.5f, 0.5f, 0.5f, sprite.color.a);
+            hit = false;
+            // Red
+            sprite.color = new Color(1f, 0f, 0f, sprite.color.a);
         }
 
         if (other.tag == "Tower")
         {
-            hit = false;
-            // Red
-            sprite.color = new Color(1f, 0f, 0f, sprite.color.a);
+            hit = true;
+            // Gray
+            sprite.color = new Color(0.5f, 0.5f, 0.5f, sprite.color.a);
         }
 
         else if(other.tag == "Player")
@@ -46,16 +46,16 @@ public class DetectRange : MonoBehaviour
 
         if(other.tag == category)
         {
-            hit = false;
-            // Red
-            sprite.color = new Color(1f, 0f, 0f, sprite.color.a);
+            hit = true;
+            // Gray
+            sprite.color = new Color(0.5f, 0.5f, 0.5f, sprite.color.a);
         }
 
         if (other.tag == "Tower")
         {
-            hit = true;
-            // Gray
-            sprite.color = new Color(0.5f, 0.5f, 0.5f, sprite.color.a);
+            hit = false;
+            // Red
+            sprite.color = new Color(1f, 0f, 0f, sprite.color.a);
         }
 
         else if(other.gameObject.tag == "Player")
