@@ -1918,6 +1918,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 5173601117874629377, guid: 1c93633dd136ad94faddff1161c83eae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5173601117877416071, guid: 1c93633dd136ad94faddff1161c83eae, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5357,6 +5361,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1829216143209700447, guid: e141fa11314530f459de89ca767e537c, type: 3}
+      propertyPath: buff
+      value: 
+      objectReference: {fileID: 1808067110}
+    - target: {fileID: 1829216143209700447, guid: e141fa11314530f459de89ca767e537c, type: 3}
+      propertyPath: quest
+      value: 
+      objectReference: {fileID: 1919119162}
     - target: {fileID: 1829216143209700447, guid: e141fa11314530f459de89ca767e537c, type: 3}
       propertyPath: grayMap
       value: 

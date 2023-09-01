@@ -102,6 +102,7 @@ public class TowerManager : MonoBehaviour
                     fusionRange.gameObject.SetActive(true);
 
                     grayMap.SetActive(true);
+                    // 같은 종류, 레벨의 타워만 띄우기
                     for(int i = 0; i<towers.Length; i++)
                     {
                         if(i != towerCategory)
@@ -109,6 +110,16 @@ public class TowerManager : MonoBehaviour
                             foreach (var tower in towers[i])
                             {
                                 tower.SetActive(false);
+                            }
+                        }
+                        else
+                        {
+                            foreach (var tower in towers[i])
+                            {
+                                if(towerController.level != tower.GetComponent<TowerController>().level)
+                                {
+                                    tower.SetActive(false);
+                                }
                             }
                         }
                     }
@@ -161,19 +172,17 @@ public class TowerManager : MonoBehaviour
                     }
                 }
             }
-
-            towerController = null;
-            grayMap.SetActive(false);
+            
+            // 나머지 타워 다시 복귀
             for (int i = 0; i < towers.Length; i++)
             {
-                if (i != towerCategory)
+                foreach (var tower in towers[i])
                 {
-                    foreach (var tower in towers[i])
-                    {
-                        tower.SetActive(true);
-                    }
+                    tower.SetActive(true);
                 }
             }
+            towerController = null;
+            grayMap.SetActive(false);
             dragging = false;
 
             touchedObject.transform.position = initPos;

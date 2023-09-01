@@ -11,7 +11,7 @@ public class TowerController : MonoBehaviour
     private Tower data;
     BulletController bullCtr;
 
-    private int level = 1;
+    public int level = 1;
     [SerializeField] private Sprite[] otherImgs;
 
     private float time = 0f;
@@ -36,7 +36,7 @@ public class TowerController : MonoBehaviour
 
         data = new Tower();
         data.hp = 10;
-        data.attack = 10;
+        data.attack = 20;
         data.range = 3;
         data.time = 1f;
     }
