@@ -89,8 +89,6 @@ public class GameManager : MonoBehaviour
 
             yield return null;  
         }
-
-        round++;
     }
 
     // 배열에서 적 제거

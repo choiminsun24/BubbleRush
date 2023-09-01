@@ -46,7 +46,7 @@ public class Buff : MonoBehaviour
     {
         instance = this; //마지막에 생성된 하나만 사용.
 
-        textData = ExelReader.Read("Data/inGame/BuffTest"); //버프 데이터 받아오기
+        textData = ExelReader.Read("Data/inGame/BuffTable"); //버프 데이터 받아오기
     }
 
     public void Start()
@@ -102,24 +102,24 @@ public class Buff : MonoBehaviour
         //카드 프레임
         if (target["Type"].Equals("NatureBless")) //버프 카드
         {
-            tf.gameObject.GetComponent<Image>().sprite = images[0];
-            GameObject game = Instantiate(effect[0], tf.GetChild(3).position, Quaternion.identity, tf);
+            tf.GetChild(1).GetComponent<Image>().sprite = images[0];
+            GameObject game = Instantiate(effect[0], tf.GetChild(4).position, Quaternion.identity, tf);
 
         }
         else if (target["Type"].Equals("DarknessCurse")) //디버프 카드
         {
-            tf.gameObject.GetComponent<Image>().sprite = images[1];
-            GameObject game = Instantiate(effect[1], tf.GetChild(3).position, Quaternion.identity, tf);
+            tf.GetChild(1).GetComponent<Image>().sprite = images[1];
+            GameObject game = Instantiate(effect[1], tf.GetChild(4).position, Quaternion.identity, tf);
         }
         else //리워드 카드
         {
-            tf.gameObject.GetComponent<Image>().sprite = images[2];
-            GameObject game = Instantiate(effect[2], tf.GetChild(3).position, Quaternion.identity, tf);
+            tf.GetChild(1).GetComponent<Image>().sprite = images[2];
+            GameObject game = Instantiate(effect[2], tf.GetChild(4).position, Quaternion.identity, tf);
         }
 
-        tf.GetChild(0).GetComponent<Text>().text = target["Name"]; //Title
-        tf.GetChild(1).GetComponent<Text>().text = target["Description"]; //Content
-        tf.GetChild(2).GetComponent<Image>().sprite = Resources.Load<Sprite>(target["Directory"]);
+        tf.GetChild(2).GetComponent<Text>().text = target["Name"]; //Title
+        tf.GetChild(3).GetComponent<Text>().text = target["Description"]; //Content
+        tf.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(target["Directory"]);
     }
 
     //선택 후 처리

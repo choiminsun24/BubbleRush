@@ -51,7 +51,6 @@ public class UIManager : MonoBehaviour
     {
         //slider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
         //effectSlider.value = PlayerPrefs.GetFloat("EffectVolume", 0.75f);
-        towerWindowAnim.SetBool("active", true);
     }
 
     //// 진동 조절
@@ -113,18 +112,5 @@ public class UIManager : MonoBehaviour
                 }
             }
         }
-    }
-
-    //Tower Window
-    public Animator towerWindowAnim;
-
-    public void WindowUp()
-    {
-        towerWindowAnim.SetBool("active", true);
-    }
-
-    public void WindowDown()
-    {
-        towerWindowAnim.SetBool("active", false);
     }
 }
