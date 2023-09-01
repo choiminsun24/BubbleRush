@@ -61,13 +61,21 @@ public class UIManager : MonoBehaviour
     //    {
     //        case "ON":
     //            onOff.text = "OFF";
-                
+
     //        break;
     //        case "OFF":
     //            onOff.text = "ON";
     //        break;
     //    }
     //}
+
+    public GameObject WinPanel;
+
+    public void Win()
+    {
+        WinPanel.SetActive(true);
+        SoundManager.Instance.EffectPlay(SoundManager.Instance.win);
+    }
 
     public GameObject gameOverWindow;
     // 게임 오버에서 홈 화면

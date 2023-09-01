@@ -27,6 +27,10 @@ public class Buff : MonoBehaviour
     //선택된
     public Transform[] mine;
 
+    //이펙트
+    private GameObject[] effec;
+    int effectNum = 0;
+
     //프로그램
     private static Buff instance;
 
@@ -103,18 +107,18 @@ public class Buff : MonoBehaviour
         if (target["Type"].Equals("NatureBless")) //버프 카드
         {
             tf.GetChild(1).GetComponent<Image>().sprite = images[0];
-            GameObject game = Instantiate(effect[0], tf.GetChild(4).position, Quaternion.identity, tf);
+            effect[effectNum] = Instantiate(effect[0], tf.GetChild(3).position, Quaternion.identity);
 
         }
         else if (target["Type"].Equals("DarknessCurse")) //디버프 카드
         {
             tf.GetChild(1).GetComponent<Image>().sprite = images[1];
-            GameObject game = Instantiate(effect[1], tf.GetChild(4).position, Quaternion.identity, tf);
+            GameObject game = Instantiate(effect[1], tf.GetChild(3).position, Quaternion.identity);
         }
         else //리워드 카드
         {
             tf.GetChild(1).GetComponent<Image>().sprite = images[2];
-            GameObject game = Instantiate(effect[2], tf.GetChild(4).position, Quaternion.identity, tf);
+            GameObject game = Instantiate(effect[2], tf.GetChild(3).position, Quaternion.identity);
         }
 
         tf.GetChild(2).GetComponent<Text>().text = target["Name"]; //Title
@@ -152,6 +156,8 @@ public class Buff : MonoBehaviour
 
     public void watchChoice()
     {
+        if (my.activeSelf == true)
+            SoundManager.Instance.popCloseSound();
         my.SetActive(!my.activeSelf);
     }
 }

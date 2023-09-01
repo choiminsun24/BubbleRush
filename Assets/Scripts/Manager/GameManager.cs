@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
         {
             if(round >= 10)
             {
+                ui.Win();
                 return;
             }
 
@@ -138,6 +139,7 @@ public class GameManager : MonoBehaviour
     // 게임 생명 닳았을 때
     private void GameOver()
     {
+        SoundManager.Instance.EffectPlay(SoundManager.Instance.die);
         Debug.Log("Game Over");
         // UI 띄우기
         ui.gameOverWindow.SetActive(true);
@@ -222,10 +224,12 @@ public class GameManager : MonoBehaviour
     public void StartBuff()
     {
         Buff.Instance.play();
+        SoundManager.Instance.EffectPlay(SoundManager.Instance.card);
     }
 
     public void StartQuest()
     {
         Quest.Instance.play();
+        SoundManager.Instance.EffectPlay(SoundManager.Instance.card);
     }
 }

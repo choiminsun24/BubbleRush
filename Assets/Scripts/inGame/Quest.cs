@@ -113,6 +113,8 @@ public class Quest : MonoBehaviour
 
     public void watchChoice()
     {
+        if (my.activeSelf == true)
+            SoundManager.Instance.popCloseSound();
         my.SetActive(!my.activeSelf);
     }
 

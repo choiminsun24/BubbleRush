@@ -46,11 +46,28 @@ public class SoundManager : MonoBehaviour
     public AudioClip inGame;
     public AudioClip inStage;
     public AudioClip [] towerInstall, skillBite;
+    public AudioClip card; //0:카드 선택창 1:버프   2:디버프   3:리워드
+    public AudioClip die;
+    public AudioClip[] kill;
+    public AudioClip popUpClose;
+    public AudioClip win;
 
     //���� ����
     [SerializeField] private AudioMixer mixer;
     [SerializeField] private Slider slider;
     [SerializeField] private Slider effectSlider;
+
+    public void popCloseSound()
+    {
+        effect.clip = popUpClose;
+        effect.Play();
+    }
+
+    public AudioClip selectKillSound()
+    {
+        int r = Random.Range(0, kill.Length);
+        return kill[r];
+    }
 
     public void SetBGMLevel(float sliderValue)
     {
