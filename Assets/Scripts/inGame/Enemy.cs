@@ -50,7 +50,10 @@ public class Enemy : MonoBehaviour
     //공격에 맞은 경우
     public void takeDamage(float ATK, int towerEx, GameObject bullet)
     {
-        Destroy(bullet);
+        if(bullet!=null)
+        {
+            Destroy(bullet);
+        }
         if (hp <= 0)
             return;
 
