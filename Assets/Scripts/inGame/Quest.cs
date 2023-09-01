@@ -22,24 +22,9 @@ public class Quest : MonoBehaviour
     private int[] num; //선택된 번호
 
     //프로그램
-    private static Quest instance;
-
-    public static Quest Instance
-    {
-        get
-        {
-            if (!instance)
-            {
-                return null;
-            }
-            return instance;
-        }
-    }
 
     public void Awake()
     {
-        instance = this; //마지막에 생성된 하나만 사용.
-
         textData = ExelReader.Read("Data/inGame/QuestTest"); //버프 데이터 받아오기
 
         //GameManager Start보다 빠르게
@@ -84,7 +69,7 @@ public class Quest : MonoBehaviour
     //세팅할 카드, 세팅할 정보
     private void cardSetting(Transform tf, Dictionary<string, string> target)
     {
-        tf.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(target["Directory"]);
+        tf.GetChild(1).GetComponent<Image>().sprite = Resources.Load<Sprite>(target["Directory"]);
         tf.GetChild(2).GetComponent<Text>().text = target["Name"]; //Title
         tf.GetChild(3).GetComponent<Text>().text = target["QuestDescription"]; //Content
         tf.GetChild(4).GetComponent<Text>().text = target["RewardDescription"]; //Content

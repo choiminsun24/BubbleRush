@@ -59,8 +59,6 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SpawnEnemies() //int _num_Enemy, float _spawn_Speed)
     {
-        Debug.Log("start 코루틴");
-
         Enemy temp;
         float time = 0;
         float spawnTime = 0;
@@ -83,8 +81,6 @@ public class GameManager : MonoBehaviour
 
                 enemyIndex++;
                 spawnTime = float.Parse(enemyData[enemyIndex]["SpawnTime"]) / ms; //스폰 시간 미리 세팅
-
-                Debug.Log(spawnTime);
             }
 
             yield return null;  
@@ -221,16 +217,19 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public Buff buff;
+    public Quest quest;
+
     //버프
     public void StartBuff()
     {
-        Buff.Instance.play();
+        buff.play();
         SoundManager.Instance.EffectPlay(SoundManager.Instance.card);
     }
 
     public void StartQuest()
     {
-        Quest.Instance.play();
+        quest.play();
         SoundManager.Instance.EffectPlay(SoundManager.Instance.card);
     }
 }

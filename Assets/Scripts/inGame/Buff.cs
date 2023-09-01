@@ -33,29 +33,10 @@ public class Buff : MonoBehaviour
     int effectNum = 0;
 
     //프로그램
-    private static Buff instance;
-
-    public static Buff Instance
-    {
-        get
-        {
-            if (!instance)
-            {
-                return null;
-            }
-            return instance;
-        }
-    }
-
     public void Awake()
     {
-        instance = this; //마지막에 생성된 하나만 사용.
-
         textData = ExelReader.Read("Data/inGame/BuffTable"); //버프 데이터 받아오기
-    }
 
-    public void Start()
-    {
         Box.SetActive(false);
         my.SetActive(false);
 
@@ -64,8 +45,6 @@ public class Buff : MonoBehaviour
         {
             buffNum.Add(i);
         }
-
-        //play();
     }
 
     //선택지 on
