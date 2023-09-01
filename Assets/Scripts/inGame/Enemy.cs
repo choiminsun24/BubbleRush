@@ -112,6 +112,13 @@ public class Enemy : MonoBehaviour
             SoundManager.Instance.EffectPlay(SoundManager.Instance.selectKillSound()); //효과음 재생
         }
         GameManager.Instance.RemoveEnemy(this); //배열에서 제거
+        foreach(var towerCategory in TowerManager.Instance.towers)
+        {
+            foreach(var tower in towerCategory)
+            {
+                tower.GetComponent<TowerController>().RemoveEnemies(gameObject);
+            }
+        }
         Destroy(gameObject); //오브젝트 제거 -> 위코드에서 실행
     }
 
