@@ -86,6 +86,7 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             draggingTower.GetComponent<TowerController>().isInstantiated = true;
             // 타워 종류별 데이터 저장
             TowerManager.Instance.towers[int.Parse(draggingTower.name.Replace("Tower", ""))].Add(draggingTower);
+            SoundManager.Instance.EffectPlay(SoundManager.Instance.towerInstall[Random.Range(0,3)]);
         }
 
         // 드래그를 시작하면 부모가 canvas로 설정되기 때문에

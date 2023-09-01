@@ -41,7 +41,8 @@ public class Tower0Attack : MonoBehaviour
         {
             return;
         }
-        Debug.Log("혀공격");
+        Debug.Log("깨물기 공격");
+        SoundManager.Instance.EffectPlay(SoundManager.Instance.skillBite[Random.Range(0,4)]);
         skillTime = 0;
     }
 }

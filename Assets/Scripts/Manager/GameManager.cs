@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
         ReleaseGame();
         ui = GetComponent<UIManager>();
         ui.UpdateStageCoin(inGameData.GetStageCoin());
-        SoundManager.Instance.BGMToInGame();
+        SoundManager.Instance.BGMPlay(SoundManager.Instance.inStage);
 
         enemyData = ExelReader.Read("Data/inGame/Stage1");
 
