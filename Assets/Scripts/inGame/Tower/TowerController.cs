@@ -106,16 +106,33 @@ public class TowerController : MonoBehaviour
         
     }
 
+    [SerializeField]private GameObject effect;
+    [SerializeField] private SpriteRenderer aura;
+    private Color[] auraColor = {Color.white, Color.cyan, Color.gray, Color.magenta, Color.green, Color.blue};
     public void LevelUp()
     {
         Debug.Log("Level UP");
+        if(aura)
+        {
+            aura.enabled = true;
+            aura.color = auraColor[level - 1];
+        }
+        if(effect)
+        {
+            effect.SetActive(true);
+            Invoke("TurnOffEffect", 1.0f);
+        }
         spriteRenderer.sprite = otherImgs[level++];
-        if(level >= otherImgs.Length)
+        if (level >= otherImgs.Length)
         {
             level = 0;
         }
         
         // 공격력 2배
         data.attack *= 2;
+    }
+    private void TurnOffEffect()
+    {
+        effect.SetActive(false);
     }
 }
