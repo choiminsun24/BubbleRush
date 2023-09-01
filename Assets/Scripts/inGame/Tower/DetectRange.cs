@@ -10,21 +10,6 @@ public class DetectRange : MonoBehaviour
     [SerializeField] private string category;   // 타워 종류
     private void OnTriggerEnter2D(Collider2D other)
     {
-
-        // if(other.tag == category)
-        // {
-        //     hit = false;
-        //     // Red
-        //     sprite.color = new Color(1f, 0f, 0f, sprite.color.a);
-        // }
-
-        // if (other.tag == "Tower")
-        // {
-        //     hit = true;
-        //     // Gray
-        //     sprite.color = new Color(0.5f, 0.5f, 0.5f, sprite.color.a);
-        // }
-
         if(other.tag == "Player")
         {
             tc.DetectEnemies(other.gameObject);
