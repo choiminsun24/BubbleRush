@@ -38,7 +38,7 @@ public class BulletController : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Enemy>().takeDamage(100, (int)expression);
+            other.gameObject.GetComponent<Enemy>().takeDamage(ATK, (int)expression);
             Destroy(gameObject);
         }
     }

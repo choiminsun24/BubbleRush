@@ -128,8 +128,8 @@ public class TowerController : MonoBehaviour
             level = 0;
         }
         
-        // 공격력 2배
-        data.attack *= 2;
+        // 공격력 +5
+        data.attack += 5;
     }
     private void TurnOffEffect()
     {
