@@ -46,7 +46,7 @@ public class Buff : MonoBehaviour
     {
         instance = this; //마지막에 생성된 하나만 사용.
 
-        textData = ExelReader.Read("Images/inGame/Buff/BuffTest"); //버프 데이터 받아오기
+        textData = ExelReader.Read("Data/inGame/BuffTest"); //버프 데이터 받아오기
     }
 
     public void Start()
