@@ -36,7 +36,7 @@ public class TowerController : MonoBehaviour
 
         data = new Tower();
         data.hp = 10;
-        data.attack = 10;
+        data.attack = 20;
         data.range = 3;
         data.time = 1f;
     }
