@@ -120,12 +120,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_0
       rect:
         serializedVersion: 2
-        x: 298
-        y: 10571
-        width: 485
-        height: 121
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 9800
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,12 +141,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_1
       rect:
         serializedVersion: 2
-        x: 1374
-        y: 10555
-        width: 490
-        height: 137
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1320
+        y: 9800
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_2
       rect:
         serializedVersion: 2
-        x: 2455
-        y: 10507
-        width: 490
-        height: 185
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2400
+        y: 9800
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,12 +183,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_3
       rect:
         serializedVersion: 2
-        x: 3536
-        y: 10444
-        width: 485
-        height: 248
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3480
+        y: 9800
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,12 +204,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_4
       rect:
         serializedVersion: 2
-        x: 4617
-        y: 10381
-        width: 485
-        height: 311
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4560
+        y: 9800
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -225,12 +225,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_5
       rect:
         serializedVersion: 2
-        x: 298
-        y: 9236
-        width: 485
-        height: 375
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 8720
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -246,12 +246,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_6
       rect:
         serializedVersion: 2
-        x: 1374
-        y: 9184
-        width: 490
-        height: 427
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1320
+        y: 8720
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -267,12 +267,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_7
       rect:
         serializedVersion: 2
-        x: 2455
-        y: 9136
-        width: 490
-        height: 475
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2400
+        y: 8720
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -288,12 +288,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_8
       rect:
         serializedVersion: 2
-        x: 3536
-        y: 9094
-        width: 485
-        height: 517
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3480
+        y: 8720
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -309,12 +309,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_9
       rect:
         serializedVersion: 2
-        x: 4617
-        y: 9052
-        width: 485
-        height: 559
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4560
+        y: 8720
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -330,12 +330,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_10
       rect:
         serializedVersion: 2
-        x: 298
-        y: 7934
-        width: 485
-        height: 596
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 7640
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -351,12 +351,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_11
       rect:
         serializedVersion: 2
-        x: 1374
-        y: 7902
-        width: 490
-        height: 628
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1320
+        y: 7640
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -372,12 +372,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_12
       rect:
         serializedVersion: 2
-        x: 2455
-        y: 7865
-        width: 490
-        height: 665
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2400
+        y: 7640
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -393,12 +393,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_13
       rect:
         serializedVersion: 2
-        x: 3536
-        y: 7834
-        width: 485
-        height: 696
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3480
+        y: 7640
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -414,12 +414,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_14
       rect:
         serializedVersion: 2
-        x: 4617
-        y: 7802
-        width: 485
-        height: 728
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4560
+        y: 7640
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -435,12 +435,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_15
       rect:
         serializedVersion: 2
-        x: 298
-        y: 6689
-        width: 485
-        height: 765
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 6560
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -456,12 +456,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_16
       rect:
         serializedVersion: 2
-        x: 1374
-        y: 6681
-        width: 490
-        height: 773
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1320
+        y: 6560
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -477,12 +477,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_17
       rect:
         serializedVersion: 2
-        x: 2455
-        y: 6674
-        width: 490
-        height: 780
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2400
+        y: 6560
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -498,12 +498,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_18
       rect:
         serializedVersion: 2
-        x: 3536
-        y: 6668
-        width: 485
-        height: 786
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3480
+        y: 6560
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -519,12 +519,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_19
       rect:
         serializedVersion: 2
-        x: 4617
-        y: 6663
-        width: 485
-        height: 791
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4560
+        y: 6560
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -540,12 +540,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_20
       rect:
         serializedVersion: 2
-        x: 298
-        y: 5577
-        width: 485
-        height: 796
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 5480
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -561,12 +561,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_21
       rect:
         serializedVersion: 2
-        x: 1374
-        y: 5577
-        width: 490
-        height: 796
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1320
+        y: 5480
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -582,12 +582,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_22
       rect:
         serializedVersion: 2
-        x: 2455
-        y: 5571
-        width: 490
-        height: 802
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2400
+        y: 5480
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -603,12 +603,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_23
       rect:
         serializedVersion: 2
-        x: 3536
-        y: 5566
-        width: 485
-        height: 807
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3480
+        y: 5480
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -624,12 +624,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_24
       rect:
         serializedVersion: 2
-        x: 4617
-        y: 5561
-        width: 485
-        height: 812
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4560
+        y: 5480
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -645,12 +645,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_25
       rect:
         serializedVersion: 2
-        x: 298
-        y: 4480
-        width: 485
-        height: 812
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 4400
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -666,12 +666,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_26
       rect:
         serializedVersion: 2
-        x: 1374
-        y: 4480
-        width: 490
-        height: 812
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1320
+        y: 4400
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -687,12 +687,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_27
       rect:
         serializedVersion: 2
-        x: 2455
-        y: 4475
-        width: 490
-        height: 817
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2400
+        y: 4400
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -708,12 +708,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_28
       rect:
         serializedVersion: 2
-        x: 3536
-        y: 4475
-        width: 485
-        height: 817
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3480
+        y: 4400
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -729,12 +729,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_29
       rect:
         serializedVersion: 2
-        x: 4617
-        y: 4475
-        width: 485
-        height: 817
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4560
+        y: 4400
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -750,12 +750,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_30
       rect:
         serializedVersion: 2
-        x: 298
-        y: 3388
-        width: 485
-        height: 823
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 3320
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -771,12 +771,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_31
       rect:
         serializedVersion: 2
-        x: 1374
-        y: 3388
-        width: 490
-        height: 823
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1320
+        y: 3320
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -792,12 +792,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_32
       rect:
         serializedVersion: 2
-        x: 2455
-        y: 3388
-        width: 490
-        height: 823
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2400
+        y: 3320
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -813,12 +813,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_33
       rect:
         serializedVersion: 2
-        x: 3536
-        y: 3388
-        width: 485
-        height: 823
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3480
+        y: 3320
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -834,12 +834,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_34
       rect:
         serializedVersion: 2
-        x: 4617
-        y: 3388
-        width: 485
-        height: 823
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4560
+        y: 3320
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -855,12 +855,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_35
       rect:
         serializedVersion: 2
-        x: 298
-        y: 2307
-        width: 485
-        height: 823
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 2240
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -876,12 +876,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_36
       rect:
         serializedVersion: 2
-        x: 1374
-        y: 2307
-        width: 490
-        height: 823
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1320
+        y: 2240
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -897,12 +897,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_37
       rect:
         serializedVersion: 2
-        x: 2455
-        y: 2307
-        width: 490
-        height: 823
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2400
+        y: 2240
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -918,12 +918,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_38
       rect:
         serializedVersion: 2
-        x: 3536
-        y: 2307
-        width: 485
-        height: 823
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3480
+        y: 2240
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -939,12 +939,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_39
       rect:
         serializedVersion: 2
-        x: 4617
-        y: 2307
-        width: 485
-        height: 823
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4560
+        y: 2240
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -960,12 +960,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_40
       rect:
         serializedVersion: 2
-        x: 298
-        y: 1226
-        width: 485
-        height: 828
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 1160
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -981,12 +981,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_41
       rect:
         serializedVersion: 2
-        x: 1374
-        y: 1226
-        width: 490
-        height: 828
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1320
+        y: 1160
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1002,12 +1002,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_42
       rect:
         serializedVersion: 2
-        x: 2455
-        y: 1226
-        width: 490
-        height: 828
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2400
+        y: 1160
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1023,12 +1023,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_43
       rect:
         serializedVersion: 2
-        x: 3536
-        y: 1226
-        width: 485
-        height: 828
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3480
+        y: 1160
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1044,12 +1044,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_44
       rect:
         serializedVersion: 2
-        x: 4617
-        y: 1226
-        width: 485
-        height: 828
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4560
+        y: 1160
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1065,12 +1065,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_45
       rect:
         serializedVersion: 2
-        x: 298
-        y: 145
-        width: 485
-        height: 828
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 240
+        y: 80
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1086,12 +1086,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_46
       rect:
         serializedVersion: 2
-        x: 1374
-        y: 145
-        width: 490
-        height: 828
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1320
+        y: 80
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1107,12 +1107,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_47
       rect:
         serializedVersion: 2
-        x: 2455
-        y: 145
-        width: 490
-        height: 828
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2400
+        y: 80
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1128,12 +1128,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_48
       rect:
         serializedVersion: 2
-        x: 3536
-        y: 145
-        width: 485
-        height: 828
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3480
+        y: 80
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1149,12 +1149,12 @@ TextureImporter:
       name: effect_quest reveal_sprite_49
       rect:
         serializedVersion: 2
-        x: 4617
-        y: 145
-        width: 485
-        height: 828
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4560
+        y: 80
+        width: 600
+        height: 1000
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

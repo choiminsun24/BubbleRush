@@ -83,9 +83,9 @@ public class Quest : MonoBehaviour
     private void cardSetting(Transform tf, Dictionary<string, string> target)
     {
         tf.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(target["Directory"]);
-        tf.GetChild(1).GetComponent<Text>().text = target["Name"]; //Title
-        tf.GetChild(2).GetComponent<Text>().text = target["QuestDescription"]; //Content
-        tf.GetChild(3).GetComponent<Text>().text = target["RewardDescription"]; //Content
+        tf.GetChild(2).GetComponent<Text>().text = target["Name"]; //Title
+        tf.GetChild(3).GetComponent<Text>().text = target["QuestDescription"]; //Content
+        tf.GetChild(4).GetComponent<Text>().text = target["RewardDescription"]; //Content
     }
 
     //선택 후 처리
