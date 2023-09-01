@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
     public void RemoveEnemy(Enemy _enemy)
     {
         enemies.Remove(_enemy);
+        Destroy(_enemy);
         // 적이 다 죽으면 다음 라운드 준비
         if(enemies.Count == 0)
         {

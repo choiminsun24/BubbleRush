@@ -108,7 +108,7 @@ public class Enemy : MonoBehaviour
             SoundManager.Instance.EffectPlay(SoundManager.Instance.selectKillSound()); //효과음 재생
         }
         GameManager.Instance.RemoveEnemy(this); //배열에서 제거
-        Destroy(gameObject); //오브젝트 제거
+        //Destroy(gameObject); //오브젝트 제거 -> 위코드에서 실행
     }
 
     //맵 밖으로 벗어나면 GameManager AddHeart(-1) 호출.
