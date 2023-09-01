@@ -111,8 +111,6 @@ public class GameManager : MonoBehaviour
             {
                 StartBuff();
             }
-
-            ui.UpdateRound(GetRoundNum());
             ui.nextRoundBtn.SetActive(true);
             isStarted = false;
         }
@@ -197,6 +195,7 @@ public class GameManager : MonoBehaviour
     {
         isStarted = true;
         round++;
+        ui.UpdateRound(GetRoundNum());
         ReleaseGame();
         StartCoroutine(SpawnEnemies());
 
