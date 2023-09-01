@@ -17,6 +17,8 @@ public class Quest : MonoBehaviour
     public GameObject my; //선택된 카드 Panel
     public Transform mine; //선택된 카드
 
+    public UIManager ui;
+
     //선택지
     private int[] num; //선택된 번호
 
@@ -50,6 +52,7 @@ public class Quest : MonoBehaviour
     public void play()
     {
         Box.SetActive(true);
+        ui.Blind();
 
         //1. 랜덤으로 셋 뽑기
         num = new int[] { -1, -1, -1 };
@@ -92,6 +95,7 @@ public class Quest : MonoBehaviour
     public void choice(int n) //카드 선택 시 시행될 메소드
     {
         Box.SetActive(false); //선택 창 제거
+        ui.Blind();
 
         Dictionary<string, string> choice = textData[num[n]]; //선택된 행
         cardSetting(mine, choice);
@@ -115,6 +119,8 @@ public class Quest : MonoBehaviour
     {
         if (my.activeSelf == true)
             SoundManager.Instance.popCloseSound();
+
+        ui.Blind();
         my.SetActive(!my.activeSelf);
     }
 

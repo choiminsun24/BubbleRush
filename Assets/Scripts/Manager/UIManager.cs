@@ -69,6 +69,13 @@ public class UIManager : MonoBehaviour
     //    }
     //}
 
+    public GameObject blind;
+
+    public void Blind()
+    {
+        blind.SetActive(!blind.activeSelf);
+    }
+
     public GameObject WinPanel;
 
     public void Win()
@@ -78,6 +85,7 @@ public class UIManager : MonoBehaviour
     }
 
     public GameObject gameOverWindow;
+
     // 게임 오버에서 홈 화면
     public void GoToHome()
     {

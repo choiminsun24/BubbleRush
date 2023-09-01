@@ -18,6 +18,8 @@ public class Buff : MonoBehaviour
     public Sprite[] images;
     public GameObject[] effect;
 
+    public UIManager ui;
+
     public GameObject my;
 
     //선택지
@@ -71,6 +73,7 @@ public class Buff : MonoBehaviour
     public void play()
     {
         Box.SetActive(true);
+        ui.Blind();
 
         //1. 랜덤으로 셋 뽑기
         num = new int[] { -1, -1, -1 };
@@ -130,6 +133,8 @@ public class Buff : MonoBehaviour
     public void choice(int n) //카드 선택 시 시행될 메소드
     {
         Box.SetActive(false); //선택 창 제거
+        ui.Blind();
+
         buffNum.RemoveAt(num[n]); //버프 넘에서 선택 번호 제외. -> 다음에 뽑히지 않도록 함.
         Dictionary<string, string> choice = textData[num[n]]; //선택된 행
         cardSetting(mine[mineNum], choice);
@@ -158,6 +163,8 @@ public class Buff : MonoBehaviour
     {
         if (my.activeSelf == true)
             SoundManager.Instance.popCloseSound();
+
+        ui.Blind();
         my.SetActive(!my.activeSelf);
     }
 }
