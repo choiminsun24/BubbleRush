@@ -36,7 +36,7 @@ public class TowerController : MonoBehaviour
 
         data = new Tower();
         data.hp = 10;
-        data.attack = 5;
+        data.attack = 10;
         data.range = 3;
         data.time = 1f;
     }
@@ -92,16 +92,18 @@ public class TowerController : MonoBehaviour
                   * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle - 270);
             time = 0f;
+
+            // Bullet 생성하여 적을 향해 이동시키기
+            foreach (GameObject enemy in enemies)
+            {
+                bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+                bullCtr = bull.GetComponent<BulletController>();
+                bullCtr.setBullet(data.attack, expression);
+                bullCtr.TriggerMove(enemy.transform);
+            }
         }
 
-        // // Bullet 생성하여 적을 향해 이동시키기
-        // foreach (GameObject enemy in enemies)
-        // {
-        //     bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
-        //     bullCtr = bull.GetComponent<BulletController>();
-        //     bullCtr.setBullet(data.attack, expression);
-        //     bullCtr.TriggerMove(enemy.transform);
-        // }
+        
     }
 
     public void LevelUp()
