@@ -82,6 +82,17 @@ public class TowerController : MonoBehaviour
 
     public void Attack()
     {
+        if(towerCategory == 1)
+        {
+            if(enemies.Count!=0)
+            {
+                canTongue = true;
+            }
+            else
+            {
+                canTongue = false;
+            }
+        }
         if(enemies.Count==0)
         {
             return;
@@ -98,16 +109,9 @@ public class TowerController : MonoBehaviour
 
             if(towerCategory == 1)
             {
-                if(enemies.Count!=0)
-                {
-                    canTongue = true;
-                }
-                else
-                {
-                    canTongue = false;
-                }
                 return;
             }
+            
             // Bullet 생성하여 적을 향해 이동시키기
             foreach (GameObject enemy in enemies)
             {

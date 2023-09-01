@@ -30,7 +30,10 @@ public class DetectRange : MonoBehaviour
             // Red
             sprite.color = new Color(1f, 0f, 0f, sprite.color.a);
         }
-        
+        if(other.tag == "Player")
+        {
+            tc.DetectEnemies(other.gameObject);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other) 

@@ -84,7 +84,7 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         {
             // 합성 드래그 가능
             draggingTower.GetComponent<TowerController>().isInstantiated = true;
-            draggingRange.transform.localScale = new Vector3(4, 4, 1);
+            draggingRange.transform.localScale = new Vector3(5, 5, 1);
             // 타워 종류별 데이터 저장
             TowerManager.Instance.towers[int.Parse(draggingTower.name.Replace("Tower", ""))].Add(draggingTower);
             SoundManager.Instance.EffectPlay(SoundManager.Instance.towerInstall[Random.Range(0,3)]);

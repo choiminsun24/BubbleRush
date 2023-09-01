@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Tongue : MonoBehaviour
 {
+    [SerializeField] private TowerController tc;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Enemy>().takeDamage(20, 1, null);
+            other.gameObject.GetComponent<Enemy>().takeDamage(10, 1, null);
         }
     }
 
