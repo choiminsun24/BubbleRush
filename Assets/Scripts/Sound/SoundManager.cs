@@ -41,7 +41,7 @@ public class SoundManager : MonoBehaviour
 
     //����
     [Header("Sound Manager")]
-    public AudioSource bubblePop;
+    public AudioClip bubblePop;
     public AudioClip lobby;
     public AudioClip inGame;
     public AudioClip inStage;
