@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     int[] num = new int[4];
 
     List<Dictionary<string, string>> enemyData;
-    int enemyIndex = 0;
+    private int enemyIndex = 0;
 
     private IEnumerator SpawnEnemies() //int _num_Enemy, float _spawn_Speed)
     {
@@ -80,6 +80,10 @@ public class GameManager : MonoBehaviour
                 enemies.Add(temp);
 
                 enemyIndex++;
+                if (enemyIndex >= enemyData.Count)
+                {
+                    yield break;
+                }
                 spawnTime = float.Parse(enemyData[enemyIndex]["SpawnTime"]) / ms; //스폰 시간 미리 세팅
             }
 
