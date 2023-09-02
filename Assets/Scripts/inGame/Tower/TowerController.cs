@@ -100,7 +100,7 @@ public class TowerController : MonoBehaviour
 
         if(time >= data.time)
         {
-            if(enemies[0] == null)
+            if (enemies[0] == null)
             {
                 RemoveEnemies(enemies[0]);
                 return;
