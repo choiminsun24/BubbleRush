@@ -506,6 +506,7 @@ GameObject:
   - component: {fileID: 1298584898820023829}
   - component: {fileID: 1298584898820023831}
   - component: {fileID: 1298584898820023828}
+  - component: {fileID: 7261388675884021771}
   m_Layer: 5
   m_Name: heart_3
   m_TagString: Untagged
@@ -571,6 +572,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &7261388675884021771
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298584898820023818}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ea8830e554ee1740859c5c72753fbdb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1298584898912062778
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,6 +684,7 @@ GameObject:
   - component: {fileID: 1298584898998720737}
   - component: {fileID: 1298584898998720739}
   - component: {fileID: 1298584898998720736}
+  - component: {fileID: 3872138330151071893}
   m_Layer: 5
   m_Name: heart_2
   m_TagString: Untagged
@@ -727,6 +750,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &3872138330151071893
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298584898998720742}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ea8830e554ee1740859c5c72753fbdb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1298584899145851733
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,6 +918,7 @@ GameObject:
   - component: {fileID: 1298584899228910018}
   - component: {fileID: 1298584899228910028}
   - component: {fileID: 1298584899228910029}
+  - component: {fileID: 3782412684403624212}
   m_Layer: 5
   m_Name: heart_1
   m_TagString: Untagged
@@ -939,6 +984,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &3782412684403624212
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298584899228910019}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ea8830e554ee1740859c5c72753fbdb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1298584899356691969
 GameObject:
   m_ObjectHideFlags: 0

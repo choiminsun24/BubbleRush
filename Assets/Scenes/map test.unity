@@ -4916,7 +4916,7 @@ PrefabInstance:
     - target: {fileID: 1829216143209700447, guid: e141fa11314530f459de89ca767e537c, type: 3}
       propertyPath: buff
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1808067110}
     - target: {fileID: 1829216143209700447, guid: e141fa11314530f459de89ca767e537c, type: 3}
       propertyPath: quest
       value: 
@@ -5015,11 +5015,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417931841}
   m_CullTransparentMesh: 1
---- !u!1 &1419534014 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5173601117719454378, guid: 1c93633dd136ad94faddff1161c83eae, type: 3}
-  m_PrefabInstance: {fileID: 485540480}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1423665626
 GameObject:
   m_ObjectHideFlags: 0
@@ -6657,30 +6652,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5173601117719454372, guid: 1c93633dd136ad94faddff1161c83eae, type: 3}
   m_PrefabInstance: {fileID: 485540480}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419534014}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7ca704c85917284e90c37ddaf764fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1919119163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419534014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7ca704c85917284e90c37ddaf764fc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 0}
-  Box: {fileID: 0}
-  position: []
-  my: {fileID: 0}
-  mine: {fileID: 0}
-  ui: {fileID: 0}
 --- !u!1 &1989321649
 GameObject:
   m_ObjectHideFlags: 0
