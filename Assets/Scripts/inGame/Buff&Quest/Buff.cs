@@ -137,7 +137,7 @@ public class Buff : MonoBehaviour
         //data.BuffATKS(1.06f); ¿¹½Ã¹®
     }
 
-    public void watchChoice()
+    public void watchBuff()
     {
         if (my.activeSelf == true)
             SoundManager.Instance.popCloseSound();

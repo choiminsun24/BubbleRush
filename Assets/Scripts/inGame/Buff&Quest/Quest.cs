@@ -99,7 +99,7 @@ public class Quest : MonoBehaviour
         //data.BuffATKS(1.06f); ¿¹½Ã¹®
     }
 
-    public void watchChoice()
+    public void watchQuest()
     {
         if (my.activeSelf == true)
             SoundManager.Instance.popCloseSound();
