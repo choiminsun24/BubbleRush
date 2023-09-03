@@ -133,7 +133,7 @@ public class UIManager : MonoBehaviour
     // 라운드 관리
     public void UpdateRound(int _num)
     {
-        curNum.text = (_num+1).ToString();
+        curNum.text = (_num).ToString();
     }
     public GameObject nextRoundBtn;
 
