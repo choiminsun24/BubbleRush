@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
 
             int r = GetRoundNum();
 
-            if (r == 3 || r == 6 || r == 9)
+            if (heart > 0 && (r == 2 || r == 5 || r == 8))
             {
                 StartBuff();
             }
@@ -153,7 +153,7 @@ public class GameManager : MonoBehaviour
         // UI 띄우기
         ui.gameOverWindow.SetActive(true);
         // 모든 오브젝트 멈추기
-        PauseGame();
+        Invoke("PauseGame", 0.3f);
     }
 
     // 게임 일시 정지

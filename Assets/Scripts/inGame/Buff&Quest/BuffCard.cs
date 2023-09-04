@@ -19,18 +19,18 @@ public class BuffCard : MonoBehaviour
         if (target["Type"].Equals("NatureBless")) //버프 카드
         {
             frame.sprite = frameList[0];
-            effectList[0].SetActive(true);
+            //effectList[0].SetActive(true);
 
         }
         else if (target["Type"].Equals("DarknessCurse")) //디버프 카드
         {
             frame.sprite = frameList[1];
-            effectList[1].SetActive(true);
+            //effectList[1].SetActive(true);
         }
         else //리워드 카드
         {
             frame.sprite = frameList[2];
-            effectList[2].SetActive(true);
+            //effectList[2].SetActive(true);
         }
 
         Name.text = target["Name"]; //Title

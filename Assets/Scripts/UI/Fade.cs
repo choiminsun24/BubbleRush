@@ -36,6 +36,7 @@ public class Fade : MonoBehaviour
 
     IEnumerator FadeIn()
     {
+        Debug.Log("Fade in");
         color = blackPanel.color;
 
         while (color.a > 0f)
@@ -47,5 +48,6 @@ public class Fade : MonoBehaviour
         }
 
         blackPanel.gameObject.SetActive(false);
+        Debug.Log("³¡³²");
     }
 }

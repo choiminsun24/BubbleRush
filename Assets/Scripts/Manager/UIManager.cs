@@ -121,6 +121,7 @@ public class UIManager : MonoBehaviour
     // 게임 오버에서 홈 화면
     public void GoToHome()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Home");
     }
     // 게임 오버에서 Retry
