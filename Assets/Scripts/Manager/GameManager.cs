@@ -181,8 +181,8 @@ public class GameManager : MonoBehaviour
 
         enemyData = ExelReader.Read("Data/inGame/Stage1");
 
-        StartBuff();
-        //StartQuest();
+        //StartBuff();
+        StartQuest();
     }
 
 

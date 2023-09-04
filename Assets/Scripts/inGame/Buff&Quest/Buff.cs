@@ -13,7 +13,7 @@ public class Buff : MonoBehaviour
 
     //UI 동작
     public GameObject Box; //UI창
-    public Transform[] position; //생성 위치
+    public BuffCard[] position; //생성 위치
     public Sprite[] images;
     public GameObject[] effect;
 
@@ -26,7 +26,7 @@ public class Buff : MonoBehaviour
     private int mineNum = 0;
 
     //선택된
-    public Transform[] mine;
+    public BuffCard[] mine;
 
     //이펙트
     private GameObject[] effec;
@@ -75,9 +75,7 @@ public class Buff : MonoBehaviour
         //2. 카드 UI 세팅
         for (int i = 0; i < num.Length; i++)
         {
-            Transform tf = position[i];
-
-            cardSetting(tf, textData[num[i]]);
+            position[i].cardSetting(textData[num[i]]);
         }
     }
 
@@ -115,7 +113,7 @@ public class Buff : MonoBehaviour
 
         buffNum.RemoveAt(num[n]); //버프 넘에서 선택 번호 제외. -> 다음에 뽑히지 않도록 함.
         Dictionary<string, string> choice = textData[num[n]]; //선택된 행
-        cardSetting(mine[mineNum], choice);
+        mine[mineNum].cardSetting(choice);
 
 
         //내부 버프 효과 **************************값 변경 미적용***********************

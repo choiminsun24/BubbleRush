@@ -80,6 +80,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         point = hearts.Length - 1;
+        blind.SetActive(false);
         //slider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
         //effectSlider.value = PlayerPrefs.GetFloat("EffectVolume", 0.75f);
     }

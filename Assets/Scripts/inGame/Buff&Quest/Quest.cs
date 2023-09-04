@@ -11,10 +11,9 @@ public class Quest : MonoBehaviour
 
     //UI 동작
     public GameObject Box; //UI창
-    public Transform[] position; //생성 위치
-
+    public QuestCard[] position; //생성 위치
     public GameObject my; //선택된 카드 Panel
-    public Transform mine; //선택된 카드
+    public QuestCard mine; //선택된 카드
 
     public UIManager ui;
 
@@ -60,9 +59,7 @@ public class Quest : MonoBehaviour
         //2. 카드 UI 세팅
         for (int i = 0; i < num.Length; i++)
         {
-            Transform tf = position[i];
-
-            cardSetting(tf, textData[num[i]]);
+            position[i].cardSetting(textData[num[i]]);
         }
     }
 
@@ -82,7 +79,7 @@ public class Quest : MonoBehaviour
         ui.Blind();
 
         Dictionary<string, string> choice = textData[num[n]]; //선택된 행
-        cardSetting(mine, choice);
+        mine.cardSetting(choice);
 
 
         //내부 버프 효과 **************************값 변경 미적용***********************
