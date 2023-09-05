@@ -9,8 +9,6 @@ public class Lobby : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("두 번째 로드엔 안되나");
-
         if (fade.activeSelf == false) //왜 하는거지
         {
             fade.SetActive(true);

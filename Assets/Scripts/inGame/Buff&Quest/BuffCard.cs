@@ -37,12 +37,4 @@ public class BuffCard : MonoBehaviour
         Content.text = target["Description"]; //Content
         image.sprite = Resources.Load<Sprite>(target["Directory"]);
     }
-
-    public void cardReset()
-    {
-        for (int i = 0; i < effectList.Length; i++)
-        {
-            effectList[i].SetActive(false);
-        }
-    }
 }
