@@ -88,8 +88,6 @@ public class Enemy : MonoBehaviour
 
         hp -= Mathf.RoundToInt(damage);
 
-        Debug.Log("hp: " + hp);
-
         if (hp <= 0)
         {
             Death(5);

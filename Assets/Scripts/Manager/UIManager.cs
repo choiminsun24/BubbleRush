@@ -8,17 +8,47 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     // 하트 개수 업데이트
-    [SerializeField] private Image[] hearts;
-    public void UpdateHearts(int _hearts)
+    [SerializeField] private GameObject[] hearts;
+
+    Animator anim;
+
+    //애니메이션 넣느라 아래 메소드로 바꿨습니다!!
+    //public void UpdateHearts(int heart)
+    //{
+    //    for (int i = 0; i < _hearts; i++)
+    //    {
+    //        hearts[i].gameObject.SetActive(true);
+    //    }
+    //    for (int i = _hearts; i < hearts.Length; i++)
+    //    {
+    //        hearts[i].gameObject.SetActive(false);
+    //    }
+    //}
+
+    private int point; //hearts의 top
+
+    public void plusHeart()
     {
-        for (int i=0; i<_hearts; i++)
+        //3개 미만이면 충전
+        if (point < hearts.Length - 1)
         {
-            hearts[i].gameObject.SetActive(true);
+            hearts[point + 1].GetComponent<Animator>().SetBool("live", true);
+            //hearts[point + 1].gameObject.SetActive(true);
         }
-        for (int i=_hearts; i<hearts.Length; i++)
+
+        point++;
+    }
+
+    public void minusHeart()
+    {
+        //하트가 있으면 제거
+        if (point >= 0)
         {
-            hearts[i].gameObject.SetActive(false);
+            hearts[point].GetComponent<Animator>().SetBool("live", false);
+            //hearts[point].gameObject.SetActive(false);
         }
+
+        point--;
     }
 
     // 스테이지 코인 관리
@@ -49,6 +79,8 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        point = hearts.Length - 1;
+        blind.SetActive(false);
         //slider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
         //effectSlider.value = PlayerPrefs.GetFloat("EffectVolume", 0.75f);
     }
@@ -89,6 +121,7 @@ public class UIManager : MonoBehaviour
     // 게임 오버에서 홈 화면
     public void GoToHome()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Home");
     }
     // 게임 오버에서 Retry
@@ -102,7 +135,7 @@ public class UIManager : MonoBehaviour
     // 라운드 관리
     public void UpdateRound(int _num)
     {
-        curNum.text = (_num+1).ToString();
+        curNum.text = (_num).ToString();
     }
     public GameObject nextRoundBtn;
 

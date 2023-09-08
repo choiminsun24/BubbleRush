@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
 
             int r = GetRoundNum();
 
-            if (r == 3 || r == 6 || r == 9)
+            if (heart > 0 && (r == 2 || r == 5 || r == 8))
             {
                 StartBuff();
             }
@@ -117,15 +117,25 @@ public class GameManager : MonoBehaviour
     }
 
 
-    // 게임 생명 개수
+    //게임 생명 개수
     private int heart = 3;
 
-    // 적이 도착지점에 도착하였을 때 -1, 아이템을 먹었을 때 +1
+    //적이 도착지점에 도착하였을 때 -1, 아이템을 먹었을 때 +1
     public void AddHeart(int _heart)
     {
-        print("Add Heart: "+_heart.ToString());
         heart += _heart;
-        ui.UpdateHearts(heart);
+
+        //변동 수만큼 ui 매니저 호출
+        if (_heart < 0)
+            for (int i = 0; i > _heart; i--)
+                ui.minusHeart();
+        else if (heart > 0)
+            for (int i = 0; i < _heart; i++)
+                ui.plusHeart();
+        else
+            Debug.Log("0일거면 메소드 왜 씀?");
+
+        //0개가 되면 게임오버
         if(heart <= 0)
             GameOver();
     }
@@ -143,7 +153,7 @@ public class GameManager : MonoBehaviour
         // UI 띄우기
         ui.gameOverWindow.SetActive(true);
         // 모든 오브젝트 멈추기
-        PauseGame();
+        Invoke("PauseGame", 0.3f);
     }
 
     // 게임 일시 정지
@@ -171,6 +181,7 @@ public class GameManager : MonoBehaviour
 
         enemyData = ExelReader.Read("Data/inGame/Stage1");
 
+        //StartBuff();
         StartQuest();
     }
 
