@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -18,11 +20,11 @@ public class TowerController : MonoBehaviour
 
     private float time = 0f;
 
-    public List<GameObject> enemies;
+    //public List<GameObject> enemies;
     
     public bool canTongue = false;
     [SerializeField] private int towerCategory = 0;
-    [SerializeField] private Object bullet;
+    [SerializeField] private UnityEngine.Object bullet;
 
     private float angle;
     private GameObject bull;
@@ -46,24 +48,24 @@ public class TowerController : MonoBehaviour
         data.time = 1f;
     }
 
-    // 타워 근처 적 감지 범위
-    public void DetectEnemies(GameObject enemy)
-    {
-        if (enemies.IndexOf(enemy) == -1)
-        {
-            enemies.Add(enemy);
-        }
-    }
+    // // 타워 근처 적 감지 범위
+    // public void DetectEnemies(GameObject enemy)
+    // {
+    //     if (enemies.IndexOf(enemy) == -1)
+    //     {
+    //         enemies.Add(enemy);
+    //     }
+    // }
 
-    // 적이 감지 범위에서 벗어났을 때
-    public void RemoveEnemies(GameObject enemy)
-    {
-        if (enemies.IndexOf(enemy) != -1)
-        {
-            GameObject temp = enemies.Find(element => element == enemy);
-            enemies.Remove(temp);
-        }
-    }
+    // // 적이 감지 범위에서 벗어났을 때
+    // public void RemoveEnemies(GameObject enemy)
+    // {
+    //     if (enemies.IndexOf(enemy) != -1)
+    //     {
+    //         GameObject temp = enemies.Find(element => element == enemy);
+    //         enemies.Remove(temp);
+    //     }
+    // }
 
     
     // 일정한 주기로 공격
@@ -80,43 +82,77 @@ public class TowerController : MonoBehaviour
         }
         time += Time.deltaTime;
 
-        // 합성 중이 아닐 때만 공격
-        if(!isFusioning)
+        // 합성 중이 아닐 때, 게임 시작했을 때만 공격
+        if(!isFusioning && GameManager.Instance.isStarted)
         {
             Attack();
         }
     }
 
-    public void Attack()
+    private Transform nearestEnemy = null;
+    [SerializeField] private float offset = 5f;
+    private Transform SelectEnemy()
     {
-        if(towerCategory == 1)
+        if (!nearestEnemy || Vector3.Distance(nearestEnemy.position, transform.position) >= offset)
         {
-            if(enemies.Count!=0)
+            float min_distance = offset;
+            foreach (Enemy enemy in GameManager.Instance.enemies)
             {
-                canTongue = true;
-            }
-            else
-            {
-                canTongue = false;
+                if(Vector3.Distance(enemy.transform.position, transform.position) < offset)
+                {
+                    nearestEnemy = enemy.transform;
+                }
             }
         }
-        if(enemies.Count==0)
+        
+        return nearestEnemy;
+    }
+
+    public void DestroySelected(GameObject destroyedEnemy)
+    {
+        if(!nearestEnemy)
         {
             return;
         }
-
-        if(time >= data.time)
+        if (nearestEnemy.gameObject == destroyedEnemy)
         {
-            if (enemies[0] == null)
+            nearestEnemy = null;
+        }
+    }
+
+    public void Attack()
+    {
+
+        if (!SelectEnemy())
+        {
+            if(towerCategory == 1 && canTongue)
             {
-                RemoveEnemies(enemies[0]);
-                return;
+                canTongue = false;
             }
-            // 감지된 적 있을 때 바라보기
-            angle = Mathf.Atan2(enemies[0].transform.position.y - transform.position.y,
-                                enemies[0].transform.position.x - transform.position.x)
-                  * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle - 270);
+            return;
+        }
+
+        if (towerCategory == 1)
+        {
+            if(!nearestEnemy)
+            {
+                canTongue = false;
+            }
+            else
+            {
+                canTongue = true;
+            }
+        }
+
+
+        // 감지된 적 있을 때 바라보기
+        angle = Mathf.Atan2(nearestEnemy.transform.position.y - transform.position.y,
+                            nearestEnemy.transform.position.x - transform.position.x)
+              * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle - 270);
+
+        if (time >= data.time)
+        {
             time = 0f;
 
             if(towerCategory == 1)
@@ -125,13 +161,10 @@ public class TowerController : MonoBehaviour
             }
             
             // Bullet 생성하여 적을 향해 이동시키기
-            foreach (GameObject enemy in enemies)
-            {
-                bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
-                bullCtr = bull.GetComponent<BulletController>();
-                bullCtr.setBullet(data.attack, expression);
-                bullCtr.TriggerMove(enemy.transform);
-            }
+            bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+            bullCtr = bull.GetComponent<BulletController>();
+            bullCtr.setBullet(data.attack, expression);
+            bullCtr.TriggerMove(nearestEnemy.transform);
         }
 
         

@@ -12,7 +12,7 @@ public class DetectRange : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            tc.DetectEnemies(other.gameObject);
+            //tc.DetectEnemies(other.gameObject);
         }
     }
 
@@ -32,7 +32,7 @@ public class DetectRange : MonoBehaviour
         }
         if(other.tag == "Player")
         {
-            tc.DetectEnemies(other.gameObject);
+            //tc.DetectEnemies(other.gameObject);
         }
     }
 
@@ -55,7 +55,7 @@ public class DetectRange : MonoBehaviour
 
         if(other.gameObject.tag == "Player")
         {
-            tc.RemoveEnemies(other.gameObject);
+            //tc.RemoveEnemies(other.gameObject);
         }
     }
 

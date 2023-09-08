@@ -17,7 +17,6 @@ public class Tower0Attack : MonoBehaviour
 
     private TowerController tc;
     private float coolTime, skillTime = 0f;
-    private bool canTongue = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +46,6 @@ public class Tower0Attack : MonoBehaviour
         skillTime += Time.deltaTime;
         if (skillTime >= coolTime)
         {
-            canTongue = true;
             Attack();
         }
         else
@@ -58,7 +56,7 @@ public class Tower0Attack : MonoBehaviour
 
     private void Attack()
     {
-        if(!canTongue)
+        if(!tc.canTongue)
         {
             return;
         }
