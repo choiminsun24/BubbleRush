@@ -7,7 +7,7 @@ public class Lobby : MonoBehaviour
     public GameObject fade;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         if (fade.activeSelf == false) //왜 하는거지
         {
