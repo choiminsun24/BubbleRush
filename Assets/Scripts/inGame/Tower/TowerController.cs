@@ -8,6 +8,8 @@ public class TowerController : MonoBehaviour
     public int expression = 1; //임시 표정 MAD
 
     public bool isInstantiated {get; set;} = false;
+    public bool isFusioning {get; set;} = false;
+
     private Tower data;
     BulletController bullCtr;
 
@@ -77,7 +79,12 @@ public class TowerController : MonoBehaviour
             spriteRenderer.enabled = true;
         }
         time += Time.deltaTime;
-        Attack();
+
+        // 합성 중이 아닐 때만 공격
+        if(!isFusioning)
+        {
+            Attack();
+        }
     }
 
     public void Attack()
