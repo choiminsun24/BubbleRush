@@ -42,7 +42,10 @@ public class GameManager : MonoBehaviour
     }
 
     // 라운드 시작
-    public bool isStarted = false;
+    public bool isStarted {get; set;} = false;
+    // 라운드 당 버블(적) 수
+    public int numOfEnemies {get; set;} = 1;
+    public List<Enemy> enemies = new List<Enemy>();
 
     // Enemy 난이도 조절
     [Header("Enemy 난이도 조절")]
@@ -51,8 +54,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]private GameObject[] prefab_enemy;
     [SerializeField]private Transform spawnPoint;
     
-    private List<Enemy> enemies = new List<Enemy>();
-    int[] num = new int[4];
 
     List<Dictionary<string, string>> enemyData;
     private int enemyIndex = 0;
@@ -96,24 +97,30 @@ public class GameManager : MonoBehaviour
     {
         enemies.Remove(_enemy);
         Destroy(_enemy);
+
         // 적이 다 죽으면 다음 라운드 준비
-        if(enemies.Count == 0)
+        if (enemies.Count == 0 && numOfEnemies == 0)
         {
-            if(round >= 10)
-            {
-                ui.Win();
-                return;
-            }
-
-            int r = GetRoundNum();
-
-            if (r == 3 || r == 6 || r == 9)
-            {
-                StartBuff();
-            }
-            ui.nextRoundBtn.SetActive(true);
-            isStarted = false;
+            NextRound();
         }
+    }
+
+    private void NextRound()
+    {
+        if (round >= 10)
+        {
+            ui.Win();
+            return;
+        }
+
+        int r = GetRoundNum();
+
+        if (r == 3 || r == 6 || r == 9)
+        {
+            StartBuff();
+        }
+        ui.nextRoundBtn.SetActive(true);
+        isStarted = false;
     }
 
 
