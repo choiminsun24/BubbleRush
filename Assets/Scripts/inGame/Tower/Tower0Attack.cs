@@ -15,29 +15,33 @@ public class Tower0Attack : MonoBehaviour
     private Vector2 localPos = Vector2.zero;
     private bool isZero = false;
 
+
     private TowerController tc;
-    private float coolTime, skillTime = 0f;
-    private bool canTongue = false;
+    private float coolTime, skillTime, coolTime_1, skillTime_1 = 0f;
     // Start is called before the first frame update
     void Start()
     {
         tc = GetComponent<TowerController>();
+        coolTime_1 = 2f;
+        skillTime_1 = coolTime_1;
         coolTime = 20f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Skill Guage UI Position
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectParent,
-                                                                Camera.main.WorldToScreenPoint(transform.position + new Vector3(0,0.6f,0)), 
-                                                                canvas.worldCamera, out localPos);
-        skillGuage.localPosition = localPos;
+        if(!tc.isAttacking)
+        {
+            // Skill Guage UI Position
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(rectParent,
+                                                                    Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 0.6f, 0)),
+                                                                    canvas.worldCamera, out localPos);
+            skillGuage.localPosition = localPos;
+        }
+        
         isZero = slider.value == 0 ? false : true;
         fill.SetActive(isZero);
-
-        // 혀 일반 공격
-        tongue.SetActive(tc.canTongue);
+        
 
         if (!GameManager.Instance.isStarted)
         {
@@ -45,9 +49,23 @@ public class Tower0Attack : MonoBehaviour
             return;
         }
         skillTime += Time.deltaTime;
+        skillTime_1 += Time.deltaTime;
+        if (skillTime_1 >= coolTime_1)
+        {
+            // 혀 일반 공격
+            tongue.SetActive(tc.canTongue);
+        }
+        else if(skillTime_1 <= coolTime_1*2)
+        {
+            tongue.SetActive(false);
+        }
+        else
+        {
+            skillTime_1 = 0f;
+        }
+
         if (skillTime >= coolTime)
         {
-            canTongue = true;
             Attack();
         }
         else
@@ -58,7 +76,7 @@ public class Tower0Attack : MonoBehaviour
 
     private void Attack()
     {
-        if(!canTongue)
+        if(!tc.canTongue)
         {
             return;
         }

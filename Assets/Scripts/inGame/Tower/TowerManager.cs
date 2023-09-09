@@ -132,9 +132,15 @@ public class TowerManager : MonoBehaviour
         {
             return;
         }
+        
 
         if (dragging && touch.phase == TouchPhase.Moved)
         {
+            if (!towerController.isFusioning)
+            {
+                towerController.isFusioning = true;
+                towerController.canTongue = false;
+            }
             // 터치 좌표를 월드 좌표로 계산
             vec = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             vec = Camera.main.ScreenToWorldPoint(vec);
@@ -152,6 +158,8 @@ public class TowerManager : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
+            towerController.isFusioning = false;
+            towerController.canTongue = true;
             sprite.color = new Color(1, 1, 1, 1f);
 
             if (dragging == true)

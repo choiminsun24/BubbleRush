@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Tongue_Attack
-  serializedVersion: 6
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -17,7 +17,8 @@ AnimationClip:
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves:
-  - curve:
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -30,7 +31,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.083333336
+        time: 0.16666667
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -39,7 +40,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -54,7 +55,9 @@ AnimationClip:
     path: Tongue
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -67,7 +70,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.083333336
+        time: 0.16666667
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -76,7 +79,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.16666667
+        time: 0.33333334
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -85,7 +88,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -100,7 +103,9 @@ AnimationClip:
     path: Tongue (1)
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -113,7 +118,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.16666667
+        time: 0.33333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -122,7 +127,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.25
+        time: 0.5
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -131,7 +136,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -146,7 +151,9 @@ AnimationClip:
     path: Tongue (2)
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -159,7 +166,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.25
+        time: 0.5
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -168,7 +175,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.33333334
+        time: 0.6666667
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -177,7 +184,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -192,7 +199,9 @@ AnimationClip:
     path: Tongue (3)
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -205,7 +214,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.33333334
+        time: 0.6666667
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -214,7 +223,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.41666666
+        time: 0.8333333
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -223,7 +232,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -238,7 +247,9 @@ AnimationClip:
     path: Tongue (4)
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -251,7 +262,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.41666666
+        time: 0.8333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -260,7 +271,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5
+        time: 1
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -269,7 +280,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -284,7 +295,9 @@ AnimationClip:
     path: Tongue (5)
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -297,7 +310,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5
+        time: 1
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -306,7 +319,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5833333
+        time: 1.1666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -315,7 +328,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -330,7 +343,9 @@ AnimationClip:
     path: Tongue (6)
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -343,7 +358,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5833333
+        time: 1.1666666
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -352,7 +367,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.6666667
+        time: 1.3333334
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -361,7 +376,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -376,7 +391,9 @@ AnimationClip:
     path: Tongue (7)
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -389,7 +406,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.6666667
+        time: 1.3333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -398,7 +415,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.75
+        time: 1.5
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -407,7 +424,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -422,7 +439,9 @@ AnimationClip:
     path: Tongue (8)
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -435,7 +454,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.75
+        time: 1.5
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -444,7 +463,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -459,6 +478,7 @@ AnimationClip:
     path: Tongue (9)
     classID: 1
     script: {fileID: 0}
+    flags: 16
   m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
@@ -474,6 +494,8 @@ AnimationClip:
       typeID: 1
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 1130464036
       attribute: 2086281974
@@ -481,6 +503,8 @@ AnimationClip:
       typeID: 1
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 1749864679
       attribute: 2086281974
@@ -488,6 +512,8 @@ AnimationClip:
       typeID: 1
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 1901584806
       attribute: 2086281974
@@ -495,6 +521,8 @@ AnimationClip:
       typeID: 1
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 1041659745
       attribute: 2086281974
@@ -502,6 +530,8 @@ AnimationClip:
       typeID: 1
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 655181344
       attribute: 2086281974
@@ -509,6 +539,8 @@ AnimationClip:
       typeID: 1
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 203429347
       attribute: 2086281974
@@ -516,6 +548,8 @@ AnimationClip:
       typeID: 1
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 356197538
       attribute: 2086281974
@@ -523,6 +557,8 @@ AnimationClip:
       typeID: 1
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 2460170349
       attribute: 2086281974
@@ -530,6 +566,8 @@ AnimationClip:
       typeID: 1
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 2344093996
       attribute: 2086281974
@@ -537,13 +575,15 @@ AnimationClip:
       typeID: 1
       customType: 0
       isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8333333
+    m_StopTime: 1.6666666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -559,7 +599,8 @@ AnimationClip:
     m_HeightFromFeet: 0
     m_Mirror: 0
   m_EditorCurves:
-  - curve:
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -572,7 +613,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.083333336
+        time: 0.16666667
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -581,7 +622,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -596,7 +637,9 @@ AnimationClip:
     path: Tongue
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -609,7 +652,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.083333336
+        time: 0.16666667
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -618,7 +661,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.16666667
+        time: 0.33333334
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -627,7 +670,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -642,7 +685,9 @@ AnimationClip:
     path: Tongue (1)
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -655,7 +700,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.16666667
+        time: 0.33333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -664,7 +709,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.25
+        time: 0.5
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -673,7 +718,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -688,7 +733,9 @@ AnimationClip:
     path: Tongue (2)
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -701,7 +748,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.25
+        time: 0.5
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -710,7 +757,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.33333334
+        time: 0.6666667
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -719,7 +766,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -734,7 +781,9 @@ AnimationClip:
     path: Tongue (3)
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -747,7 +796,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.33333334
+        time: 0.6666667
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -756,7 +805,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.41666666
+        time: 0.8333333
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -765,7 +814,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -780,7 +829,9 @@ AnimationClip:
     path: Tongue (4)
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -793,7 +844,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.41666666
+        time: 0.8333333
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -802,7 +853,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5
+        time: 1
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -811,7 +862,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -826,7 +877,9 @@ AnimationClip:
     path: Tongue (5)
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -839,7 +892,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5
+        time: 1
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -848,7 +901,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5833333
+        time: 1.1666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -857,7 +910,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -872,7 +925,9 @@ AnimationClip:
     path: Tongue (6)
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -885,7 +940,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5833333
+        time: 1.1666666
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -894,7 +949,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.6666667
+        time: 1.3333334
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -903,7 +958,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -918,7 +973,9 @@ AnimationClip:
     path: Tongue (7)
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -931,7 +988,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.6666667
+        time: 1.3333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -940,7 +997,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.75
+        time: 1.5
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -949,7 +1006,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -964,7 +1021,9 @@ AnimationClip:
     path: Tongue (8)
     classID: 1
     script: {fileID: 0}
-  - curve:
+    flags: 16
+  - serializedVersion: 2
+    curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
@@ -977,7 +1036,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.75
+        time: 1.5
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -986,7 +1045,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.8333333
+        time: 1.6666666
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -1001,6 +1060,7 @@ AnimationClip:
     path: Tongue (9)
     classID: 1
     script: {fileID: 0}
+    flags: 16
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
