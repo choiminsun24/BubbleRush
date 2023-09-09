@@ -88,8 +88,6 @@ public class Enemy : MonoBehaviour
 
         hp -= Mathf.RoundToInt(damage);
 
-        Debug.Log("hp: " + hp);
-
         if (hp <= 0)
         {
             Death(5);
@@ -116,7 +114,7 @@ public class Enemy : MonoBehaviour
         {
             foreach(var tower in towerCategory)
             {
-                tower.GetComponent<TowerController>().RemoveEnemies(gameObject);
+                tower.GetComponent<TowerController>().DestroySelected(gameObject);
             }
         }
         Destroy(gameObject); //오브젝트 제거 -> 위코드에서 실행

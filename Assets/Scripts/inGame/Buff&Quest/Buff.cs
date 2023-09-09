@@ -13,7 +13,7 @@ public class Buff : MonoBehaviour
 
     //UI 동작
     public GameObject Box; //UI창
-    public Transform[] position; //생성 위치
+    public BuffCard[] position; //생성 위치
     public Sprite[] images;
     public GameObject[] effect;
 
@@ -26,7 +26,7 @@ public class Buff : MonoBehaviour
     private int mineNum = 0;
 
     //선택된
-    public Transform[] mine;
+    public BuffCard[] mine;
 
     //이펙트
     private GameObject[] effec;
@@ -75,47 +75,48 @@ public class Buff : MonoBehaviour
         //2. 카드 UI 세팅
         for (int i = 0; i < num.Length; i++)
         {
-            Transform tf = position[i];
-
-            cardSetting(tf, textData[num[i]]);
+            position[i].cardSetting(textData[num[i]]);
         }
     }
 
-    //세팅할 카드, 세팅할 정보
-    private void cardSetting(Transform tf, Dictionary<string, string> target)
-    {
-        //카드 프레임
-        if (target["Type"].Equals("NatureBless")) //버프 카드
-        {
-            tf.GetChild(1).GetComponent<Image>().sprite = images[0];
-            effect[effectNum] = Instantiate(effect[0], tf.GetChild(3).position, Quaternion.identity);
+    ////세팅할 카드, 세팅할 정보
+    //private void cardSetting(Transform tf, Dictionary<string, string> target)
+    //{
+    //    //카드 프레임
+    //    if (target["Type"].Equals("NatureBless")) //버프 카드
+    //    {
+    //        tf.GetChild(1).GetComponent<Image>().sprite = images[0];
+    //        effect[effectNum] = Instantiate(effect[0], tf.GetChild(3).position, Quaternion.identity);
 
-        }
-        else if (target["Type"].Equals("DarknessCurse")) //디버프 카드
-        {
-            tf.GetChild(1).GetComponent<Image>().sprite = images[1];
-            GameObject game = Instantiate(effect[1], tf.GetChild(3).position, Quaternion.identity);
-        }
-        else //리워드 카드
-        {
-            tf.GetChild(1).GetComponent<Image>().sprite = images[2];
-            GameObject game = Instantiate(effect[2], tf.GetChild(3).position, Quaternion.identity);
-        }
+    //    }
+    //    else if (target["Type"].Equals("DarknessCurse")) //디버프 카드
+    //    {
+    //        tf.GetChild(1).GetComponent<Image>().sprite = images[1];
+    //        GameObject game = Instantiate(effect[1], tf.GetChild(3).position, Quaternion.identity);
+    //    }
+    //    else //리워드 카드
+    //    {
+    //        tf.GetChild(1).GetComponent<Image>().sprite = images[2];
+    //        GameObject game = Instantiate(effect[2], tf.GetChild(3).position, Quaternion.identity);
+    //    }
 
-        tf.GetChild(2).GetComponent<Text>().text = target["Name"]; //Title
-        tf.GetChild(3).GetComponent<Text>().text = target["Description"]; //Content
-        tf.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(target["Directory"]);
-    }
+    //    tf.GetChild(2).GetComponent<Text>().text = target["Name"]; //Title
+    //    tf.GetChild(3).GetComponent<Text>().text = target["Description"]; //Content
+    //    tf.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(target["Directory"]);
+    //}
 
     //선택 후 처리
     public void choice(int n) //카드 선택 시 시행될 메소드
     {
+        Debug.Log("카드가 선택됨");
         Box.SetActive(false); //선택 창 제거
         ui.Blind();
 
         buffNum.RemoveAt(num[n]); //버프 넘에서 선택 번호 제외. -> 다음에 뽑히지 않도록 함.
         Dictionary<string, string> choice = textData[num[n]]; //선택된 행
-        cardSetting(mine[mineNum], choice);
+        mine[mineNum%3].cardSetting(choice);
+        mineNum++;
+        Debug.Log("mineNum: " + mineNum);
 
 
         //내부 버프 효과 **************************값 변경 미적용***********************
@@ -137,7 +138,7 @@ public class Buff : MonoBehaviour
         //data.BuffATKS(1.06f); 예시문
     }
 
-    public void watchChoice()
+    public void watchBuff()
     {
         if (my.activeSelf == true)
             SoundManager.Instance.popCloseSound();
