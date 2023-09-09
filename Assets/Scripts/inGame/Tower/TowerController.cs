@@ -22,7 +22,8 @@ public class TowerController : MonoBehaviour
 
     //public List<GameObject> enemies;
     
-    public bool canTongue = false;
+    public bool canTongue {get; set;} = false;
+    public bool isAttacking {get; set;} = false;
     [SerializeField] private int towerCategory = 0;
     [SerializeField] private UnityEngine.Object bullet;
 
@@ -87,10 +88,14 @@ public class TowerController : MonoBehaviour
         {
             Attack();
         }
+        else
+        {
+            isAttacking = false;
+        }
     }
 
     private Transform nearestEnemy = null;
-    [SerializeField] private float offset = 5f;
+    [SerializeField] private float offset =2f;
     private Transform SelectEnemy()
     {
         if (!nearestEnemy || Vector3.Distance(nearestEnemy.position, transform.position) >= offset)
@@ -144,7 +149,7 @@ public class TowerController : MonoBehaviour
             }
         }
 
-
+        isAttacking = true;
         // 감지된 적 있을 때 바라보기
         angle = Mathf.Atan2(nearestEnemy.transform.position.y - transform.position.y,
                             nearestEnemy.transform.position.x - transform.position.x)
