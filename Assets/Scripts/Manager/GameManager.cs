@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     // 라운드 시작
     public bool isStarted {get; set;} = false;
     // 라운드 당 버블(적) 수
-    public int numOfEnemies {get; set;} = 1;
+    private bool lastSpawn = false; 
     public List<Enemy> enemies = new List<Enemy>();
 
     // Enemy 난이도 조절
@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
                 enemyIndex++;
                 if (enemyIndex >= enemyData.Count)
                 {
+                    lastSpawn = true;
                     yield break;
                 }
                 spawnTime = float.Parse(enemyData[enemyIndex]["SpawnTime"]) / ms; //스폰 시간 미리 세팅
@@ -90,6 +91,8 @@ public class GameManager : MonoBehaviour
 
             yield return null;  
         }
+
+        lastSpawn = true;
     }
 
     // 배열에서 적 제거
@@ -99,7 +102,7 @@ public class GameManager : MonoBehaviour
         Destroy(_enemy);
 
         // 적이 다 죽으면 다음 라운드 준비
-        if (enemies.Count == 0 && numOfEnemies == 0)
+        if (lastSpawn == true && enemies.Count == 0)
         {
             NextRound();
         }
@@ -212,6 +215,7 @@ public class GameManager : MonoBehaviour
     public void StartRound()
     {
         isStarted = true;
+        lastSpawn = false;
         round++;
         ui.UpdateRound(GetRoundNum());
         ReleaseGame();
