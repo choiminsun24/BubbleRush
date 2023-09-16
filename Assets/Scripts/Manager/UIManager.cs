@@ -12,19 +12,6 @@ public class UIManager : MonoBehaviour
 
     Animator anim;
 
-    //애니메이션 넣느라 아래 메소드로 바꿨습니다!!
-    //public void UpdateHearts(int heart)
-    //{
-    //    for (int i = 0; i < _hearts; i++)
-    //    {
-    //        hearts[i].gameObject.SetActive(true);
-    //    }
-    //    for (int i = _hearts; i < hearts.Length; i++)
-    //    {
-    //        hearts[i].gameObject.SetActive(false);
-    //    }
-    //}
-
     private int point; //hearts의 top
 
     public void plusHeart()

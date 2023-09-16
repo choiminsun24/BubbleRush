@@ -108,8 +108,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private bool isAuto;
+
+    public bool getAuto()
+    {
+        return isAuto;
+    }
+
+    public void autoOn()
+    {
+        isAuto = true;
+    }
+
+    public void autoOff()
+    {
+        isAuto = false;
+    }
+
     private void NextRound()
     {
+        isStarted = false;
+
         if (round >= 10)
         {
             ui.Win();
@@ -121,9 +140,18 @@ public class GameManager : MonoBehaviour
         if (heart > 0 && (r == 2 || r == 5 || r == 8))
         {
             StartBuff();
+            if(isAuto)
+            {
+                return;
+            }
         }
+
+        if (isAuto)
+        {
+            StartRound();
+        }
+
         ui.nextRoundBtn.SetActive(true);
-        isStarted = false;
     }
 
 
@@ -190,6 +218,8 @@ public class GameManager : MonoBehaviour
         SoundManager.Instance.BGMPlay(SoundManager.Instance.inStage);
 
         enemyData = ExelReader.Read("Data/inGame/Stage1");
+
+        isAuto = false; ///싱글톤 유지하게 되면 수정
 
         //StartBuff();
         StartQuest();
