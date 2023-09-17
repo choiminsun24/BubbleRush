@@ -132,6 +132,7 @@ public class TowerManager : MonoBehaviour
 
         if (!towerController || !(towerController.isInstantiated))
         {
+            dragging = false;
             return;
         }
         
