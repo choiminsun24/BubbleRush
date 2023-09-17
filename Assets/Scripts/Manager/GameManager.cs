@@ -112,6 +112,7 @@ public class GameManager : MonoBehaviour
     private void NextRound()
     {
         isStarted = false;
+        ui.offFast();
 
         if (round >= 10)
         {
@@ -205,7 +206,7 @@ public class GameManager : MonoBehaviour
     // 게임 회복
     public void ReleaseGame()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = (float)fastLevel;
     }
 
     private UIManager ui;
@@ -214,6 +215,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fastLevel = 1;
         ReleaseGame();
         ui = GetComponent<UIManager>();
         ui.UpdateStageCoin(inGameData.GetStageCoin());
@@ -244,16 +246,28 @@ public class GameManager : MonoBehaviour
     }
 
     // 다음 라운드 버튼 누르면 시작
+    public int fastLevel; 
+
     public void StartRound()
     {
         isStarted = true;
         lastSpawn = false;
         round++;
         ui.UpdateRound(GetRoundNum());
+        ui.onFast();
         ReleaseGame();
         StartCoroutine(SpawnEnemies());
+    }
 
-        //Debug.Log(round);
+    public void clickFast()
+    {
+        if (fastLevel == 1)
+            fastLevel = 2;
+        else if (fastLevel == 2)
+            fastLevel = 1;
+
+        ui.updateFast(fastLevel);
+        Time.timeScale = (float)fastLevel;
     }
 
     // 사운드
