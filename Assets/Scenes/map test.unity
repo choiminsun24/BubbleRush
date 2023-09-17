@@ -1850,10 +1850,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1116653569}
   - {fileID: 986350384}
   - {fileID: 1362124469}
   - {fileID: 830746830}
-  - {fileID: 1116653569}
   - {fileID: 1808067109}
   - {fileID: 485540481}
   m_Father: {fileID: 0}
@@ -1914,7 +1914,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1495483400}
-  m_PlaneDistance: 10
+  m_PlaneDistance: 5
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -1923,8 +1923,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 3
+  m_SortingLayerID: -974743177
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!1001 &485540480
 PrefabInstance:
@@ -2931,8 +2931,8 @@ GameObject:
   - component: {fileID: 638134300}
   - component: {fileID: 638134299}
   m_Layer: 5
-  m_Name: Main Canvas
-  m_TagString: Untagged
+  m_Name: MainCanvas
+  m_TagString: MainCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2997,7 +2997,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -974743177
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &638134302
@@ -3131,7 +3131,7 @@ Transform:
   m_GameObject: {fileID: 671396361}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.78, y: 0, z: 10}
+  m_LocalPosition: {x: -0.85, y: 0, z: 10}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.0949951}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4062,12 +4062,12 @@ GameObject:
   - component: {fileID: 1116653571}
   - component: {fileID: 1116653570}
   m_Layer: 5
-  m_Name: Blind
+  m_Name: EventBlind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1116653569
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4076,7 +4076,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116653568}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -35582.297}
+  m_LocalPosition: {x: 0, y: 0, z: 10260}
   m_LocalScale: {x: 292.34305, y: 292.34305, z: 292.34305}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4086,8 +4086,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 108647.65, y: -14250.429}
-  m_SizeDelta: {x: 165.49951, y: 117.91675}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1116653570
 MonoBehaviour:
@@ -4102,7 +4102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5381,6 +5381,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1919119162}
     - target: {fileID: 1829216143209700447, guid: e141fa11314530f459de89ca767e537c, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 638134302}
+    - target: {fileID: 1829216143209700447, guid: e141fa11314530f459de89ca767e537c, type: 3}
       propertyPath: grayMap
       value: 
       objectReference: {fileID: 1622563163}
@@ -5954,7 +5958,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 109.603516}
+  m_AnchoredPosition: {x: 0, y: 123}
   m_SizeDelta: {x: 219.21, y: 219.20703}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1474299745

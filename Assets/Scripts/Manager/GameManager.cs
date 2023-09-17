@@ -41,11 +41,11 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public List<Enemy> enemies = new List<Enemy>();
     // 라운드 시작
     public bool isStarted {get; set;} = false;
     // 라운드 당 버블(적) 수
     private bool lastSpawn = false; 
-    public List<Enemy> enemies = new List<Enemy>();
 
     // Enemy 난이도 조절
     [Header("Enemy 난이도 조절")]
@@ -54,8 +54,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]private GameObject[] prefab_enemy;
     [SerializeField]private Transform spawnPoint;
     
-
     List<Dictionary<string, string>> enemyData;
+
+    public Transform canvas;
     private int enemyIndex = 0;
 
     private IEnumerator SpawnEnemies() //int _num_Enemy, float _spawn_Speed)
@@ -108,23 +109,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private bool isAuto;
-
-    public bool getAuto()
-    {
-        return isAuto;
-    }
-
-    public void autoOn()
-    {
-        isAuto = true;
-    }
-
-    public void autoOff()
-    {
-        isAuto = false;
-    }
-
     private void NextRound()
     {
         isStarted = false;
@@ -152,6 +136,24 @@ public class GameManager : MonoBehaviour
         }
 
         ui.nextRoundBtn.SetActive(true);
+    }
+
+    // Auto 모드
+    private bool isAuto;
+
+    public bool getAuto()
+    {
+        return isAuto;
+    }
+
+    public void autoOn()
+    {
+        isAuto = true;
+    }
+
+    public void autoOff()
+    {
+        isAuto = false;
     }
 
 
