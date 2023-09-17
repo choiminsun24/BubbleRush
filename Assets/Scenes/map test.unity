@@ -1147,14 +1147,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 638134302}
     m_Modifications:
-    - target: {fileID: 1058672572, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1298584898564831443, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1298584899356691968, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1162,10 +1154,6 @@ PrefabInstance:
     - target: {fileID: 1298584899356691968, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1298584899356691968, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1298584899356691968, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1255,6 +1243,10 @@ PrefabInstance:
       propertyPath: blindButton
       value: 
       objectReference: {fileID: 834973336}
+    - target: {fileID: 2479291384629142244, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
+      propertyPath: m_Name
+      value: info
+      objectReference: {fileID: 0}
     - target: {fileID: 6790036980698291272, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
       propertyPath: ui
       value: 
@@ -1267,10 +1259,6 @@ PrefabInstance:
       propertyPath: blindButton
       value: 
       objectReference: {fileID: 1712407862}
-    - target: {fileID: 7200669787227461068, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
