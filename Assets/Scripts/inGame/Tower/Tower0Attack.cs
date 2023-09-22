@@ -6,14 +6,6 @@ using UnityEngine.UI;
 public class Tower0Attack : MonoBehaviour
 {
     [SerializeField] private GameObject tongue;
-    // For Skill Guage
-    [SerializeField] private Slider slider;
-    [SerializeField] private GameObject fill;
-    [SerializeField] private RectTransform skillGuage;
-    private Canvas canvas;
-    private RectTransform rectParent;
-    private Vector2 localPos = Vector2.zero;
-    private bool isZero = false;
 
 
     private TowerController tc;
@@ -21,30 +13,18 @@ public class Tower0Attack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvas = GameObject.FindWithTag("MainCanvas").GetComponent<Canvas>();
-        rectParent = canvas.GetComponent<RectTransform>();
+        
         tc = GetComponent<TowerController>();
         coolTime_1 = 2f;
         skillTime_1 = coolTime_1;
         coolTime = 20f;
 
-        gameObject.transform.SetParent(rectParent);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!tc.isAttacking)
-        {
-            // Skill Guage UI Position
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(rectParent,
-                                                                    Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 0.6f, 0)),
-                                                                    canvas.worldCamera, out localPos);
-            skillGuage.localPosition = localPos;
-        }
         
-        isZero = slider.value == 0 ? false : true;
-        fill.SetActive(isZero);
         
 
         if (!GameManager.Instance.isStarted)
@@ -74,7 +54,7 @@ public class Tower0Attack : MonoBehaviour
         }
         else
         {
-            slider.value = 1 / coolTime * skillTime;
+            
         }
     }
 
