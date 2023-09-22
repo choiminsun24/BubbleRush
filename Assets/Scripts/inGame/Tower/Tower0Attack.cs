@@ -10,8 +10,8 @@ public class Tower0Attack : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] private GameObject fill;
     [SerializeField] private RectTransform skillGuage;
-    [SerializeField] private Canvas canvas;
-    [SerializeField] private RectTransform rectParent;
+    private Canvas canvas;
+    private RectTransform rectParent;
     private Vector2 localPos = Vector2.zero;
     private bool isZero = false;
 
@@ -21,10 +21,14 @@ public class Tower0Attack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        canvas = GameObject.FindWithTag("MainCanvas").GetComponent<Canvas>();
+        rectParent = canvas.GetComponent<RectTransform>();
         tc = GetComponent<TowerController>();
         coolTime_1 = 2f;
         skillTime_1 = coolTime_1;
         coolTime = 20f;
+
+        gameObject.transform.SetParent(rectParent);
     }
 
     // Update is called once per frame
