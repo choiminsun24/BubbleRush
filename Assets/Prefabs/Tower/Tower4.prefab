@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2007877981691976687}
   - component: {fileID: 9082087195122319606}
   - component: {fileID: 3519076491539045549}
+  - component: {fileID: -6607435149413173419}
   m_Layer: 0
   m_Name: Tower4
   m_TagString: Tower
@@ -176,6 +177,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &-6607435149413173419
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007877981691976684}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: be63e92a52f4c9549bed0872c039d5d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3071858677952626615
 GameObject:
   m_ObjectHideFlags: 0
