@@ -7,6 +7,8 @@ TagManager:
   - END
   - Tower
   - Terrain
+  - FxTemporaire
+  - MainCanvas
   layers:
   - Default
   - TransparentFX
@@ -52,4 +54,7 @@ TagManager:
     locked: 0
   - name: Object
     uniqueID: 1280314529
+    locked: 0
+  - name: UI
+    uniqueID: 3320224119
     locked: 0

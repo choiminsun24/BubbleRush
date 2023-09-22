@@ -25,7 +25,6 @@ public class BuffQuestUI : MonoBehaviour
     {
         ui.SetActive(true);
         Time.timeScale = 0.5f;
-        //line.enabled = true;
         blind.SetActive(true);
         blindButton?.SetActive(true);
 
@@ -35,8 +34,7 @@ public class BuffQuestUI : MonoBehaviour
     public void ButtonUp()
     {
         ui.SetActive(false);
-        Time.timeScale = 1f;
-        //line.enabled = false;
+        GameManager.Instance.ReleaseGame();
         blind.SetActive(false);
         blindButton.SetActive(false);
     }

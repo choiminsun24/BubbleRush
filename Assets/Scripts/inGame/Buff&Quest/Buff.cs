@@ -79,32 +79,6 @@ public class Buff : MonoBehaviour
         }
     }
 
-    ////세팅할 카드, 세팅할 정보
-    //private void cardSetting(Transform tf, Dictionary<string, string> target)
-    //{
-    //    //카드 프레임
-    //    if (target["Type"].Equals("NatureBless")) //버프 카드
-    //    {
-    //        tf.GetChild(1).GetComponent<Image>().sprite = images[0];
-    //        effect[effectNum] = Instantiate(effect[0], tf.GetChild(3).position, Quaternion.identity);
-
-    //    }
-    //    else if (target["Type"].Equals("DarknessCurse")) //디버프 카드
-    //    {
-    //        tf.GetChild(1).GetComponent<Image>().sprite = images[1];
-    //        GameObject game = Instantiate(effect[1], tf.GetChild(3).position, Quaternion.identity);
-    //    }
-    //    else //리워드 카드
-    //    {
-    //        tf.GetChild(1).GetComponent<Image>().sprite = images[2];
-    //        GameObject game = Instantiate(effect[2], tf.GetChild(3).position, Quaternion.identity);
-    //    }
-
-    //    tf.GetChild(2).GetComponent<Text>().text = target["Name"]; //Title
-    //    tf.GetChild(3).GetComponent<Text>().text = target["Description"]; //Content
-    //    tf.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(target["Directory"]);
-    //}
-
     //선택 후 처리
     public void choice(int n) //카드 선택 시 시행될 메소드
     {
@@ -135,6 +109,10 @@ public class Buff : MonoBehaviour
             Debug.Log("리워드가 적용됩니다: 추후 적용 예정");
         }
 
+        if (GameManager.Instance.getAuto())
+        {
+            GameManager.Instance.StartRound();
+        }
         //data.BuffATKS(1.06f); 예시문
     }
 
