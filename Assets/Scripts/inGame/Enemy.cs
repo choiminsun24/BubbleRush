@@ -68,8 +68,6 @@ public class Enemy : MonoBehaviour
                 damage *= 0.8f;
             else if (tower == Expression.EXPRESSIONLESS) //무표정 친구 -> 화난 친구 : 강함
                 damage *= 1.2f;
-
-            Debug.Log("damage: " + damage);
         }
         else if (expression == Expression.SMILE)
         {

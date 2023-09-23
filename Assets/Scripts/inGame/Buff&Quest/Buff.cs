@@ -47,9 +47,21 @@ public class Buff : MonoBehaviour
         }
     }
 
+    public void check()
+    {
+        int n = 0;
+        for (int i = 0; i < buffNum.Count;i++)
+        {
+            n += buffNum[i];
+        }
+
+        Debug.Log(n);
+    }
+
     //선택지 on
     public void play()
     {
+        check();
         Box.SetActive(true);
         ui.Blind();
 
@@ -59,7 +71,7 @@ public class Buff : MonoBehaviour
         for (int i = 0; i < num.Length; i++)
         {
             //선택
-            num[i] = UnityEngine.Random.Range(0, buffNum.Count);
+            num[i] = buffNum[UnityEngine.Random.Range(0, buffNum.Count)];
 
             //중복 검사
             for (int j = 0; j < i; j++)
@@ -82,15 +94,16 @@ public class Buff : MonoBehaviour
     //선택 후 처리
     public void choice(int n) //카드 선택 시 시행될 메소드
     {
-        Debug.Log("카드가 선택됨");
+        Debug.Log("카드가 선택됨: " + n);
+        Debug.Log(mine[mineNum]);
+
         Box.SetActive(false); //선택 창 제거
         ui.Blind();
 
         buffNum.RemoveAt(num[n]); //버프 넘에서 선택 번호 제외. -> 다음에 뽑히지 않도록 함.
         Dictionary<string, string> choice = textData[num[n]]; //선택된 행
-        mine[mineNum%3].cardSetting(choice);
+        mine[mineNum].cardSetting(choice);
         mineNum++;
-        Debug.Log("mineNum: " + mineNum);
 
 
         //내부 버프 효과 **************************값 변경 미적용***********************
