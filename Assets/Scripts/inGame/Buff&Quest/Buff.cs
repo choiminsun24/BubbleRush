@@ -30,7 +30,7 @@ public class Buff : MonoBehaviour
 
     //이펙트
     private GameObject[] effec;
-    int effectNum = 0;
+    private int effectNum = 0;
 
     //프로그램
     public void Awake()

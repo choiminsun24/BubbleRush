@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
 {
     //UI
     public TextMesh hpText;
+    public GameObject effect;
 
     //객체값 - 체력, 속력
     private int hp;
@@ -37,6 +38,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        effect.SetActive(false);
         updateTextHP();
         GetComponent<PathFollower>().pathCreator = GameObject.Find("Path").GetComponent<PathCreator>();
     }
@@ -88,6 +90,7 @@ public class Enemy : MonoBehaviour
 
         if (hp <= 0)
         {
+
             Death(5);
         }
 
@@ -100,23 +103,33 @@ public class Enemy : MonoBehaviour
         //Debug.Log(hp);
     }
 
-    private void Death(int _coin) 
+    private void Death(int _coin)
     {
-        if(_coin != 0) //타워한테 죽은 경우만 시행
+        if (_coin != 0) //타워한테 죽은 경우만 시행
         {
             GameManager.Instance.Coin(_coin); //코인 획득
             SoundManager.Instance.EffectPlay(SoundManager.Instance.selectKillSound()); //효과음 재생
+            effect.SetActive(true); //이펙트 재생
+            hpText.gameObject.SetActive(false); //체력바 제거
+            gameObject.GetComponent<SpriteRenderer>().enabled = false; //안 보이게 처리
         }
         GameManager.Instance.RemoveEnemy(this); //배열에서 제거
-        foreach(var towerCategory in TowerManager.Instance.towers)
+        foreach (var towerCategory in TowerManager.Instance.towers)
         {
-            foreach(var tower in towerCategory)
+            foreach (var tower in towerCategory)
             {
                 tower.GetComponent<TowerController>().DestroySelected(gameObject);
             }
         }
-        Destroy(gameObject); //오브젝트 제거 -> 위코드에서 실행
+        
+        Invoke("destroy", 0.2f); //오브젝트 제거
     }
+
+    private void destroy()
+    {
+        Destroy(gameObject);
+    }
+    
 
     //맵 밖으로 벗어나면 GameManager AddHeart(-1) 호출.
     private void OnTriggerEnter2D(Collider2D other)
