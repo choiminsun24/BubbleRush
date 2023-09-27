@@ -56,7 +56,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tower0
+  m_Name: Tower0 5
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isUp
@@ -64,7 +64,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -99,7 +99,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 21156ea3c2a21db4b9291a1754404460, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9a21c8439731c2947bbf3931790a5add, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -151,7 +151,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: fbedfb3e02ea7f449a1f2f9f5ce4ba0a, type: 2}
+  m_Motion: {fileID: 7400000, guid: dcba632940bbab34dbaa63c319e91c22, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
