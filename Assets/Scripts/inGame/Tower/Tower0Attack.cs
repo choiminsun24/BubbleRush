@@ -37,11 +37,14 @@ public class Tower0Attack : MonoBehaviour
         if (skillTime_1 >= coolTime_1)
         {
             // 혀 일반 공격
-            tongue.SetActive(tc.canTongue);
+            //tongue.SetActive(tc.canTongue);
+            tc.anim.SetBool("isUp", false);
+            tc.anim.SetBool("isAttack", true);
         }
         else if(skillTime_1 <= coolTime_1*2)
         {
-            tongue.SetActive(false);
+            //tongue.SetActive(false);
+            tc.anim.SetBool("isAttack", false);
         }
         else
         {
