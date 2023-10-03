@@ -25,7 +25,8 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     {
         img = GetComponent<Image>();
         canvasTrans	= canvas.transform;
-		rect		= GetComponent<RectTransform>();
+        rectParent = canvas.GetComponent<RectTransform>();
+        rect		= GetComponent<RectTransform>();
         initLoc = rect.position;
     }
 
@@ -40,7 +41,7 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         transform.SetAsLastSibling();		// 가장 앞에 보이도록 마지막 자식으로 설정
 
         // 드래그 시작 위치에 맞는 월드 좌표에 타워 배치
-        mousePosition = canvas.worldCamera.ScreenToWorldPoint(eventData.position);
+        mousePosition = Camera.main.ScreenToWorldPoint(eventData.position);
         renderPosition = mousePosition;
         draggingTower = Instantiate(tower, new Vector3(renderPosition.x, renderPosition.y, 0f), Quaternion.identity) as GameObject;
         draggingTower.name = draggingTower.name.Replace("(Clone)", "");
@@ -58,13 +59,18 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     private Vector3 mousePosition;
     private Vector2 renderPosition;
+    private RectTransform rectParent;
+    private Vector2 localPos = Vector2.zero;
     
     public void OnDrag(PointerEventData eventData)
     {
         img.color = new Color(1,1,1,0.5f);
 
         // UI dragging
-        transform.position = Input.mousePosition;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectParent,
+                                                                canvas.worldCamera.WorldToScreenPoint(mousePosition),
+                                                                Camera.main, out localPos);
+        rect.localPosition = localPos;
         // 마우스 좌표 받아서 월드 좌표로 계산 후 타워 동시 드래깅
         mousePosition = canvas.worldCamera.ScreenToWorldPoint(eventData.position);
         renderPosition = mousePosition;

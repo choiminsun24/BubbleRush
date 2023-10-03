@@ -11,6 +11,7 @@ public class TowerController : MonoBehaviour
 
     public bool isInstantiated {get; set;} = false;
     public bool isFusioning {get; set;} = false;
+    public Animator anim { get; set; }
 
     private Tower data;
     BulletController bullCtr;
@@ -32,6 +33,7 @@ public class TowerController : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+
     
     private void Awake()
     {
@@ -41,6 +43,7 @@ public class TowerController : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
 
         data = new Tower();
         data.hp = 10;
