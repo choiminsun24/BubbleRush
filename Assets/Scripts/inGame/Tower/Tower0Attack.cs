@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Tower0Attack : MonoBehaviour
 {
     [SerializeField] private GameObject tongue;
+    [SerializeField] private Animator auraAnim;
     private bool canAnimate = true;
 
 
@@ -37,6 +38,7 @@ public class Tower0Attack : MonoBehaviour
             // 뼈 일반 공격
             tc.anim.SetBool("isUp", false);
             tc.anim.SetBool("isAttack", true);
+            auraAnim.SetBool("isAttack", true);
             canAnimate = false;
         }
         // if (skillTime_1 >= coolTime_1)
@@ -46,6 +48,7 @@ public class Tower0Attack : MonoBehaviour
         else if(!tc.canTongue)
         {
             tc.anim.SetBool("isAttack", false);
+            auraAnim.SetBool("isAttack", false);
             canAnimate = true;
         }
         else

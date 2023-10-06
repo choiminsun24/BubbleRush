@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -21,6 +22,7 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     [SerializeField] private GameObject[] terrain;//설치 가능 구역 표시
 
     private List<Dictionary<string, string>> gridData;
+    private List<List<int>> coords = new List<List<int>>();
 
     private void Start()
     {
@@ -29,7 +31,25 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         rectParent = canvas.GetComponent<RectTransform>();
         rect		= GetComponent<RectTransform>();
         initLoc = rect.position;
-        //gridData = ExelReader.Read("Data/inGame/Grid");
+        gridData = ExelReader.Read("Data/inGame/Grid");
+        
+        
+        foreach (var co in gridData)
+        {
+            List<int> temp = new List<int>();
+            temp.Add(int.Parse(co["xpos[px]"])+1140);
+            temp.Add(int.Parse(co["ypos[py]"])+540);
+            if(co["IsGround"] == "TRUE")
+            {
+                temp.Add(1);
+            }
+            else
+            {
+                temp.Add(0);
+            }
+            coords.Add(temp);
+        }
+        Debug.Log(Camera.main.ScreenToWorldPoint(new Vector3(coords[0][0], coords[00][1], 0f)));
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -77,18 +97,30 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         mousePosition = canvas.worldCamera.ScreenToWorldPoint(eventData.position);
         renderPosition = mousePosition;
         draggingTower.transform.position = renderPosition;
+
+        if (SelectCoord(draggingTower.transform) == Vector3.zero)
+        {
+            draggingRange.sprite.color = Color.red;
+        }
+        else
+        {
+            draggingRange.sprite.color = Color.grey;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        Debug.Log(SelectCoord(draggingTower.transform));
         img.color = new Color(1,1,1,1);
         // 설치 가능한 구역이 아닐 때 타워 배치 불가
-        if(draggingRange.hit == false)
+        if(nearestCoord == Vector3.zero || draggingTower.transform.position.x >= 8f)
         {
             Destroy(draggingTower);
         }
         else
         {
+            
+            draggingTower.transform.position = nearestCoord;
             // 합성 드래그 가능
             draggingTower.GetComponent<TowerController>().isInstantiated = true;
             draggingRange.transform.localScale = new Vector3(5, 5, 1);
@@ -137,6 +169,43 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         draggingRange.ClearRange();
     }
 
+    private Vector3 nearestCoord = Vector3.zero;
+    [SerializeField] private float offset = 10f;
+    //0.4824561403508772f;
+    private Vector3 SelectCoord(Transform draggingTower)
+    {
+        if (nearestCoord == Vector3.zero || Vector3.Distance(nearestCoord, draggingTower.position) >= offset)
+        {
+            float min_distance;
+            Vector3 first = new Vector3(coords[0][0], coords[0][1], 0);
+            first = Camera.main.ScreenToWorldPoint(first);
+            first.z = 0f;
+            min_distance = Vector3.Distance(first, draggingTower.position);
+            foreach (List<int> co in coords)
+            {
+                Vector3 pivot = new Vector3(co[0], co[1], 0);
+                pivot = Camera.main.ScreenToWorldPoint(pivot);
+                pivot.z = 0f;
+                //Debug.Log(Vector3.Distance(pivot, draggingTower.position));
+                if (Vector3.Distance(pivot, draggingTower.position) < min_distance)
+                {
+                    nearestCoord = pivot;
+                    min_distance = Vector3.Distance(pivot, draggingTower.position);
+                    if(co[2] == 0)
+                    {
+                        nearestCoord = Vector3.zero;
+                    }
+                }
+            }
+        }
+        //Debug.Log(nearestCoord);
+        // if(nearestCoord != Vector3.zero && Vector3.Distance(nearestCoord, draggingTower.position) >= offset)
+        // {
+        //     nearestCoord = Vector3.zero;
+        // }
+
+        return nearestCoord;
+    }
 
     public void OnDrop(PointerEventData eventData)
     {

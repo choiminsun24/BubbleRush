@@ -126,6 +126,7 @@ public class TowerController : MonoBehaviour
             else
             {
                 anim.SetBool("isAttack", false);
+                aura?.GetComponent<Animator>().SetBool("isAttack", false);
                 canAnimate = true;
             }
             return;
@@ -169,6 +170,9 @@ public class TowerController : MonoBehaviour
                 // 일반 공격
                 anim.SetBool("isUp", false);
                 anim.SetBool("isAttack", true);
+                
+                aura?.GetComponent<Animator>().SetBool("isAttack", true);
+                
                 canAnimate = false;
             }
         }

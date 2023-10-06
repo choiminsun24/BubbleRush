@@ -19,14 +19,12 @@ public class DetectRange : MonoBehaviour
         if(other.tag == "Tower")
         {
             hit = false;
-            Debug.Log("hit = " + hit);
             // Red
             sprite.color = new Color(1f, 0f, 0f, sprite.color.a);
         }
         if (other.tag == category)
         {
             hit = false;
-            Debug.Log("hit = " + hit);
             // Red
             sprite.color = new Color(1f, 0f, 0f, sprite.color.a);
         }
