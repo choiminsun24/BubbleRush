@@ -9,21 +9,35 @@ public class InGameData : MonoBehaviour
     private float ATK;
     private float ATKS;
     private float ATKR;
-
+    private Dictionary<string,Dictionary<string,float>> atkData;
 
     void Awake() //DataManager를 통해 기본 능력치 세팅
     {
         manager = GameObject.Find("DataManager").GetComponent<DataManager>();
 
-        //기본 능력치 * knowledge 능력치
-        ATK = manager.Atk * GameData.GetKnowATK(manager.KnowATK);
-        ATKS = manager.AtkSpeed * GameData.GetKnowATKS(manager.KnowATKS);
-        ATKR = manager.AtkRange * GameData.GetKnowATKR(manager.KnowATKR);
+        //기본 능력치
+        ATK = manager.Atk;
+        ATKS = manager.AtkSpeed;
+        ATKR = manager.AtkRange;
 
-        //업그레이드 확인용 - 기존 값
-        Debug.Log("ATK: " + ATK);
-        Debug.Log("ATKS: " + ATKS);
-        Debug.Log("ATKR: " + ATKR);
+        //딕셔너리 초기화 - 동물 지식 (행이 속성, 열이 각각 공격력, 공격속도, 공격범위인 행렬)
+        atkData = new Dictionary<string, Dictionary<string,float>>();
+
+        atkData["Ground"] = new Dictionary<string, float>();
+        atkData["Water"] = new Dictionary<string, float>();
+        atkData["Wind"] = new Dictionary<string, float>();
+
+        atkData["Ground"]["ATK"] = GameData.GetKnowATK(manager.KnowATK);
+        atkData["Ground"]["ATKS"] = GameData.GetKnowATKS(manager.KnowATKS);
+        atkData["Ground"]["ATKR"] = GameData.GetKnowATKR(manager.KnowATKR);
+
+        atkData["Water"]["ATK"] = GameData.GetKnowATK(manager.KnowATK);
+        atkData["Water"]["ATKS"] = GameData.GetKnowATKS(manager.KnowATKS);
+        atkData["Water"]["ATKR"] = GameData.GetKnowATKR(manager.KnowATKR);
+
+        atkData["Wind"]["ATK"] = GameData.GetKnowATK(manager.KnowATK);
+        atkData["Wind"]["ATKS"] = GameData.GetKnowATKS(manager.KnowATKS);
+        atkData["Wind"]["ATKR"] = GameData.GetKnowATKR(manager.KnowATKR);
     }
 
     //업그레이드 확인용
@@ -35,19 +49,49 @@ public class InGameData : MonoBehaviour
     }
 
     //능력치 변화
-    public void BuffATK(float change)
+//앞에 있는 if 저거 지우기
+
+    public void BuffATK(string type, int change)
     {
-        ATK *= change;
+        if (!atkData.ContainsKey(type))
+        {
+            Debug.Log("해당 키는 아직 없어요");
+            return;
+        }
+        Debug.Log(atkData[type]["ATK"] + "에서");
+
+        atkData[type]["ATK"] += 0.01f * change;
+
+        Debug.Log(atkData[type]["ATK"] + "로");
     }
 
-    public void BuffATKS(float change)
+    public void BuffATKS(string type, float change)
     {
-        ATKS *= change;
+        if (!atkData.ContainsKey(type))
+        {
+            Debug.Log("해당 키는 아직 없어요");
+            return;
+        }
+
+        Debug.Log(atkData[type]["ATKS"] + "에서");
+
+        atkData[type]["ATKS"] += 0.01f * change;
+
+        Debug.Log(atkData[type]["ATKS"] + "로");
     }
 
-    public void BuffATKR(float change)
+    public void BuffATKR(string type, float change)
     {
-        ATKR *= change;
+        if (!atkData.ContainsKey(type))
+        {
+            Debug.Log("해당 키는 아직 없어요");
+            return;
+        }
+        Debug.Log(atkData[type]["ATKR"] + "에서");
+
+        atkData[type]["ATKR"] += 0.01f * change;
+
+        Debug.Log(atkData[type]["ATKR"] + "로");
     }
 
     //재화 관리
