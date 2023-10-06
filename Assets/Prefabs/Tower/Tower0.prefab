@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tongue: {fileID: 8562580520470215872}
+  auraAnim: {fileID: 313316289114039383}
 --- !u!1 &2319688065918085102
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,8 +608,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  tc: {fileID: 2007877981691976687}
-  hit: 0
   category: Terrain
 --- !u!212 &5623020972071001315
 SpriteRenderer:
