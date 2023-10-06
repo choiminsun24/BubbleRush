@@ -33,6 +33,8 @@ public class TowerController : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    private bool canAnimate = true;
+
 
     
     private void Awake()
@@ -51,26 +53,6 @@ public class TowerController : MonoBehaviour
         data.range = 3;
         data.time = 1f;
     }
-
-    // // 타워 근처 적 감지 범위
-    // public void DetectEnemies(GameObject enemy)
-    // {
-    //     if (enemies.IndexOf(enemy) == -1)
-    //     {
-    //         enemies.Add(enemy);
-    //     }
-    // }
-
-    // // 적이 감지 범위에서 벗어났을 때
-    // public void RemoveEnemies(GameObject enemy)
-    // {
-    //     if (enemies.IndexOf(enemy) != -1)
-    //     {
-    //         GameObject temp = enemies.Find(element => element == enemy);
-    //         enemies.Remove(temp);
-    //     }
-    // }
-
     
     // 일정한 주기로 공격
     void Update()
@@ -113,6 +95,11 @@ public class TowerController : MonoBehaviour
             }
         }
         
+        if(nearestEnemy && Vector3.Distance(nearestEnemy.position, transform.position) >= offset)
+        {
+            nearestEnemy = null;
+        }
+
         return nearestEnemy;
     }
 
@@ -130,12 +117,16 @@ public class TowerController : MonoBehaviour
 
     public void Attack()
     {
-
         if (!SelectEnemy())
         {
             if(towerCategory == 1 && canTongue)
             {
                 canTongue = false;
+            }
+            else
+            {
+                anim.SetBool("isAttack", false);
+                canAnimate = true;
             }
             return;
         }
@@ -163,16 +154,23 @@ public class TowerController : MonoBehaviour
         {
             time = 0f;
 
-            if(towerCategory == 1)
-            {
-                return;
-            }
             
             // Bullet 생성하여 적을 향해 이동시키기
             bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
             bullCtr = bull.GetComponent<BulletController>();
             bullCtr.setBullet(data.attack, expression);
             bullCtr.TriggerMove(nearestEnemy.transform);
+            if (towerCategory == 1)
+            {
+                return;
+            }
+            if (canAnimate)
+            {
+                // 일반 공격
+                anim.SetBool("isUp", false);
+                anim.SetBool("isAttack", true);
+                canAnimate = false;
+            }
         }
 
         

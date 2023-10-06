@@ -20,6 +20,7 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     [SerializeField] private Transform hierarchy;// 타워 배치할 오브젝트 계층
     [SerializeField] private GameObject[] terrain;//설치 가능 구역 표시
 
+    private List<Dictionary<string, string>> gridData;
 
     private void Start()
     {
@@ -28,6 +29,7 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         rectParent = canvas.GetComponent<RectTransform>();
         rect		= GetComponent<RectTransform>();
         initLoc = rect.position;
+        //gridData = ExelReader.Read("Data/inGame/Grid");
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -48,10 +50,10 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         draggingRange = draggingTower.GetComponentInChildren<DetectRange>();
 
         // 타워 설치 가능 구역 표시
-        foreach(GameObject map in terrain)
-        {
-            map.SetActive(true);
-        }
+        // foreach(GameObject map in terrain)
+        // {
+        //     map.SetActive(true);
+        // }
 
         // 타워 설치 사거리 표시
         draggingRange.DisplayRange();
@@ -80,7 +82,6 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     public void OnEndDrag(PointerEventData eventData)
     {
         img.color = new Color(1,1,1,1);
-
         // 설치 가능한 구역이 아닐 때 타워 배치 불가
         if(draggingRange.hit == false)
         {
@@ -104,7 +105,7 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                     SoundManager.Instance.EffectPlay(SoundManager.Instance.tower1Install[Random.Range(0, 3)]);
                     break;
                 case 2:
-                    SoundManager.Instance.EffectPlay(SoundManager.Instance.tower2Install[Random.Range(0, 3)]);
+                    //SoundManager.Instance.EffectPlay(SoundManager.Instance.tower2Install[Random.Range(0, 3)]);
                     break;
                 default:
                     SoundManager.Instance.EffectPlay(SoundManager.Instance.towerInstall[Random.Range(0, 3)]);
@@ -127,10 +128,10 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         rect.position = new Vector3(initLoc.x, initLoc.y, 0);
         
         // 타워 설치 가능 구역 비표시
-        foreach(GameObject map in terrain)
-        {
-            map.SetActive(false);
-        }
+        // foreach(GameObject map in terrain)
+        // {
+        //     map.SetActive(false);
+        // }
 
         // 타워 설치 사거리 비표시
         draggingRange.ClearRange();

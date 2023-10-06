@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class DetectRange : MonoBehaviour
 {
-    public SpriteRenderer sprite;
-    [SerializeField] private TowerController tc;
-    public bool hit = true;                    // 타워 설치 가능 구역 여부
-    [SerializeField] private string category;   // 타워 종류
-    private void OnTriggerEnter2D(Collider2D other)
+    public SpriteRenderer sprite;                   // 사거리 이미지
+    public bool hit {get;set;} = true;              // 타워 설치 가능 구역 여부
+    [SerializeField] private string category;       // 타워 종류
+
+
+    private void Awake()
     {
-        if(other.tag == "Player")
-        {
-            //tc.DetectEnemies(other.gameObject);
-        }
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -21,18 +19,16 @@ public class DetectRange : MonoBehaviour
         if(other.tag == "Tower")
         {
             hit = false;
+            Debug.Log("hit = " + hit);
             // Red
             sprite.color = new Color(1f, 0f, 0f, sprite.color.a);
         }
         if (other.tag == category)
         {
             hit = false;
+            Debug.Log("hit = " + hit);
             // Red
             sprite.color = new Color(1f, 0f, 0f, sprite.color.a);
-        }
-        if(other.tag == "Player")
-        {
-            //tc.DetectEnemies(other.gameObject);
         }
     }
 
@@ -53,16 +49,8 @@ public class DetectRange : MonoBehaviour
             sprite.color = new Color(0.5f, 0.5f, 0.5f, sprite.color.a);
         }
 
-        if(other.gameObject.tag == "Player")
-        {
-            //tc.RemoveEnemies(other.gameObject);
-        }
     }
 
-    private void Awake()
-    {
-        sprite = GetComponent<SpriteRenderer>();
-    }
 
     // 사거리 색표시
     public void DisplayRange()
