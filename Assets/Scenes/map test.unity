@@ -8082,6 +8082,7 @@ MonoBehaviour:
   hierarchy: {fileID: 1989321650}
   terrain:
   - {fileID: 2065159920}
+  offset: 0.48245615
 --- !u!114 &1947225246089908217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8148,6 +8149,7 @@ MonoBehaviour:
   hierarchy: {fileID: 1989321650}
   terrain:
   - {fileID: 2065159920}
+  offset: 0.48245615
 --- !u!1 &2422364230166402910
 GameObject:
   m_ObjectHideFlags: 0
@@ -8292,6 +8294,7 @@ MonoBehaviour:
   hierarchy: {fileID: 1989321650}
   terrain:
   - {fileID: 2065159920}
+  offset: 0.48245615
 --- !u!224 &3081494133551184378
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8328,6 +8331,7 @@ MonoBehaviour:
   hierarchy: {fileID: 1989321650}
   terrain:
   - {fileID: 2065159920}
+  offset: 0.48245615
 --- !u!1 &3587206837964374218
 GameObject:
   m_ObjectHideFlags: 0
@@ -8587,6 +8591,7 @@ MonoBehaviour:
   hierarchy: {fileID: 1989321650}
   terrain:
   - {fileID: 2065159920}
+  offset: 0.48245615
 --- !u!114 &7620127277124226400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8604,6 +8609,7 @@ MonoBehaviour:
   hierarchy: {fileID: 1989321650}
   terrain:
   - {fileID: 2065159920}
+  offset: 0.48245615
 --- !u!222 &8406332710912535092
 CanvasRenderer:
   m_ObjectHideFlags: 0
