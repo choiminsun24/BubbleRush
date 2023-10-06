@@ -92,8 +92,24 @@ public class DragTower_2 : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             draggingTower.GetComponent<TowerController>().isInstantiated = true;
             draggingRange.transform.localScale = new Vector3(5, 5, 1);
             // 타워 종류별 데이터 저장
-            TowerManager.Instance.towers[int.Parse(draggingTower.name.Replace("Tower", ""))].Add(draggingTower);
-            SoundManager.Instance.EffectPlay(SoundManager.Instance.towerInstall[Random.Range(0,3)]);
+            int towerNum = int.Parse(draggingTower.name.Replace("Tower", ""));
+            TowerManager.Instance.towers[towerNum].Add(draggingTower);
+            //타워 종류에 따른 사운드
+            switch(towerNum)
+            {
+                case 0:
+                    SoundManager.Instance.EffectPlay(SoundManager.Instance.towerInstall[Random.Range(0, 3)]);
+                    break;
+                case 1:
+                    SoundManager.Instance.EffectPlay(SoundManager.Instance.tower1Install[Random.Range(0, 3)]);
+                    break;
+                case 2:
+                    SoundManager.Instance.EffectPlay(SoundManager.Instance.tower2Install[Random.Range(0, 3)]);
+                    break;
+                default:
+                    SoundManager.Instance.EffectPlay(SoundManager.Instance.towerInstall[Random.Range(0, 3)]);
+                    break;
+            }
         }
 
         // 드래그를 시작하면 부모가 canvas로 설정되기 때문에
