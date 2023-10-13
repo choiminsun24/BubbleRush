@@ -114,9 +114,9 @@ public class Enemy : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().enabled = false; //안 보이게 처리
         }
         GameManager.Instance.RemoveEnemy(this); //배열에서 제거
-        foreach (var towerCategory in TowerManager.Instance.towers)
+        for (int i=0; i<6; ++i)
         {
-            foreach (var tower in towerCategory)
+            foreach (var tower in TowerManager.Instance.GetTowerList(i))
             {
                 tower.GetComponent<TowerController>().DestroySelected(gameObject);
             }

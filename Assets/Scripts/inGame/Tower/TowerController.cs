@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class TowerController : MonoBehaviour
 {
     public int expression = 1; //임시 표정 MAD
@@ -13,7 +14,7 @@ public class TowerController : MonoBehaviour
     public bool isFusioning {get; set;} = false;
     public Animator anim { get; set; }
 
-    private Tower data;
+    public Tower data {get;set;}
     BulletController bullCtr;
 
     public int level = 1;
@@ -25,7 +26,7 @@ public class TowerController : MonoBehaviour
     
     public bool canTongue {get; set;} = false;
     public bool isAttacking {get; set;} = false;
-    [SerializeField] private int towerCategory = 0;
+    public int towerCategory = 0;
     [SerializeField] private UnityEngine.Object bullet;
 
     private float angle;
@@ -34,7 +35,6 @@ public class TowerController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     private bool canAnimate = true;
-
 
     
     private void Awake()
@@ -46,12 +46,6 @@ public class TowerController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-
-        data = new Tower();
-        data.hp = 10;
-        data.attack = 20;
-        data.range = 3;
-        data.time = 1f;
     }
     
     // 일정한 주기로 공격
@@ -151,7 +145,7 @@ public class TowerController : MonoBehaviour
               * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle - 270);
 
-        if (time >= data.time)
+        if (time >= data.skillCoolTime/4000)
         {
             time = 0f;
 
