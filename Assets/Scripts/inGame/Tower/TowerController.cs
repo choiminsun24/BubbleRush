@@ -53,12 +53,12 @@ public class TowerController : MonoBehaviour
     {
         if(!isInstantiated)
         {
-            spriteRenderer.enabled = false;
+            spriteRenderer.color = new Color(1,1,1,0.5f);
             return;
         }
         else
         {
-            spriteRenderer.enabled = true;
+            spriteRenderer.color = new Color(1,1,1,1f);
         }
         time += Time.deltaTime;
 
