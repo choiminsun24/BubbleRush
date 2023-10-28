@@ -23,6 +23,7 @@ public class TowerManager : MonoBehaviour
         }
     }
 
+    public bool canFuse {get; set;} = true;
     public Daebak daebakInfo;
     public Nabi nabiInfo;
     public Tori toriInfo;
@@ -66,11 +67,13 @@ public class TowerManager : MonoBehaviour
 
     float min_distance=1f;
 
+
+
     // Update is called once per frame
     void Update()
     {
         // 다중 터치 시 스킵
-        if (Input.touchCount != 1)
+        if (Input.touchCount != 1 || !canFuse)
         {
             dragging = false;
             return;

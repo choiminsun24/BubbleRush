@@ -14,7 +14,6 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
 	private	RectTransform	rect;				// UI 위치 제어를 위한 RectTransform
     private GameObject draggingTower;           // 월드에 동시에 배치되고 있는 타워
     private DetectRange draggingRange;          // 해당 타워 사거리
-    private float posUI_x = 8f;                 // UI 화면 시작 좌표 (설치 불가능)
 
     public Canvas canvas;
 
@@ -22,7 +21,6 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
     [SerializeField] private Transform hierarchy;// 타워 배치할 오브젝트 계층
     [SerializeField] private GameObject[] terrain;//설치 가능 구역 표시
 
-    // 맵 그리드 데이터
     private List<Dictionary<string, string>> gridData;
     private List<List<int>> coords = new List<List<int>>();
 
@@ -49,6 +47,7 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
             {
                 temp.Add(0);
             }
+            temp.Add(int.Parse(co["column"]));
             coords.Add(temp);
         }
         //Debug.Log(Camera.main.ScreenToWorldPoint(new Vector3(coords[0][0], coords[00][1], 0f)));
@@ -85,14 +84,10 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
     private Vector2 renderPosition;
     private RectTransform rectParent;
     private Vector2 localPos = Vector2.zero;
-    private bool isCalculated = true;
+    private bool canLocate = true;
     
     public void OnDrag(PointerEventData eventData)
     {
-        if(!isCalculated)
-        {
-            return;
-        }
         img.color = new Color(1,1,1,0f);
 
         // UI dragging
@@ -103,9 +98,9 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         // 마우스 좌표 받아서 월드 좌표로 계산 후 타워 동시 드래깅
         mousePosition = canvas.worldCamera.ScreenToWorldPoint(eventData.position);
         renderPosition = mousePosition;
-        //draggingTower.transform.position = renderPosition;
 
-        if (!SelectCoord())
+        SelectCoord(draggingTower, renderPosition);
+        if (!canLocate)
         {
             draggingRange.sprite.color = Color.red;
         }
@@ -113,49 +108,33 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         {
             draggingRange.sprite.color = Color.grey;
         }
-        Debug.Log(nearestCoord);
         draggingTower.transform.position = nearestCoord;
     }
 
+    private Vector3 [] offsets = {new Vector3(-0.1f, -0.1f, 0f), new Vector3(0.3f, 0f, 0f), new Vector3(0.1f, -0.1f, 0f),
+                                    new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f)};
     public void OnEndDrag(PointerEventData eventData)
     {
+        //Debug.Log(SelectCoord(draggingTower.transform));
         img.color = new Color(1,1,1,1);
         // 설치 가능한 구역이 아닐 때 타워 배치 불가
-        if(!SelectCoord() || draggingTower.transform.position.x >= posUI_x)
+        if(draggingTower.transform.position.x >= 8f)
         {
-            Destroy(draggingTower);
+            DeleteTower(towerCategory, draggingTower);
         }
         else
         {
             
-            draggingTower.transform.position = nearestCoord;
-            // 합성 드래그 가능
-            TowerController tempTc = draggingTower.GetComponent<TowerController>();
-            tempTc.isInstantiated = true;
-            tempTc.data = GetTowerData(towerCategory);
+            draggingTower.transform.position = nearestCoord + offsets[towerCategory];
             
-        Debug.Log(tempTc.data.skillCoolTime);
+            // UI 기존 위치로 변경
+            rect.position = new Vector3(initLoc.x, initLoc.y, 0);
 
-            draggingRange.transform.localScale = new Vector3(5, 5, 1);
-            // // 타워 종류별 데이터 저장
-            // int towerNum = int.Parse(draggingTower.name.Replace("Tower", ""));
-            // TowerManager.Instance.towers[towerNum].Add(draggingTower);
-            //타워 종류에 따른 사운드
-            switch(towerCategory)
+            if (!canLocate)
             {
-                case 0:
-                    SoundManager.Instance.EffectPlay(SoundManager.Instance.towerInstall[Random.Range(0, 3)]);
-                    break;
-                case 1:
-                    SoundManager.Instance.EffectPlay(SoundManager.Instance.tower1Install[Random.Range(0, 3)]);
-                    break;
-                case 2:
-                    //SoundManager.Instance.EffectPlay(SoundManager.Instance.tower2Install[Random.Range(0, 3)]);
-                    break;
-                default:
-                    SoundManager.Instance.EffectPlay(SoundManager.Instance.towerInstall[Random.Range(0, 3)]);
-                    break;
+                return;
             }
+            AfterInstall(draggingTower);
         }
 
         // 드래그를 시작하면 부모가 canvas로 설정되기 때문에
@@ -169,8 +148,6 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
 		}
 
         
-        // 기본 위치로 변경
-        rect.position = new Vector3(initLoc.x, initLoc.y, 0);
         
         // 타워 설치 가능 구역 비표시
         // foreach(GameObject map in terrain)
@@ -178,50 +155,131 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         //     map.SetActive(false);
         // }
 
+    }
+
+    private void AfterInstall(GameObject tower)
+    {
+        // 합성 드래그 가능
+        TowerController tempTc = tower.GetComponent<TowerController>();
+        tempTc.isInstantiated = true;
+        tempTc.data = GetTowerData(towerCategory);
+        
+
+        draggingRange.transform.localScale = new Vector3(5, 5, 1);
+        // // 타워 종류별 데이터 저장
+        // int towerNum = int.Parse(tower.name.Replace("Tower", ""));
+        // TowerManager.Instance.towers[towerNum].Add(tower);
+        //타워 종류에 따른 사운드
+        switch(towerCategory)
+        {
+            case 0:
+                SoundManager.Instance.EffectPlay(SoundManager.Instance.towerInstall[Random.Range(0, 3)]);
+                break;
+            case 1:
+                SoundManager.Instance.EffectPlay(SoundManager.Instance.tower1Install[Random.Range(0, 3)]);
+                break;
+            case 2:
+                //SoundManager.Instance.EffectPlay(SoundManager.Instance.tower2Install[Random.Range(0, 3)]);
+                break;
+            default:
+                SoundManager.Instance.EffectPlay(SoundManager.Instance.towerInstall[Random.Range(0, 3)]);
+                break;
+        }
         // 타워 설치 사거리 비표시
         draggingRange.ClearRange();
     }
 
-
     // Calculate the nearest Coordination
     private Vector3 nearestCoord = Vector3.zero;
     [SerializeField] private float offset = 10f;
+    private GameObject couldNotLocated = null;
+    private int lastCol;
     //0.4824561403508772f;
-    private bool SelectCoord()
+    private Vector3 SelectCoord(GameObject draggingTower, Vector2 pos)
     {
-        isCalculated = false;
-        if (nearestCoord == Vector3.zero || Vector3.Distance(nearestCoord, renderPosition) >= offset)
+        if (nearestCoord == Vector3.zero || Vector3.Distance(nearestCoord, pos) >= offset)
         {
             float min_distance;
             Vector3 first = new Vector3(coords[0][0], coords[0][1], 0);
             first = Camera.main.ScreenToWorldPoint(first);
             first.z = 0f;
-            min_distance = Vector3.Distance(first, renderPosition);
+            min_distance = Vector3.Distance(first, pos);
             foreach (List<int> co in coords)
             {
                 Vector3 pivot = new Vector3(co[0], co[1], 0);
                 pivot = Camera.main.ScreenToWorldPoint(pivot);
                 pivot.z = 0f;
-                //Debug.Log(Vector3.Distance(pivot, renderPosition)));
-                if (Vector3.Distance(pivot, renderPosition) < min_distance)
+                if (Vector3.Distance(pivot, pos) < min_distance)
                 {
                     nearestCoord = pivot;
-                    min_distance = Vector3.Distance(pivot, renderPosition);
+                    min_distance = Vector3.Distance(pivot, pos);
                     if(co[2] == 0)
                     {
-                        isCalculated = true;
-                        return false;
+                        canLocate = false;
+                        couldNotLocated = draggingTower;
                     }
+                    else
+                    {
+                        if(draggingTower != couldNotLocated)
+                        {
+                            canLocate = true;
+                            couldNotLocated = null;
+                        }
+                    }
+                    lastCol = co[3];
+                    Debug.Log("lastCol: "+lastCol);
                 }
             }
+
         }
         //Debug.Log(nearestCoord);
-        // if(nearestCoord != Vector3.zero && Vector3.Distance(nearestCoord, renderPosition) >= offset)
+        // if(nearestCoord != Vector3.zero && Vector3.Distance(nearestCoord, pos) >= offset)
         // {
         //     nearestCoord = Vector3.zero;
         // }
-        isCalculated = true;
-        return true;
+
+        return nearestCoord;
+    }
+
+
+    private Touch touch;
+    private Vector2 offsetAfter = Vector2.zero;
+    private Vector2 initialLoc;
+    private void Update()
+    {
+        // 다중 터치 시 스킵
+        if (Input.touchCount != 1)
+        {
+            return;
+        }
+        // 입력된 터치 수
+        touch = Input.touches[0];
+        if(touch.phase == TouchPhase.Began)
+        {
+            Debug.Log(canLocate);
+            Debug.Log(couldNotLocated);
+            mousePosition = canvas.worldCamera.ScreenToWorldPoint(touch.position);
+            renderPosition = mousePosition;
+            if(!canLocate && couldNotLocated)
+            {
+                initialLoc = couldNotLocated.transform.position;
+            }
+        }
+        else if(!canLocate && touch.phase == TouchPhase.Moved && couldNotLocated)
+        {
+            TowerManager.Instance.canFuse = false;
+            mousePosition = canvas.worldCamera.ScreenToWorldPoint(touch.position);
+            offsetAfter = (Vector2)mousePosition - renderPosition;
+            couldNotLocated.transform.position = (Vector3)initialLoc + (Vector3)offsetAfter;
+            Debug.Log("initialLoc:" + initialLoc);
+            SelectCoord(couldNotLocated, (Vector2)couldNotLocated.transform.position);
+            couldNotLocated.transform.position = nearestCoord;
+        }
+        else if(!canLocate && touch.phase == TouchPhase.Ended && couldNotLocated)
+        {
+            AfterInstall(couldNotLocated);
+            TowerManager.Instance.canFuse = true;
+        }
     }
 
     private Tower GetTowerData(int category)
@@ -251,6 +309,25 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
             return TowerManager.Instance.toriInfo.GetTori();
             default:
             return TowerManager.Instance.daebakInfo.GetDaebak();
+        }
+    }
+
+    private void DeleteTower(int category, GameObject obj)
+    {
+        switch(category)
+        {
+            case 0:
+            TowerManager.Instance.daebakInfo.ReturnDaebak(obj);
+            break;
+            case 1:
+            TowerManager.Instance.nabiInfo.ReturnNabi(obj);
+            break;
+            case 2:
+            TowerManager.Instance.toriInfo.ReturnTori(obj);
+            break;
+            default:
+            TowerManager.Instance.daebakInfo.ReturnDaebak(obj);
+            break;
         }
     }
 
