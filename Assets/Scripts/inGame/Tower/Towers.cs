@@ -293,7 +293,7 @@ public class Goby : ITower
         poolGoby = new Stack<GameObject>();
         GobyPrefab = Resources.Load("Goby");
         // Set ITower's info
-        //SetVariable("Goby");
+        SetVariable("꼬비_1");
     }
 
     public GameObject GetGoby()
@@ -519,30 +519,30 @@ public class Tower
 
 public enum Grade
 {
-    Normal
+    Normal, Legendary, Rare
 }
 
 public enum TargetCount
 {
-    Single, Range
+    Single, Range, NULL
 }
 
 public enum ToSmileBubble
 {
-    Strong, Weak
+    Strong, Weak, NULL
 }
 
 public enum ToExpressionlessBubble
 {
-    Normal, VeryStrong
+    Normal, VeryStrong, NULL
 }
 
 public enum ToAngryBubble
 {
-    VeryWeak, Normal, Strong, Weak
+    VeryWeak, Normal, Strong, Weak, NULL
 }
 
 public enum Attribute
 {
-    Ground
+    Ground, Water
 }

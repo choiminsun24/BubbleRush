@@ -33,7 +33,6 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         initLoc = rect.position;
         gridData = ExelReader.Read("Data/inGame/Grid");
 
-        print(Camera.main.ScreenToWorldPoint(new Vector3(760, 540, 0f)));
         foreach (var co in gridData)
         {
             List<int> temp = new List<int>();
@@ -51,8 +50,6 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
             temp.Add(int.Parse(co["column"]));
             coords.Add(temp);
         }
-
-        //Debug.Log(Camera.main.ScreenToWorldPoint(new Vector3(coords[0][0], coords[00][1], 0f)));
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -109,14 +106,10 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         {
             draggingRange.sprite.color = Color.grey;
         }
-        // if (!canCalculate)
-        // {
-        //     return;
-        // }
     }
 
     private Vector3 [] offsets = {new Vector3(-0.1f, -0.1f, 0f), new Vector3(0.3f, 0f, 0f), new Vector3(0.1f, -0.1f, 0f),
-                                    new Vector3(-0.1f, -0.1f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f)};
+                                    new Vector3(-0.17f, -0.17f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f)};
     public void OnEndDrag(PointerEventData eventData)
     {
         //Debug.Log(SelectCoord(draggingTower.transform));
@@ -194,7 +187,6 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         screenPosition = new Vector3(screenPosition.x, screenPosition.y, 0f);
         if (nearestCoord == Vector3.zero || Vector3.Distance(lastCoord, screenPosition) >= offset)
         {
-            //canCalculate = false;
             for (int i=0; i<coords.Count; ++i)
             {
                 // 거리 비교할 때는 스크린 좌표로 비교
@@ -224,7 +216,6 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                 }
             }
         }
-        //canCalculate = true;
         return nearestCoord;
     }
 
