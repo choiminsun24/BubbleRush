@@ -116,7 +116,7 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
     }
 
     private Vector3 [] offsets = {new Vector3(-0.1f, -0.1f, 0f), new Vector3(0.3f, 0f, 0f), new Vector3(0.1f, -0.1f, 0f),
-                                    new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f)};
+                                    new Vector3(-0.1f, -0.1f, 0f), new Vector3(0f, 0f, 0f), new Vector3(0f, 0f, 0f)};
     public void OnEndDrag(PointerEventData eventData)
     {
         //Debug.Log(SelectCoord(draggingTower.transform));
@@ -239,6 +239,8 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
             return TowerManager.Instance.nabiInfo.curTower;
             case 2:
             return TowerManager.Instance.toriInfo.curTower;
+            case 3:
+            return TowerManager.Instance.gobyInfo.curTower;
             default:
             return TowerManager.Instance.daebakInfo.curTower;
         }
@@ -254,6 +256,8 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
             return TowerManager.Instance.nabiInfo.GetNabi();
             case 2:
             return TowerManager.Instance.toriInfo.GetTori();
+            case 3:
+                return TowerManager.Instance.gobyInfo.GetGoby();
             default:
             return TowerManager.Instance.daebakInfo.GetDaebak();
         }
@@ -272,6 +276,9 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
             case 2:
             TowerManager.Instance.toriInfo.ReturnTori(obj);
             break;
+            case 3:
+                TowerManager.Instance.gobyInfo.ReturnGoby(obj);
+                break;
             default:
             TowerManager.Instance.daebakInfo.ReturnDaebak(obj);
             break;

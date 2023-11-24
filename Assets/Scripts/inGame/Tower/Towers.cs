@@ -279,75 +279,75 @@ public class Tori : ITower
     }
 }
 
-public class Tower3 : ITower
+public class Goby : ITower
 {
     // Instantiated List
-    public static List<GameObject> listTower3 = new List<GameObject>();
-    public UnityEngine.Object Tower3Prefab {get; set;}
-    private Stack<GameObject> poolTower3 = new Stack<GameObject>();
+    public static List<GameObject> listGoby = new List<GameObject>();
+    public UnityEngine.Object GobyPrefab {get; set;}
+    private Stack<GameObject> poolGoby = new Stack<GameObject>();
 
-    public Tower3()
+    public Goby()
     {
         // Initialize
-        listTower3 = new List<GameObject>();
-        poolTower3 = new Stack<GameObject>();
-        Tower3Prefab = Resources.Load("Tower3");
+        listGoby = new List<GameObject>();
+        poolGoby = new Stack<GameObject>();
+        GobyPrefab = Resources.Load("Goby");
         // Set ITower's info
-        SetVariable("Tower3");
+        //SetVariable("Goby");
     }
 
-    public GameObject GetTower3()
+    public GameObject GetGoby()
     {
-        GameObject tempTower3;
-        if(!Tower3Prefab)
+        GameObject tempGoby;
+        if(!GobyPrefab)
         {
-            print("Tower3Prefab is null");
+            print("GobyPrefab is null");
             return null;
         }
         // Initial Pooling
-        if(poolTower3.Count == 0)
+        if(poolGoby.Count == 0)
         {
             for (int i = 0; i < 20; ++i)
             {
-                tempTower3 = Instantiate(Tower3Prefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
-                poolTower3.Push(tempTower3);
-                tempTower3.SetActive(false);
+                tempGoby = Instantiate(GobyPrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+                poolGoby.Push(tempGoby);
+                tempGoby.SetActive(false);
             }
         }
-        tempTower3 = poolTower3.Pop();
-        tempTower3.SetActive(true);
-        listTower3.Add(tempTower3);
-        return tempTower3;
+        tempGoby = poolGoby.Pop();
+        tempGoby.SetActive(true);
+        listGoby.Add(tempGoby);
+        return tempGoby;
     }
 
-    public void ReturnTower3(GameObject obj)
+    public void ReturnGoby(GameObject obj)
     {
         obj.SetActive(false);
-        poolTower3.Push(obj);
+        poolGoby.Push(obj);
     }
 
     public override ITower Clone()
     {
         // deep copy
-        Tower3 clonedTower3 = new Tower3();
-        clonedTower3.curTower = new Tower();
+        Goby clonedGoby = new Goby();
+        clonedGoby.curTower = new Tower();
         // copy data
-        clonedTower3.curTower.name = curTower.name;
-        clonedTower3.curTower.grade = curTower.grade;
-        clonedTower3.curTower.scale = curTower.scale;
-        clonedTower3.curTower.attack = curTower.attack;
-        clonedTower3.curTower.attackSpeed = curTower.attackSpeed;
-        clonedTower3.curTower.range = curTower.range;
-        clonedTower3.curTower.targetCount = curTower.targetCount;
-        clonedTower3.curTower.rangeOfAttack = curTower.rangeOfAttack;
-        clonedTower3.curTower.toSmileBubble = curTower.toSmileBubble;
-        clonedTower3.curTower.toExpressionlessBubble = curTower.toExpressionlessBubble;
-        clonedTower3.curTower.toAngryBubble = curTower.toAngryBubble;
-        clonedTower3.curTower.attribute = curTower.attribute;
-        clonedTower3.curTower.cost = curTower.cost;
-        clonedTower3.curTower.skillCoolTime = curTower.skillCoolTime;
-        clonedTower3.curTower.skill = curTower.skill;
-        return clonedTower3;
+        clonedGoby.curTower.name = curTower.name;
+        clonedGoby.curTower.grade = curTower.grade;
+        clonedGoby.curTower.scale = curTower.scale;
+        clonedGoby.curTower.attack = curTower.attack;
+        clonedGoby.curTower.attackSpeed = curTower.attackSpeed;
+        clonedGoby.curTower.range = curTower.range;
+        clonedGoby.curTower.targetCount = curTower.targetCount;
+        clonedGoby.curTower.rangeOfAttack = curTower.rangeOfAttack;
+        clonedGoby.curTower.toSmileBubble = curTower.toSmileBubble;
+        clonedGoby.curTower.toExpressionlessBubble = curTower.toExpressionlessBubble;
+        clonedGoby.curTower.toAngryBubble = curTower.toAngryBubble;
+        clonedGoby.curTower.attribute = curTower.attribute;
+        clonedGoby.curTower.cost = curTower.cost;
+        clonedGoby.curTower.skillCoolTime = curTower.skillCoolTime;
+        clonedGoby.curTower.skill = curTower.skill;
+        return clonedGoby;
     }
 }
 
