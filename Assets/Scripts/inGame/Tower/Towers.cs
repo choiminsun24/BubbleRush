@@ -351,75 +351,75 @@ public class Goby : ITower
     }
 }
 
-public class Tower4 : ITower
+public class Tutu : ITower
 {
     // Instantiated List
-    public static List<GameObject> listTower4 = new List<GameObject>();
-    public UnityEngine.Object Tower4Prefab {get; set;}
-    private Stack<GameObject> poolTower4 = new Stack<GameObject>();
+    public static List<GameObject> listTutu = new List<GameObject>();
+    public UnityEngine.Object TutuPrefab {get; set;}
+    private Stack<GameObject> poolTutu = new Stack<GameObject>();
 
-    public Tower4()
+    public Tutu()
     {
         // Initialize
-        listTower4 = new List<GameObject>();
-        poolTower4 = new Stack<GameObject>();
-        Tower4Prefab = Resources.Load("Tower4");
+        listTutu = new List<GameObject>();
+        poolTutu = new Stack<GameObject>();
+        TutuPrefab = Resources.Load("Tutu");
         // Set ITower's info
-        SetVariable("Tower4");
+        SetVariable("투투_1");
     }
 
-    public GameObject GetTower4()
+    public GameObject GetTutu()
     {
-        GameObject tempTower4;
-        if(!Tower4Prefab)
+        GameObject tempTutu;
+        if(!TutuPrefab)
         {
-            print("Tower4Prefab is null");
+            print("TutuPrefab is null");
             return null;
         }
         // Initial Pooling
-        if(poolTower4.Count == 0)
+        if(poolTutu.Count == 0)
         {
             for (int i = 0; i < 20; ++i)
             {
-                tempTower4 = Instantiate(Tower4Prefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
-                poolTower4.Push(tempTower4);
-                tempTower4.SetActive(false);
+                tempTutu = Instantiate(TutuPrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+                poolTutu.Push(tempTutu);
+                tempTutu.SetActive(false);
             }
         }
-        tempTower4 = poolTower4.Pop();
-        tempTower4.SetActive(true);
-        listTower4.Add(tempTower4);
-        return tempTower4;
+        tempTutu = poolTutu.Pop();
+        tempTutu.SetActive(true);
+        listTutu.Add(tempTutu);
+        return tempTutu;
     }
 
-    public void ReturnTower4(GameObject obj)
+    public void ReturnTutu(GameObject obj)
     {
         obj.SetActive(false);
-        poolTower4.Push(obj);
+        poolTutu.Push(obj);
     }
 
     public override ITower Clone()
     {
         // deep copy
-        Tower4 clonedTower4 = new Tower4();
-        clonedTower4.curTower = new Tower();
+        Tutu clonedTutu = new Tutu();
+        clonedTutu.curTower = new Tower();
         // copy data
-        clonedTower4.curTower.name = curTower.name;
-        clonedTower4.curTower.grade = curTower.grade;
-        clonedTower4.curTower.scale = curTower.scale;
-        clonedTower4.curTower.attack = curTower.attack;
-        clonedTower4.curTower.attackSpeed = curTower.attackSpeed;
-        clonedTower4.curTower.range = curTower.range;
-        clonedTower4.curTower.targetCount = curTower.targetCount;
-        clonedTower4.curTower.rangeOfAttack = curTower.rangeOfAttack;
-        clonedTower4.curTower.toSmileBubble = curTower.toSmileBubble;
-        clonedTower4.curTower.toExpressionlessBubble = curTower.toExpressionlessBubble;
-        clonedTower4.curTower.toAngryBubble = curTower.toAngryBubble;
-        clonedTower4.curTower.attribute = curTower.attribute;
-        clonedTower4.curTower.cost = curTower.cost;
-        clonedTower4.curTower.skillCoolTime = curTower.skillCoolTime;
-        clonedTower4.curTower.skill = curTower.skill;
-        return clonedTower4;
+        clonedTutu.curTower.name = curTower.name;
+        clonedTutu.curTower.grade = curTower.grade;
+        clonedTutu.curTower.scale = curTower.scale;
+        clonedTutu.curTower.attack = curTower.attack;
+        clonedTutu.curTower.attackSpeed = curTower.attackSpeed;
+        clonedTutu.curTower.range = curTower.range;
+        clonedTutu.curTower.targetCount = curTower.targetCount;
+        clonedTutu.curTower.rangeOfAttack = curTower.rangeOfAttack;
+        clonedTutu.curTower.toSmileBubble = curTower.toSmileBubble;
+        clonedTutu.curTower.toExpressionlessBubble = curTower.toExpressionlessBubble;
+        clonedTutu.curTower.toAngryBubble = curTower.toAngryBubble;
+        clonedTutu.curTower.attribute = curTower.attribute;
+        clonedTutu.curTower.cost = curTower.cost;
+        clonedTutu.curTower.skillCoolTime = curTower.skillCoolTime;
+        clonedTutu.curTower.skill = curTower.skill;
+        return clonedTutu;
     }
 }
 

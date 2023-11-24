@@ -28,6 +28,7 @@ public class TowerManager : MonoBehaviour
     public Nabi nabiInfo;
     public Tori toriInfo;
     public Goby gobyInfo;
+    public Tutu tutuInfo;
     private void Awake()
     {
         if (_instance == null)
@@ -51,6 +52,8 @@ public class TowerManager : MonoBehaviour
         toriInfo.Clone();
         gobyInfo = new Goby();
         gobyInfo.Clone();
+        tutuInfo = new Tutu();
+        tutuInfo.Clone();
     }
 
 
@@ -258,7 +261,7 @@ public class TowerManager : MonoBehaviour
             case 3:
             return Goby.listGoby;
             case 4:
-            return Tower4.listTower4;
+            return Tutu.listTutu;
             case 5:
             return Tower5.listTower5;
             default:
@@ -282,9 +285,9 @@ public class TowerManager : MonoBehaviour
             case 3:
             gobyInfo.ReturnGoby(obj);
             break;
-            // case 4:
-            // nabiInfo.ReturnNabi(obj);
-            // break;
+            case 4:
+            tutuInfo.ReturnTutu(obj);
+            break;
             // case 5:
             // nabiInfo.ReturnNabi(obj);
             // break;
