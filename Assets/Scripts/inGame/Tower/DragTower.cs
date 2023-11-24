@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO.Pipes;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -19,7 +20,6 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
 
     [SerializeField] private int towerCategory;      // 월드 맵에 배치할 타워 종류
     [SerializeField] private Transform hierarchy;// 타워 배치할 오브젝트 계층
-    [SerializeField] private GameObject[] terrain;//설치 가능 구역 표시
 
     private List<Dictionary<string, string>> gridData;
     private List<List<int>> coords = new List<List<int>>();
@@ -32,14 +32,15 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         rect		= GetComponent<RectTransform>();
         initLoc = rect.position;
         gridData = ExelReader.Read("Data/inGame/Grid");
-        
-        
+
+        print(Camera.main.ScreenToWorldPoint(new Vector3(760, 540, 0f)));
         foreach (var co in gridData)
         {
             List<int> temp = new List<int>();
-            temp.Add(int.Parse(co["xpos[px]"])+1140);
+            temp.Add(int.Parse(co["xpos[px]"])+1060);
             temp.Add(int.Parse(co["ypos[py]"])+540);
-            if(co["IsGround"] == "TRUE")
+            //Instantiate(Resources.Load("Daebak"), Camera.main.ScreenToWorldPoint(new Vector3(temp[0], temp[1], 0f)), Quaternion.identity, GameManager.Instance.transform);
+            if (co["IsGround"] == "TRUE")
             {
                 temp.Add(1);
             }
@@ -50,6 +51,7 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
             temp.Add(int.Parse(co["column"]));
             coords.Add(temp);
         }
+
         //Debug.Log(Camera.main.ScreenToWorldPoint(new Vector3(coords[0][0], coords[00][1], 0f)));
     }
 
@@ -70,21 +72,17 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         draggingTower.name = draggingTower.name.Replace("(Clone)", "");
         draggingRange = draggingTower.GetComponentInChildren<DetectRange>();
 
-        // 타워 설치 가능 구역 표시
-        // foreach(GameObject map in terrain)
-        // {
-        //     map.SetActive(true);
-        // }
-
         // 타워 설치 사거리 표시
         draggingRange.DisplayRange();
     }
 
     private Vector3 mousePosition;
+    private Vector3 screenPosition;
     private Vector2 renderPosition;
     private RectTransform rectParent;
     private Vector2 localPos = Vector2.zero;
     private bool canLocate = true;
+    private bool canCalculate = true;
     
     public void OnDrag(PointerEventData eventData)
     {
@@ -99,7 +97,10 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         mousePosition = canvas.worldCamera.ScreenToWorldPoint(eventData.position);
         renderPosition = mousePosition;
 
-        SelectCoord(draggingTower, renderPosition);
+        screenPosition = Input.mousePosition;
+
+        SelectCoord();
+        draggingTower.transform.position = nearestCoord;
         if (!canLocate)
         {
             draggingRange.sprite.color = Color.red;
@@ -108,7 +109,10 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         {
             draggingRange.sprite.color = Color.grey;
         }
-        draggingTower.transform.position = nearestCoord;
+        // if (!canCalculate)
+        // {
+        //     return;
+        // }
     }
 
     private Vector3 [] offsets = {new Vector3(-0.1f, -0.1f, 0f), new Vector3(0.3f, 0f, 0f), new Vector3(0.1f, -0.1f, 0f),
@@ -118,7 +122,7 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         //Debug.Log(SelectCoord(draggingTower.transform));
         img.color = new Color(1,1,1,1);
         // 설치 가능한 구역이 아닐 때 타워 배치 불가
-        if(draggingTower.transform.position.x >= 8f)
+        if(!canLocate || draggingTower.transform.position.x >= 8f)
         {
             DeleteTower(towerCategory, draggingTower);
         }
@@ -127,13 +131,7 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
             
             draggingTower.transform.position = nearestCoord + offsets[towerCategory];
             
-            // UI 기존 위치로 변경
-            rect.position = new Vector3(initLoc.x, initLoc.y, 0);
 
-            if (!canLocate)
-            {
-                return;
-            }
             AfterInstall(draggingTower);
         }
 
@@ -144,16 +142,10 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
 		{
 			// 마지막에 소속되어있었던 previousParent의 자식으로 설정하고, 해당 위치로 설정
 			transform.SetParent(previousParent);
-			rect.position = previousParent.GetComponent<RectTransform>().position;
-		}
+            // UI 기존 위치로 변경
+            rect.position = new Vector3(initLoc.x, initLoc.y, 0);
+        }
 
-        
-        
-        // 타워 설치 가능 구역 비표시
-        // foreach(GameObject map in terrain)
-        // {
-        //     map.SetActive(false);
-        // }
 
     }
 
@@ -191,96 +183,51 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
 
     // Calculate the nearest Coordination
     private Vector3 nearestCoord = Vector3.zero;
-    [SerializeField] private float offset = 10f;
-    private GameObject couldNotLocated = null;
+    private Vector3 lastCoord = Vector3.zero;
+    [SerializeField] private float offset = 0.1f;
     private int lastCol;
     //0.4824561403508772f;
-    private Vector3 SelectCoord(GameObject draggingTower, Vector2 pos)
+    private Vector3 SelectCoord()
     {
-        if (nearestCoord == Vector3.zero || Vector3.Distance(nearestCoord, pos) >= offset)
+        float min_distance = float.MaxValue;
+        screenPosition = Input.mousePosition;
+        screenPosition = new Vector3(screenPosition.x, screenPosition.y, 0f);
+        if (nearestCoord == Vector3.zero || Vector3.Distance(lastCoord, screenPosition) >= offset)
         {
-            float min_distance;
-            Vector3 first = new Vector3(coords[0][0], coords[0][1], 0);
-            first = Camera.main.ScreenToWorldPoint(first);
-            first.z = 0f;
-            min_distance = Vector3.Distance(first, pos);
-            foreach (List<int> co in coords)
+            //canCalculate = false;
+            for (int i=0; i<coords.Count; ++i)
             {
+                // 거리 비교할 때는 스크린 좌표로 비교
+                List<int> co = coords[i];
                 Vector3 pivot = new Vector3(co[0], co[1], 0);
-                pivot = Camera.main.ScreenToWorldPoint(pivot);
-                pivot.z = 0f;
-                if (Vector3.Distance(pivot, pos) < min_distance)
+                //Debug.Log("[" + i + "] " + "pivot: " + pivot + " screenPosition: " + screenPosition+" Distance: "+ Vector2.Distance(pivot, screenPosition));
+                if (Vector2.Distance(pivot, screenPosition) < min_distance)
                 {
+                    min_distance = Vector2.Distance(pivot, screenPosition);
+                    //Debug.Log("[" + i + "] " + "pivot: " + pivot + " min_distance: " + min_distance);
+                    lastCoord = pivot;
+                    // 월드 좌표로 변환해서 저장
+                    pivot = canvas.worldCamera.ScreenToWorldPoint(pivot);
+                    pivot = new Vector3(pivot.x, pivot.y, 0f);
                     nearestCoord = pivot;
-                    min_distance = Vector3.Distance(pivot, pos);
                     if(co[2] == 0)
                     {
                         canLocate = false;
-                        couldNotLocated = draggingTower;
                     }
                     else
                     {
-                        if(draggingTower != couldNotLocated)
-                        {
-                            canLocate = true;
-                            couldNotLocated = null;
-                        }
+                        draggingTower.transform.position = nearestCoord;
+                        canLocate = true;
                     }
                     lastCol = co[3];
-                    Debug.Log("lastCol: "+lastCol);
+                    //Debug.Log("lastCol: "+lastCol);
                 }
             }
-
         }
-        //Debug.Log(nearestCoord);
-        // if(nearestCoord != Vector3.zero && Vector3.Distance(nearestCoord, pos) >= offset)
-        // {
-        //     nearestCoord = Vector3.zero;
-        // }
-
+        //canCalculate = true;
         return nearestCoord;
     }
 
-
-    private Touch touch;
-    private Vector2 offsetAfter = Vector2.zero;
-    private Vector2 initialLoc;
-    private void Update()
-    {
-        // 다중 터치 시 스킵
-        if (Input.touchCount != 1)
-        {
-            return;
-        }
-        // 입력된 터치 수
-        touch = Input.touches[0];
-        if(touch.phase == TouchPhase.Began)
-        {
-            Debug.Log(canLocate);
-            Debug.Log(couldNotLocated);
-            mousePosition = canvas.worldCamera.ScreenToWorldPoint(touch.position);
-            renderPosition = mousePosition;
-            if(!canLocate && couldNotLocated)
-            {
-                initialLoc = couldNotLocated.transform.position;
-            }
-        }
-        else if(!canLocate && touch.phase == TouchPhase.Moved && couldNotLocated)
-        {
-            TowerManager.Instance.canFuse = false;
-            mousePosition = canvas.worldCamera.ScreenToWorldPoint(touch.position);
-            offsetAfter = (Vector2)mousePosition - renderPosition;
-            couldNotLocated.transform.position = (Vector3)initialLoc + (Vector3)offsetAfter;
-            Debug.Log("initialLoc:" + initialLoc);
-            SelectCoord(couldNotLocated, (Vector2)couldNotLocated.transform.position);
-            couldNotLocated.transform.position = nearestCoord;
-        }
-        else if(!canLocate && touch.phase == TouchPhase.Ended && couldNotLocated)
-        {
-            AfterInstall(couldNotLocated);
-            TowerManager.Instance.canFuse = true;
-        }
-    }
 
     private Tower GetTowerData(int category)
     {
