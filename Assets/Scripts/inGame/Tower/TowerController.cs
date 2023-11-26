@@ -12,6 +12,7 @@ public class TowerController : MonoBehaviour
 
     public bool isInstantiated {get; set;} = false;
     public bool isFusioning {get; set;} = false;
+    public bool isFused {get; set;} = false;
     public Animator anim { get; set; }
 
     public Tower data {get;set;}
@@ -63,9 +64,11 @@ public class TowerController : MonoBehaviour
         time += Time.deltaTime;
 
         // 합성 중이 아닐 때, 게임 시작했을 때만 공격
-        if(!isFusioning && GameManager.Instance.isStarted)
+        if (!isFusioning && GameManager.Instance.isStarted)
         {
+            isAttacking = false;
             Attack();
+            isAttacking = true;
         }
         else
         {
@@ -126,6 +129,12 @@ public class TowerController : MonoBehaviour
             return;
         }
 
+        // 감지된 적 있을 때 바라보기
+        angle = Mathf.Atan2(nearestEnemy.transform.position.y - transform.position.y,
+                            nearestEnemy.transform.position.x - transform.position.x)
+              * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle - 270);
+
         if (towerCategory == 1)
         {
             if(!nearestEnemy)
@@ -136,14 +145,9 @@ public class TowerController : MonoBehaviour
             {
                 canTongue = true;
             }
+            return;
         }
 
-        isAttacking = true;
-        // 감지된 적 있을 때 바라보기
-        angle = Mathf.Atan2(nearestEnemy.transform.position.y - transform.position.y,
-                            nearestEnemy.transform.position.x - transform.position.x)
-              * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle - 270);
 
         if (time >= data.skillCoolTime/4000)
         {
