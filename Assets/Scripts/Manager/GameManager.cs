@@ -288,9 +288,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public Buff buff;
-    public Quest quest;
-
+    //카드 확인, 선택 상태
     private bool watchingCard;
     private bool playingCard;
 
@@ -323,6 +321,9 @@ public class GameManager : MonoBehaviour
     {
         return playingCard;
     }
+
+    public Buff buff;
+    public Quest quest;
 
     //버프
     public void StartBuff()
