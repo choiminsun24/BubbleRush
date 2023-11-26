@@ -7,7 +7,7 @@ public class BuffQuestUI : MonoBehaviour
 {
     //ÂüÁ¶
     public GameObject ui;
-    public GameObject blind;
+    public UIManager uiManager;
     public GameObject blindButton;
     private Image image;
     private Outline line;
@@ -17,7 +17,6 @@ public class BuffQuestUI : MonoBehaviour
         //image = gameObject.GetComponent<image>();
         //line = gameObject.GetComponent<Outline>();
         //line.enabled = false;
-        blind.SetActive(false);
         blindButton.SetActive(false);
     }
 
@@ -25,17 +24,17 @@ public class BuffQuestUI : MonoBehaviour
     {
         ui.SetActive(true);
         Time.timeScale = 0.5f;
-        blind.SetActive(true);
-        blindButton?.SetActive(true);
-
-        //image
+        uiManager.Blind(true);
+        blindButton.SetActive(true);
+        GameManager.Instance.watchingCardOn();
     }
 
     public void ButtonUp()
     {
         ui.SetActive(false);
         GameManager.Instance.ReleaseGame();
-        blind.SetActive(false);
+        uiManager.Blind(false);
         blindButton.SetActive(false);
+        GameManager.Instance.watchingCardOff();
     }
 }

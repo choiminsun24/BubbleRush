@@ -291,6 +291,39 @@ public class GameManager : MonoBehaviour
     public Buff buff;
     public Quest quest;
 
+    private bool watchingCard;
+    private bool playingCard;
+
+    public void watchingCardOn()
+    {
+        watchingCard = true;
+    }
+
+    public void watchingCardOff()
+    {
+        watchingCard = false;
+    }
+
+    public bool getWatchingCard()
+    {
+        return watchingCard;
+    }
+
+    public void playingCardOn()
+    {
+        playingCard = true;
+    }
+
+    public void playingCardOff()
+    {
+        playingCard = false;
+    }
+
+    public bool getPlayingCard()
+    {
+        return playingCard;
+    }
+
     //버프
     public void StartBuff()
     {
