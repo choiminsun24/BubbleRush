@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Tower0Attack : MonoBehaviour
 {
     [SerializeField] private GameObject tongue;
+    [SerializeField] private Animator auraAnim;
+    private bool canAnimate = true;
 
 
     private TowerController tc;
@@ -24,9 +26,6 @@ public class Tower0Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
-
         if (!GameManager.Instance.isStarted)
         {
             // 라운드 끝나면 false 되는 시기 넣어야함
@@ -34,17 +33,23 @@ public class Tower0Attack : MonoBehaviour
         }
         skillTime += Time.deltaTime;
         skillTime_1 += Time.deltaTime;
-        if (skillTime_1 >= coolTime_1)
+        if (tc.canTongue && canAnimate)
         {
-            // 혀 일반 공격
-            //tongue.SetActive(tc.canTongue);
+            // 뼈 일반 공격
             tc.anim.SetBool("isUp", false);
             tc.anim.SetBool("isAttack", true);
+            auraAnim.SetBool("isAttack", true);
+            canAnimate = false;
         }
-        else if(skillTime_1 <= coolTime_1*2)
+        // if (skillTime_1 >= coolTime_1)
+        // {
+            
+        // }
+        else if(!tc.canTongue)
         {
-            //tongue.SetActive(false);
             tc.anim.SetBool("isAttack", false);
+            auraAnim.SetBool("isAttack", false);
+            canAnimate = true;
         }
         else
         {

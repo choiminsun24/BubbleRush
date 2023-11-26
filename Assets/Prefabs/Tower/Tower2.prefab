@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 1767716679
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2f31b6008795b1049ac0d55a3114c0ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aff77d490dc1d7548b23ac0e30609c80, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -189,7 +189,7 @@ Animator:
   m_GameObject: {fileID: 2007877981691976684}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: be63e92a52f4c9549bed0872c039d5d1, type: 2}
+  m_Controller: {fileID: 9100000, guid: d76f78f00253b2f419ba317ea29db5b7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -282,8 +282,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  tc: {fileID: 2007877981691976687}
-  hit: 0
   category: Terrain
 --- !u!212 &5623020972071001315
 SpriteRenderer:

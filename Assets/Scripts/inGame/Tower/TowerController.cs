@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class TowerController : MonoBehaviour
 {
     public int expression = 1; //임시 표정 MAD
@@ -13,7 +14,7 @@ public class TowerController : MonoBehaviour
     public bool isFusioning {get; set;} = false;
     public Animator anim { get; set; }
 
-    private Tower data;
+    public Tower data {get;set;}
     BulletController bullCtr;
 
     public int level = 1;
@@ -25,7 +26,7 @@ public class TowerController : MonoBehaviour
     
     public bool canTongue {get; set;} = false;
     public bool isAttacking {get; set;} = false;
-    [SerializeField] private int towerCategory = 0;
+    public int towerCategory = 0;
     [SerializeField] private UnityEngine.Object bullet;
 
     private float angle;
@@ -33,6 +34,7 @@ public class TowerController : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    private bool canAnimate = true;
 
     
     private void Awake()
@@ -44,45 +46,19 @@ public class TowerController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-
-        data = new Tower();
-        data.hp = 10;
-        data.attack = 20;
-        data.range = 3;
-        data.time = 1f;
     }
-
-    // // 타워 근처 적 감지 범위
-    // public void DetectEnemies(GameObject enemy)
-    // {
-    //     if (enemies.IndexOf(enemy) == -1)
-    //     {
-    //         enemies.Add(enemy);
-    //     }
-    // }
-
-    // // 적이 감지 범위에서 벗어났을 때
-    // public void RemoveEnemies(GameObject enemy)
-    // {
-    //     if (enemies.IndexOf(enemy) != -1)
-    //     {
-    //         GameObject temp = enemies.Find(element => element == enemy);
-    //         enemies.Remove(temp);
-    //     }
-    // }
-
     
     // 일정한 주기로 공격
     void Update()
     {
         if(!isInstantiated)
         {
-            spriteRenderer.enabled = false;
+            spriteRenderer.color = new Color(1,1,1,0.5f);
             return;
         }
         else
         {
-            spriteRenderer.enabled = true;
+            spriteRenderer.color = new Color(1,1,1,1f);
         }
         time += Time.deltaTime;
 
@@ -113,6 +89,11 @@ public class TowerController : MonoBehaviour
             }
         }
         
+        if(nearestEnemy && Vector3.Distance(nearestEnemy.position, transform.position) >= offset)
+        {
+            nearestEnemy = null;
+        }
+
         return nearestEnemy;
     }
 
@@ -130,12 +111,17 @@ public class TowerController : MonoBehaviour
 
     public void Attack()
     {
-
         if (!SelectEnemy())
         {
             if(towerCategory == 1 && canTongue)
             {
                 canTongue = false;
+            }
+            else
+            {
+                anim.SetBool("isAttack", false);
+                aura?.GetComponent<Animator>().SetBool("isAttack", false);
+                canAnimate = true;
             }
             return;
         }
@@ -159,20 +145,30 @@ public class TowerController : MonoBehaviour
               * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle - 270);
 
-        if (time >= data.time)
+        if (time >= data.skillCoolTime/4000)
         {
             time = 0f;
 
-            if(towerCategory == 1)
-            {
-                return;
-            }
             
             // Bullet 생성하여 적을 향해 이동시키기
             bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
             bullCtr = bull.GetComponent<BulletController>();
             bullCtr.setBullet(data.attack, expression);
             bullCtr.TriggerMove(nearestEnemy.transform);
+            if (towerCategory == 1)
+            {
+                return;
+            }
+            if (canAnimate)
+            {
+                // 일반 공격
+                anim.SetBool("isUp", false);
+                anim.SetBool("isAttack", true);
+                
+                aura?.GetComponent<Animator>().SetBool("isAttack", true);
+                
+                canAnimate = false;
+            }
         }
 
         

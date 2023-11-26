@@ -216,6 +216,7 @@ public class GameManager : MonoBehaviour
     {
         fastLevel = 1;
         ReleaseGame();
+
         ui = GetComponent<UIManager>();
         ui.UpdateStageCoin(inGameData.GetStageCoin());
         SoundManager.Instance.BGMPlay(SoundManager.Instance.inStage);

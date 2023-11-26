@@ -24,7 +24,7 @@ public class Quest : MonoBehaviour
 
     public void Awake()
     {
-        textData = ExelReader.Read("Data/inGame/QuestTest"); //버프 데이터 받아오기
+        textData = ExelReader.Read("Data/inGame/QuestTest"); //퀘스트 데이터 받아오기
 
         //GameManager Start보다 빠르게
         Box.SetActive(false);
