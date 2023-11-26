@@ -67,7 +67,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         point = hearts.Length - 1;
-        blind.SetActive(false);
+        Blind(false);
         //slider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
         //effectSlider.value = PlayerPrefs.GetFloat("EffectVolume", 0.75f);
     }
@@ -90,9 +90,9 @@ public class UIManager : MonoBehaviour
 
     public GameObject blind;
 
-    public void Blind()
+    public void Blind(bool state)
     {
-        blind.SetActive(!blind.activeSelf);
+        blind.SetActive(state);
     }
 
     public GameObject WinPanel;

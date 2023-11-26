@@ -288,6 +288,40 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    //카드 확인, 선택 상태
+    private bool watchingCard;
+    private bool playingCard;
+
+    public void watchingCardOn()
+    {
+        watchingCard = true;
+    }
+
+    public void watchingCardOff()
+    {
+        watchingCard = false;
+    }
+
+    public bool getWatchingCard()
+    {
+        return watchingCard;
+    }
+
+    public void playingCardOn()
+    {
+        playingCard = true;
+    }
+
+    public void playingCardOff()
+    {
+        playingCard = false;
+    }
+
+    public bool getPlayingCard()
+    {
+        return playingCard;
+    }
+
     public Buff buff;
     public Quest quest;
 
