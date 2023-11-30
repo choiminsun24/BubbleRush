@@ -92,6 +92,8 @@ public class Daebak : ITower
             for (int i = 0; i < 20; ++i)
             {
                 tempDaebak = Instantiate(daebakPrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+                SetVariable("대박이_1");
+                tempDaebak.GetComponent<TowerController>().data = curTower;
                 poolDaebak.Push(tempDaebak);
                 tempDaebak.SetActive(false);
             }
@@ -165,6 +167,8 @@ public class Nabi : ITower
             for (int i = 0; i < 20; ++i)
             {
                 tempNabi = Instantiate(NabiPrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+                SetVariable("나비_1");
+                tempNabi.GetComponent<TowerController>().data = curTower;
                 poolNabi.Push(tempNabi);
                 tempNabi.SetActive(false);
             }
@@ -238,6 +242,8 @@ public class Tori : ITower
             for (int i = 0; i < 20; ++i)
             {
                 tempTori = Instantiate(ToriPrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+                SetVariable("토리_1");
+                tempTori.GetComponent<TowerController>().data = curTower;
                 poolTori.Push(tempTori);
                 tempTori.SetActive(false);
             }
@@ -310,6 +316,8 @@ public class Goby : ITower
             for (int i = 0; i < 20; ++i)
             {
                 tempGoby = Instantiate(GobyPrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+                SetVariable("꼬비_1");
+                tempGoby.GetComponent<TowerController>().data = curTower;
                 poolGoby.Push(tempGoby);
                 tempGoby.SetActive(false);
             }
@@ -382,6 +390,8 @@ public class Tutu : ITower
             for (int i = 0; i < 20; ++i)
             {
                 tempTutu = Instantiate(TutuPrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+                SetVariable("투투_1");
+                tempTutu.GetComponent<TowerController>().data = curTower;
                 poolTutu.Push(tempTutu);
                 tempTutu.SetActive(false);
             }
@@ -454,6 +464,8 @@ public class Tower5 : ITower
             for (int i = 0; i < 20; ++i)
             {
                 tempTower5 = Instantiate(Tower5Prefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+                SetVariable("Tower5");
+                tempTower5.GetComponent<TowerController>().data = curTower;
                 poolTower5.Push(tempTower5);
                 tempTower5.SetActive(false);
             }
