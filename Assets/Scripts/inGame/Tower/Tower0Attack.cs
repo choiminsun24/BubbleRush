@@ -6,14 +6,8 @@ using UnityEngine.UI;
 public class Tower0Attack : MonoBehaviour
 {
     [SerializeField] private GameObject tongue;
-    // For Skill Guage
-    [SerializeField] private Slider slider;
-    [SerializeField] private GameObject fill;
-    [SerializeField] private RectTransform skillGuage;
-    [SerializeField] private Canvas canvas;
-    [SerializeField] private RectTransform rectParent;
-    private Vector2 localPos = Vector2.zero;
-    private bool isZero = false;
+    [SerializeField] private Animator auraAnim;
+    private bool canAnimate = true;
 
 
     private TowerController tc;
@@ -21,28 +15,17 @@ public class Tower0Attack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         tc = GetComponent<TowerController>();
         coolTime_1 = 2f;
         skillTime_1 = coolTime_1;
         coolTime = 20f;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!tc.isAttacking)
-        {
-            // Skill Guage UI Position
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(rectParent,
-                                                                    Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 0.6f, 0)),
-                                                                    canvas.worldCamera, out localPos);
-            skillGuage.localPosition = localPos;
-        }
-        
-        isZero = slider.value == 0 ? false : true;
-        fill.SetActive(isZero);
-        
-
         if (!GameManager.Instance.isStarted)
         {
             // 라운드 끝나면 false 되는 시기 넣어야함
@@ -50,14 +33,23 @@ public class Tower0Attack : MonoBehaviour
         }
         skillTime += Time.deltaTime;
         skillTime_1 += Time.deltaTime;
-        if (skillTime_1 >= coolTime_1)
+        if (tc.canTongue && canAnimate)
         {
-            // 혀 일반 공격
-            tongue.SetActive(tc.canTongue);
+            // 뼈 일반 공격
+            tc.anim.SetBool("isUp", false);
+            tc.anim.SetBool("isAttack", true);
+            auraAnim.SetBool("isAttack", true);
+            canAnimate = false;
         }
-        else if(skillTime_1 <= coolTime_1*2)
+        // if (skillTime_1 >= coolTime_1)
+        // {
+            
+        // }
+        else if(!tc.canTongue)
         {
-            tongue.SetActive(false);
+            tc.anim.SetBool("isAttack", false);
+            auraAnim.SetBool("isAttack", false);
+            canAnimate = true;
         }
         else
         {
@@ -70,7 +62,7 @@ public class Tower0Attack : MonoBehaviour
         }
         else
         {
-            slider.value = 1 / coolTime * skillTime;
+            
         }
     }
 

@@ -41,11 +41,11 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public List<Enemy> enemies = new List<Enemy>();
     // 라운드 시작
     public bool isStarted {get; set;} = false;
     // 라운드 당 버블(적) 수
     private bool lastSpawn = false; 
-    public List<Enemy> enemies = new List<Enemy>();
 
     // Enemy 난이도 조절
     [Header("Enemy 난이도 조절")]
@@ -54,8 +54,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]private GameObject[] prefab_enemy;
     [SerializeField]private Transform spawnPoint;
     
-
     List<Dictionary<string, string>> enemyData;
+
+    public Transform canvas;
     private int enemyIndex = 0;
 
     private IEnumerator SpawnEnemies() //int _num_Enemy, float _spawn_Speed)
@@ -99,7 +100,6 @@ public class GameManager : MonoBehaviour
     public void RemoveEnemy(Enemy _enemy)
     {
         enemies.Remove(_enemy);
-        Destroy(_enemy);
 
         // 적이 다 죽으면 다음 라운드 준비
         if (lastSpawn == true && enemies.Count == 0)
@@ -110,6 +110,9 @@ public class GameManager : MonoBehaviour
 
     private void NextRound()
     {
+        isStarted = false;
+        ui.offFast();
+
         if (round >= 10)
         {
             ui.Win();
@@ -121,9 +124,36 @@ public class GameManager : MonoBehaviour
         if (heart > 0 && (r == 2 || r == 5 || r == 8))
         {
             StartBuff();
+            if(isAuto)
+            {
+                return;
+            }
         }
+
+        if (isAuto)
+        {
+            StartRound();
+        }
+
         ui.nextRoundBtn.SetActive(true);
-        isStarted = false;
+    }
+
+    // Auto 모드
+    private bool isAuto;
+
+    public bool getAuto()
+    {
+        return isAuto;
+    }
+
+    public void autoOn()
+    {
+        isAuto = true;
+    }
+
+    public void autoOff()
+    {
+        isAuto = false;
     }
 
 
@@ -175,7 +205,7 @@ public class GameManager : MonoBehaviour
     // 게임 회복
     public void ReleaseGame()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = (float)fastLevel;
     }
 
     private UIManager ui;
@@ -184,12 +214,16 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fastLevel = 1;
         ReleaseGame();
+
         ui = GetComponent<UIManager>();
         ui.UpdateStageCoin(inGameData.GetStageCoin());
         SoundManager.Instance.BGMPlay(SoundManager.Instance.inStage);
 
         enemyData = ExelReader.Read("Data/inGame/Stage1");
+
+        isAuto = false; ///싱글톤 유지하게 되면 수정
 
         //StartBuff();
         StartQuest();
@@ -212,16 +246,28 @@ public class GameManager : MonoBehaviour
     }
 
     // 다음 라운드 버튼 누르면 시작
+    public int fastLevel; 
+
     public void StartRound()
     {
         isStarted = true;
         lastSpawn = false;
         round++;
         ui.UpdateRound(GetRoundNum());
+        ui.onFast();
         ReleaseGame();
         StartCoroutine(SpawnEnemies());
+    }
 
-        //Debug.Log(round);
+    public void clickFast()
+    {
+        if (fastLevel == 1)
+            fastLevel = 2;
+        else if (fastLevel == 2)
+            fastLevel = 1;
+
+        ui.updateFast(fastLevel);
+        Time.timeScale = (float)fastLevel;
     }
 
     // 사운드
@@ -240,6 +286,40 @@ public class GameManager : MonoBehaviour
     public void LoadingSceneLoader(string sceneName) //추후 구현 예정
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    //카드 확인, 선택 상태
+    private bool watchingCard;
+    private bool playingCard;
+
+    public void watchingCardOn()
+    {
+        watchingCard = true;
+    }
+
+    public void watchingCardOff()
+    {
+        watchingCard = false;
+    }
+
+    public bool getWatchingCard()
+    {
+        return watchingCard;
+    }
+
+    public void playingCardOn()
+    {
+        playingCard = true;
+    }
+
+    public void playingCardOff()
+    {
+        playingCard = false;
+    }
+
+    public bool getPlayingCard()
+    {
+        return playingCard;
     }
 
     public Buff buff;

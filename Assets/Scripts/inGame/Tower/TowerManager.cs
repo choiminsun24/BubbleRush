@@ -23,11 +23,12 @@ public class TowerManager : MonoBehaviour
         }
     }
 
-    public List<GameObject>[] towers = new List<GameObject>[6];
-    private List<GameObject> tower0 = new List<GameObject>(), tower1 = new List<GameObject>(),
-                            tower2 = new List<GameObject>(), tower3 = new List<GameObject>(), 
-                            tower4 = new List<GameObject>(), tower5 = new List<GameObject>();
-
+    public bool canFuse {get; set;} = true;
+    public Daebak daebakInfo;
+    public Nabi nabiInfo;
+    public Tori toriInfo;
+    public Goby gobyInfo;
+    public Tutu tutuInfo;
     private void Awake()
     {
         if (_instance == null)
@@ -41,9 +42,18 @@ public class TowerManager : MonoBehaviour
         }
         // 아래의 함수를 사용하여 씬이 전환되더라도 선언되었던 인스턴스가 파괴되지 않는다.
         DontDestroyOnLoad(gameObject);
-        towers[0] = tower0; towers[1] = tower1;
-        towers[2] = tower2; towers[3] = tower3;
-        towers[4] = tower4; towers[5] = tower5;
+
+        ITower.InitializeDB();
+        daebakInfo = new Daebak();
+        daebakInfo.Clone();
+        nabiInfo = new Nabi();
+        nabiInfo.Clone();
+        toriInfo = new Tori();
+        toriInfo.Clone();
+        gobyInfo = new Goby();
+        gobyInfo.Clone();
+        tutuInfo = new Tutu();
+        tutuInfo.Clone();
     }
 
 
@@ -58,12 +68,18 @@ public class TowerManager : MonoBehaviour
     private GameObject touchedObject;
     [SerializeField] private GameObject grayMap;
     private FusionRange fusionRange;
+    private TowerController targetTc;
+    private float offset = 1f;
+
+    float min_distance=1f;
+
+
 
     // Update is called once per frame
     void Update()
     {
         // 다중 터치 시 스킵
-        if (Input.touchCount != 1)
+        if (Input.touchCount != 1 || !canFuse)
         {
             dragging = false;
             return;
@@ -84,12 +100,13 @@ public class TowerManager : MonoBehaviour
                 touchedObject = hitInformation.transform.gameObject;
                 if (touchedObject.tag =="Tower")
                 {
+                    
                     // 기존 위치 저장
                     initPos = touchedObject.transform.position;
                     // 타워 종류 저장
-                    towerCategory = int.Parse(touchedObject.name.Replace("Tower", ""));
-
                     towerController = touchedObject.GetComponent<TowerController>();
+                    towerCategory = towerController.towerCategory;
+
                     if (!towerController && !(towerController.isInstantiated))
                     {
                         return;
@@ -98,23 +115,23 @@ public class TowerManager : MonoBehaviour
 
                     sprite = touchedObject.GetComponent<SpriteRenderer>();
                     sprite.color = new Color(1, 1, 1, 0.5f);
-                    fusionRange = touchedObject.GetComponent<FusionRange>();
-                    fusionRange.gameObject.SetActive(true);
+                    // fusionRange = touchedObject.GetComponent<FusionRange>();
+                    // fusionRange.gameObject.SetActive(true);
 
                     grayMap.SetActive(true);
                     // 같은 종류, 레벨의 타워만 띄우기
-                    for(int i = 0; i<towers.Length; i++)
+                    for(int i = 0; i<6; i++)
                     {
                         if(i != towerCategory)
                         {
-                            foreach (var tower in towers[i])
+                            foreach (var tower in GetTowerList(i))
                             {
                                 tower.SetActive(false);
                             }
                         }
                         else
                         {
-                            foreach (var tower in towers[i])
+                            foreach (var tower in GetTowerList(i))
                             {
                                 if(towerController.level != tower.GetComponent<TowerController>().level)
                                 {
@@ -126,74 +143,156 @@ public class TowerManager : MonoBehaviour
                     dragging = true;
                 }
             }
+            targetTc = null;
         }
 
         if (!towerController || !(towerController.isInstantiated))
         {
+            dragging = false;
             return;
         }
         
 
         if (dragging && touch.phase == TouchPhase.Moved)
         {
-            if (!towerController.isFusioning)
-            {
-                towerController.isFusioning = true;
-                towerController.canTongue = false;
-            }
+            towerController.canTongue = false;
+            
             // 터치 좌표를 월드 좌표로 계산
             vec = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             vec = Camera.main.ScreenToWorldPoint(vec);
             touchedObject.transform.position = vec;
 
-            if (fusionRange.canFuse == true)
+            min_distance = offset;
+            foreach (GameObject target in GetTowerList(towerCategory))
             {
-                sprite.color = new Color(0.2f, 1f, 0.2f, 0.8f);
+                if (target == touchedObject || !target.activeSelf)
+                {
+                    continue;
+                }
+
+                float distance = Vector3.Distance(target.transform.position, touchedObject.transform.position);
+                if (distance <= offset && distance <= min_distance && target.activeSelf)
+                {
+                    if(targetTc)
+                    {
+                        targetTc.anim.SetBool("isUp", false);
+                    }
+                    targetTc = target.GetComponent<TowerController>();
+                    min_distance = distance;
+                }
             }
-            else
+
+            if (targetTc)
             {
-                sprite.color = new Color(1f, 1f, 1f, 1f);
+                targetTc.anim.SetBool("isUp", true);
             }
+            if(targetTc && Vector3.Distance(targetTc.transform.position, touchedObject.transform.position) > offset)
+            {
+                targetTc.anim.SetBool("isUp", false);
+                targetTc = null;
+            }
+
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            towerController.isFusioning = false;
+            //towerController.isFusioning = false;
             towerController.canTongue = true;
             sprite.color = new Color(1, 1, 1, 1f);
 
             if (dragging == true)
             {
-                if (fusionRange.canFuse == true)
+                
+                float min_distance = offset;
+                foreach (GameObject target in GetTowerList(towerCategory))
                 {
-                    towerController = fusionRange.targetTower.GetComponent<TowerController>();
-                    if (towerController)
+                    if(target == touchedObject || !target.activeSelf)
                     {
-                        towerController.LevelUp();
-                        // find 때문에 Stack -> List로 변경
-                        towers[towerCategory].Remove(towers[towerCategory].Find(x => x == touchedObject));
-                        Destroy(touchedObject, 0.1f);
+                        continue;
                     }
-                    else
+
+                    float distance = Vector3.Distance(target.transform.position, touchedObject.transform.position);
+                    if (distance <= offset && distance <= min_distance && target.activeSelf)
                     {
-                        return;
+                        targetTc = target.GetComponent<TowerController>();
+                        min_distance = distance;
                     }
+                }
+
+                if (targetTc)
+                {
+                    targetTc.anim.SetBool("isUp", false);
+                    targetTc.LevelUp();
+                    ReturnTower(towerCategory, touchedObject);
+                    Destroy(touchedObject, 0.1f);
+                }
+                else
+                {
+                    touchedObject.transform.position = initPos;
                 }
             }
             
             // 나머지 타워 다시 복귀
-            for (int i = 0; i < towers.Length; i++)
+            for (int i = 0; i < 6; i++)
             {
-                foreach (var tower in towers[i])
+                foreach (var tower in GetTowerList(i))
                 {
                     tower.SetActive(true);
                 }
             }
             towerController = null;
+            targetTc = null;
             grayMap.SetActive(false);
             dragging = false;
 
-            touchedObject.transform.position = initPos;
+        }
+    }
+
+    public List<GameObject> GetTowerList(int category)
+    {
+        switch(category)
+        {
+            case 0:
+            return Daebak.listDaebak;
+            case 1:
+            return Nabi.listNabi;
+            case 2:
+            return Tori.listTori;
+            case 3:
+            return Goby.listGoby;
+            case 4:
+            return Tutu.listTutu;
+            case 5:
+            return Tower5.listTower5;
+            default:
+            return null;
+        }
+    }
+
+    public void ReturnTower(int category, GameObject obj)
+    {
+        switch(category)
+        {
+            case 0:
+            daebakInfo.ReturnDaebak(obj);
+            break;
+            case 1:
+            nabiInfo.ReturnNabi(obj);
+            break;
+            case 2:
+            toriInfo.ReturnTori(obj);
+            break;
+            case 3:
+            gobyInfo.ReturnGoby(obj);
+            break;
+            case 4:
+            tutuInfo.ReturnTutu(obj);
+            break;
+            // case 5:
+            // nabiInfo.ReturnNabi(obj);
+            // break;
+            default:
+            break;
         }
     }
 }

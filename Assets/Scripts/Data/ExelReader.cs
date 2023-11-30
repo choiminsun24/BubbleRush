@@ -6,32 +6,32 @@ using System;
 
 public class ExelReader : MonoBehaviour
 {
-    //Á¤±Ô½Ä, ¹®ÀÚ¿­ Ã³¸®¸¦ À§ÇÔ.
+    //ì •ê·œì‹, ë¬¸ìì—´ ì²˜ë¦¬ë¥¼ ìœ„í•¨.
     static string SPLIT_RE = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
     static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
     static char[] TRIM_CHARS = { '\"' };
 
-    //ÀĞ¾î¿À´Â ¸Ş¼Òµå
+    //ì½ì–´ì˜¤ëŠ” ë©”ì†Œë“œ
     public static List<Dictionary<string, string>> Read(string path)
     {
         List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
         TextAsset data = Resources.Load(path) as TextAsset;
 
-        //ÇàÀ¸·Î ³ª´©±â
+        //í–‰ìœ¼ë¡œ ë‚˜ëˆ„ê¸°
         string[] lines = Regex.Split(data.text, LINE_SPLIT_RE);
         if (lines.Length <= 1) return list;
 
         //header
         string[] header = Regex.Split(lines[2], SPLIT_RE);
 
-        //Çà Ã³¸®
+        //í–‰ ì²˜ë¦¬
         for (int i = 3; i < lines.Length; i++)
         {
-            //¿­·Î ³ª´©±â
+            //ì—´ë¡œ ë‚˜ëˆ„ê¸°
             string[] line = Regex.Split(lines[i], SPLIT_RE);
             if (line.Length == 0 || line[0] == "") continue;
 
-            //¼Ğ Ã³¸® - ´Ùµë¾î¼­ Dictionary·Î
+            //ì…¸ ì²˜ë¦¬ - ë‹¤ë“¬ì–´ì„œ Dictionaryë¡œ
             Dictionary<string, string> column = new Dictionary<string, string>();
 
             for (int j = 0; j < line.Length; j++)

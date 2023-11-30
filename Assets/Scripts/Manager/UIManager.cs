@@ -12,19 +12,6 @@ public class UIManager : MonoBehaviour
 
     Animator anim;
 
-    //애니메이션 넣느라 아래 메소드로 바꿨습니다!!
-    //public void UpdateHearts(int heart)
-    //{
-    //    for (int i = 0; i < _hearts; i++)
-    //    {
-    //        hearts[i].gameObject.SetActive(true);
-    //    }
-    //    for (int i = _hearts; i < hearts.Length; i++)
-    //    {
-    //        hearts[i].gameObject.SetActive(false);
-    //    }
-    //}
-
     private int point; //hearts의 top
 
     public void plusHeart()
@@ -80,7 +67,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         point = hearts.Length - 1;
-        blind.SetActive(false);
+        Blind(false);
         //slider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
         //effectSlider.value = PlayerPrefs.GetFloat("EffectVolume", 0.75f);
     }
@@ -103,9 +90,9 @@ public class UIManager : MonoBehaviour
 
     public GameObject blind;
 
-    public void Blind()
+    public void Blind(bool state)
     {
-        blind.SetActive(!blind.activeSelf);
+        blind.SetActive(state);
     }
 
     public GameObject WinPanel;
@@ -138,6 +125,34 @@ public class UIManager : MonoBehaviour
         curNum.text = (_num).ToString();
     }
     public GameObject nextRoundBtn;
+    public GameObject fastButton;
+    public Image fastImage;
+    public Sprite fast1;
+    public Sprite fast2;
+
+    public void onFast()
+    {
+        nextRoundBtn.SetActive(false);
+        fastButton.SetActive(true);
+    }
+
+    public void offFast()
+    {
+        nextRoundBtn.SetActive(true);
+        fastButton.SetActive(false);
+    }
+
+    public void updateFast(int level)
+    {
+        if (level == 1)
+        {
+            fastImage.sprite = fast1;
+        }
+        else
+        {
+            fastImage.sprite = fast2;
+        }
+    }
 
 
     // 설정 화면 바깥 터치 시 종료

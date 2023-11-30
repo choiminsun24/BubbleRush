@@ -30,7 +30,7 @@ public class Buff : MonoBehaviour
 
     //이펙트
     private GameObject[] effec;
-    int effectNum = 0;
+    private int effectNum = 0;
 
     //프로그램
     public void Awake()
@@ -51,7 +51,8 @@ public class Buff : MonoBehaviour
     public void play()
     {
         Box.SetActive(true);
-        ui.Blind();
+        ui.Blind(true);
+        GameManager.Instance.playingCardOn(); //카드 선택 중
 
         //1. 랜덤으로 셋 뽑기
         num = new int[] { -1, -1, -1 };
@@ -59,7 +60,7 @@ public class Buff : MonoBehaviour
         for (int i = 0; i < num.Length; i++)
         {
             //선택
-            num[i] = UnityEngine.Random.Range(0, buffNum.Count);
+            num[i] = buffNum[UnityEngine.Random.Range(0, buffNum.Count)];
 
             //중복 검사
             for (int j = 0; j < i; j++)
@@ -79,71 +80,92 @@ public class Buff : MonoBehaviour
         }
     }
 
-    ////세팅할 카드, 세팅할 정보
-    //private void cardSetting(Transform tf, Dictionary<string, string> target)
-    //{
-    //    //카드 프레임
-    //    if (target["Type"].Equals("NatureBless")) //버프 카드
-    //    {
-    //        tf.GetChild(1).GetComponent<Image>().sprite = images[0];
-    //        effect[effectNum] = Instantiate(effect[0], tf.GetChild(3).position, Quaternion.identity);
-
-    //    }
-    //    else if (target["Type"].Equals("DarknessCurse")) //디버프 카드
-    //    {
-    //        tf.GetChild(1).GetComponent<Image>().sprite = images[1];
-    //        GameObject game = Instantiate(effect[1], tf.GetChild(3).position, Quaternion.identity);
-    //    }
-    //    else //리워드 카드
-    //    {
-    //        tf.GetChild(1).GetComponent<Image>().sprite = images[2];
-    //        GameObject game = Instantiate(effect[2], tf.GetChild(3).position, Quaternion.identity);
-    //    }
-
-    //    tf.GetChild(2).GetComponent<Text>().text = target["Name"]; //Title
-    //    tf.GetChild(3).GetComponent<Text>().text = target["Description"]; //Content
-    //    tf.GetChild(0).GetComponent<Image>().sprite = Resources.Load<Sprite>(target["Directory"]);
-    //}
-
     //선택 후 처리
     public void choice(int n) //카드 선택 시 시행될 메소드
     {
-        Debug.Log("카드가 선택됨");
         Box.SetActive(false); //선택 창 제거
-        ui.Blind();
+        ui.Blind(false);
+        GameManager.Instance.playingCardOff(); //카드 선택 중
 
         buffNum.RemoveAt(num[n]); //버프 넘에서 선택 번호 제외. -> 다음에 뽑히지 않도록 함.
         Dictionary<string, string> choice = textData[num[n]]; //선택된 행
-        mine[mineNum%3].cardSetting(choice);
+        mine[mineNum].cardSetting(choice);
         mineNum++;
-        Debug.Log("mineNum: " + mineNum);
 
+        //버프
+        //BuffTarget = ["Attack", "AttackSpeed", "Range", "Cooltime"]
+        //BuffTargetTower = ["Ground", "Water", "Wind", "Single", "Multi", "Range"]
+        string[] target;
+        int value;
+        string targetT;
 
-        //내부 버프 효과 **************************값 변경 미적용***********************
         if (!choice["NatureBlessTargetTower"].Equals("null")) //버프 대상이 존재하면
         {
-            Debug.Log("버프가 적용됩니다: 추후 적용 예정");
+            target = choice["NatureBlessTargetTower"].Split(" ");
+            value = int.Parse(choice["NatureBlessValue[%]"]);
+            targetT = choice["NatureBlessTarget"];
+
+            Targetting(targetT, target, value);
         }
 
         if (!choice["DarknessCurseTargetTower"].Equals("null")) //디버프 대상이 존재하면
         {
-            Debug.Log("디버프가 적용됩니다: 추후 적용 예정");
+            target = choice["DarknessCurseTargetTower"].Split(" ");
+            value = int.Parse(choice["DarknessCurseValue[%]"]);
+            targetT = choice["DarknessCurseTarget"];
+
+            Targetting(targetT, target, value);
         }
 
+        //리워드
         if (!choice["RewardTarget"].Equals("null")) //리워드 대상이 존재하면
         {
             Debug.Log("리워드가 적용됩니다: 추후 적용 예정");
         }
 
-        //data.BuffATKS(1.06f); 예시문
+        if (GameManager.Instance.getAuto())
+        {
+            GameManager.Instance.StartRound();
+        }
+    }
+
+    private void Targetting(string targetT, string[] target, int value)
+    {
+        if (targetT.Equals("Attack"))
+        {
+            foreach (string s in target) //버프 처리
+                data.BuffATK(s, value);
+        }
+        else if (targetT.Equals("AttackSpeed"))
+        {
+            foreach (string s in target) //버프 처리
+                data.BuffATKS(s, value);
+        }
+        else if (targetT.Equals("Range"))
+        {
+            foreach (string s in target) //버프 처리
+                data.BuffATKR(s, value);
+        }
+        else if (targetT.Equals("Cooltime"))
+        {
+            Debug.Log("쿨타임 버프: 추후 적용");
+        }
+        else
+            Debug.Log(targetT + " 예외 오류: 해당 타깃에 대한 처리가 없습니다.");
+
+        Debug.Log(targetT + "속성이 " + value + "만큼 버프되었어요");
     }
 
     public void watchBuff()
     {
         if (my.activeSelf == true)
+        {
             SoundManager.Instance.popCloseSound();
+            ui.Blind(false);
+        }
+        else
+            ui.Blind(true);
 
-        ui.Blind();
         my.SetActive(!my.activeSelf);
     }
 }

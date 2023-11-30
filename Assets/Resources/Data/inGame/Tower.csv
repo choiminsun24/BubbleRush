@@ -1,0 +1,18 @@
+﻿인덱스,종류,,등급,크기,공격력,공격속도,사거리,공격 대상수,범위 공격 범위,웃는 버블,무표정 버블,화난 버블,속성 타입,가격,쿨타임,스킬,첫 번째 야성 개방,두 번째 야성 개방,스탠딩 이미지 경로,인게임 이미지 경로
+int,//string,string,Enum,int,int,int,int,Enum,int,Enum,Enum,Enum,Enum,int,int,int,int,int,string,string
+index,//Name(한국어),Name,Grade,Scale,Attack,AttackSpeed,Range,TargetCount,RangeOfAttack,ToSmileBubble,ToExpressionlessBubble,ToAngryBubble,Attribute,Cost,SkillCoolTime,Skill,First_Wildness,Second_Wildness,//StandingImageDirectory,//IngameImageDirectory
+3000,대박이_1,DaeBackYee,Normal,1,100,600,100,Single,0,Strong,Normal,VeryWeak,Ground,50,8000,4000,null,null,,
+3001,대박이_2,DaeBackYee,Normal,1.2,200,600,120,Single,0,Strong,Normal,VeryWeak,Ground,50,8000,4000,4100,null,,
+3002,대박이_3,DaeBackYee,Normal,1.3,300,600,130,Single,0,Strong,Normal,Normal,Ground,50,8000,4000,4100,4101,,
+3003,나비_1,Navi,Normal,1,30,1400,300,Single,0,Weak,Normal,Strong,Ground,70,20000,4001,null,null,,
+3004,나비_2,Navi,Normal,1.2,60,1400,360,Single,0,Weak,Normal,Strong,Ground,70,20000,4001,4102,null,,
+3005,나비_3,Navi,Normal,1.3,90,1400,390,Single,0,Weak,Normal,Strong,Ground,70,20000,4001,4102,4103,,
+3006,토리_1,Tori,Normal,1,50,1000,200,Range,100,Weak,VeryStrong,Weak,Ground,100,20000,4002,null,null,,
+3007,토리_2,Tori,Normal,1.2,100,1000,240,Range,100,Weak,VeryStrong,Weak,Ground,100,20000,4002,4104,null,,
+3008,토리_3,Tori,Normal,1.3,150,1000,260,Range,100,Weak,VeryStrong,Weak,Ground,100,20000,4002,4104,4105,,
+3009,꼬비_1,Goby,Legendary,1,300,1000,400,Single,0,Weak,VeryStrong,Weak,Water,200,20000,0,NULL,NULL,,
+3010,꼬비_2,Goby,Legendary,1.2,600,1000,440,Single,0,Weak,VeryStrong,Weak,Water,200,20000,0,NULL,NULL,,
+3011,꼬비_3,Goby,Legendary,1.3,900,1000,480,Single,0,Weak,VeryStrong,Weak,Water,200,20000,0,NULL,NULL,,
+3012,투투_1,Tutu,Rare,1,0,0,0,NULL,0,NULL,NULL,NULL,Water,50,20000,0,NULL,NULL,,
+3013,투투_2,Tutu,Rare,1.2,0,0,0,NULL,0,NULL,NULL,NULL,Water,50,20000,0,NULL,NULL,,
+3014,투투_3,Tutu,Rare,1.3,0,0,0,NULL,0,NULL,NULL,NULL,Water,50,20000,0,NULL,NULL,,

@@ -24,7 +24,7 @@ public class Quest : MonoBehaviour
 
     public void Awake()
     {
-        textData = ExelReader.Read("Data/inGame/QuestTest"); //버프 데이터 받아오기
+        textData = ExelReader.Read("Data/inGame/QuestTest"); //퀘스트 데이터 받아오기
 
         //GameManager Start보다 빠르게
         Box.SetActive(false);
@@ -35,7 +35,8 @@ public class Quest : MonoBehaviour
     public void play()
     {
         Box.SetActive(true);
-        ui.Blind();
+        ui.Blind(true);
+        GameManager.Instance.playingCardOn(); //카드 선택 중
 
         //1. 랜덤으로 셋 뽑기
         num = new int[] { -1, -1, -1 };
@@ -76,7 +77,8 @@ public class Quest : MonoBehaviour
     public void choice(int n) //카드 선택 시 시행될 메소드
     {
         Box.SetActive(false); //선택 창 제거
-        ui.Blind();
+        ui.Blind(false);
+        GameManager.Instance.playingCardOff(); //카드 선택 종료
 
         Dictionary<string, string> choice = textData[num[n]]; //선택된 행
         mine.cardSetting(choice);
@@ -99,10 +101,52 @@ public class Quest : MonoBehaviour
     public void watchQuest()
     {
         if (my.activeSelf == true)
+        {
             SoundManager.Instance.popCloseSound();
+            ui.Blind(false);
+        }
+        else
+            ui.Blind(true);
 
-        ui.Blind();
         my.SetActive(!my.activeSelf);
     }
 
+    //퀘스트 달성
+    private int fusion;
+    private int exist;
+    private int smile;
+    private int expressionless;
+    private int skill;
+    private int procession;
+
+
+    public void countFusion()
+    {
+
+    }
+
+    public void countExist()
+    {
+
+    }
+
+    public void countKillSmile()
+    {
+
+    }
+
+    public void countExpressionless()
+    {
+
+    }
+
+    public void countSkill()
+    {
+
+    }
+
+    public void countProcession()
+    {
+
+    }
 }
