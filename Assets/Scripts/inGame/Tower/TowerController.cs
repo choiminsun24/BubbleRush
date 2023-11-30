@@ -33,6 +33,7 @@ public class TowerController : MonoBehaviour
 
     private float angle;
     private GameObject bull;
+    private bool canCreateBullet = true;
 
     private SpriteRenderer spriteRenderer;
 
@@ -118,6 +119,7 @@ public class TowerController : MonoBehaviour
     {
         if (!SelectEnemy())
         {
+            canCreateBullet = true;
             if (towerCategory == 0 && canTongue)
             {
                 canTongue = false;
@@ -150,7 +152,6 @@ public class TowerController : MonoBehaviour
             {
                 canTongue = true;
             }
-            return;
         }
 
 
@@ -158,12 +159,16 @@ public class TowerController : MonoBehaviour
         {
             time = 0f;
 
-            
-            // Bullet 생성하여 적을 향해 이동시키기
-            bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
-            bullCtr = bull.GetComponent<BulletController>();
-            bullCtr.setBullet(data.attack, expression);
-            bullCtr.TriggerMove(nearestEnemy.transform);
+
+            if (canCreateBullet)            
+            {
+                canCreateBullet = false;
+                // Bullet 생성하여 적을 향해 이동시키기
+                bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+                bullCtr = bull.GetComponent<BulletController>();
+                bullCtr.setBullet(data.attack, expression);
+                bullCtr.TriggerMove(nearestEnemy.transform);
+            }
             if (towerCategory == 1)
             {
                 return;
@@ -213,14 +218,14 @@ public class TowerController : MonoBehaviour
         effect.SetActive(false);
     }
 
-    public void TurnOnWeaponColl()
-    {
-        Debug.Log("TurnOnWeaponCollider");
-        attackCollider.enabled = true;
-        Invoke("TurnOffWeaponCollider", 0.3f);
-    }
-    private void TurnOffWeaponCollider()
-    {
-        attackCollider.enabled = true;
-    }
+    // public void TurnOnWeaponColl()
+    // {
+    //     Debug.Log("TurnOnWeaponCollider");
+    //     attackCollider.enabled = true;
+    //     Invoke("TurnOffWeaponCollider", 0.3f);
+    // }
+    // private void TurnOffWeaponCollider()
+    // {
+    //     attackCollider.enabled = true;
+    // }
 }
