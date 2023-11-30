@@ -27,8 +27,9 @@ public class TowerController : MonoBehaviour
     
     public bool canTongue {get; set;} = false;
     public bool isAttacking {get; set;} = false;
-    public int towerCategory = 0;
+    public int towerCategory = -1;
     [SerializeField] private UnityEngine.Object bullet;
+    [SerializeField] private Collider2D attackCollider;
 
     private float angle;
     private GameObject bull;
@@ -47,6 +48,7 @@ public class TowerController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        Debug.Log("Tower Category: " + towerCategory + " attack: " + data.attack);
     }
     
     // 일정한 주기로 공격
@@ -76,8 +78,8 @@ public class TowerController : MonoBehaviour
         }
     }
 
-    private Transform nearestEnemy = null;
-    [SerializeField] private float offset =2f;
+    public Transform nearestEnemy = null;
+    [SerializeField] private float offset = 2f;
     private Transform SelectEnemy()
     {
         if (!nearestEnemy || Vector3.Distance(nearestEnemy.position, transform.position) >= offset)
@@ -116,11 +118,11 @@ public class TowerController : MonoBehaviour
     {
         if (!SelectEnemy())
         {
-            if(towerCategory == 1 && canTongue)
+            if (towerCategory == 0 && canTongue)
             {
                 canTongue = false;
             }
-            else
+            else if(towerCategory != 0)
             {
                 anim.SetBool("isAttack", false);
                 aura?.GetComponent<Animator>().SetBool("isAttack", false);
@@ -129,13 +131,16 @@ public class TowerController : MonoBehaviour
             return;
         }
 
-        // 감지된 적 있을 때 바라보기
-        angle = Mathf.Atan2(nearestEnemy.transform.position.y - transform.position.y,
-                            nearestEnemy.transform.position.x - transform.position.x)
-              * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle - 270);
+        // 감지된 적 있을 때, 공격 전에만 바라보기
+        if (isAttacking == false)
+        {
+            angle = Mathf.Atan2(nearestEnemy.transform.position.y - transform.position.y,
+                                nearestEnemy.transform.position.x - transform.position.x)
+                    * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle - 270);
+        }
 
-        if (towerCategory == 1)
+        if (towerCategory == 0)
         {
             if(!nearestEnemy)
             {
@@ -206,5 +211,16 @@ public class TowerController : MonoBehaviour
     private void TurnOffEffect()
     {
         effect.SetActive(false);
+    }
+
+    public void TurnOnWeaponColl()
+    {
+        Debug.Log("TurnOnWeaponCollider");
+        attackCollider.enabled = true;
+        Invoke("TurnOffWeaponCollider", 0.3f);
+    }
+    private void TurnOffWeaponCollider()
+    {
+        attackCollider.enabled = true;
     }
 }

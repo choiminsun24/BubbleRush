@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Tower0Attack : MonoBehaviour
 {
+    [SerializeField] private Collider2D attackCollider;
+
     [SerializeField] private GameObject tongue;
     [SerializeField] private Animator auraAnim;
     private bool canAnimate = true;
@@ -21,7 +23,8 @@ public class Tower0Attack : MonoBehaviour
 
 
     private TowerController tc;
-    private float coolTime, skillTime, coolTime_1, skillTime_1 = 0f;
+    private float skillTime, skillTime_1 = 0f;
+    private float coolTime = 20f, coolTime_1 = 2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +36,6 @@ public class Tower0Attack : MonoBehaviour
 
 
         tc = GetComponent<TowerController>();
-        coolTime_1 = 2f;
-        coolTime = 20f;
 
     }
 
@@ -52,10 +53,13 @@ public class Tower0Attack : MonoBehaviour
             // 일반 공격 진행중이었다면 초기화
             if (canAnimate == false || tc.anim.GetBool("isAttack") == true)
             {
+                print("대박이 일반 공격 종료");
                 tc.anim.SetBool("isAttack", false);
                 auraAnim.SetBool("isAttack", false);
                 skillTime_1 = 0f;
+                tc.isAttacking = false;
                 canAnimate = true;
+                //attackCollider.enabled = false;
             }
             // 라운드 끝나면 false 되는 시기 넣어야함
             return;
@@ -84,26 +88,39 @@ public class Tower0Attack : MonoBehaviour
         if (tc.canTongue && canAnimate && skillTime_1 <= coolTime_1)
         {
             // 뼈 일반 공격
-            tc.anim.SetBool("isUp", false);
+            print("대박이 일반 공격 시작");
+            //tc.anim.SetBool("isUp", false);
             tc.anim.SetBool("isAttack", true);
             auraAnim.SetBool("isAttack", true);
+            tc.isAttacking = true;
             canAnimate = false;
+            //attackCollider.enabled = true;
+            
         }
-        // 일반 공격 duration 지났을 때 초기화
-        else if(skillTime_1>=coolTime_1)
+        // 일반 공격 duration 지났을 때 delay
+        if(skillTime_1 > coolTime_1 && skillTime_1 < 2 * coolTime_1)
         {
+            print("대박이 일반 공격 딜레이");
+
+        }
+        // 일반 공격 delay 끝났을 때 초기화
+        if (skillTime_1 >= 2 * coolTime_1)
+        {
+            print("대박이 일반 공격 종료");
             tc.anim.SetBool("isAttack", false);
             auraAnim.SetBool("isAttack", false);
+            //attackCollider.enabled = false;
             skillTime_1 = 0f;
+            tc.isAttacking = false;
             canAnimate = true;
         }
 
         // 일반 공격 이후 스킬 공격 가능 시
-        if (tc.isAttacking && skillTime >= coolTime)
+        if (!tc.isAttacking && skillTime >= coolTime)
         {
             // 스킬 공격
             Attack();
-            tc.isAttacking = false;
+            //tc.isAttacking = false;
             skillTime = 0f;
         }
         else
