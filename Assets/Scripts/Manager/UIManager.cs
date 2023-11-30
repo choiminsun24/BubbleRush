@@ -154,6 +154,20 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void UpdateQuestUI(bool complete)
+    {
+        Debug.Log(complete);
+
+        if (!complete)
+        {
+            //퀘스트 진행중이면 이렇게
+        }
+        else
+        {
+            //퀘스트 완료했으면 이렇게
+        }
+    }
+
 
     // 설정 화면 바깥 터치 시 종료
     [SerializeField] private GameObject settingWindow;

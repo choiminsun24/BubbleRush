@@ -19,6 +19,7 @@ public class Quest : MonoBehaviour
 
     //선택지
     private int[] num; //선택된 번호
+    private bool complete = false;
 
     //프로그램
 
@@ -87,7 +88,36 @@ public class Quest : MonoBehaviour
         //내부 버프 효과 **************************값 변경 미적용***********************
         if (!choice["QuestTarget"].Equals("null")) //퀘스트 대상 존재
         {
-            Debug.Log(choice["QuestTarget"] + "에 대한 퀘스트가 진행됩니다: 추후 적용 예정");
+            switch(choice["QuestType"])
+            {
+                case "Fusion":
+                    fusionQuest = int.Parse(choice["QuestCount"]);
+                    break;
+                case "Kill":
+                    switch(choice["QuestTarget"])
+                    {
+                        case "ExpressionlessBubble":
+                            expressionlessQuest = int.Parse(choice["QuestCount"]);
+                            break;
+                        case "Smile":
+                            smileQuest = int.Parse(choice["QuestCount"]);
+                            break;
+                        default:
+                            Debug.Log("추가되지 않은 퀘스트 타겟: " + choice["QuestTarget"]);
+                            break;
+                    }
+                    break;
+                case "Skill":
+                    skillQuest = int.Parse(choice["QuestCount"]);
+                    break;
+                case "Possession":
+                    possessionQuest = int.Parse(choice["QuestCount"]);
+                    break;
+                default:
+                    Debug.Log("추가되지 않은 퀘스트: " + choice["QuestCount"]);
+                    break;
+            }
+            Debug.Log(choice["QuestType"] + "에 대한 퀘스트가 진행됩니다.");
         }
 
         if (!choice["RewardTarget"].Equals("null")) //디버프 대상이 존재하면
@@ -112,41 +142,122 @@ public class Quest : MonoBehaviour
     }
 
     //퀘스트 달성
-    private int fusion;
-    private int exist;
-    private int smile;
-    private int expressionless;
-    private int skill;
-    private int procession;
+    private int fusionQuest;
+    private int existQuest;
+    private int smileQuest;
+    private int expressionlessQuest;
+    private int skillQuest;
+    private int possessionQuest;
 
-
-    public void countFusion()
+    public void CheckQuest(int mission)
     {
-
+        if (fusionQuest > 0)
+        {
+            checkFusion(mission);
+        }
+        else if (existQuest > 0)
+        {
+            checkExist(mission);
+        }
+        else if (smileQuest > 0)
+        {
+            checkSmile(mission);
+        }
+        else if (expressionlessQuest > 0)
+        {
+            checkExpressionless(mission);
+        }
+        else if (skillQuest > 0)
+        {
+            checkSkill(mission);
+        }
+        else if (possessionQuest > 0)
+        {
+            checkPossession(mission);
+        }
     }
 
-    public void countExist()
+    public void checkFusion(int fusion)
     {
+        //이미 완료했으면 말고
+        if (complete)
+        {
+            return;
+        }
 
+        if (fusion >= fusionQuest)
+            complete = true;
+
+        ui.UpdateQuestUI(complete);
     }
 
-    public void countKillSmile()
+    public void checkExist(int exist)
     {
+        //이미 완료했으면 말고
+        if (complete)
+        {
+            return;
+        }
 
+        if (exist >= existQuest)
+            complete = true;
+
+        ui.UpdateQuestUI(complete);
     }
 
-    public void countExpressionless()
+    public void checkSmile(int smile)
     {
+        //이미 완료했으면 말고
+        if (complete)
+        {
+            return;
+        }
 
+        if (smile >= smileQuest)
+            complete= true;
+
+        ui.UpdateQuestUI(complete);
     }
 
-    public void countSkill()
+    public void checkExpressionless(int expressionless)
     {
+        //이미 완료했으면 말고
+        if (complete)
+        {
+            return;
+        }
 
+        if (expressionless >= expressionlessQuest)
+            complete = true;
+
+        ui.UpdateQuestUI(complete);
     }
 
-    public void countProcession()
+    public void checkSkill(int skill)
     {
+        //이미 완료했으면 말고
+        if (complete)
+        {
+            return;
+        }
 
+        if (skill >= skillQuest)
+            complete = true;
+
+        ui.UpdateQuestUI(complete);
+    }
+
+    public void checkPossession(int possession)
+    {
+        //이미 완료했으면 말고
+        if (complete)
+        {
+            return;
+        }
+
+        if (possession >= possessionQuest)
+            complete = true;
+
+        ui.UpdateQuestUI(complete);
     }
 }

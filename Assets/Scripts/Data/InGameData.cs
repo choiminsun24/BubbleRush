@@ -49,7 +49,7 @@ public class InGameData : MonoBehaviour
     }
 
     //능력치 변화
-//앞에 있는 if 저거 지우기
+    //앞에 있는 if 저거 지우기
 
     public void BuffATK(string type, int change)
     {
@@ -120,4 +120,6 @@ public class InGameData : MonoBehaviour
             stageCoin += coin;
         }
     }
+
+
 }
