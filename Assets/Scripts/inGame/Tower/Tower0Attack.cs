@@ -50,17 +50,17 @@ public class Tower0Attack : MonoBehaviour
         }
         if (!GameManager.Instance.isStarted)
         {
-            // 일반 공격 진행중이었다면 초기화
-            if (canAnimate == false || tc.anim.GetBool("isAttack") == true)
-            {
-                print("대박이 일반 공격 종료");
-                tc.anim.SetBool("isAttack", false);
-                auraAnim.SetBool("isAttack", false);
-                skillTime_1 = 0f;
-                tc.isAttacking = false;
-                canAnimate = true;
-                //attackCollider.enabled = false;
-            }
+            // // 일반 공격 진행중이었다면 초기화
+            // if (canAnimate == false || tc.anim.GetBool("isAttack") == true)
+            // {
+            //     print("대박이 일반 공격 종료");
+            //     tc.anim.SetBool("isAttack", false);
+            //     auraAnim.SetBool("isAttack", false);
+            //     skillTime_1 = 0f;
+            //     tc.isAttacking = false;
+            //     canAnimate = true;
+            //     //attackCollider.enabled = false;
+            // }
             // 라운드 끝나면 false 되는 시기 넣어야함
             return;
         }
@@ -81,7 +81,7 @@ public class Tower0Attack : MonoBehaviour
         }
 
         
-
+        return;
         skillTime += Time.deltaTime;
         skillTime_1 += Time.deltaTime;
         // 가까운 적 존재 && 애니메이션 종료 && 쿨타임 만족

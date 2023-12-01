@@ -16,3 +16,6 @@ index,//Name(한국어),Name,Grade,Scale,Attack,AttackSpeed,Range,TargetCount,Ra
 3012,투투_1,Tutu,Rare,1,0,0,0,NULL,0,NULL,NULL,NULL,Water,50,20000,0,NULL,NULL,,
 3013,투투_2,Tutu,Rare,1.2,0,0,0,NULL,0,NULL,NULL,NULL,Water,50,20000,0,NULL,NULL,,
 3014,투투_3,Tutu,Rare,1.3,0,0,0,NULL,0,NULL,NULL,NULL,Water,50,20000,0,NULL,NULL,,
+3015,오랑이_1,Orang,Advanced,1,100,600,300,Single,0,NULL,NULL,NULL,Ground,150,20000,0,NULL,NULL,,
+3016,오랑이_2,Orang,Advanced,1.2,200,600,300,Single,0,NULL,NULL,NULL,Ground,150,20000,0,NULL,NULL,,
+3017,오랑이_3,Orang,Advanced,1.3,300,600,300,Single,0,NULL,NULL,NULL,Ground,150,20000,0,NULL,NULL,,

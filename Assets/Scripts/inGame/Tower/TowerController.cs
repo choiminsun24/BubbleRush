@@ -21,7 +21,6 @@ public class TowerController : MonoBehaviour
     public int level = 1;
     [SerializeField] private Sprite[] otherImgs;
 
-    private float time = 0f;
 
     //public List<GameObject> enemies;
     
@@ -33,13 +32,13 @@ public class TowerController : MonoBehaviour
 
     private float angle;
     private GameObject bull;
-    private bool canCreateBullet = true;
 
     private SpriteRenderer spriteRenderer;
 
-    private bool canAnimate = true;
+    public bool canAnimate = true;
+    public bool canCreateBullet = true;
 
-    
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -64,10 +63,9 @@ public class TowerController : MonoBehaviour
         {
             spriteRenderer.color = new Color(1,1,1,1f);
         }
-        time += Time.deltaTime;
 
         // 합성 중이 아닐 때, 게임 시작했을 때만 공격
-        if (!isFusioning && GameManager.Instance.isStarted)
+        if (!isFusioning)
         {
             isAttacking = false;
             Attack();
@@ -80,9 +78,10 @@ public class TowerController : MonoBehaviour
     }
 
     public Transform nearestEnemy = null;
-    [SerializeField] private float offset = 2f;
+    [SerializeField] private float offset = 0.5f;
     private Transform SelectEnemy()
     {
+        Transform prevEnemy = nearestEnemy;
         if (!nearestEnemy || Vector3.Distance(nearestEnemy.position, transform.position) >= offset)
         {
             float min_distance = offset;
@@ -115,77 +114,84 @@ public class TowerController : MonoBehaviour
         }
     }
 
+    public float attackTime = 0f;
     public void Attack()
     {
+
+        attackTime += Time.deltaTime;
+
+        // 공격 속도 지났을 때, 다음 공격 위해 초기화
+        if (attackTime >= 1 / (data.attackSpeed * 0.001f))
+        {
+            
+            attackTime = 0f;
+
+            anim.SetBool("isAttack", false);
+            aura?.GetComponent<Animator>().SetBool("isAttack", false);
+            isAttacking = false;
+
+            canAnimate = true;
+            canCreateBullet = true;
+
+            return;
+            
+        }
+
+        // 게임 시작 여부
+        if(!GameManager.Instance.isStarted)
+        {
+            return;
+        }
+
+        // 사거리 안에 적이 없을 때, 애니메이션 off
         if (!SelectEnemy())
         {
-            canCreateBullet = true;
-            if (towerCategory == 0 && canTongue)
             {
-                canTongue = false;
-            }
-            else if(towerCategory != 0)
-            {
-                anim.SetBool("isAttack", false);
-                aura?.GetComponent<Animator>().SetBool("isAttack", false);
-                canAnimate = true;
+                //attackTime = 0f;
+
+                // canAnimate = true;
+                // canCreateBullet = true;
+                // isAttacking = false;
             }
             return;
         }
 
-        // 감지된 적 있을 때, 공격 전에만 바라보기
+        // 사거리 안에 적 있을 때, 공격 시작 세팅
+        if (canCreateBullet)
+        {
+            attackTime = 0f;
+            Invoke("Shoot", 1 / (data.attackSpeed * 0.001f) * 0.2f);
+            canCreateBullet = false;            
+        }
+
+        // 사거리 안에 적 있을 때, 공격 중일 때만 바라보기
         if (isAttacking == false)
         {
+            
+        }
+        isAttacking = true;
+
+
+        if (canAnimate)
+        {
+            // 공격 전에 바라보기
             angle = Mathf.Atan2(nearestEnemy.transform.position.y - transform.position.y,
                                 nearestEnemy.transform.position.x - transform.position.x)
                     * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle - 270);
+
+            isAttacking = true;
+            // 일반 공격
+            anim.speed = data.attackSpeed * 0.001f;
+            anim.SetBool("isUp", false);
+            anim.SetBool("isAttack", true);
+
+            aura?.GetComponent<Animator>().SetBool("isAttack", true);
+
+            canAnimate = false;
         }
+        canAnimate = false;
 
-        if (towerCategory == 0)
-        {
-            if(!nearestEnemy)
-            {
-                canTongue = false;
-            }
-            else
-            {
-                canTongue = true;
-            }
-        }
-
-
-        if (time >= data.skillCoolTime/4000)
-        {
-            time = 0f;
-
-
-            if (canCreateBullet)            
-            {
-                canCreateBullet = false;
-                // Bullet 생성하여 적을 향해 이동시키기
-                bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
-                bullCtr = bull.GetComponent<BulletController>();
-                bullCtr.setBullet(data.attack, expression);
-                bullCtr.TriggerMove(nearestEnemy.transform);
-            }
-            if (towerCategory == 1)
-            {
-                return;
-            }
-            if (canAnimate)
-            {
-                // 일반 공격
-                anim.SetBool("isUp", false);
-                anim.SetBool("isAttack", true);
-                
-                aura?.GetComponent<Animator>().SetBool("isAttack", true);
-                
-                canAnimate = false;
-            }
-        }
-
-        
     }
 
     [SerializeField]private GameObject effect;
@@ -210,14 +216,30 @@ public class TowerController : MonoBehaviour
             level = 0;
         }
         
-        // 공격력 +5
-        data.attack += 5;
+        // 공격력 +=
+        data.attack += data.attack;
+        Debug.Log(data.attack);
     }
     private void TurnOffEffect()
     {
         effect.SetActive(false);
     }
 
+    private void Shoot()
+    {
+
+        Debug.Log(data.attack);
+        // Bullet 생성하여 적을 향해 이동시키기
+        bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+        bullCtr = bull.GetComponent<BulletController>();
+        bullCtr.setBullet(data.attack, expression);
+        bullCtr.TriggerMove(nearestEnemy?.transform);
+    }
+
+    // public void TurnOnCanBullet()
+    // {
+    //     canCreateBullet = true;
+    // }
     // public void TurnOnWeaponColl()
     // {
     //     Debug.Log("TurnOnWeaponCollider");

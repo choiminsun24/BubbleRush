@@ -1158,6 +1158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7f42850c23d4a49b5287e63ce0347d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chances: -1
   daebakInfo: {fileID: 0}
   nabiInfo: {fileID: 0}
   toriInfo: {fileID: 0}
