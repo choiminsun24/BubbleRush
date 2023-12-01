@@ -45,8 +45,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip lobby;
     public AudioClip inGame;
     public AudioClip inStage;
-    public AudioClip [] towerInstall, tower1Install, tower2Install, skillBite;
-    public AudioClip card; //0:Ä«µå ¼±ÅÃÃ¢ 1:¹öÇÁ   2:µğ¹öÇÁ   3:¸®¿öµå
+    public AudioClip[] towerInstall, tower1Install, tower2Install, skillBite;
+    public AudioClip card; //0:ì¹´ë“œ ì„ íƒì°½ 1:ë²„í”„   2:ë””ë²„í”„   3:ë¦¬ì›Œë“œ
     public AudioClip die;
     public AudioClip[] kill;
     public AudioClip popUpClose;

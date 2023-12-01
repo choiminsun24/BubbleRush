@@ -176,16 +176,16 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         switch(towerCategory)
         {
             case 0:
-                SoundManager.Instance.EffectPlay(SoundManager.Instance.towerInstall[Random.Range(0, 3)]);
+                SoundManager.Instance.EffectPlay(SoundManager.Instance.towerInstall[Random.Range(0, SoundManager.Instance.towerInstall.Length)]);
                 break;
             case 1:
-                SoundManager.Instance.EffectPlay(SoundManager.Instance.tower1Install[Random.Range(0, 3)]);
+                SoundManager.Instance.EffectPlay(SoundManager.Instance.tower1Install[Random.Range(0, SoundManager.Instance.tower1Install.Length)]);
                 break;
             case 2:
-                //SoundManager.Instance.EffectPlay(SoundManager.Instance.tower2Install[Random.Range(0, 3)]);
+                SoundManager.Instance.EffectPlay(SoundManager.Instance.tower2Install[Random.Range(0, SoundManager.Instance.tower2Install.Length)]);
                 break;
             default:
-                SoundManager.Instance.EffectPlay(SoundManager.Instance.towerInstall[Random.Range(0, 3)]);
+                SoundManager.Instance.EffectPlay(SoundManager.Instance.towerInstall[Random.Range(0, SoundManager.Instance.towerInstall.Length)]);
                 break;
         }
         // 타워 설치 사거리 비표시
@@ -200,6 +200,7 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
     //0.4824561403508772f;
     private Vector3 SelectCoord()
     {
+
         float min_distance = float.MaxValue;
         screenPosition = Input.mousePosition;
         screenPosition = new Vector3(screenPosition.x, screenPosition.y, 0f);
