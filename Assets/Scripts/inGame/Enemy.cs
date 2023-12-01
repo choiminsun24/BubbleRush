@@ -7,6 +7,11 @@ using TMPro;
 
 public class Enemy : MonoBehaviour
 {
+    //퀘스트 
+    static int killMad = 0;
+    static int killSmile = 0;
+    static int killExpressionless = 0;
+
     //UI
     public TextMesh hpText;
     public GameObject effect;
@@ -80,13 +85,19 @@ public class Enemy : MonoBehaviour
             else if (tower == Expression.MAD) //화난 친구 -> 웃는 친구 : 강함
                 damage *= 1.2f;
         }
-        else //expression == Expression.Expressionless
+        else if (expression == Expression.EXPRESSIONLESS)
         {
             if (tower == Expression.MAD) //화난 친구 -> 무표정 친구 : 약함
                 damage *= 0.8f;
             else if (tower == Expression.MAD) //웃는 친구 -> 무표정 친구 : 강함
                 damage *= 1.2f;
+
+            Debug.Log(damage);
+            damage *= InGameData.Instance.getBuffExpressionlessEnemyDamaged();
+            Debug.Log(damage);
         }
+        else
+            Debug.Log("그런 타입 없습니다.");
 
         hp -= Mathf.RoundToInt(damage);
 
@@ -102,7 +113,6 @@ public class Enemy : MonoBehaviour
     public void updateTextHP()
     {
         hpText.text = hp.ToString();
-        //Debug.Log(hp);
     }
 
     private void Death(int _coin)
@@ -114,6 +124,14 @@ public class Enemy : MonoBehaviour
             effect.SetActive(true); //이펙트 재생
             hpText.gameObject.SetActive(false); //체력바 제거
             gameObject.GetComponent<SpriteRenderer>().enabled = false; //안 보이게 처리
+
+            //퀘스트 카운트
+            if (expression == Expression.MAD)
+                killMad++;
+            else if (expression == Expression.SMILE)
+                Quest.Instance.checkSmile(++killSmile);
+            else if (expression == Expression.EXPRESSIONLESS)
+                Quest.Instance.checkExpressionless(++killExpressionless);
         }
         GameManager.Instance.RemoveEnemy(this); //배열에서 제거
         for (int i=0; i<6; ++i)
@@ -131,17 +149,22 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    
+
+    private bool live = true;
 
     //맵 밖으로 벗어나면 GameManager AddHeart(-1) 호출.
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Finish")
         {
-            print("END POINT");
-            GameManager.Instance.AddHeart(-1);
-            // 코인 증가 없이 소멸
-            Death(0);
+            if (live)
+            {
+                print("END POINT");
+                GameManager.Instance.AddHeart(-1);
+                // 코인 증가 없이 소멸
+                live = false;
+                Death(0);
+            }
         }
     }
 

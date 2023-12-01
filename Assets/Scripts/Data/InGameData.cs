@@ -10,9 +10,38 @@ public class InGameData : MonoBehaviour
     private float ATKS;
     private float ATKR;
     private Dictionary<string,Dictionary<string,float>> atkData;
+    private Dictionary<string, Dictionary<string, float>> enemyBuffData;
+
+    //�̱���
+    private static InGameData _instance;
+
+    public static InGameData Instance
+    {
+        get
+        {
+            if (!_instance)
+            {
+                _instance = FindObjectOfType(typeof(InGameData)) as InGameData;
+
+                if (_instance == null)
+                    Debug.Log("no Singleton obj");
+            }
+            return _instance;
+        }
+    }
 
     void Awake() //DataManager를 통해 기본 능력치 세팅
     {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        // �ν��Ͻ��� �����ϴ� ��� ���� �ν��Ͻ��� �����Ѵ�.
+        else if (_instance != this)
+        {
+            Destroy(this);
+        }
+
         manager = GameObject.Find("DataManager").GetComponent<DataManager>();
 
         //기본 능력치
@@ -38,6 +67,17 @@ public class InGameData : MonoBehaviour
         atkData["Wind"]["ATK"] = GameData.GetKnowATK(manager.KnowATK);
         atkData["Wind"]["ATKS"] = GameData.GetKnowATKS(manager.KnowATKS);
         atkData["Wind"]["ATKR"] = GameData.GetKnowATKR(manager.KnowATKR);
+
+        //���� ���� ������
+        enemyBuffData = new Dictionary<string, Dictionary<string, float>>();
+
+        enemyBuffData["Mad"] = new Dictionary<string, float>();
+        enemyBuffData["Smile"] = new Dictionary<string, float>();
+        enemyBuffData["Expressionless"] = new Dictionary<string, float>();
+
+        enemyBuffData["Mad"]["Damaged"] = 1;
+        enemyBuffData["Smile"]["Damaged"] = 1;
+        enemyBuffData["Expressionless"]["Damaged"] = 1;
     }
 
     //업그레이드 확인용
@@ -49,7 +89,8 @@ public class InGameData : MonoBehaviour
     }
 
     //능력치 변화
-//앞에 있는 if 저거 지우기
+    //앞에 있는 if 저거 지우기
+    string[] types = { "Ground", "Water", "Wind" };
 
     public void BuffATK(string type, int change)
     {
@@ -67,6 +108,14 @@ public class InGameData : MonoBehaviour
 
     public void BuffATKS(string type, float change)
     {
+        if (type.Equals("all"))
+        {
+            foreach (string t in types)
+                atkData[t]["ATKS"] += 0.01f * change;
+
+            return;
+        }
+
         if (!atkData.ContainsKey(type))
         {
             Debug.Log("해당 키는 아직 없어요");
@@ -94,8 +143,18 @@ public class InGameData : MonoBehaviour
         Debug.Log(atkData[type]["ATKR"] + "로");
     }
 
-    //재화 관리
-    private int stageCoin = 200;
+    public void BuffExpressionlessEnemyDamaged(int per)
+    {
+        enemyBuffData["Expressionless"]["Damaged"] += per * 0.01f;
+    }
+
+    public float getBuffExpressionlessEnemyDamaged()
+    {
+        return enemyBuffData["Expressionless"]["Damaged"];
+    }
+
+    //��ȭ ����
+    public int stageCoin = 100;
 
     public int GetStageCoin()
     {
@@ -104,20 +163,19 @@ public class InGameData : MonoBehaviour
 
     public void AddStageCoin(int coin)
     {
-        if (coin < 0) //when we use the coin
+        if (coin < 0) //use
         {
             coin *= -1; //absolution 
 
-            if (stageCoin >= coin) //adequate
-            {
+            if (stageCoin >= coin) 
                 stageCoin -= coin;
-            }
-            else //inadequate
-                return;
+            else return;
         }
-        else //when we got the coin
+        else //get
         {
             stageCoin += coin;
         }
+
+        Quest.Instance.checkPossession(stageCoin);
     }
 }

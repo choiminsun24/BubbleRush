@@ -12,30 +12,27 @@ public class UIManager : MonoBehaviour
 
     Animator anim;
 
-    private int point; //hearts의 top
-
+    private int heartTopIndex; //hearts의 top
     public void plusHeart()
     {
         //3개 미만이면 충전
-        if (point < hearts.Length - 1)
+        if (heartTopIndex < hearts.Length - 1)
         {
-            hearts[point + 1].GetComponent<Animator>().SetBool("live", true);
-            //hearts[point + 1].gameObject.SetActive(true);
+            hearts[heartTopIndex + 1].GetComponent<Animator>().SetBool("live", true);
         }
 
-        point++;
+        heartTopIndex++;
     }
 
     public void minusHeart()
     {
         //하트가 있으면 제거
-        if (point >= 0)
+        if (heartTopIndex >= 0)
         {
-            hearts[point].GetComponent<Animator>().SetBool("live", false);
-            //hearts[point].gameObject.SetActive(false);
+            hearts[heartTopIndex].GetComponent<Animator>().SetBool("live", false);
         }
 
-        point--;
+        heartTopIndex--;
     }
 
     // 스테이지 코인 관리
@@ -46,53 +43,31 @@ public class UIManager : MonoBehaviour
         Coin.text = coin.ToString();
     }
 
-    //// 배경음악 볼륨 조절
-    //[SerializeField] private AudioMixer mixer;
-    //[SerializeField] private Slider slider;
-    //public void SetBGMLevel(float sliderValue)
-    //{
-    //    mixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue)*20);
-    //    PlayerPrefs.SetFloat("MusicVolume", sliderValue);
-    //}
-    
-    //// 효과음 볼륨 조절
-    //[SerializeField] private Slider effectSlider;
-    //public void SetEffectLevel(float sliderValue)
-    //{
-    //    mixer.SetFloat("EffectVolume", Mathf.Log10(sliderValue)*20);
-    //    PlayerPrefs.SetFloat("EffectVolume", sliderValue);
-    //}
-
     // Start is called before the first frame update
     void Start()
     {
-        point = hearts.Length - 1;
+        heartTopIndex = hearts.Length - 1;
         Blind(false);
-        //slider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
-        //effectSlider.value = PlayerPrefs.GetFloat("EffectVolume", 0.75f);
+        QuestComplete.SetActive(false);
+        QuestProgress.SetActive(false);
+
+        //Invoke("test", 3.0f);
+        
     }
 
-    //// 진동 조절
-    //[SerializeField] private Text onOff;
-    //public void SetVibration()
-    //{
-    //    switch(onOff.text)
-    //    {
-    //        case "ON":
-    //            onOff.text = "OFF";
-
-    //        break;
-    //        case "OFF":
-    //            onOff.text = "ON";
-    //        break;
-    //    }
-    //}
+    public void QuestUItest()
+    {
+        UpdateQuestUI(true, 0, 0);
+    }
 
     public GameObject blind;
 
     public void Blind(bool state)
     {
-        blind.SetActive(state);
+        if (!blind.activeSelf || !state)
+            blind.SetActive(state);
+
+
     }
 
     public GameObject WinPanel;
@@ -154,6 +129,31 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public GameObject QuestProgress;
+    public GameObject QuestComplete;
+    public Image questIcon;
+
+    public Text goal;
+    public Text now;
+
+    public void UpdateQuestUI(bool complete, int goal, int now)
+    {
+        if (!complete)
+        {
+            QuestProgress.SetActive(true);
+            QuestComplete.SetActive(false);
+
+            this.now.text = now.ToString();
+            this.goal.text = goal.ToString();
+        }
+        else
+        {
+            QuestProgress.SetActive(false);
+            colorDown(questIcon);
+            QuestComplete.SetActive(true);
+        }
+    }
+
 
     // 설정 화면 바깥 터치 시 종료
     [SerializeField] private GameObject settingWindow;
@@ -176,5 +176,15 @@ public class UIManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void colorDown(Image target)
+    {
+        float b = 0.6f;
+        Color dark = new Color(b, b, b, 1.0f);
+
+        target.color = dark;
+
+        target.raycastTarget = false;
     }
 }

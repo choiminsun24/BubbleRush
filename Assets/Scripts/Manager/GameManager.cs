@@ -163,6 +163,7 @@ public class GameManager : MonoBehaviour
     //적이 도착지점에 도착하였을 때 -1, 아이템을 먹었을 때 +1
     public void AddHeart(int _heart)
     {
+        Debug.Log("하트 변동");
         heart += _heart;
 
         //변동 수만큼 ui 매니저 호출
@@ -181,7 +182,6 @@ public class GameManager : MonoBehaviour
     }
     public int GetHeart()
     {
-        //Debug.Log(heart);
         return heart;
     }
 
@@ -230,7 +230,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    //스테이지 코인 - 스테이지 내 재화 관리(의존: InGameData, UIManager)
+    //스테이지 코인 - 스테이지 내 재화 관리(의존: InGameData, UIManager, Quest)
     public void Coin(int coin)
     {
         inGameData.AddStageCoin(coin);

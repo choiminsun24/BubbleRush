@@ -224,7 +224,8 @@ public class TowerManager : MonoBehaviour
 
                 if (targetTc)
                 {
-                    ++chances;
+                    Quest.Instance.checkFusion(++chances);
+
                     targetTc.anim.SetBool("isUp", false);
                     targetTc.LevelUp();
                     ReturnTower(towerCategory, touchedObject);

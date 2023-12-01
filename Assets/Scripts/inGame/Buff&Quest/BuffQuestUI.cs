@@ -14,9 +14,6 @@ public class BuffQuestUI : MonoBehaviour
 
     void Start()
     {
-        //image = gameObject.GetComponent<image>();
-        //line = gameObject.GetComponent<Outline>();
-        //line.enabled = false;
         blindButton.SetActive(false);
     }
 
