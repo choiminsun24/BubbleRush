@@ -12,30 +12,28 @@ public class UIManager : MonoBehaviour
 
     Animator anim;
 
-    private int point; //hearts의 top
+    private int heartTopIndex; //hearts의 top
 
     public void plusHeart()
     {
         //3개 미만이면 충전
-        if (point < hearts.Length - 1)
+        if (heartTopIndex < hearts.Length - 1)
         {
-            hearts[point + 1].GetComponent<Animator>().SetBool("live", true);
-            //hearts[point + 1].gameObject.SetActive(true);
+            hearts[heartTopIndex + 1].GetComponent<Animator>().SetBool("live", true);
         }
 
-        point++;
+        heartTopIndex++;
     }
 
     public void minusHeart()
     {
         //하트가 있으면 제거
-        if (point >= 0)
+        if (heartTopIndex >= 0)
         {
-            hearts[point].GetComponent<Animator>().SetBool("live", false);
-            //hearts[point].gameObject.SetActive(false);
+            hearts[heartTopIndex].GetComponent<Animator>().SetBool("live", false);
         }
 
-        point--;
+        heartTopIndex--;
     }
 
     // 스테이지 코인 관리
@@ -66,10 +64,12 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        point = hearts.Length - 1;
+        heartTopIndex = hearts.Length - 1;
         Blind(false);
         //slider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
         //effectSlider.value = PlayerPrefs.GetFloat("EffectVolume", 0.75f);
+        QuestComplete.SetActive(false);
+        QuestProgress.SetActive(false);
     }
 
     //// 진동 조절
@@ -154,17 +154,22 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public GameObject QuestProgress;
+    public GameObject QuestComplete;
+
     public void UpdateQuestUI(bool complete)
     {
         Debug.Log(complete);
 
         if (!complete)
         {
-            //퀘스트 진행중이면 이렇게
+            QuestProgress.SetActive(true);
+            QuestComplete.SetActive(false);
         }
         else
         {
-            //퀘스트 완료했으면 이렇게
+            QuestProgress.SetActive(false);
+            QuestComplete.SetActive(true);
         }
     }
 

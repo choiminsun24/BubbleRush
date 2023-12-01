@@ -129,17 +129,22 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    
+
+    private bool live = true;
 
     //맵 밖으로 벗어나면 GameManager AddHeart(-1) 호출.
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Finish")
         {
-            print("END POINT");
-            GameManager.Instance.AddHeart(-1);
-            // 코인 증가 없이 소멸
-            Death(0);
+            if (live)
+            {
+                print("END POINT");
+                GameManager.Instance.AddHeart(-1);
+                // 코인 증가 없이 소멸
+                live = false;
+                Death(0);
+            }
         }
     }
 }
