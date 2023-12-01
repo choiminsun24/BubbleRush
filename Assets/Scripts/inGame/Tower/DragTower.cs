@@ -235,6 +235,8 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
             return TowerManager.Instance.gobyInfo.curTower;
             case 4:
                 return TowerManager.Instance.tutuInfo.curTower;
+            case 5:
+                return TowerManager.Instance.orangInfo.curTower;
             default:
             return TowerManager.Instance.daebakInfo.curTower;
         }
@@ -254,6 +256,8 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                 return TowerManager.Instance.gobyInfo.GetGoby();
             case 4:
                 return TowerManager.Instance.tutuInfo.GetTutu();
+            case 5:
+                return TowerManager.Instance.orangInfo.GetOrang();
             default:
             return TowerManager.Instance.daebakInfo.GetDaebak();
         }
@@ -277,6 +281,9 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
                 break;
             case 4:
                 TowerManager.Instance.tutuInfo.ReturnTutu(obj);
+                break;
+            case 5:
+                TowerManager.Instance.orangInfo.ReturnOrang(obj);
                 break;
             default:
             TowerManager.Instance.daebakInfo.ReturnDaebak(obj);

@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -134,7 +134,2065 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: legendary-sprite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 15048
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8da29629e79a58a40b256034d1fb024b
+      internalID: -1979470213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_1
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 15048
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29c3f198a5c643469393988bfd89ec0
+      internalID: -1547367605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_2
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 15048
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4cd926802c8cde47bb95bafad0f6dbb
+      internalID: 278740032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_3
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 15048
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c5f6410a4d19ac4a9444c01dba9bef1
+      internalID: 2000421631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_4
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 15048
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07bccb6d713b4f64f9fd81d5dc256dd1
+      internalID: -1228275751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 14256
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae659b2a35d42bb41be94b776358f20d
+      internalID: -391077782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_6
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 14256
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 600e10019a07a2644a5a122465657d6a
+      internalID: -1460438331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_7
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 14256
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f09cddb68a7bab4f9f0dd96657d5cd1
+      internalID: -974573933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_8
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 14256
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99b06f28dc49ddd4d99e88ed7fb86d41
+      internalID: 2033911686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_9
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 14256
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d36b2521412a34243b9a4d380c5eec54
+      internalID: -50276206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 13464
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e61f7a72f5d7c64096ef249f7c474e3
+      internalID: -1859500156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_11
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 13464
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d489f5c61071778439e02eaf2b3ac2b6
+      internalID: 1302232365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_12
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 13464
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fadd62fb505f7404eb2931328be27c4f
+      internalID: -760877336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_13
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 13464
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afbd2d3f82091ec428210e440e65f69c
+      internalID: 1878132976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_14
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 13464
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20ba3ae3e37745840ab256cf869d9034
+      internalID: -1101401204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 12672
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 571918783602ea14c871150e666c66e1
+      internalID: -1335235000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_16
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 12672
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1d996ebb3af0e2479274e6f04e473d7
+      internalID: -629596205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_17
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 12672
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 903820ac59900b743b07d3c107600b03
+      internalID: -1643528249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_18
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 12672
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3bf2626f100e2b4898ecbce6655045c
+      internalID: -474003397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_19
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 12672
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3da9326962541dc488181696bd0281b1
+      internalID: -323992182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11880
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca27722e79dd51347a910bd30325a1c9
+      internalID: -1481363368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_21
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 11880
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 010ea4d9a4cb984478c287abcbc63a82
+      internalID: 574133613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_22
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 11880
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bf9c8457d1ed1f46979b87262195ec1
+      internalID: -1671448194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_23
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 11880
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d5a363bc0662ef48a90b41cb236be18
+      internalID: 960812459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_24
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 11880
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdba298885f4d4d4eb636bdcf6397cb7
+      internalID: 2129804541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11088
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ad7426e7f7c0d94fba0a95f0b70de73
+      internalID: 1896361198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_26
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 11088
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f928bcf7962e7647a232b70d3744062
+      internalID: -1814288499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_27
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 11088
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 673631ca20edf114b871a63f1149102f
+      internalID: -238431222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_28
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 11088
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc4f304a834f95843b32a82c7589ec52
+      internalID: 244864684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_29
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 11088
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9b00f9ba19cfbc4cb80998715324a54
+      internalID: 1260001326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10296
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10339c5378dccdd4f8b96a7422795118
+      internalID: 1795998731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_31
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 10296
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d88c9c022a0801419b9ef5b1f239b5a
+      internalID: 1957954469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_32
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 10296
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c40f336a8413a5e46bd342cdc03f9419
+      internalID: -1061920122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_33
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 10296
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a30bd72d07522c42bd566fe0884b547
+      internalID: 1880513367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_34
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 10296
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 138c49dc416d1c74b904e31360cda463
+      internalID: 297540976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9504
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8d5ba00d335fdf45a75c52a769449e2
+      internalID: -1914018107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_36
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 9504
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4652113c8e43d1e48bdfc0ca903ebd4b
+      internalID: 1880656365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_37
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 9504
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adc81822e22c0f24797ec48e2eaa188e
+      internalID: -910328643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_38
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 9504
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21a78012de727314fb9b5d2813bd4389
+      internalID: 190658341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_39
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 9504
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f05abe960a65ece41af10bd1ba106ad9
+      internalID: 1131780037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8712
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 333ccbb352c9b774496f394ac7703d37
+      internalID: 2134209786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_41
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 8712
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6101740f5adf2f4cb55986942b7b7e1
+      internalID: 1747661083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_42
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 8712
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fb69d145f870b141911eb02d8796728
+      internalID: 708316648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_43
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 8712
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aa03387be571614e8bb166cc17c2adc
+      internalID: -1569437205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_44
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 8712
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d375abb61d511124a81010f8822673ea
+      internalID: -441326446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7920
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2974ae862cc692a43b22603c0e1f9aed
+      internalID: 1594307487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_46
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 7920
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84d8251f16ee58344b6494c9036f5ae2
+      internalID: -1259983171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_47
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 7920
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 033154c20ecf9b540a4b60f2f42dcfdb
+      internalID: 68485759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_48
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 7920
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 623540abfd27413459c77945822a5e0b
+      internalID: -1215826592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_49
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 7920
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae76041f8d0e0ca45bf6d04c608f5c05
+      internalID: -82450659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7128
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e06570ab258288a4a871f5196544a1a4
+      internalID: -2101010992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_51
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 7128
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b8f848009c768c40991d78184a86aba
+      internalID: 448825452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_52
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 7128
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f13e5c8f51d8f2419654f36c5255af7
+      internalID: 423867478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_53
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 7128
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9251423df03d4b045aff43fa9b18d024
+      internalID: -1880122574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_54
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 7128
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c35ddc8ea06b8d4a9ad67e0f7ede6c4
+      internalID: -616477434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6336
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbb7f66601043974b846e796d339fe8e
+      internalID: 1182380422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_56
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 6336
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64e6a1f789387834e98d5433b4c05411
+      internalID: 1727520203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_57
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 6336
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f005fce0ba2e74d9da9cedaf49dd45
+      internalID: 1388592237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_58
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 6336
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aca2c8c010dfc224f914de4bde0d47df
+      internalID: 513863413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_59
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 6336
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eed9746d3a8da54988ea28ca26b3f1a
+      internalID: -86714641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5544
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 282f1525d60014140a74720f63739b93
+      internalID: -408047335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_61
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 5544
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c278c207f09074aab304afd6573f80
+      internalID: 243623731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_62
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 5544
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8931e71dede795640b36246eeae01f25
+      internalID: -277887832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_63
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 5544
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf861c00f57ef9643b69f0f2144b8b82
+      internalID: -408906506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_64
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 5544
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b170d00a3fcf20344a9dc911fb3fa114
+      internalID: -111649017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4752
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9035f1de735a23b4a9eec9bba3b6db12
+      internalID: -485653126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_66
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 4752
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8617f133f96889549a8f31763e162bc4
+      internalID: 360031289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_67
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 4752
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d87f096fc3e1aa4ea72b98a07a3d4b1
+      internalID: 1799304925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_68
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 4752
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa29ed805171d1d45b603e878ef9bbaa
+      internalID: 589355406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_69
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 4752
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aff7c9e8dfd98674b990c0168b34cf3e
+      internalID: -1093024128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3960
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93890c545377ae54da560326ac9565bc
+      internalID: 1464866515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_71
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 3960
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b66c2f690981019458e273107fd9a3d9
+      internalID: -1685917175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_72
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 3960
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 368e4d18b7b170a43b8b6f60cf5bf112
+      internalID: -1019186929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_73
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 3960
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78ed7f932aae9284f93da7f735a41081
+      internalID: 1626653217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_74
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 3960
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac97488ba59975d46b31c9379c8e3f35
+      internalID: -1828619265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3168
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c845377f7404141b153baf21cb17cb
+      internalID: 620749960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_76
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 3168
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 057c90b356f7e494ab972486263a3981
+      internalID: 1565216173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_77
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 3168
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88d4b7a602f27744aaba0706190c58d3
+      internalID: 271869451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_78
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 3168
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 348def98a5e0e88429a460eab8701186
+      internalID: -1148995580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_79
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 3168
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11ea772dabb40084888672ed010c1755
+      internalID: -762249593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2376
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 165b02b75d9321b4e82348ef8ca6a0cf
+      internalID: 110404118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_81
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 2376
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f12cac414f180846aaa3e577e019d57
+      internalID: 1071739832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_82
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 2376
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c013ef588291b84a96f2941608b8f89
+      internalID: -1758006879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_83
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 2376
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 187f057dac20ca049b19541b84260b07
+      internalID: -1636919566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_84
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 2376
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e753bd389e043242a3c2c4d107347c1
+      internalID: -1953300493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_85
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1584
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cfd4032822e9b94b874e6d5728abfa2
+      internalID: 133881450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_86
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 1584
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f92ed6e648ade994889da7df1e43473a
+      internalID: 1659541158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_87
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 1584
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b78b0df58ef9604c946433b27890e2e
+      internalID: -530415732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_88
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 1584
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 135dafcc8a3f2ae4994e5378259e4722
+      internalID: 871702778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_89
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 1584
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce3d294510f08a8468e7bbcd50993a15
+      internalID: -422078506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 792
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 689863b71265da74b913d80223ca336e
+      internalID: 304935914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_91
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 792
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86216fd99cb7bd545bdbfb92f9e34b1a
+      internalID: -270131001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_92
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 792
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f8ba8e3aa1f57f46b0749f058e2ac50
+      internalID: 152668305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_93
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 792
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20d6f5267e48fd745a0f7aa45debe90a
+      internalID: -1681213415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_94
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 792
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b96cc042fe8e2b4fb41be5804b3a8b7
+      internalID: -1374495676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_95
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9d3ee3eaf744dd4b85ad5dd8c893ebd
+      internalID: 2065165523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_96
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 0
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4f7b02cf5206946b57b5e98456a0aa
+      internalID: 1284603190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legendary-sprite_97
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 0
+        width: 844
+        height: 792
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b15bb9ef25a87c4d9d4b3e60dda20c0
+      internalID: 236150222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +2203,105 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      legendary-sprite_0: -1979470213
+      legendary-sprite_1: -1547367605
+      legendary-sprite_10: -1859500156
+      legendary-sprite_11: 1302232365
+      legendary-sprite_12: -760877336
+      legendary-sprite_13: 1878132976
+      legendary-sprite_14: -1101401204
+      legendary-sprite_15: -1335235000
+      legendary-sprite_16: -629596205
+      legendary-sprite_17: -1643528249
+      legendary-sprite_18: -474003397
+      legendary-sprite_19: -323992182
+      legendary-sprite_2: 278740032
+      legendary-sprite_20: -1481363368
+      legendary-sprite_21: 574133613
+      legendary-sprite_22: -1671448194
+      legendary-sprite_23: 960812459
+      legendary-sprite_24: 2129804541
+      legendary-sprite_25: 1896361198
+      legendary-sprite_26: -1814288499
+      legendary-sprite_27: -238431222
+      legendary-sprite_28: 244864684
+      legendary-sprite_29: 1260001326
+      legendary-sprite_3: 2000421631
+      legendary-sprite_30: 1795998731
+      legendary-sprite_31: 1957954469
+      legendary-sprite_32: -1061920122
+      legendary-sprite_33: 1880513367
+      legendary-sprite_34: 297540976
+      legendary-sprite_35: -1914018107
+      legendary-sprite_36: 1880656365
+      legendary-sprite_37: -910328643
+      legendary-sprite_38: 190658341
+      legendary-sprite_39: 1131780037
+      legendary-sprite_4: -1228275751
+      legendary-sprite_40: 2134209786
+      legendary-sprite_41: 1747661083
+      legendary-sprite_42: 708316648
+      legendary-sprite_43: -1569437205
+      legendary-sprite_44: -441326446
+      legendary-sprite_45: 1594307487
+      legendary-sprite_46: -1259983171
+      legendary-sprite_47: 68485759
+      legendary-sprite_48: -1215826592
+      legendary-sprite_49: -82450659
+      legendary-sprite_5: -391077782
+      legendary-sprite_50: -2101010992
+      legendary-sprite_51: 448825452
+      legendary-sprite_52: 423867478
+      legendary-sprite_53: -1880122574
+      legendary-sprite_54: -616477434
+      legendary-sprite_55: 1182380422
+      legendary-sprite_56: 1727520203
+      legendary-sprite_57: 1388592237
+      legendary-sprite_58: 513863413
+      legendary-sprite_59: -86714641
+      legendary-sprite_6: -1460438331
+      legendary-sprite_60: -408047335
+      legendary-sprite_61: 243623731
+      legendary-sprite_62: -277887832
+      legendary-sprite_63: -408906506
+      legendary-sprite_64: -111649017
+      legendary-sprite_65: -485653126
+      legendary-sprite_66: 360031289
+      legendary-sprite_67: 1799304925
+      legendary-sprite_68: 589355406
+      legendary-sprite_69: -1093024128
+      legendary-sprite_7: -974573933
+      legendary-sprite_70: 1464866515
+      legendary-sprite_71: -1685917175
+      legendary-sprite_72: -1019186929
+      legendary-sprite_73: 1626653217
+      legendary-sprite_74: -1828619265
+      legendary-sprite_75: 620749960
+      legendary-sprite_76: 1565216173
+      legendary-sprite_77: 271869451
+      legendary-sprite_78: -1148995580
+      legendary-sprite_79: -762249593
+      legendary-sprite_8: 2033911686
+      legendary-sprite_80: 110404118
+      legendary-sprite_81: 1071739832
+      legendary-sprite_82: -1758006879
+      legendary-sprite_83: -1636919566
+      legendary-sprite_84: -1953300493
+      legendary-sprite_85: 133881450
+      legendary-sprite_86: 1659541158
+      legendary-sprite_87: -530415732
+      legendary-sprite_88: 871702778
+      legendary-sprite_89: -422078506
+      legendary-sprite_9: -50276206
+      legendary-sprite_90: 304935914
+      legendary-sprite_91: -270131001
+      legendary-sprite_92: 152668305
+      legendary-sprite_93: -1681213415
+      legendary-sprite_94: -1374495676
+      legendary-sprite_95: 2065165523
+      legendary-sprite_96: 1284603190
+      legendary-sprite_97: 236150222
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

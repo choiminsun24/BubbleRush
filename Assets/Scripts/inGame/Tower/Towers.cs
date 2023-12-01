@@ -92,6 +92,8 @@ public class Daebak : ITower
             for (int i = 0; i < 20; ++i)
             {
                 tempDaebak = Instantiate(daebakPrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+                SetVariable("대박이_1");
+                tempDaebak.GetComponent<TowerController>().data = curTower;
                 poolDaebak.Push(tempDaebak);
                 tempDaebak.SetActive(false);
             }
@@ -106,7 +108,12 @@ public class Daebak : ITower
     {
         obj.SetActive(false);
         listDaebak.Remove(obj);
-        poolDaebak.Push(obj);
+        Destroy(obj);
+        GameObject tempDaebak = Instantiate(daebakPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        SetVariable("대박이_1");
+        tempDaebak.GetComponent<TowerController>().data = curTower;
+        poolDaebak.Push(tempDaebak);
+        tempDaebak.SetActive(false);
     }
 
     public override ITower Clone()
@@ -165,6 +172,8 @@ public class Nabi : ITower
             for (int i = 0; i < 20; ++i)
             {
                 tempNabi = Instantiate(NabiPrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+                SetVariable("나비_1");
+                tempNabi.GetComponent<TowerController>().data = curTower;
                 poolNabi.Push(tempNabi);
                 tempNabi.SetActive(false);
             }
@@ -178,7 +187,13 @@ public class Nabi : ITower
     public void ReturnNabi(GameObject obj)
     {
         obj.SetActive(false);
-        poolNabi.Push(obj);
+        listNabi.Remove(obj);
+        Destroy(obj);
+        GameObject tempNabi = Instantiate(NabiPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        SetVariable("나비_1");
+        tempNabi.GetComponent<TowerController>().data = curTower;
+        poolNabi.Push(tempNabi);
+        tempNabi.SetActive(false);
     }
 
     public override ITower Clone()
@@ -238,6 +253,8 @@ public class Tori : ITower
             for (int i = 0; i < 20; ++i)
             {
                 tempTori = Instantiate(ToriPrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+                SetVariable("토리_1");
+                tempTori.GetComponent<TowerController>().data = curTower;
                 poolTori.Push(tempTori);
                 tempTori.SetActive(false);
             }
@@ -251,7 +268,13 @@ public class Tori : ITower
     public void ReturnTori(GameObject obj)
     {
         obj.SetActive(false);
-        poolTori.Push(obj);
+        listTori.Remove(obj);
+        Destroy(obj);
+        GameObject tempTori = Instantiate(ToriPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        SetVariable("토리_1");
+        tempTori.GetComponent<TowerController>().data = curTower;
+        poolTori.Push(tempTori);
+        tempTori.SetActive(false);
     }
 
     public override ITower Clone()
@@ -310,6 +333,8 @@ public class Goby : ITower
             for (int i = 0; i < 20; ++i)
             {
                 tempGoby = Instantiate(GobyPrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+                SetVariable("꼬비_1");
+                tempGoby.GetComponent<TowerController>().data = curTower;
                 poolGoby.Push(tempGoby);
                 tempGoby.SetActive(false);
             }
@@ -323,7 +348,13 @@ public class Goby : ITower
     public void ReturnGoby(GameObject obj)
     {
         obj.SetActive(false);
-        poolGoby.Push(obj);
+        listGoby.Remove(obj);
+        Destroy(obj);
+        GameObject tempGoby = Instantiate(GobyPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        SetVariable("꼬비_1");
+        tempGoby.GetComponent<TowerController>().data = curTower;
+        poolGoby.Push(tempGoby);
+        tempGoby.SetActive(false);
     }
 
     public override ITower Clone()
@@ -382,6 +413,8 @@ public class Tutu : ITower
             for (int i = 0; i < 20; ++i)
             {
                 tempTutu = Instantiate(TutuPrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+                SetVariable("투투_1");
+                tempTutu.GetComponent<TowerController>().data = curTower;
                 poolTutu.Push(tempTutu);
                 tempTutu.SetActive(false);
             }
@@ -395,7 +428,13 @@ public class Tutu : ITower
     public void ReturnTutu(GameObject obj)
     {
         obj.SetActive(false);
-        poolTutu.Push(obj);
+        listTutu.Remove(obj);
+        Destroy(obj);
+        GameObject tempTutu = Instantiate(TutuPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        SetVariable("투투_1");
+        tempTutu.GetComponent<TowerController>().data = curTower;
+        poolTutu.Push(tempTutu);
+        tempTutu.SetActive(false);
     }
 
     public override ITower Clone()
@@ -423,75 +462,84 @@ public class Tutu : ITower
     }
 }
 
-public class Tower5 : ITower
+public class Orang : ITower
 {
     // Instantiated List
-    public static List<GameObject> listTower5 = new List<GameObject>();
-    public UnityEngine.Object Tower5Prefab {get; set;}
-    private Stack<GameObject> poolTower5 = new Stack<GameObject>();
+    public static List<GameObject> listOrang = new List<GameObject>();
+    public UnityEngine.Object OrangPrefab {get; set;}
+    private Stack<GameObject> poolOrang = new Stack<GameObject>();
 
-    public Tower5()
+    public Orang()
     {
         // Initialize
-        listTower5 = new List<GameObject>();
-        poolTower5 = new Stack<GameObject>();
-        Tower5Prefab = Resources.Load("Tower5");
+        listOrang = new List<GameObject>();
+        poolOrang = new Stack<GameObject>();
+        OrangPrefab = Resources.Load("Orang");
         // Set ITower's info
-        SetVariable("Tower5");
+        SetVariable("오랑이_1");
     }
 
-    public GameObject GetTower5()
+    public GameObject GetOrang()
     {
-        GameObject tempTower5;
-        if(!Tower5Prefab)
+        GameObject tempOrang;
+        if(!OrangPrefab)
         {
-            print("Tower5Prefab is null");
+            print("OrangPrefab is null");
             return null;
         }
         // Initial Pooling
-        if(poolTower5.Count == 0)
+        if(poolOrang.Count == 0)
         {
             for (int i = 0; i < 20; ++i)
             {
-                tempTower5 = Instantiate(Tower5Prefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
-                poolTower5.Push(tempTower5);
-                tempTower5.SetActive(false);
+                tempOrang = Instantiate(OrangPrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+                SetVariable("오랑이_1");
+                tempOrang.GetComponent<TowerController>().data = curTower;
+                poolOrang.Push(tempOrang);
+                tempOrang.SetActive(false);
             }
         }
-        tempTower5 = poolTower5.Pop();
-        tempTower5.SetActive(true);
-        listTower5.Add(tempTower5);
-        return tempTower5;
+        tempOrang = poolOrang.Pop();
+        tempOrang.SetActive(true);
+        listOrang.Add(tempOrang);
+        return tempOrang;
     }
 
-    public void ReturnTower5(GameObject obj)
+    public void ReturnOrang(GameObject obj)
     {
         obj.SetActive(false);
-        poolTower5.Push(obj);
+        listOrang.Remove(obj);
+        Destroy(obj);
+        GameObject tempOrang = Instantiate(OrangPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        SetVariable("오랑이_1");
+        tempOrang.GetComponent<TowerController>().data = curTower;
+        poolOrang.Push(tempOrang);
+
+        tempOrang.SetActive(false);
     }
 
     public override ITower Clone()
     {
         // deep copy
-        Tower5 clonedTower5 = new Tower5();
-        clonedTower5.curTower = new Tower();
+        Orang clonedOrang = new Orang();
+        clonedOrang.curTower = new Tower();
         // copy data
-        clonedTower5.curTower.name = curTower.name;
-        clonedTower5.curTower.grade = curTower.grade;
-        clonedTower5.curTower.scale = curTower.scale;
-        clonedTower5.curTower.attack = curTower.attack;
-        clonedTower5.curTower.attackSpeed = curTower.attackSpeed;
-        clonedTower5.curTower.range = curTower.range;
-        clonedTower5.curTower.targetCount = curTower.targetCount;
-        clonedTower5.curTower.rangeOfAttack = curTower.rangeOfAttack;
-        clonedTower5.curTower.toSmileBubble = curTower.toSmileBubble;
-        clonedTower5.curTower.toExpressionlessBubble = curTower.toExpressionlessBubble;
-        clonedTower5.curTower.toAngryBubble = curTower.toAngryBubble;
-        clonedTower5.curTower.attribute = curTower.attribute;
-        clonedTower5.curTower.cost = curTower.cost;
-        clonedTower5.curTower.skillCoolTime = curTower.skillCoolTime;
-        clonedTower5.curTower.skill = curTower.skill;
-        return clonedTower5;
+        clonedOrang.curTower.name = curTower.name;
+        clonedOrang.curTower.grade = curTower.grade;
+        clonedOrang.curTower.scale = curTower.scale;
+        clonedOrang.curTower.attack = curTower.attack;
+        clonedOrang.curTower.attackSpeed = curTower.attackSpeed;
+        clonedOrang.curTower.range = curTower.range;
+        clonedOrang.curTower.targetCount = curTower.targetCount;
+        clonedOrang.curTower.rangeOfAttack = curTower.rangeOfAttack;
+        clonedOrang.curTower.toSmileBubble = curTower.toSmileBubble;
+        clonedOrang.curTower.toExpressionlessBubble = curTower.toExpressionlessBubble;
+        clonedOrang.curTower.toAngryBubble = curTower.toAngryBubble;
+        clonedOrang.curTower.attribute = curTower.attribute;
+        clonedOrang.curTower.cost = curTower.cost;
+        clonedOrang.curTower.skillCoolTime = curTower.skillCoolTime;
+        clonedOrang.curTower.skill = curTower.skill;
+        return clonedOrang;
     }
 }
 
@@ -519,7 +567,7 @@ public class Tower
 
 public enum Grade
 {
-    Normal, Legendary, Rare
+    Normal, Legendary, Rare, Advanced
 }
 
 public enum TargetCount
