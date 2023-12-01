@@ -13,7 +13,6 @@ public class UIManager : MonoBehaviour
     Animator anim;
 
     private int heartTopIndex; //hearts의 top
-
     public void plusHeart()
     {
         //3개 미만이면 충전
@@ -44,55 +43,23 @@ public class UIManager : MonoBehaviour
         Coin.text = coin.ToString();
     }
 
-    //// 배경음악 볼륨 조절
-    //[SerializeField] private AudioMixer mixer;
-    //[SerializeField] private Slider slider;
-    //public void SetBGMLevel(float sliderValue)
-    //{
-    //    mixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue)*20);
-    //    PlayerPrefs.SetFloat("MusicVolume", sliderValue);
-    //}
-    
-    //// 효과음 볼륨 조절
-    //[SerializeField] private Slider effectSlider;
-    //public void SetEffectLevel(float sliderValue)
-    //{
-    //    mixer.SetFloat("EffectVolume", Mathf.Log10(sliderValue)*20);
-    //    PlayerPrefs.SetFloat("EffectVolume", sliderValue);
-    //}
-
     // Start is called before the first frame update
     void Start()
     {
         heartTopIndex = hearts.Length - 1;
         Blind(false);
-        //slider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
-        //effectSlider.value = PlayerPrefs.GetFloat("EffectVolume", 0.75f);
         QuestComplete.SetActive(false);
         QuestProgress.SetActive(false);
     }
-
-    //// 진동 조절
-    //[SerializeField] private Text onOff;
-    //public void SetVibration()
-    //{
-    //    switch(onOff.text)
-    //    {
-    //        case "ON":
-    //            onOff.text = "OFF";
-
-    //        break;
-    //        case "OFF":
-    //            onOff.text = "ON";
-    //        break;
-    //    }
-    //}
 
     public GameObject blind;
 
     public void Blind(bool state)
     {
-        blind.SetActive(state);
+        if (!blind.activeSelf || !state)
+            blind.SetActive(state);
+
+
     }
 
     public GameObject WinPanel;
@@ -162,9 +129,6 @@ public class UIManager : MonoBehaviour
 
     public void UpdateQuestUI(bool complete, int goal, int now)
     {
-        Debug.Log(goal);
-        Debug.Log(now);
-
         if (!complete)
         {
             QuestProgress.SetActive(true);
