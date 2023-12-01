@@ -89,7 +89,8 @@ public class InGameData : MonoBehaviour
     }
 
     //능력치 변화
-//앞에 있는 if 저거 지우기
+    //앞에 있는 if 저거 지우기
+    string[] types = { "Ground", "Water", "Wind" };
 
     public void BuffATK(string type, int change)
     {
@@ -107,6 +108,14 @@ public class InGameData : MonoBehaviour
 
     public void BuffATKS(string type, float change)
     {
+        if (type.Equals("all"))
+        {
+            foreach (string t in types)
+                atkData[t]["ATKS"] += 0.01f * change;
+
+            return;
+        }
+
         if (!atkData.ContainsKey(type))
         {
             Debug.Log("해당 키는 아직 없어요");
@@ -154,18 +163,15 @@ public class InGameData : MonoBehaviour
 
     public void AddStageCoin(int coin)
     {
-        if (coin < 0) //when we use the coin
+        if (coin < 0) //use
         {
             coin *= -1; //absolution 
 
-            if (stageCoin >= coin) //adequate
-            {
+            if (stageCoin >= coin) 
                 stageCoin -= coin;
-            }
-            else //inadequate
-                return;
+            else return;
         }
-        else //when we got the coin
+        else //get
         {
             stageCoin += coin;
         }

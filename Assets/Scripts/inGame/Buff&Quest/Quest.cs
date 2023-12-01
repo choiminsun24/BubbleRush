@@ -230,9 +230,7 @@ public class Quest : MonoBehaviour
     {
         //이미 완료했으면 말고
         if (state != QuestState.FUSION)
-        {
             return;
-        }
 
         if (fusion >= fusionQuest)
             giveReward();
@@ -243,9 +241,7 @@ public class Quest : MonoBehaviour
     public void checkExist(int exist)
     {
         if (state != QuestState.EXIST)
-        {
             return;
-        }
 
         if (exist >= existQuest)
             giveReward();
@@ -256,9 +252,7 @@ public class Quest : MonoBehaviour
     public void checkSmile(int smile)
     {
         if (state != QuestState.SMILE)
-        {
             return;
-        }
 
         if (smile >= smileQuest)
             giveReward();
@@ -268,26 +262,19 @@ public class Quest : MonoBehaviour
 
     public void checkExpressionless(int expressionless)
     {
-        Debug.Log("check Expressionless");
         if (state != QuestState.EXPRESSIONLESS)
-        {
             return;
-        }
-        Debug.Log(expressionless);
+
         if (expressionless >= expressionlessQuest)
             giveReward();
-        Debug.Log(state == QuestState.COMPLETE);
-        Debug.Log(expressionlessQuest);
-        Debug.Log(expressionless);
+
         ui.UpdateQuestUI(state == QuestState.COMPLETE, expressionlessQuest, expressionless);
     }
 
     public void checkSkill(int skill)
     {
         if (state != QuestState.SKILL)
-        {
             return;
-        }
 
         if (skill >= skillQuest)
             giveReward();
@@ -297,13 +284,8 @@ public class Quest : MonoBehaviour
 
     public void checkPossession(int possession)
     {
-        Debug.Log("checkPossession: " + possession);
-        Debug.Log(possessionQuest);
         if (state != QuestState.POSSESSION)
-        {
-            Debug.Log("state 오류");
             return;
-        }
 
         if (possession >= possessionQuest)
             giveReward();
@@ -331,6 +313,7 @@ public class Quest : MonoBehaviour
                     break;
                 case "AttackSpeed":
                     Debug.Log("일단 일괄 적용"); //나중에 코드 합하면서 야성발현 타워만 모아서 버프 주죠
+                    InGameData.Instance.BuffATKS("all", int.Parse(mainCard["RewardValue"]));
                     break;
                 default:
                     Debug.Log("아직 추가되지 않은 보상 종류: " + mainCard["RewardAbility"]);
