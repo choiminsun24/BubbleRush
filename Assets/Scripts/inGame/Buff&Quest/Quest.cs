@@ -19,7 +19,6 @@ public class Quest : MonoBehaviour
 
     //선택지
     private int[] num; //선택된 번호
-    private bool complete = false;
 
     //프로그램
     private static Quest _instance;
@@ -102,6 +101,9 @@ public class Quest : MonoBehaviour
         tf.GetChild(4).GetComponent<Text>().text = target["RewardDescription"]; //Content
     }
 
+
+    Dictionary<string, string> mainCard;
+
     //선택 후 처리
     public void choice(int n) //카드 선택 시 시행될 메소드
     {
@@ -109,56 +111,54 @@ public class Quest : MonoBehaviour
         ui.Blind(false);
         GameManager.Instance.playingCardOff(); //카드 선택 종료
 
-        Dictionary<string, string> choice = textData[num[n]]; //선택된 행
-        mine.cardSetting(choice);
+        mainCard = textData[num[n]]; //선택된 행
+        mine.cardSetting(mainCard);
 
 
         //내부 버프 효과 **************************값 변경 미적용***********************
-        if (!choice["QuestTarget"].Equals("null")) //퀘스트 대상 존재
+        if (!mainCard["QuestTarget"].Equals("null")) //퀘스트 대상 존재
         {
-            switch(choice["QuestType"])
+            switch(mainCard["QuestType"])
             {
                 case "Fusion":
-                    fusionQuest = int.Parse(choice["QuestCount"]);
-                    ui.UpdateQuestUI(complete, fusionQuest, 0);
+                    state = QuestState.FUSION;
+                    fusionQuest = int.Parse(mainCard["QuestCount"]);
+                    ui.UpdateQuestUI(state == QuestState.COMPLETE, fusionQuest, 0);
                     break;
                 case "Kill":
-                    switch(choice["QuestTarget"])
+                    switch(mainCard["QuestTarget"])
                     {
                         case "ExpressionlessBubble":
-                            expressionlessQuest = int.Parse(choice["QuestCount"]);
-                            ui.UpdateQuestUI(complete, expressionlessQuest, 0);
+                            state= QuestState.EXPRESSIONLESS;
+                            expressionlessQuest = int.Parse(mainCard["QuestCount"]);
+                            ui.UpdateQuestUI(state == QuestState.COMPLETE, expressionlessQuest, 0);
                             break;
                         case "Smile":
-                            smileQuest = int.Parse(choice["QuestCount"]);
-                            ui.UpdateQuestUI(complete, smileQuest, 0);
+                            state = QuestState.SMILE;
+                            smileQuest = int.Parse(mainCard["QuestCount"]);
+                            ui.UpdateQuestUI(state == QuestState.COMPLETE, smileQuest, 0);
                             break;
                         default:
-                            Debug.Log("추가되지 않은 퀘스트 타겟: " + choice["QuestTarget"]);
+                            Debug.Log("추가되지 않은 퀘스트 타겟: " + mainCard["QuestTarget"]);
                             break;
                     }
                     break;
                 case "Skill":
-                    skillQuest = int.Parse(choice["QuestCount"]);
-                    ui.UpdateQuestUI(complete, skillQuest, 0);
+                    state = QuestState.SKILL;
+                    skillQuest = int.Parse(mainCard["QuestCount"]);
+                    ui.UpdateQuestUI(state == QuestState.COMPLETE, skillQuest, 0);
                     break;
                 case "Possession":
-                    possessionQuest = int.Parse(choice["QuestCount"]);
-                    ui.UpdateQuestUI(complete, possessionQuest, 0);
+                    state = QuestState.POSSESSION;
+                    possessionQuest = int.Parse(mainCard["QuestCount"]);
+                    ui.UpdateQuestUI(state == QuestState.COMPLETE, possessionQuest, 0);
                     break;
                 default:
-                    Debug.Log("추가되지 않은 퀘스트: " + choice["QuestCount"]);
+                    Debug.Log("추가되지 않은 퀘스트: " + mainCard["QuestCount"]);
                     break;
             }
-            Debug.Log(choice["QuestType"] + "에 대한 퀘스트가 진행됩니다.");
+            Debug.Log(state + "에 대한 퀘스트가 진행됩니다.");
         }
-
-        if (!choice["RewardTarget"].Equals("null")) //디버프 대상이 존재하면
-        {
-            Debug.Log(choice["RewardTarget"] + "에 대한 퀘스트가 진행됩니다: 추후 적용 예정");
-        }
-
-        //data.BuffATKS(1.06f); 예시문
     }
 
     public void watchQuest()
@@ -175,6 +175,19 @@ public class Quest : MonoBehaviour
     }
 
     //퀘스트 달성
+    public enum QuestState
+    {
+        FUSION = 0,
+        EXIST = 1,
+        SMILE = 2,
+        EXPRESSIONLESS = 3,
+        SKILL = 4,
+        POSSESSION = 5,
+        COMPLETE = 6
+    };
+
+    private QuestState state;
+
     private int fusionQuest;
     private int existQuest;
     private int smileQuest;
@@ -184,27 +197,30 @@ public class Quest : MonoBehaviour
 
     public void CheckQuest(int mission)
     {
-        if (fusionQuest > 0)
+        Debug.Log(state);
+        Debug.Log(mission);
+
+        if (state == QuestState.FUSION)
         {
             checkFusion(mission);
         }
-        else if (existQuest > 0)
+        else if (state == QuestState.EXIST)
         {
             checkExist(mission);
         }
-        else if (smileQuest > 0)
+        else if (state == QuestState.SMILE)
         {
             checkSmile(mission);
         }
-        else if (expressionlessQuest > 0)
+        else if (state == QuestState.EXPRESSIONLESS)
         {
             checkExpressionless(mission);
         }
-        else if (skillQuest > 0)
+        else if (state == QuestState.SKILL)
         {
             checkSkill(mission);
         }
-        else if (possessionQuest > 0)
+        else if (state == QuestState.POSSESSION)
         {
             checkPossession(mission);
         }
@@ -213,79 +229,114 @@ public class Quest : MonoBehaviour
     public void checkFusion(int fusion)
     {
         //이미 완료했으면 말고
-        if (complete)
+        if (state != QuestState.FUSION)
         {
             return;
         }
 
         if (fusion >= fusionQuest)
-            complete = true;
+            giveReward();
 
-        ui.UpdateQuestUI(complete, fusionQuest, fusion);
+        ui.UpdateQuestUI(state == QuestState.COMPLETE, fusionQuest, fusion);
     }
 
     public void checkExist(int exist)
     {
-        if (complete)
+        if (state != QuestState.EXIST)
         {
             return;
         }
 
         if (exist >= existQuest)
-            complete = true;
+            giveReward();
 
-        ui.UpdateQuestUI(complete, existQuest, exist);
+        ui.UpdateQuestUI(state == QuestState.COMPLETE, existQuest, exist);
     }
 
     public void checkSmile(int smile)
     {
-        if (complete)
+        if (state != QuestState.SMILE)
         {
             return;
         }
 
         if (smile >= smileQuest)
-            complete= true;
+            giveReward();
 
-        ui.UpdateQuestUI(complete, smileQuest, smile);
+        ui.UpdateQuestUI(state == QuestState.COMPLETE, smileQuest, smile);
     }
 
     public void checkExpressionless(int expressionless)
     {
-        if (complete)
+        Debug.Log("check Expressionless");
+        if (state != QuestState.EXPRESSIONLESS)
         {
             return;
         }
-
+        Debug.Log(expressionless);
         if (expressionless >= expressionlessQuest)
-            complete = true;
-
-        ui.UpdateQuestUI(complete, expressionlessQuest, expressionless);
+            giveReward();
+        Debug.Log(state == QuestState.COMPLETE);
+        Debug.Log(expressionlessQuest);
+        Debug.Log(expressionless);
+        ui.UpdateQuestUI(state == QuestState.COMPLETE, expressionlessQuest, expressionless);
     }
 
     public void checkSkill(int skill)
     {
-        if (complete)
+        if (state != QuestState.SKILL)
         {
             return;
         }
 
         if (skill >= skillQuest)
-            complete = true;
+            giveReward();
 
-        ui.UpdateQuestUI(complete, skillQuest, skill);
+        ui.UpdateQuestUI(state == QuestState.COMPLETE, skillQuest, skill);
     }
 
     public void checkPossession(int possession)
     {
-        if (complete)
+        Debug.Log("checkPossession: " + possession);
+        Debug.Log(possessionQuest);
+        if (state != QuestState.POSSESSION)
         {
+            Debug.Log("state 오류");
             return;
         }
 
         if (possession >= possessionQuest)
-            complete = true;
+            giveReward();
 
-        ui.UpdateQuestUI(complete, possessionQuest, possession);
+        ui.UpdateQuestUI(state == QuestState.COMPLETE, possessionQuest, possession);
+    }
+
+    private void giveReward()
+    {
+        state = QuestState.COMPLETE;
+
+        if (!mainCard["RewardTarget"].Equals("null")) //디버프 대상이 존재하면
+        {
+            switch (mainCard["RewardAbility"])
+            {
+                case "Gold":
+                    GameManager.Instance.Coin(int.Parse(mainCard["RewardValue"]));
+                    break;
+                case "CoolTime":
+                    Debug.Log("스킬이 아직 없으니 골드를 대신 드리죠");
+                    GameManager.Instance.Coin(10000);
+                    break;
+                case "Damaged":
+                    InGameData.Instance.BuffExpressionlessEnemyDamaged(int.Parse(mainCard["RewardValue"]));
+                    break;
+                case "AttackSpeed":
+                    Debug.Log("일단 일괄 적용"); //나중에 코드 합하면서 야성발현 타워만 모아서 버프 주죠
+                    break;
+                default:
+                    Debug.Log("아직 추가되지 않은 보상 종류: " + mainCard["RewardAbility"]);
+                    break;
+            }
+        }
+        Debug.Log(mainCard["RewardTarget"] + "지급");
     }
 }

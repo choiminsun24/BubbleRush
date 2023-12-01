@@ -162,7 +162,8 @@ public class UIManager : MonoBehaviour
 
     public void UpdateQuestUI(bool complete, int goal, int now)
     {
-        Debug.Log(complete);
+        Debug.Log(goal);
+        Debug.Log(now);
 
         if (!complete)
         {

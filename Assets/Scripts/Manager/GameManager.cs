@@ -230,7 +230,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    //스테이지 코인 - 스테이지 내 재화 관리(의존: InGameData, UIManager)
+    //스테이지 코인 - 스테이지 내 재화 관리(의존: InGameData, UIManager, Quest)
     public void Coin(int coin)
     {
         inGameData.AddStageCoin(coin);

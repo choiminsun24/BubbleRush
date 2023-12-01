@@ -10,9 +10,38 @@ public class InGameData : MonoBehaviour
     private float ATKS;
     private float ATKR;
     private Dictionary<string,Dictionary<string,float>> atkData;
+    private Dictionary<string, Dictionary<string, float>> enemyBuffData;
+
+    //싱글톤
+    private static InGameData _instance;
+
+    public static InGameData Instance
+    {
+        get
+        {
+            if (!_instance)
+            {
+                _instance = FindObjectOfType(typeof(InGameData)) as InGameData;
+
+                if (_instance == null)
+                    Debug.Log("no Singleton obj");
+            }
+            return _instance;
+        }
+    }
 
     void Awake() //DataManager를 통해 기본 능력치 세팅
     {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        // 인스턴스가 존재하는 경우 기존 인스턴스를 삭제한다.
+        else if (_instance != this)
+        {
+            Destroy(this);
+        }
+
         manager = GameObject.Find("DataManager").GetComponent<DataManager>();
 
         //기본 능력치
@@ -20,7 +49,7 @@ public class InGameData : MonoBehaviour
         ATKS = manager.AtkSpeed;
         ATKR = manager.AtkRange;
 
-        //딕셔너리 초기화 - 동물 지식 (행이 속성, 열이 각각 공격력, 공격속도, 공격범위인 행렬)
+        //타워 기본 능력치 초기화 - 동물 지식 (행이 속성, 열이 각각 공격력, 공격속도, 공격범위인 행렬)
         atkData = new Dictionary<string, Dictionary<string,float>>();
 
         atkData["Ground"] = new Dictionary<string, float>();
@@ -38,6 +67,17 @@ public class InGameData : MonoBehaviour
         atkData["Wind"]["ATK"] = GameData.GetKnowATK(manager.KnowATK);
         atkData["Wind"]["ATKS"] = GameData.GetKnowATKS(manager.KnowATKS);
         atkData["Wind"]["ATKR"] = GameData.GetKnowATKR(manager.KnowATKR);
+
+        //버블 버프 데이터
+        enemyBuffData = new Dictionary<string, Dictionary<string, float>>();
+
+        enemyBuffData["Mad"] = new Dictionary<string, float>();
+        enemyBuffData["Smile"] = new Dictionary<string, float>();
+        enemyBuffData["Expressionless"] = new Dictionary<string, float>();
+
+        enemyBuffData["Mad"]["Damaged"] = 1;
+        enemyBuffData["Smile"]["Damaged"] = 1;
+        enemyBuffData["Expressionless"]["Damaged"] = 1;
     }
 
     //업그레이드 확인용
@@ -94,6 +134,16 @@ public class InGameData : MonoBehaviour
         Debug.Log(atkData[type]["ATKR"] + "로");
     }
 
+    public void BuffExpressionlessEnemyDamaged(int per)
+    {
+        enemyBuffData["Expressionless"]["Damaged"] += per * 0.01f;
+    }
+
+    public float getBuffExpressionlessEnemyDamaged()
+    {
+        return enemyBuffData["Expressionless"]["Damaged"];
+    }
+
     //재화 관리
     private int stageCoin = 100;
 
@@ -119,7 +169,7 @@ public class InGameData : MonoBehaviour
         {
             stageCoin += coin;
         }
+
+        Quest.Instance.checkPossession(stageCoin);
     }
-
-
 }

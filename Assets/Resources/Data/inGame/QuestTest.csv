@@ -1,8 +1,8 @@
-﻿인덱스,이름,퀘스트 설명,퀘스트 달성 타입,퀘스트 대상,퀘스트 횟수,보상 설명,보상 대상,보상 능력치,보상 능력치 수치,보상 타입,파일경로(Assets/Resources),이펙트 인덱스
+﻿인덱스,이름,퀘스트 설명,퀘스트 달성 타입,퀘스트 대상,퀘스트 횟수,보상 설명,보상 대상,보상 능력치,보상 능력치 수치[%],보상 타입,파일경로(Assets/Resources),이펙트 인덱스
 int,string,string,enum,enum,int,string,enum,enum,int,enum,,int
-Index,Name,QuestDescription,QuestType,QuestTarget,QuestCount,RewardDescription,RewardTarget,RewardAbility,RewardValue[%],RewardCount,Directory,EffectIndex
+Index,Name,QuestDescription,QuestType,QuestTarget,QuestCount,RewardDescription,RewardTarget,RewardAbility,RewardValue,RewardCount,Directory,EffectIndex
 6000,합성의 신,타워 합성 5번 진행,Fusion,Tower,5,야성이 발현된 타워의 공격 속도 + 20%,WildnessOpenedTower,AttackSpeed,20,Once,Images/inGame/Quest/synthesisGod,6754 6755
 6001,표정을 읽을 수가 없네,무표정 버블 20개 처치,Kill,ExpressionlessBubble,20,무표정 버블이 받는 대미지 +7%,ToExpressionlessBubble,Damaged,7,Once,Images/inGame/Quest/pokerFace,6754 6755
 6002,스킬 퍼붓기,스킬을 50번 사용,Skill,Tower,50,모든 타워 스킬 쿨타임 감소 +20%,AllTower,CoolTime,20,Once,Images/inGame/Quest/skillskillskill,6754 6755
 6003,스킬을 많이많이,스킬을 30번 사용,Skill,Tower,30,모든 타워 스킬 쿨타임 감소 +10%,AllTower,CoolTime,10,Once,Images/inGame/Quest/skillskill,6754 6755
-6004,나는 부자가 될거야,골드를 400골드만큼 보유,Possession,Gold,400,400골드 지급,Gold,null,40000,Once,Images/inGame/Quest/Rich,6754 6755
+6004,나는 부자가 될거야,골드를 400골드만큼 보유,Possession,Gold,400,400골드 지급,Gold,Gold,40000,Once,Images/inGame/Quest/Rich,6754 6755

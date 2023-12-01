@@ -7,6 +7,11 @@ using TMPro;
 
 public class Enemy : MonoBehaviour
 {
+    //퀘스트 
+    static int killMad = 0;
+    static int killSmile = 0;
+    static int killExpressionless = 0;
+
     //UI
     public TextMesh hpText;
     public GameObject effect;
@@ -78,13 +83,19 @@ public class Enemy : MonoBehaviour
             else if (tower == Expression.MAD) //화난 친구 -> 웃는 친구 : 강함
                 damage *= 1.2f;
         }
-        else //expression == Expression.Expressionless
+        else if (expression == Expression.EXPRESSIONLESS)
         {
             if (tower == Expression.MAD) //화난 친구 -> 무표정 친구 : 약함
                 damage *= 0.8f;
             else if (tower == Expression.MAD) //웃는 친구 -> 무표정 친구 : 강함
                 damage *= 1.2f;
+
+            Debug.Log(damage);
+            damage *= InGameData.Instance.getBuffExpressionlessEnemyDamaged();
+            Debug.Log(damage);
         }
+        else
+            Debug.Log("그런 타입 없습니다.");
 
         hp -= Mathf.RoundToInt(damage);
 
@@ -100,7 +111,6 @@ public class Enemy : MonoBehaviour
     public void updateTextHP()
     {
         hpText.text = hp.ToString();
-        //Debug.Log(hp);
     }
 
     private void Death(int _coin)
@@ -112,6 +122,14 @@ public class Enemy : MonoBehaviour
             effect.SetActive(true); //이펙트 재생
             hpText.gameObject.SetActive(false); //체력바 제거
             gameObject.GetComponent<SpriteRenderer>().enabled = false; //안 보이게 처리
+
+            //퀘스트 카운트
+            if (expression == Expression.MAD)
+                killMad++;
+            else if (expression == Expression.SMILE)
+                Quest.Instance.checkSmile(++killSmile);
+            else if (expression == Expression.EXPRESSIONLESS)
+                Quest.Instance.checkExpressionless(++killExpressionless);
         }
         GameManager.Instance.RemoveEnemy(this); //배열에서 제거
         for (int i=0; i<6; ++i)
