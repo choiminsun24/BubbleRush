@@ -22,9 +22,37 @@ public class Quest : MonoBehaviour
     private bool complete = false;
 
     //프로그램
+    private static Quest _instance;
+
+    // 인스턴스에 접근하기 위한 프로퍼티
+    public static Quest Instance
+    {
+        get
+        {
+            // 인스턴스가 없는 경우에 접근하려 하면 인스턴스를 할당해준다.
+            if (!_instance)
+            {
+                _instance = FindObjectOfType(typeof(Quest)) as Quest;
+
+                if (_instance == null)
+                    Debug.Log("no Singleton obj");
+            }
+            return _instance;
+        }
+    }
 
     public void Awake()
     {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        // 인스턴스가 존재하는 경우 기존 인스턴스를 삭제한다.
+        else if (_instance != this)
+        {
+            Destroy(this);
+        }
+
         textData = ExelReader.Read("Data/inGame/QuestTest"); //퀘스트 데이터 받아오기
 
         //GameManager Start보다 빠르게
@@ -92,15 +120,18 @@ public class Quest : MonoBehaviour
             {
                 case "Fusion":
                     fusionQuest = int.Parse(choice["QuestCount"]);
+                    ui.UpdateQuestUI(complete, fusionQuest, 0);
                     break;
                 case "Kill":
                     switch(choice["QuestTarget"])
                     {
                         case "ExpressionlessBubble":
                             expressionlessQuest = int.Parse(choice["QuestCount"]);
+                            ui.UpdateQuestUI(complete, expressionlessQuest, 0);
                             break;
                         case "Smile":
                             smileQuest = int.Parse(choice["QuestCount"]);
+                            ui.UpdateQuestUI(complete, smileQuest, 0);
                             break;
                         default:
                             Debug.Log("추가되지 않은 퀘스트 타겟: " + choice["QuestTarget"]);
@@ -109,9 +140,11 @@ public class Quest : MonoBehaviour
                     break;
                 case "Skill":
                     skillQuest = int.Parse(choice["QuestCount"]);
+                    ui.UpdateQuestUI(complete, skillQuest, 0);
                     break;
                 case "Possession":
                     possessionQuest = int.Parse(choice["QuestCount"]);
+                    ui.UpdateQuestUI(complete, possessionQuest, 0);
                     break;
                 default:
                     Debug.Log("추가되지 않은 퀘스트: " + choice["QuestCount"]);
@@ -193,7 +226,6 @@ public class Quest : MonoBehaviour
 
     public void checkExist(int exist)
     {
-        //이미 완료했으면 말고
         if (complete)
         {
             return;
@@ -207,7 +239,6 @@ public class Quest : MonoBehaviour
 
     public void checkSmile(int smile)
     {
-        //이미 완료했으면 말고
         if (complete)
         {
             return;
@@ -221,7 +252,6 @@ public class Quest : MonoBehaviour
 
     public void checkExpressionless(int expressionless)
     {
-        //이미 완료했으면 말고
         if (complete)
         {
             return;
@@ -235,7 +265,6 @@ public class Quest : MonoBehaviour
 
     public void checkSkill(int skill)
     {
-        //이미 완료했으면 말고
         if (complete)
         {
             return;
@@ -249,7 +278,6 @@ public class Quest : MonoBehaviour
 
     public void checkPossession(int possession)
     {
-        //이미 완료했으면 말고
         if (complete)
         {
             return;
