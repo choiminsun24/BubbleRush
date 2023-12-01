@@ -43,6 +43,8 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        prevVel = transform.position;
+        anim = GetComponent<Animator>();
         effect.SetActive(false);
         updateTextHP();
         GetComponent<PathFollower>().pathCreator = GameObject.Find("Path").GetComponent<PathCreator>();
@@ -102,7 +104,7 @@ public class Enemy : MonoBehaviour
         if (hp <= 0)
         {
 
-            Death(5);
+            Death(10);
         }
 
         updateTextHP();
@@ -163,6 +165,23 @@ public class Enemy : MonoBehaviour
                 live = false;
                 Death(0);
             }
+        }
+    }
+
+    private Animator anim;
+    private Vector2 prevVel;
+    private void Update()
+    {
+        // x 변화량이 더 크면 가로, y 변화량이 더 크면 세로
+        if(Mathf.Abs(transform.position.x - prevVel.x) > Mathf.Abs(transform.position.y - prevVel.y))
+        {
+            anim.SetBool("isHeight", false);
+            prevVel = transform.position;
+        }
+        else
+        {
+            anim.SetBool("isHeight", true);
+            prevVel = transform.position;
         }
     }
 }

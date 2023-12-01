@@ -26,10 +26,10 @@ public class SelectStage : MonoBehaviour
 
     void Start()
     {
-        stagePanel.SetActive(false);
-        levelPanel.SetActive(false);
+        //stagePanel.SetActive(false);
+        //levelPanel.SetActive(false);
 
-        if (fadePanel.activeSelf == false) //²¨Á®ÀÖÀ¸¸é ÄÑ¼­ fadeÃ³¸®
+        if (fadePanel.activeSelf == false) //êº¼ì ¸ìˆìœ¼ë©´ ì¼œì„œ fadeì²˜ë¦¬
         {
             fadePanel.SetActive(true);
         }
@@ -37,41 +37,41 @@ public class SelectStage : MonoBehaviour
         fadePanel.GetComponent<Fade>().SceneIn();
     }
 
-    //ÀÌÀü ¹öÆ°
+    //ì´ì „ ë²„íŠ¼
     public void BackButton()
     {
-        if (stagePanel.activeSelf == false && levelPanel.activeSelf == false) //¿ùµå ¼±ÅÃÃ¢ÀÔ´Ï´Ù. HomeÀ¸·Î µ¹¾Æ°¡¿ä
+        if (stagePanel.activeSelf == false && levelPanel.activeSelf == false) //ì›”ë“œ ì„ íƒì°½ì…ë‹ˆë‹¤. Homeìœ¼ë¡œ ëŒì•„ê°€ìš”
         {
-            //fadeOutÀ¸·Î ¾À ÀÌµ¿
+            //fadeOutìœ¼ë¡œ ì”¬ ì´ë™
             if (fadePanel.activeSelf == false)
             {
                 fadePanel.SetActive(true);
             }
             fadePanel.GetComponent<Fade>().SceneOut("Home");
         }
-        else if (stagePanel.activeSelf == true) //½ºÅ×ÀÌÁö ¼±ÅÃÃ¢ÀÔ´Ï´Ù. ¿ùµå ¼±ÅÃÀ¸·Î µ¹¾Æ°¡¿ä
+        else if (stagePanel.activeSelf == true) //ìŠ¤í…Œì´ì§€ ì„ íƒì°½ì…ë‹ˆë‹¤. ì›”ë“œ ì„ íƒìœ¼ë¡œ ëŒì•„ê°€ìš”
         {
             stage[worldNum - 1].SetActive(false);
             anim.SetInteger("num", 0);
             Invoke("CloseSelectStage", 0.8f);
             
         }
-        else if (levelPanel.activeSelf == true) //³­ÀÌµµ ¼±ÅÃÃ¢ÀÔ´Ï´Ù. ½ºÅ×ÀÌÁö ¼±ÅÃÀ¸·Î µ¹¾Æ°¡¿ä.
+        else if (levelPanel.activeSelf == true) //ë‚œì´ë„ ì„ íƒì°½ì…ë‹ˆë‹¤. ìŠ¤í…Œì´ì§€ ì„ íƒìœ¼ë¡œ ëŒì•„ê°€ìš”.
         {
             levelPanel.SetActive(false);
             OpenSelectStage();
         }
     }
 
-    public void SelectWorld(int num) //°¢ ½ºÅ×ÀÌÁö ÆÇ ¿­°í ¾Ö´Ï¸ŞÀÌ¼Ç.
+    public void SelectWorld(int num) //ê° ìŠ¤í…Œì´ì§€ íŒ ì—´ê³  ì• ë‹ˆë©”ì´ì…˜.
     {
-        //¿ùµå Á¤º¸ ¼¼ÆÃ
+        //ì›”ë“œ ì •ë³´ ì„¸íŒ…
         worldNum = num;
         worldPanel.SetActive(false);
 
-        //½ºÅ×ÀÌÁö ¼±ÅÃÀ¸·Î È­¸é ÀüÈ¯
+        //ìŠ¤í…Œì´ì§€ ì„ íƒìœ¼ë¡œ í™”ë©´ ì „í™˜
         anim.SetInteger("num", worldNum);
-        Invoke("OpenSelectStage", 0.8f); //¾Ö´Ï¸ŞÀÌ¼Ç ¼Óµµ ¸ÂÃã
+        Invoke("OpenSelectStage", 0.8f); //ì• ë‹ˆë©”ì´ì…˜ ì†ë„ ë§ì¶¤
     }
 
     private void OpenSelectStage()
@@ -94,11 +94,11 @@ public class SelectStage : MonoBehaviour
 
     public void selectStage(int num)
     {
-        //½ºÅ×ÀÌÁö Á¤º¸ ¼¼ÆÃ
+        //ìŠ¤í…Œì´ì§€ ì •ë³´ ì„¸íŒ…
         stageNum = num;
         CloseSelectStage();
 
-        //³­ÀÌµµ ¼±ÅÃÀ¸·Î È­¸é ÀüÈ¯
+        //ë‚œì´ë„ ì„ íƒìœ¼ë¡œ í™”ë©´ ì „í™˜
         levelPanel.SetActive(true);
     }
 
@@ -110,54 +110,54 @@ public class SelectStage : MonoBehaviour
 
         //Debug.Log(worldNum);
 
-        switch (worldNum)
-        {
-            case 1:
-                Debug.Log("ÃÊ¿ø");
-                break;
-            case 2:
-                Debug.Log("È­»ê");
-                break;
-            case 3:
-                Debug.Log("»ç¸·");
-                break;
-            case 4:
-                Debug.Log("ºùÇÏ");
-                break;
-        }
+        // switch (worldNum)
+        // {
+        //     case 1:
+        //         Debug.Log("ì´ˆì›");
+        //         break;
+        //     case 2:
+        //         Debug.Log("í™”ì‚°");
+        //         break;
+        //     case 3:
+        //         Debug.Log("ì‚¬ë§‰");
+        //         break;
+        //     case 4:
+        //         Debug.Log("ë¹™í•˜");
+        //         break;
+        // }
 
-        Debug.Log(stageNum + " stage");
+        // Debug.Log(stageNum + " stage");
 
-        //Debug.Log(levelNum);
+        // //Debug.Log(levelNum);
 
-        switch (worldNum)
-        {
-            case 1:
-                Debug.Log("½¬¿ò");
-                break;
-            case 2:
-                Debug.Log("º¸Åë");
-                break;
-            case 3:
-                Debug.Log("¾î·Á¿ò");
-                break;
-            case 4:
-                Debug.Log("Áö¿Á");
-                break;
-        }
+        // switch (worldNum)
+        // {
+        //     case 1:
+        //         Debug.Log("ì‰¬ì›€");
+        //         break;
+        //     case 2:
+        //         Debug.Log("ë³´í†µ");
+        //         break;
+        //     case 3:
+        //         Debug.Log("ì–´ë ¤ì›€");
+        //         break;
+        //     case 4:
+        //         Debug.Log("ì§€ì˜¥");
+        //         break;
+        // }
 
-        Debug.Log("¾À ÀÌµ¿ÇÕ´Ï´Ù.");
+        Debug.Log("ì”¬ ì´ë™í•©ë‹ˆë‹¤.");
 
         //////////////////////////////////////////////////////
 
         /////////////////////// FOR RUN ////////////////////
 
-        //fadeOutÀ¸·Î ¾À ÀÌµ¿
+        //fadeOutìœ¼ë¡œ ì”¬ ì´ë™
         if (fadePanel.activeSelf == false)
         {
             fadePanel.SetActive(true);
         }
-        SoundManager.Instance.BGMStop(); //·Îµù±îÁö À¯ÁöÇÏ°í ½ÍÀ¸¸é ÀÌ°Í¸¸ Áö¿ì°í ÀÌÈÄ ¾À¿¡¼­ À½¾Ç Àç»ı.
+        SoundManager.Instance.BGMStop(); //ë¡œë”©ê¹Œì§€ ìœ ì§€í•˜ê³  ì‹¶ìœ¼ë©´ ì´ê²ƒë§Œ ì§€ìš°ê³  ì´í›„ ì”¬ì—ì„œ ìŒì•… ì¬ìƒ.
         fadePanel.GetComponent<Fade>().SceneOut("map test");
 
         //////////////////////////////////////////////////////
