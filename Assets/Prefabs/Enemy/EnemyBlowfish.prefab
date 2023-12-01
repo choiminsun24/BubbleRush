@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2717971292716938528}
   - component: {fileID: 2717971292716938529}
   - component: {fileID: 4153608860629898314}
+  - component: {fileID: 7501164266696245090}
   m_Layer: 0
   m_Name: EnemyBlowfish
   m_TagString: Player
@@ -194,6 +195,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &7501164266696245090
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2717971292716938556}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b4407fdf3228c414daea25135f9e0b8b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5623810193251175524
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,6 +38,9 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        prevVel = transform.position;
+        anim = GetComponent<Animator>();
+        rig = GetComponent<Rigidbody2D>();
         effect.SetActive(false);
         updateTextHP();
         GetComponent<PathFollower>().pathCreator = GameObject.Find("Path").GetComponent<PathCreator>();
@@ -140,6 +143,22 @@ public class Enemy : MonoBehaviour
             GameManager.Instance.AddHeart(-1);
             // 코인 증가 없이 소멸
             Death(0);
+        }
+    }
+
+    private Animator anim;
+    private Vector3 prevVel;
+    private Rigidbody2D rig;
+    private void Update()
+    {
+        // upVel
+        if (prevVel.y != transform.position.y)
+        {
+            anim.SetBool("isHeight", true);
+        }
+        else if (prevVel.x != transform.position.x)
+        {
+            anim.SetBool("isHeight", false);
         }
     }
 }
