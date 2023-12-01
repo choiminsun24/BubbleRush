@@ -154,7 +154,7 @@ public class InGameData : MonoBehaviour
     }
 
     //��ȭ ����
-    public int stageCoin = 100;
+    public int stageCoin = 200;
 
     public int GetStageCoin()
     {

@@ -37,6 +37,7 @@ public class SoundManager : MonoBehaviour
     {
         slider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
         effectSlider.value = PlayerPrefs.GetFloat("EffectVolume", 0.75f);
+        Screen.SetResolution(1920, 1080,FullScreenMode.MaximizedWindow);
     }
 
     //????
@@ -46,7 +47,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip inGame;
     public AudioClip inStage;
     public AudioClip[] towerInstall, tower1Install, tower2Install, skillBite;
-    public AudioClip card; //0:카드 선택창 1:버프   2:디버프   3:리워드
+    public AudioClip card; //0:카드 ?��?���? 1:버프   2:?��버프   3:리워?��
     public AudioClip die;
     public AudioClip[] kill;
     public AudioClip popUpClose;

@@ -39,7 +39,7 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         foreach (var co in gridData)
         {
             List<int> temp = new List<int>();
-            temp.Add(int.Parse(co["xpos[px]"])+1160);
+            temp.Add(int.Parse(co["xpos[px]"])+980);
             temp.Add(int.Parse(co["ypos[py]"])+540);
             //Instantiate(Resources.Load("Daebak"), Camera.main.ScreenToWorldPoint(new Vector3(temp[0], temp[1], 0f)), Quaternion.identity, GameManager.Instance.transform);
             if (co["IsGround"] == "TRUE")

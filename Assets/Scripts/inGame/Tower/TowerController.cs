@@ -64,7 +64,7 @@ public class TowerController : MonoBehaviour
         }
 
         // 합성 중이 아닐 때, 게임 시작했을 때만 공격
-        if (!isFusioning)
+        if (!isFusioning && towerCategory != 4)
         {
             isAttacking = false;
             Attack();
@@ -80,6 +80,7 @@ public class TowerController : MonoBehaviour
     [SerializeField] private float offset = 0.5f;
     private Transform SelectEnemy()
     {
+        Debug.Log(offset);
         Transform prevEnemy = nearestEnemy;
         if (!nearestEnemy || Vector3.Distance(nearestEnemy.position, transform.position) >= offset)
         {

@@ -7,8 +7,8 @@ public class DataSample : MonoBehaviour
 {
     //테스트용 데이터
     //재화
-    static private int stageCoin = 100;
-    static private int knowledgeCoin = 100;
+    static private int stageCoin = 200;
+    static private int knowledgeCoin = 200;
 
     public static int StageCoin { get => stageCoin;}
     public static int KnowledgeCoin { get => knowledgeCoin; set => knowledgeCoin = value; }
