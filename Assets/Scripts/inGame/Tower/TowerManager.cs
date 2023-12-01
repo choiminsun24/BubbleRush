@@ -24,7 +24,7 @@ public class TowerManager : MonoBehaviour
     }
 
     public bool canFuse {get; set;} = true;
-    public int chances = -1;
+    public int chances = 0;
     public Daebak daebakInfo;
     public Nabi nabiInfo;
     public Tori toriInfo;
@@ -81,10 +81,6 @@ public class TowerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (chances == 0)
-        {
-            return;
-        }
         // 다중 터치 시 스킵
         if (Input.touchCount != 1 || !canFuse)
         {
@@ -228,7 +224,7 @@ public class TowerManager : MonoBehaviour
 
                 if (targetTc)
                 {
-                    --chances;
+                    ++chances;
                     targetTc.anim.SetBool("isUp", false);
                     targetTc.LevelUp();
                     ReturnTower(towerCategory, touchedObject);
