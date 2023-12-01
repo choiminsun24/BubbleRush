@@ -1504,6 +1504,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1298584899145851735, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298584899145851735, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298584899145851735, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1298584899356691968, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7384,9 +7396,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 517896845}
     - target: {fileID: 1829216143209700433, guid: e141fa11314530f459de89ca767e537c, type: 3}
+      propertyPath: QuestIcon
+      value: 
+      objectReference: {fileID: 1758675223}
+    - target: {fileID: 1829216143209700433, guid: e141fa11314530f459de89ca767e537c, type: 3}
       propertyPath: fastImage
       value: 
       objectReference: {fileID: 1949812076}
+    - target: {fileID: 1829216143209700433, guid: e141fa11314530f459de89ca767e537c, type: 3}
+      propertyPath: questIcon
+      value: 
+      objectReference: {fileID: 1758675223}
     - target: {fileID: 1829216143209700433, guid: e141fa11314530f459de89ca767e537c, type: 3}
       propertyPath: fastButton
       value: 
@@ -9392,6 +9412,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738746020}
   m_CullTransparentMesh: 1
+--- !u!114 &1758675223 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1298584899145851735, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
+  m_PrefabInstance: {fileID: 254237819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1799050331
 GameObject:
   m_ObjectHideFlags: 0

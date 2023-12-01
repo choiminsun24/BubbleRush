@@ -50,6 +50,14 @@ public class UIManager : MonoBehaviour
         Blind(false);
         QuestComplete.SetActive(false);
         QuestProgress.SetActive(false);
+
+        Invoke("test", 3.0f);
+        
+    }
+
+    public void test()
+    {
+        UpdateQuestUI(true, 0, 0);
     }
 
     public GameObject blind;
@@ -123,6 +131,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject QuestProgress;
     public GameObject QuestComplete;
+    public Image questIcon;
 
     public Text goal;
     public Text now;
@@ -140,6 +149,7 @@ public class UIManager : MonoBehaviour
         else
         {
             QuestProgress.SetActive(false);
+            colorDown(questIcon);
             QuestComplete.SetActive(true);
         }
     }
@@ -166,5 +176,15 @@ public class UIManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void colorDown(Image target)
+    {
+        float b = 0.6f;
+        Color dark = new Color(b, b, b, 1.0f);
+
+        target.color = dark;
+
+        target.raycastTarget = false;
     }
 }
