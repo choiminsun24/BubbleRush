@@ -24,11 +24,13 @@ public class TowerManager : MonoBehaviour
     }
 
     public bool canFuse {get; set;} = true;
+    public int chances = -1;
     public Daebak daebakInfo;
     public Nabi nabiInfo;
     public Tori toriInfo;
     public Goby gobyInfo;
     public Tutu tutuInfo;
+    public Orang orangInfo;
     private void Awake()
     {
         if (_instance == null)
@@ -54,8 +56,9 @@ public class TowerManager : MonoBehaviour
         gobyInfo.Clone();
         tutuInfo = new Tutu();
         tutuInfo.Clone();
+        orangInfo = new Orang();
+        orangInfo.Clone();
     }
-
 
     private bool dragging = false;
     private Touch touch;
@@ -78,6 +81,10 @@ public class TowerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (chances == 0)
+        {
+            return;
+        }
         // 다중 터치 시 스킵
         if (Input.touchCount != 1 || !canFuse)
         {
@@ -221,10 +228,11 @@ public class TowerManager : MonoBehaviour
 
                 if (targetTc)
                 {
+                    --chances;
                     targetTc.anim.SetBool("isUp", false);
                     targetTc.LevelUp();
                     ReturnTower(towerCategory, touchedObject);
-                    Destroy(touchedObject, 0.1f);
+                    //Destroy(touchedObject, 0.1f);
                 }
                 else
                 {
@@ -263,7 +271,7 @@ public class TowerManager : MonoBehaviour
             case 4:
             return Tutu.listTutu;
             case 5:
-            return Tower5.listTower5;
+            return Orang.listOrang;
             default:
             return null;
         }
@@ -288,9 +296,9 @@ public class TowerManager : MonoBehaviour
             case 4:
             tutuInfo.ReturnTutu(obj);
             break;
-            // case 5:
-            // nabiInfo.ReturnNabi(obj);
-            // break;
+            case 5:
+            orangInfo.ReturnOrang(obj);
+            break;
             default:
             break;
         }

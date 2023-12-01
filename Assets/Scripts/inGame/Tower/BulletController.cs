@@ -38,7 +38,11 @@ public class BulletController : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Enemy>().takeDamage(ATK, (int)expression, gameObject);
+            Enemy bubble = other.gameObject.GetComponent<Enemy>();
+            if(bubble)
+            {
+                bubble.takeDamage(ATK, (int)bubble.expression, gameObject);
+            }
         }
     }
 }

@@ -114,6 +114,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5e1288003c02dac4da92b5f45a387d3f, type: 3}
   towerCategory: 3
   bullet: {fileID: 1237762953017209420, guid: f227d23009b773c48ad284912af8af11, type: 3}
+  attackCollider: {fileID: 0}
+  nearestEnemy: {fileID: 0}
   offset: 2
   effect: {fileID: 696044186394347386}
   aura: {fileID: 3073960840853823871}
