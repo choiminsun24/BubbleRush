@@ -31,8 +31,8 @@ public class Tower0Attack : MonoBehaviour
         canvas = GameObject.FindWithTag("MainCanvas").GetComponent<Canvas>();
         rectParent = canvas.GetComponent<RectTransform>();
 
-        skillGuage.transform.SetParent(rectParent);
-        skillGuage.transform.SetAsLastSibling();
+        // skillGuage.transform.SetParent(rectParent);
+        // skillGuage.transform.SetAsLastSibling();
 
 
         tc = GetComponent<TowerController>();
@@ -66,18 +66,18 @@ public class Tower0Attack : MonoBehaviour
         }
         else
         {
-            // Skill Guage UI Position
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(rectParent,
-                                                                    Camera.main.WorldToScreenPoint(transform.position + new Vector3(0.1f, -0.15f, 0)),
-                                                                    Camera.main, out localPos);
-            skillGuage.localPosition = localPos;
-            skillGuage.localScale = new Vector3(1, 1, 1);
+            // // Skill Guage UI Position
+            // RectTransformUtility.ScreenPointToLocalPointInRectangle(rectParent,
+            //                                                         Camera.main.WorldToScreenPoint(transform.position + new Vector3(0.1f, -0.15f, 0)),
+            //                                                         Camera.main, out localPos);
+            // skillGuage.localPosition = localPos;
+            // skillGuage.localScale = new Vector3(1, 1, 1);
             
-            // 게이지 fill
-            slider.value = 1 / coolTime * skillTime;
+            // // 게이지 fill
+            // slider.value = 1 / coolTime * skillTime;
 
-            isZero = slider.value == 0 ? false : true;
-            fill.SetActive(isZero);
+            // isZero = slider.value == 0 ? false : true;
+            // fill.SetActive(isZero);
         }
 
         

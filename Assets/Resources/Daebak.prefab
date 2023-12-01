@@ -274,8 +274,11 @@ MonoBehaviour:
   towerCategory: 0
   bullet: {fileID: 1237762953017209420, guid: f227d23009b773c48ad284912af8af11, type: 3}
   attackCollider: {fileID: 5072296092798538043}
+  canAnimate: 1
+  canCreateBullet: 1
   nearestEnemy: {fileID: 0}
   offset: 2
+  attackTime: 0
   effect: {fileID: 2733008200765848350}
   aura: {fileID: 6321635807496933446}
 --- !u!58 &9082087195122319606
@@ -2046,7 +2049,7 @@ RectTransform:
   m_Father: {fileID: 5476259452232576761}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2106,7 +2109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5772947654117405185
 RectTransform:
   m_ObjectHideFlags: 0
