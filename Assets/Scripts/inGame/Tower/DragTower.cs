@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
+public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     private Image img;                          // 색깔 바꾸기
     private Vector2 initLoc;                    // UI 기본 위치
@@ -17,6 +17,7 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
     private DetectRange draggingRange;          // 해당 타워 사거리
 
     public Canvas canvas;
+    private GameObject goldWindow;
 
     [SerializeField] private int towerCategory;      // 월드 맵에 배치할 타워 종류
     [SerializeField] private Transform hierarchy;// 타워 배치할 오브젝트 계층
@@ -32,6 +33,8 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         rect		= GetComponent<RectTransform>();
         initLoc = rect.position;
         gridData = ExelReader.Read("Data/inGame/Grid");
+
+        goldWindow = canvas.transform.Find("GoldWindow").gameObject;
 
         foreach (var co in gridData)
         {
@@ -154,6 +157,8 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         {
             DeleteTower(towerCategory, tower);
             Debug.Log("코인 부족");
+            goldWindow.SetActive(true);
+            Invoke("TurnOffWindow", 1f);
         }
         // 골드 소모
         else
@@ -303,8 +308,9 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
         }
     }
 
-    public void OnDrop(PointerEventData eventData)
+    
+    private void TurnOffWindow()
     {
-
+        goldWindow.SetActive(false);
     }
 }
