@@ -93,7 +93,7 @@ public class Enemy : MonoBehaviour
         if (hp <= 0)
         {
 
-            Death(5);
+            Death(10);
         }
 
         updateTextHP();

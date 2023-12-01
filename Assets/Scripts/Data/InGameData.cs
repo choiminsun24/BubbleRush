@@ -11,16 +11,16 @@ public class InGameData : MonoBehaviour
     private float ATKR;
     private Dictionary<string,Dictionary<string,float>> atkData;
 
-    void Awake() //DataManager¸¦ ÅëÇØ ±âº» ´É·ÂÄ¡ ¼¼ÆÃ
+    void Awake() //DataManagerë¥¼ í†µí•´ ê¸°ë³¸ ëŠ¥ë ¥ì¹˜ ì„¸íŒ…
     {
         manager = GameObject.Find("DataManager").GetComponent<DataManager>();
 
-        //±âº» ´É·ÂÄ¡
+        //ê¸°ë³¸ ëŠ¥ë ¥ì¹˜
         ATK = manager.Atk;
         ATKS = manager.AtkSpeed;
         ATKR = manager.AtkRange;
 
-        //µñ¼Å³Ê¸® ÃÊ±âÈ­ - µ¿¹° Áö½Ä (ÇàÀÌ ¼Ó¼º, ¿­ÀÌ °¢°¢ °ø°İ·Â, °ø°İ¼Óµµ, °ø°İ¹üÀ§ÀÎ Çà·Ä)
+        //ë”•ì…”ë„ˆë¦¬ ì´ˆê¸°í™” - ë™ë¬¼ ì§€ì‹ (í–‰ì´ ì†ì„±, ì—´ì´ ê°ê° ê³µê²©ë ¥, ê³µê²©ì†ë„, ê³µê²©ë²”ìœ„ì¸ í–‰ë ¬)
         atkData = new Dictionary<string, Dictionary<string,float>>();
 
         atkData["Ground"] = new Dictionary<string, float>();
@@ -40,7 +40,7 @@ public class InGameData : MonoBehaviour
         atkData["Wind"]["ATKR"] = GameData.GetKnowATKR(manager.KnowATKR);
     }
 
-    //¾÷±×·¹ÀÌµå È®ÀÎ¿ë
+    //ì—…ê·¸ë ˆì´ë“œ í™•ì¸ìš©
     public void check()
     {
         Debug.Log("ATK: " + ATK);
@@ -48,54 +48,54 @@ public class InGameData : MonoBehaviour
         Debug.Log("ATKR: " + ATKR);
     }
 
-    //´É·ÂÄ¡ º¯È­
-//¾Õ¿¡ ÀÖ´Â if Àú°Å Áö¿ì±â
+    //ëŠ¥ë ¥ì¹˜ ë³€í™”
+//ì•ì— ìˆëŠ” if ì €ê±° ì§€ìš°ê¸°
 
     public void BuffATK(string type, int change)
     {
         if (!atkData.ContainsKey(type))
         {
-            Debug.Log("ÇØ´ç Å°´Â ¾ÆÁ÷ ¾ø¾î¿ä");
+            Debug.Log("í•´ë‹¹ í‚¤ëŠ” ì•„ì§ ì—†ì–´ìš”");
             return;
         }
-        Debug.Log(atkData[type]["ATK"] + "¿¡¼­");
+        Debug.Log(atkData[type]["ATK"] + "ì—ì„œ");
 
         atkData[type]["ATK"] += 0.01f * change;
 
-        Debug.Log(atkData[type]["ATK"] + "·Î");
+        Debug.Log(atkData[type]["ATK"] + "ë¡œ");
     }
 
     public void BuffATKS(string type, float change)
     {
         if (!atkData.ContainsKey(type))
         {
-            Debug.Log("ÇØ´ç Å°´Â ¾ÆÁ÷ ¾ø¾î¿ä");
+            Debug.Log("í•´ë‹¹ í‚¤ëŠ” ì•„ì§ ì—†ì–´ìš”");
             return;
         }
 
-        Debug.Log(atkData[type]["ATKS"] + "¿¡¼­");
+        Debug.Log(atkData[type]["ATKS"] + "ì—ì„œ");
 
         atkData[type]["ATKS"] += 0.01f * change;
 
-        Debug.Log(atkData[type]["ATKS"] + "·Î");
+        Debug.Log(atkData[type]["ATKS"] + "ë¡œ");
     }
 
     public void BuffATKR(string type, float change)
     {
         if (!atkData.ContainsKey(type))
         {
-            Debug.Log("ÇØ´ç Å°´Â ¾ÆÁ÷ ¾ø¾î¿ä");
+            Debug.Log("í•´ë‹¹ í‚¤ëŠ” ì•„ì§ ì—†ì–´ìš”");
             return;
         }
-        Debug.Log(atkData[type]["ATKR"] + "¿¡¼­");
+        Debug.Log(atkData[type]["ATKR"] + "ì—ì„œ");
 
         atkData[type]["ATKR"] += 0.01f * change;
 
-        Debug.Log(atkData[type]["ATKR"] + "·Î");
+        Debug.Log(atkData[type]["ATKR"] + "ë¡œ");
     }
 
-    //ÀçÈ­ °ü¸®
-    private int stageCoin = 100;
+    //ì¬í™” ê´€ë¦¬
+    private int stageCoin = 200;
 
     public int GetStageCoin()
     {

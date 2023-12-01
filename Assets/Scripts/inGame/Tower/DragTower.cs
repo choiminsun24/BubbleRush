@@ -144,12 +144,25 @@ public class DragTower : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDra
 
     private void AfterInstall(GameObject tower)
     {
-        // 합성 드래그 가능
         TowerController tempTc = tower.GetComponent<TowerController>();
-        tempTc.isInstantiated = true;
         tempTc.data = GetTowerData(towerCategory);
         
-
+        
+        // 골드 확인
+        //Debug.Log("Cat : "+towerCategory + " cost "+tempTc.data.cost);
+        if (GameManager.Instance.inGameData.GetStageCoin() - tempTc.data.cost < 0)
+        {
+            DeleteTower(towerCategory, tower);
+            Debug.Log("코인 부족");
+        }
+        // 골드 소모
+        else
+        {
+            GameManager.Instance.Coin(-tempTc.data.cost);
+        }
+        
+        // 합성 드래그 가능
+        tempTc.isInstantiated = true;
         draggingRange.transform.localScale = new Vector3(5, 5, 1);
         // // 타워 종류별 데이터 저장
         // int towerNum = int.Parse(tower.name.Replace("Tower", ""));
