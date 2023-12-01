@@ -51,11 +51,11 @@ public class UIManager : MonoBehaviour
         QuestComplete.SetActive(false);
         QuestProgress.SetActive(false);
 
-        Invoke("test", 3.0f);
+        //Invoke("test", 3.0f);
         
     }
 
-    public void test()
+    public void QuestUItest()
     {
         UpdateQuestUI(true, 0, 0);
     }
