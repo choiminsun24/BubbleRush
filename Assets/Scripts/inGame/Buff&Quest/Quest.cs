@@ -188,7 +188,7 @@ public class Quest : MonoBehaviour
         if (fusion >= fusionQuest)
             complete = true;
 
-        ui.UpdateQuestUI(complete);
+        ui.UpdateQuestUI(complete, fusionQuest, fusion);
     }
 
     public void checkExist(int exist)
@@ -202,7 +202,7 @@ public class Quest : MonoBehaviour
         if (exist >= existQuest)
             complete = true;
 
-        ui.UpdateQuestUI(complete);
+        ui.UpdateQuestUI(complete, existQuest, exist);
     }
 
     public void checkSmile(int smile)
@@ -216,7 +216,7 @@ public class Quest : MonoBehaviour
         if (smile >= smileQuest)
             complete= true;
 
-        ui.UpdateQuestUI(complete);
+        ui.UpdateQuestUI(complete, smileQuest, smile);
     }
 
     public void checkExpressionless(int expressionless)
@@ -230,7 +230,7 @@ public class Quest : MonoBehaviour
         if (expressionless >= expressionlessQuest)
             complete = true;
 
-        ui.UpdateQuestUI(complete);
+        ui.UpdateQuestUI(complete, expressionlessQuest, expressionless);
     }
 
     public void checkSkill(int skill)
@@ -244,7 +244,7 @@ public class Quest : MonoBehaviour
         if (skill >= skillQuest)
             complete = true;
 
-        ui.UpdateQuestUI(complete);
+        ui.UpdateQuestUI(complete, skillQuest, skill);
     }
 
     public void checkPossession(int possession)
@@ -258,6 +258,6 @@ public class Quest : MonoBehaviour
         if (possession >= possessionQuest)
             complete = true;
 
-        ui.UpdateQuestUI(complete);
+        ui.UpdateQuestUI(complete, possessionQuest, possession);
     }
 }

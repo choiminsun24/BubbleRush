@@ -816,6 +816,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162738230}
   m_CullTransparentMesh: 1
+--- !u!1 &170082785 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5923208868945936898, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
+  m_PrefabInstance: {fileID: 254237819}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &176006952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,6 +1253,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 763624809789924214, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
+      propertyPath: m_Name
+      value: now
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298584899145851733, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1298584899356691968, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1380,6 +1393,11 @@ PrefabInstance:
 --- !u!224 &254237820 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1298584899356691968, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
+  m_PrefabInstance: {fileID: 254237819}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &254237821 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4058768346039069241, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
   m_PrefabInstance: {fileID: 254237819}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &254237824 stripped
@@ -3170,6 +3188,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619148410}
   m_CullTransparentMesh: 1
+--- !u!114 &636659313 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6814493595364645006, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
+  m_PrefabInstance: {fileID: 254237819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &638134298
 GameObject:
   m_ObjectHideFlags: 0
@@ -4535,6 +4564,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032802067}
   m_CullTransparentMesh: 1
+--- !u!114 &1086144858 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4533932551894237667, guid: cc61d1c4191afc5408e5cd46f970e978, type: 3}
+  m_PrefabInstance: {fileID: 254237819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1089720784 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5173601117874629377, guid: 1c93633dd136ad94faddff1161c83eae, type: 3}
@@ -5850,9 +5890,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1829216143209700433, guid: e141fa11314530f459de89ca767e537c, type: 3}
+      propertyPath: now
+      value: 
+      objectReference: {fileID: 636659313}
+    - target: {fileID: 1829216143209700433, guid: e141fa11314530f459de89ca767e537c, type: 3}
       propertyPath: Coin
       value: 
       objectReference: {fileID: 914884941}
+    - target: {fileID: 1829216143209700433, guid: e141fa11314530f459de89ca767e537c, type: 3}
+      propertyPath: goal
+      value: 
+      objectReference: {fileID: 1086144858}
     - target: {fileID: 1829216143209700433, guid: e141fa11314530f459de89ca767e537c, type: 3}
       propertyPath: blind
       value: 
@@ -5885,6 +5933,14 @@ PrefabInstance:
       propertyPath: nextRoundBtn
       value: 
       objectReference: {fileID: 1474299743}
+    - target: {fileID: 1829216143209700433, guid: e141fa11314530f459de89ca767e537c, type: 3}
+      propertyPath: QuestComplete
+      value: 
+      objectReference: {fileID: 254237821}
+    - target: {fileID: 1829216143209700433, guid: e141fa11314530f459de89ca767e537c, type: 3}
+      propertyPath: QuestProgress
+      value: 
+      objectReference: {fileID: 170082785}
     - target: {fileID: 1829216143209700433, guid: e141fa11314530f459de89ca767e537c, type: 3}
       propertyPath: settingWindow
       value: 

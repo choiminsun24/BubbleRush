@@ -157,7 +157,10 @@ public class UIManager : MonoBehaviour
     public GameObject QuestProgress;
     public GameObject QuestComplete;
 
-    public void UpdateQuestUI(bool complete)
+    public Text goal;
+    public Text now;
+
+    public void UpdateQuestUI(bool complete, int goal, int now)
     {
         Debug.Log(complete);
 
@@ -165,6 +168,9 @@ public class UIManager : MonoBehaviour
         {
             QuestProgress.SetActive(true);
             QuestComplete.SetActive(false);
+
+            this.now.text = now.ToString();
+            this.goal.text = goal.ToString();
         }
         else
         {
