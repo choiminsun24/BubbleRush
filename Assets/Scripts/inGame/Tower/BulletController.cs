@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+    private float speed = 250f;
     public enum Expression
     {
         MAD = 0,
@@ -30,7 +31,7 @@ public class BulletController : MonoBehaviour
     {
         if(enemy)
         {
-            transform.position = Vector2.MoveTowards(transform.position, enemy.position, 0.1f);
+            transform.position = Vector2.MoveTowards(transform.position, enemy.position, speed * Time.deltaTime);
         }
     }
 
