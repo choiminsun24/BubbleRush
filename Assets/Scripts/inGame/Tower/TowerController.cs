@@ -48,7 +48,6 @@ public class TowerController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        Debug.Log("Tower Category: " + towerCategory + " attack: " + data.attack);
     }
     
     // 일정한 주기로 공격

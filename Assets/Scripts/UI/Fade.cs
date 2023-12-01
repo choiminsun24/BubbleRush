@@ -25,7 +25,7 @@ public class Fade : MonoBehaviour
 
         while (color.a < 1f)
         {
-            color.a += 1.5f * Time.deltaTime; //fade 加档 炼例
+            color.a += 1.5f * Time.deltaTime; //fade 靻嶋弰 臁办爤
             blackPanel.color = color;
 
             yield return null;
@@ -40,7 +40,7 @@ public class Fade : MonoBehaviour
 
         while (color.a > 0f)
         {
-            color.a -= 1.5f * Time.deltaTime; //fade 加档 炼例
+            color.a -= 1.5f * Time.deltaTime; //fade 靻嶋弰 臁办爤
             blackPanel.color = color;
 
             yield return null;

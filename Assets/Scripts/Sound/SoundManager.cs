@@ -39,7 +39,7 @@ public class SoundManager : MonoBehaviour
         effectSlider.value = PlayerPrefs.GetFloat("EffectVolume", 0.75f);
     }
 
-    //����
+    //????
     [Header("Sound Manager")]
     public AudioClip bubblePop;
     public AudioClip lobby;
@@ -52,7 +52,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip popUpClose;
     public AudioClip win;
 
-    //���� ����
+    //???? ????
     [SerializeField] private AudioMixer mixer;
     [SerializeField] private Slider slider;
     [SerializeField] private Slider effectSlider;
@@ -81,7 +81,7 @@ public class SoundManager : MonoBehaviour
         PlayerPrefs.SetFloat("EffectVolume", sliderValue);
     }
 
-    //���� ����
+    //???? ????
     [SerializeField] private Text onOff;
     public void SetVibration()
     {
@@ -97,7 +97,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    //���� ����
+    //???? ????
     public AudioSource bgm;
     public AudioSource effect;
 
