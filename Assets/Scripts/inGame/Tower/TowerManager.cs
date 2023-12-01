@@ -87,7 +87,7 @@ public class TowerManager : MonoBehaviour
             dragging = false;
             return;
         }
-
+        return;
         // 입력된 터치 수
         touch = Input.touches[0];
 
