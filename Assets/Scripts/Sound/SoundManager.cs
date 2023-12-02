@@ -47,11 +47,21 @@ public class SoundManager : MonoBehaviour
     public AudioClip inGame;
     public AudioClip inStage;
     public AudioClip[] towerInstall, tower1Install, tower2Install, skillBite;
-    public AudioClip card; //0:ì¹´ë“œ ?„ ?ƒì°? 1:ë²„í”„   2:?””ë²„í”„   3:ë¦¬ì›Œ?“œ
+    public AudioClip card; //0:ì¹´ë“œ ?ï¿½ï¿½?ï¿½ï¿½ï¿½? 1:ë²„í”„   2:?ï¿½ï¿½ë²„í”„   3:ë¦¬ì›Œ?ï¿½ï¿½
     public AudioClip die;
     public AudioClip[] kill;
     public AudioClip popUpClose;
     public AudioClip win;
+
+    [Header("Daebak Effect Sound")]
+    public AudioClip[] Daebak_Swish;
+    public AudioClip[] Daebak_Attack;
+    [Header("Nabi Effect Sound")]
+    public AudioClip Nabi_Attack;
+    
+    [Header("Setting Button Imgs")]
+    public Sprite [] setBtnImg;
+
 
     //???? ????
     [SerializeField] private AudioMixer mixer;

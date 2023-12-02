@@ -17,7 +17,7 @@ public class AttackCollider : MonoBehaviour
             Enemy enemy = other.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.takeDamage(tc.data.attack, (int)enemy.expression, null);
+                //enemy.takeDamage(tc.data.attack, (int)enemy.expression, null);
             }
         }
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+    public int towerCategory = -1;
     private float speed = 250f;
     public enum Expression
     {
@@ -42,7 +43,7 @@ public class BulletController : MonoBehaviour
             Enemy bubble = other.gameObject.GetComponent<Enemy>();
             if(bubble)
             {
-                bubble.takeDamage(ATK, (int)bubble.expression, gameObject);
+                bubble.takeDamage(ATK, (int)bubble.expression, gameObject, towerCategory);
             }
         }
     }

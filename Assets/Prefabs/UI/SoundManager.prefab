@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 4893294764223481775, guid: 712e7785e3b4743428a67f79984dcdff, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 5e5da45c8e6354b44ab0066dbaed7905, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d0822e052a386f146a79842761c9fe38, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -455,14 +455,14 @@ RectTransform:
   m_GameObject: {fileID: 52577626786424804}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 52577627672370808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -149, y: -112}
+  m_AnchoredPosition: {x: -78, y: -88}
   m_SizeDelta: {x: 140.5601, y: 140.5601}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &52577626786424800
@@ -656,8 +656,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubblePop: {fileID: 8300000, guid: e7c3978d28085b54794b8eaa6baf5776, type: 3}
   lobby: {fileID: 8300000, guid: 5e5da45c8e6354b44ab0066dbaed7905, type: 3}
-  inGame: {fileID: 8300000, guid: 22b3def9a31aa014aa8554ee1c7f3da7, type: 3}
-  inStage: {fileID: 8300000, guid: e3452d7192e114549a70dafd59ded31c, type: 3}
+  inGame: {fileID: 8300000, guid: 8d819130763215e49943f901ed4836db, type: 3}
+  inStage: {fileID: 8300000, guid: 8d819130763215e49943f901ed4836db, type: 3}
   towerInstall:
   - {fileID: 8300000, guid: 982bccb20ee66324bbd61c369056d7de, type: 3}
   - {fileID: 8300000, guid: 2cf4f5018001f9046bb254f2fd9c9e54, type: 3}
@@ -677,16 +677,24 @@ MonoBehaviour:
   card: {fileID: 8300000, guid: 32a2f4c1f4824e8409f1d6ba0a97af14, type: 3}
   die: {fileID: 8300000, guid: 965787428e36a7b479c55574c440b26a, type: 3}
   kill:
-  - {fileID: 8300000, guid: 38c1af3b382d2044bbfc8668cb82d2f1, type: 3}
-  - {fileID: 8300000, guid: 17e7f57e76344ae4f8063878d7a91311, type: 3}
-  - {fileID: 8300000, guid: ab3024783595e254d8e53394f529c44c, type: 3}
-  - {fileID: 8300000, guid: 41a8cfdb02860f34297afda7e138fd1c, type: 3}
-  - {fileID: 8300000, guid: 12fcdefb7cc9b5f42bf4b54f216ef457, type: 3}
-  - {fileID: 8300000, guid: 5e98d3190182abf4a9455660690655f6, type: 3}
-  - {fileID: 8300000, guid: a6e394d279ddf8d429e256185c8a41f2, type: 3}
-  - {fileID: 8300000, guid: 3062db2f5d0d8e24496eed01215f6d64, type: 3}
+  - {fileID: 8300000, guid: 063001ca37246544fa21b41a43e9ec32, type: 3}
+  - {fileID: 8300000, guid: 2a15626581cff6c43abe246ab68ee48c, type: 3}
+  - {fileID: 8300000, guid: 9a2cadcc69b0f034ba377d4ef565ae18, type: 3}
+  - {fileID: 8300000, guid: 0d0593cc577150d4f8f3ef6c0914c296, type: 3}
+  - {fileID: 8300000, guid: 55d4283bf86875e4f87d7d29dfd2a100, type: 3}
+  - {fileID: 8300000, guid: ae73b4dc96ac48f4cb2419bbe8935287, type: 3}
   popUpClose: {fileID: 8300000, guid: 0b08d1867e393e7449a71bb517bb95e1, type: 3}
   win: {fileID: 8300000, guid: 07d7560c9a73cc541b0181e08a63b911, type: 3}
+  Daebak_Swish:
+  - {fileID: 8300000, guid: ab5ba4f8e8cd2914687a1b7cbc1f4f02, type: 3}
+  - {fileID: 8300000, guid: 0af04ded421f8b14d9a2d17601cce97e, type: 3}
+  Daebak_Attack:
+  - {fileID: 8300000, guid: be4175e10f4cba2428eab597a579a2ce, type: 3}
+  - {fileID: 8300000, guid: d54675a1e6e9ca54eb483de6cbb2e644, type: 3}
+  Nabi_Attack: {fileID: 8300000, guid: e8d6d2683f1e84a498746e49398e5f8b, type: 3}
+  setBtnImg:
+  - {fileID: 21300000, guid: c5bc73b6b93927b40b518a7c68322aa4, type: 3}
+  - {fileID: 21300000, guid: 51aeaa5fe5f69c24a92a8475718c7122, type: 3}
   mixer: {fileID: 24100000, guid: 712e7785e3b4743428a67f79984dcdff, type: 2}
   slider: {fileID: 52577627987777647}
   effectSlider: {fileID: 52577627337699738}
@@ -1376,7 +1384,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &52577627672370810
 MonoBehaviour:

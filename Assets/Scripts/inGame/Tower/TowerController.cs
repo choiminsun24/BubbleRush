@@ -28,7 +28,7 @@ public class TowerController : MonoBehaviour
     public bool isAttacking {get; set;} = false;
     public int towerCategory = -1;
     [SerializeField] private UnityEngine.Object bullet;
-    [SerializeField] private Collider2D attackCollider;
+    [SerializeField] private GameObject nabiEffect;
 
     private float angle;
     private GameObject bull;
@@ -181,6 +181,10 @@ public class TowerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, angle - 270);
 
             isAttacking = true;
+            if (towerCategory == 0)
+            {
+                SoundManager.Instance.EffectPlay(SoundManager.Instance.Daebak_Swish[UnityEngine.Random.Range(0, SoundManager.Instance.Daebak_Swish.Length)]);
+            }
             // 일반 공격
             anim.speed = data.attackSpeed * 0.001f;
             anim.SetBool("isUp", false);
@@ -227,11 +231,16 @@ public class TowerController : MonoBehaviour
 
     private void Shoot()
     {
-
-        Debug.Log(data.attack);
+        // 나비 이펙트
+        if(towerCategory == 1)
+        {
+            nabiEffect?.SetActive(false);
+            nabiEffect?.SetActive(true);
+        }
         // Bullet 생성하여 적을 향해 이동시키기
         bull = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
         bullCtr = bull.GetComponent<BulletController>();
+        bullCtr.towerCategory = towerCategory;
         bullCtr.setBullet(data.attack, expression);
         bullCtr.TriggerMove(nearestEnemy?.transform);
     }
