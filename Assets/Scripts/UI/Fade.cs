@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Fade : MonoBehaviour
 {
+    private int setBtnIdx = 0;
     public Image blackPanel;
     Color color;
 
@@ -30,6 +31,9 @@ public class Fade : MonoBehaviour
 
             yield return null;
         }
+        Image settingBtn = SoundManager.Instance.transform.Find("SettingCanvas").Find("SettingBtn").GetComponent<Image>();
+        setBtnIdx = setBtnIdx == 0 ? 1 : 0;
+        settingBtn.sprite = SoundManager.Instance.setBtnImg[setBtnIdx];
 
         SceneManager.LoadScene(sceneName);
     }

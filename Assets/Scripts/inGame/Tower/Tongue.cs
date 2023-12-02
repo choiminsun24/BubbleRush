@@ -18,7 +18,7 @@ public class Tongue : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             atkLoad();
-            other.gameObject.GetComponent<Enemy>().takeDamage(atk, expression, null);
+            //other.gameObject.GetComponent<Enemy>().takeDamage(atk, expression, null);
         }
     }
 }

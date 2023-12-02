@@ -39,7 +39,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     public Expression expression;
     public Property property;
-
+    [SerializeField] private GameObject damageEffect;
+    [SerializeField] private GameObject[] effectNabi;
+    private int rand;
 
     private void Start()
     {
@@ -48,6 +50,8 @@ public class Enemy : MonoBehaviour
         effect.SetActive(false);
         updateTextHP();
         GetComponent<PathFollower>().pathCreator = GameObject.Find("Path").GetComponent<PathCreator>();
+
+        rand = Random.Range(0, effectNabi.Length);
     }
 
     public void setEnemy(int hp, int speed)
@@ -57,7 +61,7 @@ public class Enemy : MonoBehaviour
     }
 
     //공격에 맞은 경우
-    public void takeDamage(float ATK, int towerEx, GameObject bullet)
+    public void takeDamage(float ATK, int towerEx, GameObject bullet, int towerCategory)
     {
         if(bullet!=null)
         {
@@ -65,7 +69,19 @@ public class Enemy : MonoBehaviour
         }
         if (hp <= 0)
             return;
+        if (towerCategory == 0)
+        {
+            damageEffect.SetActive(false);
+            damageEffect.SetActive(true);
+            SoundManager.Instance.EffectPlay(SoundManager.Instance.Daebak_Attack[UnityEngine.Random.Range(0, SoundManager.Instance.Daebak_Attack.Length)]);
+        }
+        else if (towerCategory == 1)
+        {
+            effectNabi[rand].SetActive(false);
+            effectNabi[rand].SetActive(true);
 
+            SoundManager.Instance.EffectPlay(SoundManager.Instance.Nabi_Attack);
+        }
         //타워의 공격력으로 데미지 연산
         float damage = ATK;
         Expression tower = (Expression)towerEx;
