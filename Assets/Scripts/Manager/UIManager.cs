@@ -43,16 +43,17 @@ public class UIManager : MonoBehaviour
         Coin.text = coin.ToString();
     }
 
+    void Awake()
+    {
+        Blind(false);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         heartTopIndex = hearts.Length - 1;
-        Blind(false);
         QuestComplete.SetActive(false);
         QuestProgress.SetActive(false);
-
-        //Invoke("test", 3.0f);
-        
     }
 
     public void QuestUItest()
@@ -67,7 +68,7 @@ public class UIManager : MonoBehaviour
         if (!blind.activeSelf || !state)
             blind.SetActive(state);
 
-
+        Debug.Log("blind 호출: " + blind);
     }
 
     public GameObject WinPanel;
